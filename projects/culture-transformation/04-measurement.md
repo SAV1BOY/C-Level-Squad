@@ -1,186 +1,219 @@
-# Fase 4: Medição de Cultura
+# Fase 4: Medicao e Sustentacao da Cultura
 
-> Guia para medir, acompanhar e ajustar continuamente a transformação
-> cultural, garantindo que as mudanças sejam sustentáveis.
+## Objetivo
+Estabelecer metricas, processos de medicao e mecanismos de sustentacao para garantir que a transformacao cultural seja duradoura e continuamente aprimorada.
 
----
+## 1. Framework de Medicao Cultural
 
-## Objetivo da Fase
+### Metricas Primarias (Lagging Indicators)
+Metricas de resultado que indicam a saude cultural:
 
-Estabelecer métricas, instrumentos e cadência de medição que permitam
-avaliar o progresso da transformação cultural de forma objetiva.
+| Metrica | Como Medir | Frequencia | Meta |
+|---------|-----------|-----------|------|
+| eNPS | Survey | Trimestral | Acima de 30 |
+| Turnover voluntario | Dados RH | Mensal | Abaixo de 15% anual |
+| Turnover de high performers | Dados RH | Mensal | Abaixo de 5% anual |
+| Offer acceptance rate | Dados recrutamento | Mensal | Acima de 85% |
+| Referral rate | Dados recrutamento | Mensal | Acima de 30% |
+| Absenteismo | Dados RH | Mensal | Abaixo de 3% |
+| Score de engagement | Survey detalhado | Semestral | Acima de 4.0/5.0 |
+| Glassdoor rating | Plataforma | Trimestral | Acima de 4.0/5.0 |
 
-**Duração**: Contínuo (mínimo 12 meses)
-**Responsável**: CEO / CHRO
+### Metricas Secundarias (Leading Indicators)
+Metricas que antecipam mudancas culturais:
 
----
+| Metrica | Como Medir | Frequencia | Meta |
+|---------|-----------|-----------|------|
+| Participacao em rituais | Tracking de presenca | Semanal | Acima de 85% |
+| Volume de kudos/reconhecimento | Canal de reconhecimento | Semanal | Crescente |
+| Participacao em 1:1s | Tracking de gestores | Quinzenal | 100% |
+| Action items de retro concluidos | Tracking de retro | Mensal | Acima de 70% |
+| Perguntas no All-Hands | Tracking | Mensal | Crescente |
+| Aplicacoes espontaneas | Dados recrutamento | Mensal | Crescente |
+| Participacao em treinamentos | LMS | Mensal | Acima de 80% |
+| Uso do canal de feedback | Ferramenta | Mensal | Crescente |
 
-## 1. Framework de Medição
+### Metricas de Alinhamento com Valores
+Para cada valor definido, medir o grau de pratica:
 
-### 1.1 Dimensões Medidas
-| Dimensão | O que Mede | Instrumento |
-|----------|-----------|-------------|
-| Engajamento | Conexão emocional com o trabalho | eNPS, pulse surveys |
-| Alinhamento | Entendimento e prática dos valores | Survey de valores, 360 |
-| Segurança Psicológica | Conforto para ser autêntico e vulnerável | Survey específica |
-| Colaboração | Trabalho cross-funcional eficaz | Network analysis, survey |
-| Inovação | Cultura de experimentação | Métricas de inovação |
-| Bem-estar | Saúde física e mental | Survey, indicadores de RH |
-| Inclusão | Pertencimento de todos os grupos | Survey DEI, dados demográficos |
-| Liderança | Qualidade da gestão de pessoas | 360, upward feedback |
+**Survey de Alinhamento (trimestral, 1-5):**
+- "Vejo o valor [X] sendo praticado no meu dia a dia."
+- "Meu gestor demonstra o valor [X] de forma consistente."
+- "A empresa toma decisoes alinhadas ao valor [X]."
+- "Me sinto a vontade para praticar o valor [X]."
 
-### 1.2 Cadência de Medição
-| Instrumento | Frequência | Duração | Responsável |
-|------------|-----------|---------|-------------|
-| Pulse survey | Quinzenal | 2-3 perguntas | People Ops |
-| eNPS | Mensal | 1 pergunta + comentário | People Ops |
-| Survey de cultura completa | Semestral | 30-40 perguntas | CHRO |
-| Entrevistas qualitativas | Trimestral | 30 min cada | CHRO/externo |
-| Análise de dados de RH | Mensal | Dashboard automático | People Analytics |
-| Feedback 360 | Semestral | Por pessoa avaliada | People Ops |
+**Meta:** Score medio acima de 3.8/5.0 para cada valor
 
-## 2. Métricas Quantitativas
+## 2. Instrumentos de Medicao
 
-### 2.1 Métricas de Engajamento
-- [ ] eNPS (target: > 40)
-- [ ] Taxa de resposta de surveys (target: > 80%)
-- [ ] Score de engajamento geral (1-5, target: > 4.0)
-- [ ] Tendência de engajamento (MoM, QoQ)
-- [ ] Segmentação por área, senioridade, tempo de casa
+### Culture Pulse Survey (Trimestral)
+Pesquisa rapida para monitorar tendencias:
+- 10-15 perguntas (maximo 5 minutos)
+- Mix de escala Likert e perguntas abertas
+- eNPS obrigatorio
+- 1-2 perguntas por valor definido
+- 1 pergunta aberta: "O que podemos melhorar?"
+- Meta de participacao: acima de 80%
 
-### 2.2 Métricas de Retenção
-- [ ] Turnover voluntário total (target: < 15% anual)
-- [ ] Turnover involuntário
-- [ ] Turnover de high performers (target: < 5%)
-- [ ] Turnover nos primeiros 6 meses
-- [ ] Tempo médio de permanência
-- [ ] Regrettable turnover ratio
+### Engagement Survey Completo (Semestral)
+Pesquisa detalhada para diagnostico profundo:
+- 40-60 perguntas cobrindo todas as dimensoes
+- Segmentacao por area, nivel, tempo de empresa
+- Benchmark com mercado (se ferramenta permitir)
+- Analise de tendencia vs. surveys anteriores
+- Action plan obrigatorio para areas com score baixo
 
-### 2.3 Métricas de Crescimento de Pessoas
-- [ ] % de promoções internas vs. contratações externas
-- [ ] Tempo médio para promoção
-- [ ] Horas de treinamento per capita
-- [ ] Taxa de mobilidade interna
-- [ ] Adesão a programas de desenvolvimento
+### Entrevistas de Saida (Continuo)
+Cada pessoa que sai deve ser entrevistada:
+- Entrevistador: alguem de RH (nao o gestor direto)
+- Perguntas padronizadas para permitir analise de tendencia
+- Anonimizacao dos dados para reportar tendencias
+- Perguntas-chave: motivo real de saida, o que mudaria, NPS de saida
 
-### 2.4 Métricas de Diversidade
-- [ ] Composição demográfica por nível
-- [ ] Gap salarial por grupo demográfico
-- [ ] Representatividade em liderança
-- [ ] Taxa de promoção por grupo demográfico
-- [ ] Score de inclusão por grupo
+### Entrevistas de Permanencia (Stay Interviews)
+Periodicamente, perguntar a quem fica:
+- "O que te mantem aqui?"
+- "O que te faria considerar sair?"
+- "O que podemos fazer melhor?"
+- Realizar com 10-20% dos colaboradores por trimestre
+- Foco em high performers e posicoes-chave
 
-### 2.5 Métricas de Bem-Estar
-- [ ] Utilização de benefícios de saúde mental
-- [ ] Absenteísmo
-- [ ] Dias de férias utilizados vs. disponíveis
-- [ ] Score de burnout (survey)
-- [ ] Horas extras médias
+## 3. Analise e Acao
 
-### 2.6 Métricas de Rituais
-- [ ] Adesão a 1:1s semanais
-- [ ] Participação em all-hands
-- [ ] Frequência de feedback dado
-- [ ] Participação em Innovation Days
-- [ ] Volume de kudos e reconhecimentos
+### Processo de Analise
+1. Coletar dados de todas as fontes
+2. Consolidar em dashboard unico
+3. Identificar tendencias e correlacoes
+4. Segmentar por area, nivel, tempo de empresa
+5. Comparar com periodos anteriores e benchmarks
+6. Identificar pontos criticos e oportunidades
+7. Preparar relatorio com recomendacoes
 
-## 3. Medição Qualitativa
+### Dashboard Cultural
+Criar dashboard visual com:
+- eNPS (tendencia ao longo do tempo)
+- Score por valor (radar chart)
+- Turnover (tendencia e comparativo por area)
+- Participacao em rituais
+- Volume de reconhecimento
+- Top temas das perguntas abertas (word cloud)
 
-### 3.1 Sinais Positivos (Observáveis)
-- Pessoas referenciam valores em conversas informais
-- Conflitos são resolvidos abertamente e sem rancor
-- Erros são compartilhados como aprendizado, não escondidos
-- Novos colaboradores se sentem acolhidos rapidamente
-- Feedback flui em todas as direções naturalmente
-- Pessoas colaboram voluntariamente cross-time
+### Cadencia de Acao
+| Resultado | Acao | Timeline |
+|-----------|------|---------|
+| Score abaixo de 3.0 em algum valor | Investigacao imediata + plano de acao | 2 semanas |
+| eNPS em queda por 2 trimestres | Workshop com lideranca + acoes corretivas | 1 mes |
+| Turnover acima de 20% em area | Diagnostico profundo + intervencao | 2 semanas |
+| Score acima de 4.5 em valor | Celebrar e documentar boas praticas | Proxima all-hands |
+| Tema recorrente em feedback aberto | Enderecar publicamente com plano | 1 mes |
 
-### 3.2 Sinais de Alerta (Red Flags)
-- Comunicação passivo-agressiva em canais públicos
-- Silêncio em reuniões (falta de segurança psicológica)
-- Turnover concentrado em áreas ou gestores específicos
-- "Fofoca de corredor" substituindo comunicação aberta
-- Valores citados com cinismo ou sarcasmo
-- Líderes não praticando o que pregam
+## 4. Integracao com Processos de RH
 
-### 3.3 Métodos Qualitativos
-- [ ] Stay interviews com colaboradores-chave
-- [ ] Exit interviews estruturadas e analisadas
-- [ ] Observação de reuniões e interações
-- [ ] Análise de sentimento em canais de comunicação
-- [ ] Focus groups periódicos por nível
-- [ ] Shadowing de novos funcionários no onboarding
+### Performance Review
+- Incluir avaliacao de alinhamento com valores (peso 30-40%)
+- Comportamentos esperados dos valores como criterios de avaliacao
+- Feedback 360 inclui perguntas sobre valores
+- Performance excepcional em resultados + valores = promocao
+- Resultados bons + valores fracos = desenvolvimento
+- Resultados fracos + valores fortes = suporte/reposicionamento
+- Resultados fracos + valores fracos = conversa seria
 
-## 4. Dashboard de Cultura
+### Contratacao
+- Incluir avaliacao cultural na entrevista (behavioral interview)
+- Perguntas alinhadas aos valores da empresa
+- Culture add (nao culture fit): buscar diversidade com alinhamento de valores
+- Onboarding incluir imersao nos valores
+- Probation period avaliar fit cultural
 
-### 4.1 Estrutura do Dashboard
-```
-CULTURA DASHBOARD - [Período]
+### Promocao e Carreira
+- Criterios de promocao incluem demonstracao de valores
+- Lideres devem ser exemplos dos valores
+- Reconhecimento formal vinculado a valores
+- Plano de desenvolvimento inclui competencias culturais
 
-Score Geral: [X/10]
-Tendência: [seta para cima/baixo]
-eNPS: [score]
+### Compensacao
+- Considerar alinhamento cultural em decisoes de bonus
+- Nao compensar financeiramente violacoes culturais
+- Premiar destaque em valores (trimestral ou anual)
 
-Saúde por Dimensão:
-[Engajamento]     ████████░░ 8/10 (+1)
-[Alinhamento]     ███████░░░ 7/10 (=)
-[Segurança Psic.] ██████░░░░ 6/10 (+2)
-[Colaboração]     ████████░░ 8/10 (-1)
-[Inovação]        █████░░░░░ 5/10 (+1)
-[Bem-estar]       ███████░░░ 7/10 (=)
-[Inclusão]        ██████░░░░ 6/10 (+1)
-[Liderança]       ████████░░ 8/10 (+1)
+## 5. Sustentacao de Longo Prazo
 
-Alertas:
-- [Alerta se alguma dimensão cair > 1 ponto]
-- [Alerta se turnover ultrapassar threshold]
+### Revisao Anual de Valores
+- Os valores ainda sao relevantes?
+- Estao sendo praticados consistentemente?
+- Precisam de ajuste ou atualizacao?
+- Surgiu algum novo tema que deveria ser valor?
+- Algum valor perdeu relevancia?
 
-Ações em Andamento:
-- [Ação 1 - status]
-- [Ação 2 - status]
-```
+### Evolucao dos Rituais
+- Coletar feedback sobre rituais semestralmente
+- Eliminar rituais que nao agregam valor
+- Ajustar formato e frequencia conforme necessario
+- Introduzir novos rituais conforme a empresa cresce
+- Adaptar rituais para contextos remotos/hibridos
 
-### 4.2 Revisão do Dashboard
-- [ ] CFO/CHRO revisa semanalmente (pulse data)
-- [ ] C-Level Squad revisa mensalmente
-- [ ] Board revisa trimestralmente (versão executiva)
-- [ ] Ações derivadas documentadas e acompanhadas
+### Escala da Cultura
+Conforme a empresa cresce, a cultura precisa de ajustes:
+- 10-30 pessoas: Cultura implicita, transmitida por proximidade
+- 30-100 pessoas: Cultura precisa ser explicitada e rituais formalizados
+- 100-300 pessoas: Subculturas surgem, precisa de alinhamento deliberado
+- 300+: Cultura requer sistemas, processos e lideranca intermediaria forte
 
-## 5. Ciclo de Melhoria Contínua
+### Onboarding de Novos Lideres
+Lideres contratados externamente sao o maior risco para a cultura:
+- Processo de onboarding cultural intensivo (30-60 dias)
+- Buddy senior que modela a cultura
+- Expectativas explicitas sobre comportamentos esperados
+- Check-in cultural no mes 1, 3 e 6
+- Feedback de time sobre alinhamento cultural
 
-### 5.1 Cadência
-```
-Medir (dados) -> Analisar (insights) -> Agir (mudanças) ->
-Comunicar (transparência) -> Medir (loop)
-```
+## 6. Comunicacao de Resultados
 
-### 5.2 Governança
-- [ ] People/Culture owner designado
-- [ ] Budget dedicado para iniciativas culturais
-- [ ] Reunião mensal de cultura no C-Level
-- [ ] Metas de cultura vinculadas a metas de liderança
-- [ ] Report trimestral de cultura para o board
-- [ ] Ações de melhoria priorizadas e rastreadas
+### Para o Time
+- Compartilhar resultados de pesquisas de forma transparente
+- Mostrar tendencias (nao apenas snapshot)
+- Destacar acoes tomadas com base no feedback
+- Celebrar melhorias e reconhecer desafios restantes
+- "Voces falaram, nos ouvimos, e isso e o que estamos fazendo."
 
-### 5.3 Ajustes
-- [ ] Rituais que não funcionam são ajustados ou removidos
-- [ ] Novos rituais são testados com piloto antes de escalar
-- [ ] Feedback do time incorporado no design de rituais
-- [ ] Liderança avaliada também pelo impacto cultural
-- [ ] Lições aprendidas documentadas a cada ciclo
+### Para o Board/Investidores
+- Incluir metricas culturais no board deck (eNPS, turnover, engagement)
+- Cultura como indicador de sustentabilidade do negocio
+- Conectar melhorias culturais com resultados de negocio
+- Riscos culturais devem ser reportados
 
----
+### Para o Mercado
+- Glassdoor e plataformas de employer brand
+- Cases de cultura para atrair talentos
+- Participacao em rankings de melhores empresas para trabalhar
+- Conteudo sobre cultura nas redes sociais e blog
 
-## Timeline de Maturidade Cultural
+## 7. Sinais de Sucesso
 
-| Período | Expectativa | Indicador |
-|---------|------------|-----------|
-| 0-3 meses | Consciência e início | Valores lançados, rituais iniciados |
-| 3-6 meses | Adoção inicial | > 60% praticando rituais, eNPS baseline |
-| 6-12 meses | Enraizamento | eNPS +10 pontos, turnover melhorando |
-| 12-18 meses | Sustentação | Cultura como diferencial de hiring |
-| 18-24 meses | Maturidade | Auto-reforço, mínima intervenção top-down |
+### Indicadores de que a Transformacao Funcionou
+- eNPS crescente e sustentado acima de 30
+- Turnover voluntario abaixo de 15% e em tendencia de queda
+- Valores sao referenciados espontaneamente em conversas e decisoes
+- Novos membros absorvem a cultura rapidamente (feedback de onboarding)
+- Candidatos citam a cultura como motivo para querer entrar
+- Ex-funcionarios falam positivamente da cultura
+- Liderança vive os valores de forma consistente e visivel
+- Conflitos sao resolvidos com referencia aos valores
+- Inovacao e experimentacao acontecem naturalmente
 
----
+### Sinais de Alerta
+- eNPS em queda consistente
+- Turnover subindo, especialmente de high performers
+- Desconexao entre cultura declarada e praticada
+- Rituais sendo esvaziados ou abandonados
+- Lideranca nao praticando os valores
+- Novos contratados nao se adaptando
+- Feedback recorrente sobre mesmos problemas sem acao
 
-*Fase anterior: [03-rituals-practices.md](03-rituals-practices.md)*
-*Última atualização: Março 2026*
+## Entregaveis desta Fase
+1. Dashboard cultural operacional
+2. Processo de pesquisa e analise implementado
+3. Integracao com processos de RH concluida
+4. Primeiro ciclo completo de medicao realizado
+5. Plano de sustentacao documentado e aprovado
+6. Relatorio de progresso da transformacao cultural

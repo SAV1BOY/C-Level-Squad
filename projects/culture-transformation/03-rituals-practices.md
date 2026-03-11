@@ -1,179 +1,200 @@
-# Fase 3: Rituais e Práticas
+# Fase 3: Rituais e Praticas Culturais
 
-> Guia para implementar rituais, práticas e rotinas que reforcem os valores
-> e comportamentos desejados no dia a dia da organização.
+## Objetivo
+Desenhar e implementar rituais, praticas e sistemas que reforcem os valores definidos e tornem a cultura desejada tangivel no dia a dia da organizacao.
 
----
+## 1. Principios de Design de Rituais
 
-## Objetivo da Fase
+### O que Torna um Ritual Eficaz
+- **Regular**: Frequencia previsivel (diario, semanal, mensal)
+- **Breve**: Respeitar o tempo das pessoas
+- **Participativo**: Todos tem papel, nao so a lideranca
+- **Conectado a valores**: Cada ritual reforça pelo menos um valor
+- **Adaptavel**: Evolui com a empresa sem perder a essencia
+- **Mensuravel**: Da para saber se esta funcionando
 
-Traduzir valores em comportamentos práticos e rotinas que construam a
-cultura desejada de forma orgânica e sustentável.
+### Framework: Ritual Canvas
+Para cada ritual, definir:
+```
+Nome do Ritual: [nome memoravel]
+Valor que reforça: [qual valor]
+Frequencia: [diario/semanal/mensal/trimestral]
+Duracao: [tempo]
+Participantes: [quem]
+Facilitador: [quem lidera]
+Formato: [presencial/remoto/assincrono]
+Output: [o que sai do ritual]
+Metrica de sucesso: [como saber se funciona]
+```
 
-**Duração estimada**: 4-8 semanas (implementação) + contínuo
-**Responsável**: CEO / CHRO com todas as lideranças
+## 2. Rituais por Frequencia
 
----
+### Rituais Diarios
 
-## 1. Rituais de Conexão e Alinhamento
+**Daily Check-in (5 min, assincrono)**
+- Cada pessoa compartilha: foco do dia, bloqueio (se houver), energia (1-5)
+- Canal dedicado no Slack/Teams
+- Reforça: transparencia e colaboracao
+- Nao substitui comunicacao direta
 
-### 1.1 All-Hands (Mensal)
-- **Objetivo**: Transparência, alinhamento e celebração
-- **Duração**: 45-60 minutos
-- **Formato**:
-  - [ ] CEO compartilha resultados e estratégia (15 min)
-  - [ ] Destaque de um valor com história real (5 min)
-  - [ ] Demo de produto ou inovação do mês (10 min)
-  - [ ] Reconhecimento de pessoas e times (10 min)
-  - [ ] Q&A aberto e honesto (15 min)
-- **Regras**: Gravado para quem não pode participar, perguntas anônimas aceitas
+**Kudos/Reconhecimento (continuo)**
+- Canal dedicado para reconhecimento entre pares
+- Qualquer pessoa pode reconhecer qualquer outra
+- Reconhecimento deve ser especifico e conectado a valores
+- Template: "[Nome] demonstrou [valor] quando [comportamento especifico]. Impacto: [resultado]."
+- Reforça: reconhecimento e valores
 
-### 1.2 Town Hall Trimestral
-- **Objetivo**: Reflexão profunda e direcionamento
-- **Duração**: 90 minutos
-- **Formato**:
-  - [ ] Retrospectiva do trimestre (resultados + cultura)
-  - [ ] Painel com lideranças sobre prioridades
-  - [ ] Sessão de perguntas sem filtro
-  - [ ] Definição de tema cultural do próximo trimestre
+### Rituais Semanais
 
-### 1.3 Daily Stand-up / Check-in
-- **Objetivo**: Coordenação e visibilidade
-- **Duração**: 15 minutos (por time)
-- **Formato**: O que fiz, o que vou fazer, bloqueios
-- **Princípio cultural reforçado**: Transparência e colaboração
+**Weekly Team Sync (30 min)**
+- Revisao de resultados da semana (metricas)
+- Destaques e aprendizados
+- Prioridades da proxima semana
+- Celebracao de pelo menos 1 conquista
+- Reforça: alinhamento e celebracao
 
-## 2. Rituais de Feedback e Desenvolvimento
+**1:1 Gestor-Liderado (30 min)**
+- Nao e status update, e conversa de desenvolvimento
+- 70% agenda do liderado, 30% do gestor
+- Perguntas: "Como voce esta?", "O que te bloqueia?", "Como posso ajudar?"
+- Reforça: desenvolvimento e cuidado com pessoas
 
-### 2.1 One-on-One Semanal
-- **Objetivo**: Desenvolvimento, alinhamento e conexão humana
-- **Duração**: 30-45 minutos
-- **Estrutura sugerida**:
-  - [ ] Check-in pessoal (como você está?)
-  - [ ] Progresso e desafios da semana
-  - [ ] Feedback bidirecional
-  - [ ] Desenvolvimento e carreira
-  - [ ] Ações e próximos passos
-- **Regra**: Nunca cancelar sem reagendar. É o tempo do liderado.
+**Learning Friday / Tech Talk (45 min)**
+- Uma pessoa apresenta algo que aprendeu
+- Pode ser tecnico, de negocio, de soft skills
+- Rotacao entre times e niveis
+- Reforça: aprendizado continuo e compartilhamento
 
-### 2.2 Feedback Friday (ou equivalente)
-- **Objetivo**: Normalizar feedback contínuo
-- **Formato**: Cada pessoa dá pelo menos 1 feedback (positivo ou construtivo) por semana
-- **Ferramenta**: Canal dedicado ou plataforma de feedback
-- **Princípio reforçado**: Feedback é presente, não punição
+### Rituais Mensais
 
-### 2.3 Performance Review (Trimestral)
-- **Objetivo**: Avaliação formal de performance e alinhamento
-- **Componentes**:
-  - [ ] Autoavaliação
-  - [ ] Avaliação do gestor
-  - [ ] Peer review (360)
-  - [ ] Avaliação de alinhamento com valores
-  - [ ] Plano de desenvolvimento atualizado
+**Town Hall / All-Hands (60 min)**
+- CEO apresenta resultados e direcao
+- Metricas-chave compartilhadas com transparencia
+- Spotlight em projetos e pessoas
+- Q&A aberto (perguntas anonimas tambem)
+- Reforça: transparencia e alinhamento
 
-## 3. Rituais de Inovação e Aprendizado
+**Retrospectiva de Time (60 min)**
+- O que funcionou? O que podemos melhorar? O que vamos experimentar?
+- Gerar 1-3 action items concretos por retrospectiva
+- Acompanhar action items da retro anterior
+- Reforça: melhoria continua e seguranca psicologica
 
-### 3.1 Innovation Day (Mensal ou Trimestral)
-- **Objetivo**: Espaço dedicado para experimentação
-- **Duração**: 1 dia inteiro
-- **Formato**:
-  - [ ] Times formados cross-funcionalmente
-  - [ ] Protótipos de ideias selecionadas
-  - [ ] Apresentação dos resultados ao final
-  - [ ] Melhores ideias entram no backlog de produto
-- **Princípio reforçado**: Inovação é responsabilidade de todos
+**Values Spotlight (15 min no All-Hands)**
+- Destacar 2-3 historias reais que exemplificam valores
+- Nominacoes pelo time, nao apenas gestores
+- Contar a historia com contexto e impacto
+- Reforça: valores vividos na pratica
 
-### 3.2 Learning Lunch (Semanal)
-- **Objetivo**: Compartilhamento de conhecimento
-- **Duração**: 45 minutos
-- **Formato**: Apresentação de 20 min + Q&A de 25 min
-- **Temas**: Técnicos, de negócio, soft skills, convidados externos
-- **Princípio reforçado**: Aprendizado contínuo
+### Rituais Trimestrais
 
-### 3.3 Post-Mortem sem Culpa (Blameless)
-- **Objetivo**: Aprender com falhas sem punir
-- **Quando**: Após incidentes significativos
-- **Formato**:
-  - [ ] O que aconteceu (timeline factual)
-  - [ ] Por que aconteceu (5 whys)
-  - [ ] O que aprendemos
-  - [ ] O que mudamos para prevenir recorrência
-- **Regra absoluta**: Foco em sistemas, não em pessoas
+**Quarterly Business Review (2-3 horas)**
+- Resultados do trimestre vs. metas
+- Aprendizados e ajustes de rota
+- Definicao de prioridades do proximo trimestre
+- Celebracao de marcos atingidos
+- Reforça: accountability e planejamento
 
-## 4. Rituais de Reconhecimento
+**Hackathon / Innovation Day (1-2 dias)**
+- Times auto-organizados trabalham em ideias inovadoras
+- Apresentacao no final com votacao
+- Melhores ideias ganham recurso para implementar
+- Reforça: inovacao e experimentacao
 
-### 4.1 Kudos Público
-- **Formato**: Canal de Slack/Teams para reconhecimento público
-- **Categorias**: Um kudos por valor da empresa
-- **Frequência**: Contínuo, incentivado semanalmente
-- **Impacto**: Reconhecimentos são lidos no all-hands
+**Culture Check (pesquisa pulse)**
+- Survey rapido (5-10 perguntas) sobre clima e cultura
+- Acompanhar tendencia ao longo do tempo
+- Compartilhar resultados e acoes com o time
+- Reforça: escuta ativa e melhoria continua
 
-### 4.2 Awards Trimestrais
-- **Objetivo**: Reconhecimento formal por vivência de valores
-- **Formato**:
-  - [ ] Nominações abertas por qualquer pessoa
-  - [ ] Votação do time
-  - [ ] Premiação no Town Hall trimestral
-  - [ ] Prêmio simbólico + experiência/benefício
+### Rituais Semestrais/Anuais
 
-### 4.3 Celebração de Marcos
-- [ ] Milestone de produto celebrado com todo o time
-- [ ] Aniversário de empresa celebrado com reflexão
-- [ ] Conquistas individuais reconhecidas (promoções, certificações)
-- [ ] Wins de cliente compartilhados amplamente
+**Performance Review (semestral)**
+- Avaliacao de entregas E de alinhamento com valores
+- 360 feedback (pares, gestor, auto-avaliacao)
+- Plano de desenvolvimento individual
+- Reforça: desenvolvimento e accountability
 
-## 5. Práticas de Bem-Estar
+**Offsite / Team Building (semestral)**
+- 1-2 dias fora do ambiente de trabalho
+- Mix de estrategia e conexao humana
+- Atividades que reforcem valores na pratica
+- Reforça: conexao e proposito
 
-### 5.1 Check-in de Bem-Estar
-- **Frequência**: Semanal (no início do stand-up)
-- **Formato**: Escala 1-5 ou semáforo (verde/amarelo/vermelho)
-- **Ação**: Gestores acompanham tendências e oferecem suporte
+**Annual Planning (anual)**
+- Revisao de estrategia e definicao de metas anuais
+- Participacao ampla (nao apenas lideranca)
+- Conectar metas a missao e valores
+- Reforça: alinhamento e co-criacao
 
-### 5.2 No-Meeting Blocks
-- [ ] Pelo menos 1 dia por semana com bloco sem reuniões
-- [ ] Focus time protegido para deep work
-- [ ] Respeito a horários de almoço
-- [ ] Cultura de não esperar resposta imediata fora do horário
+## 3. Praticas Culturais Sistematicas
 
-### 5.3 Saúde Mental
-- [ ] Benefício de suporte psicológico disponível
-- [ ] Dias de saúde mental permitidos sem justificativa
-- [ ] Liderança modelando equilíbrio work-life
-- [ ] Treinamento de gestores sobre sinais de burnout
+### Onboarding Cultural
+- Dia 1: Boas-vindas com contexto sobre missao, visao e valores
+- Semana 1: Buddy designado para guiar culturalmente
+- Mes 1: Conversa com founder/C-level sobre historia e cultura
+- Mes 3: Feedback de onboarding (o que funcionou, o que melhorar)
+- Template de buddy: perguntas para guiar o novo membro
 
-## 6. Práticas de Diversidade e Inclusão
+### Feedback Continuo
+- Cultura de feedback direto e respeitoso no dia a dia
+- Framework SBI: Situacao, Comportamento, Impacto
+- Treinamento de feedback para todos os gestores
+- Ferramenta para feedback entre pares (se necessario)
+- Feedback deve ser conectado a valores quando relevante
 
-- [ ] Linguagem inclusiva em toda comunicação
-- [ ] Grupos de afinidade (ERGs) apoiados e com budget
-- [ ] Revisão de processos seletivos para reduzir viés
-- [ ] Metas de diversidade definidas e acompanhadas
-- [ ] Treinamento de viés inconsciente para liderança
-- [ ] Eventos de conscientização no calendário
+### Tomada de Decisao
+- Documentar como decisoes sao tomadas (RACI, DRI)
+- Transparencia sobre racional das decisoes
+- Incluir perspectivas diversas em decisoes importantes
+- Registrar decisoes e aprendizados (decision log)
 
-## 7. Implementação e Rollout
+### Reconhecimento e Recompensa
+- Reconhecimento publico conectado a valores (nao apenas resultados)
+- Programa de peer recognition
+- Bonus ou premio trimestral por destaque em valores
+- Liderança dando exemplo de reconhecimento frequente
 
-| Semana | Atividade |
-|--------|-----------|
-| 1-2 | Comunicar o plano de rituais para toda a org |
-| 2-3 | Treinar líderes nos novos rituais |
-| 3-4 | Iniciar rituais-piloto com times early adopters |
-| 4-6 | Expandir para toda a organização |
-| 6-8 | Coletar feedback e ajustar |
-| 8+ | Monitorar adesão e eficácia |
+### Resolucao de Conflitos
+- Processo claro para escalar conflitos
+- Mediacao antes de escalacao formal
+- Tratamento respeitoso como inegociavel
+- Canal seguro para reportar violacoes de valores
 
-## 8. Medição de Eficácia
+## 4. Implementacao Gradual
 
-| Ritual | Métrica | Target |
-|--------|---------|--------|
-| All-Hands | Participação e NPS | > 80% participação, NPS > 50 |
-| 1:1s | Frequência efetiva | > 90% acontecendo semanalmente |
-| Feedback | Feedbacks dados/mês | > 2 por pessoa |
-| Innovation Day | Ideias geradas | > 20 por evento |
-| Kudos | Reconhecimentos/semana | > 1 por pessoa/mês |
-| Learning Lunch | Participação | > 50% do time |
+### Fase A: Quick Wins (Mes 1-2)
+- Lancar canal de Kudos/reconhecimento
+- Implementar 1:1s regulares em todos os times
+- Iniciar Values Spotlight no All-Hands
+- Distribuir guia de comportamentos esperados
 
----
+### Fase B: Consolidacao (Mes 3-4)
+- Implementar retrospectivas em todos os times
+- Lancar programa de onboarding cultural
+- Treinamento de feedback para gestores
+- Iniciar Learning Friday
 
-*Fase anterior: [02-vision-values.md](02-vision-values.md)*
-*Próxima fase: [04-measurement.md](04-measurement.md)*
-*Última atualização: Março 2026*
+### Fase C: Maturidade (Mes 5-6)
+- Primeiro Culture Check (pulse survey)
+- Primeiro Hackathon/Innovation Day
+- Revisao de performance alinhada a valores
+- Ajustes nos rituais com base no feedback
+
+## 5. Papel da Lideranca
+
+### Compromissos da Lideranca
+- [ ] Participar ativamente de todos os rituais
+- [ ] Dar exemplo vivendo os valores publicamente
+- [ ] Reconhecer comportamentos alinhados a valores frequentemente
+- [ ] Abordar desvios de comportamento rapidamente
+- [ ] Compartilhar vulnerabilidades e aprendizados proprios
+- [ ] Dedicar tempo para conversas de cultura no 1:1
+
+## Entregaveis desta Fase
+1. Calendario de rituais implementado
+2. Guias e templates para cada ritual
+3. Treinamento de gestores realizado
+4. Primeiros rituais em operacao
+5. Canal de reconhecimento ativo
+6. Feedback inicial coletado

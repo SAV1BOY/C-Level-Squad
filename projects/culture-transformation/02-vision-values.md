@@ -1,129 +1,168 @@
-# Fase 2: Visão e Valores
+# Fase 2: Definicao de Visao e Valores
 
-> Guia para co-criar a visão cultural desejada e os valores que guiarão
-> comportamentos e decisões na organização.
+## Objetivo
+Definir ou redefinir a visao cultural, missao, valores e comportamentos esperados da organizacao, garantindo que reflitam tanto a identidade atual quanto a aspiracao futura.
 
----
+## 1. Processo de Construcao
 
-## Objetivo da Fase
+### Principios do Processo
+- **Participativo**: Envolver representantes de todos os niveis e areas
+- **Autenticidade**: Valores devem refletir quem realmente somos, nao quem gostaríamos de ser
+- **Acionavel**: Cada valor deve se traduzir em comportamentos observaveis
+- **Conciso**: Menos e mais. 4-6 valores no maximo
+- **Memoravel**: Se as pessoas nao lembram, nao vivem
 
-Definir, com participação ampla, os valores e comportamentos desejados
-que formarão a base da cultura organizacional.
+### Quem Envolver
+- Founders e C-level (sessao de 4 horas)
+- Gestores e lideres (workshop de 4 horas)
+- Representantes de todas as areas e niveis (workshops de 2 horas)
+- Total: 15-25% da empresa participando diretamente
 
-**Duração estimada**: 2-3 semanas
-**Responsável**: CEO / CHRO
+## 2. Workshop de Valores
 
----
+### Etapa 1: Identidade Atual (120 min)
+**Exercicio 1 - Historias que nos definem (30 min)**
+- Em grupos de 4-5, compartilhar historias que exemplificam "quem somos quando estamos no nosso melhor"
+- Cada grupo seleciona a historia mais representativa
+- Compartilhar com todos e extrair temas recorrentes
 
-## 1. Workshop de Visão Cultural
+**Exercicio 2 - Palavras que nos descrevem (20 min)**
+- Individualmente, escrever 5 palavras que descrevem a cultura atual
+- Agrupar por afinidade e identificar clusters dominantes
+- Discutir: essas palavras refletem quem queremos ser?
 
-### 1.1 Preparação
-- [ ] Resultados do diagnóstico compartilhados com participantes
-- [ ] Facilitador externo contratado (recomendado)
-- [ ] Participantes selecionados (representatividade de áreas, níveis, tempo de casa)
-- [ ] Ambiente preparado para colaboração aberta
-- [ ] Expectativas alinhadas: co-criação, não imposição
+**Exercicio 3 - Cultura declarada vs. praticada (30 min)**
+- Se ja existem valores formais: avaliar se sao praticados
+- Identificar gaps entre discurso e realidade
+- Discutir o que precisa mudar para fechar os gaps
 
-### 1.2 Dinâmicas
-- [ ] "Cultura dos sonhos": Como seria a cultura ideal?
-- [ ] "Valores em ação": Quais comportamentos refletem os valores?
-- [ ] "Anti-valores": O que nunca queremos ser?
-- [ ] "Momentos da verdade": Quando os valores são realmente testados?
-- [ ] "Role models": Quem na organização exemplifica o que queremos?
+**Exercicio 4 - Anti-valores (20 min)**
+- Listar comportamentos que nao queremos na nossa cultura
+- Esses anti-valores ajudam a definir fronteiras
+- Exemplos: "nao toleramos politicagem", "nao premiamos heroismo individual"
 
-## 2. Definição de Valores
+### Etapa 2: Aspiracao Futura (90 min)
+**Exercicio 5 - Cultura desejada em 3 anos (30 min)**
+- "Imagine que estamos em 2029. Nossa cultura e noticia no mercado. O que as pessoas dizem sobre nos?"
+- "Que tipo de pessoa prospera aqui? Que tipo de pessoa nao se encaixa?"
+- "O que nos diferencia como empregador?"
 
-### 2.1 Princípios para Definir Valores
-- Máximo de 5 valores (memoráveis e praticáveis)
-- Cada valor deve ter comportamentos observáveis associados
-- Valores devem diferenciar a organização (não genéricos)
-- Devem guiar decisões difíceis (não apenas as fáceis)
-- Devem ser autênticos (refletir DNA real ou aspiracional crível)
+**Exercicio 6 - Trade-offs culturais (30 min)**
+- Velocidade vs. Qualidade: onde estamos e onde queremos estar?
+- Autonomia vs. Alinhamento: qual o equilibrio ideal?
+- Inovacao vs. Consistencia: como balancear?
+- Performance individual vs. Colaboracao: o que priorizamos?
+- Transparencia total vs. Comunicacao seletiva: qual o caminho?
 
-### 2.2 Estrutura de Cada Valor
+**Exercicio 7 - Priorizacao de temas (30 min)**
+- Consolidar todos os temas levantados
+- Votacao ponderada para priorizar
+- Selecionar 4-6 temas que serao a base dos valores
+
+## 3. Formulacao dos Valores
+
+### De Temas para Valores
+Para cada tema priorizado, definir:
+1. **Nome do valor**: Curto, memoravel (2-4 palavras)
+2. **Definicao**: O que significa na pratica (1-2 frases)
+3. **Comportamentos esperados**: 3-5 comportamentos observaveis
+4. **Comportamentos contrarios**: 2-3 exemplos do que NAO e este valor
+5. **Exemplo real**: Uma historia da empresa que exemplifica
+
+### Template de Valor
 ```
-Valor: [Nome do valor]
-Significado: [O que esse valor significa para nós em 1-2 frases]
+VALOR: [Nome]
+Definicao: [O que significa para nos]
 
-Comportamentos que demonstram esse valor:
-- Na prática diária: [exemplos do dia a dia]
-- Em decisões difíceis: [como o valor guia decisões]
-- Na liderança: [como líderes exemplificam]
-- Com clientes: [como se manifesta externamente]
+Comportamentos esperados:
+- [Comportamento 1]
+- [Comportamento 2]
+- [Comportamento 3]
 
-Anti-comportamentos (o que NÃO é esse valor):
-- [Comportamento que contradiz o valor]
-- [Comportamento que contradiz o valor]
+Isso NAO significa:
+- [Anti-comportamento 1]
+- [Anti-comportamento 2]
 
-Perguntas de verificação:
-- [Pergunta que testa se estamos vivendo o valor]
+Historia real: [Exemplo da empresa]
 ```
 
-### 2.3 Processo de Refinamento
-- [ ] Draft de valores criado no workshop
-- [ ] Revisão com grupo ampliado para validação
-- [ ] Teste de stress: Os valores guiam decisões em cenários difíceis?
-- [ ] Simplificação de linguagem (todos devem entender)
-- [ ] Versão final aprovada pela liderança
-- [ ] Feedback do time sobre a versão final
+### Exemplos de Valores Bem Formulados
+```
+TRANSPARENCIA RADICAL
+"Compartilhamos informacoes abertamente, mesmo quando desconfortavel."
 
-## 3. Visão Cultural
+Comportamentos esperados:
+- Compartilhamos numeros, decisoes e racional com toda a empresa
+- Damos feedback direto e respeitoso, sem rodeios
+- Admitimos erros publicamente e compartilhamos aprendizados
 
-### 3.1 Declaração de Cultura
-- [ ] Declaração de cultura redigida (1 parágrafo)
-- [ ] Conecta valores ao propósito da empresa
-- [ ] Descreve o tipo de organização que queremos ser
-- [ ] É inspiradora mas realista
-- [ ] Serve como "estrela guia" para decisões culturais
+Isso NAO significa:
+- Expor informacoes confidenciais de clientes
+- Ser rude ou desrespeitoso em nome da transparencia
+- Compartilhar informacoes sem contexto adequado
+```
 
-### 3.2 Cultura no Ciclo de Vida do Colaborador
-- [ ] Como valores se refletem no processo seletivo
-- [ ] Como valores são apresentados no onboarding
-- [ ] Como valores guiam feedback e performance reviews
-- [ ] Como valores influenciam promoções e crescimento
-- [ ] Como valores são vividos no dia a dia
-- [ ] Como valores são mantidos na saída (offboarding digno)
+## 4. Missao e Visao
 
-## 4. Integração com Processos
+### Revisao da Missao
+A missao responde: "Por que existimos?"
+- Deve ser curta (1-2 frases)
+- Deve ser inspiradora mas concreta
+- Deve ser atemporal (nao mudar a cada ano)
+- Deve refletir o impacto que geramos
 
-### 4.1 Hiring
-- [ ] Valores integrados na descrição de vagas
-- [ ] Entrevista de culture fit redesenhada com base nos valores
-- [ ] Scorecard de hiring inclui avaliação de valores
-- [ ] Treinamento de entrevistadores atualizado
+### Revisao da Visao
+A visao responde: "Onde queremos chegar?"
+- Horizonte de 5-10 anos
+- Ambiciosa mas alcancavel
+- Especifica o suficiente para guiar decisoes
+- Inspira acao
 
-### 4.2 Performance
-- [ ] Avaliação de performance inclui dimensão de valores
-- [ ] 360 feedback inclui perguntas sobre valores
-- [ ] Reconhecimento formal vinculado a valores
-- [ ] Consequências claras para violação de valores
+### Workshop de Missao e Visao (4 horas com founders + C-level)
+1. Revisar missao e visao atuais (se existem)
+2. Avaliar se refletem o momento e a aspiracao
+3. Brainstorming de novas formulacoes
+4. Selecao e refinamento
+5. Teste: "Essa missao guia nossas decisoes diarias?"
 
-### 4.3 Comunicação
-- [ ] Valores integrados na comunicação visual (escritório, docs, site)
-- [ ] Storytelling de valores: histórias reais que exemplificam
-- [ ] Valores na assinatura de email e materiais corporativos
-- [ ] Valores no onboarding kit de novos colaboradores
+## 5. Validacao
 
-## 5. Plano de Lançamento
+### Processo de Validacao
+1. **Founders e C-level**: Aprovacao formal da versao draft
+2. **Gestores**: Workshop de feedback (ajustes finos)
+3. **Amostra de colaboradores**: Focus group de validacao
+4. **Versao final**: Incorporar feedback e finalizar
+5. **Aprovacao formal**: C-level assina e se compromete
 
-- [ ] Evento de lançamento planejado (all-hands memorável)
-- [ ] CEO apresenta os valores com autenticidade
-- [ ] Funcionários compartilham o que os valores significam para eles
-- [ ] Material visual de alta qualidade produzido
-- [ ] Kit de valores distribuído a todos (físico ou digital)
-- [ ] Plano de reforço contínuo definido (não apenas lançamento)
+### Criterios de Validacao
+- [ ] Os valores sao autenticos? (refletem quem realmente somos e queremos ser)
+- [ ] Sao memorizaveis? (uma pessoa media consegue lembrar todos)
+- [ ] Sao acionaveis? (guiam decisoes concretas)
+- [ ] Sao diferenciadores? (nos distinguem de qualquer outra empresa)
+- [ ] Sao inclusivos? (acolhem diversidade de pensamento e identidade)
+- [ ] Tem trade-offs? (valores sem trade-off sao genericos demais)
+- [ ] A lideranca esta disposta a vive-los publicamente?
 
-## 6. Validação
+## 6. Lancamento dos Valores
 
-- [ ] Valores testados com cenários reais do dia a dia
-- [ ] Time consegue citar os valores de memória
-- [ ] Valores ajudam a tomar decisões difíceis
-- [ ] Novos colaboradores entendem e se conectam
-- [ ] Liderança exemplifica consistentemente
-- [ ] Métricas de baseline para medição futura coletadas
+### Plano de Comunicacao
+- All-hands meeting dedicado ao lancamento
+- CEO apresenta valores com historias reais
+- Cada valor apresentado com exemplo concreto
+- Espaco para perguntas e discussao
+- Material visual para escritorio e canais digitais
 
----
+### Artefatos de Lancamento
+- [ ] Documento oficial de missao, visao e valores
+- [ ] Guia de comportamentos esperados (versao detalhada)
+- [ ] Material visual para espacos fisicos e digitais
+- [ ] Video dos founders explicando cada valor
+- [ ] Kit para gestores: como viver e promover os valores
+- [ ] FAQ: perguntas frequentes sobre os valores
 
-*Fase anterior: [01-diagnostic.md](01-diagnostic.md)*
-*Próxima fase: [03-rituals-practices.md](03-rituals-practices.md)*
-*Última atualização: Março 2026*
+## Entregaveis desta Fase
+1. Missao e visao refinadas e aprovadas
+2. 4-6 valores com comportamentos esperados documentados
+3. Material de lancamento produzido
+4. Plano de comunicacao executado
+5. Lideranca alinhada e comprometida
