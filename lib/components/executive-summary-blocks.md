@@ -1,200 +1,226 @@
 # Executive Summary Blocks — Blocos Reutilizáveis para Resumos Executivos
 
-> Blocos prontos para compor resumos executivos de alta qualidade para diferentes contextos.
-> Copie, adapte e combine conforme necessário.
+> Blocos padronizados para criar resumos executivos claros e impactantes.
+> Um bom executive summary permite que o leitor tome uma decisão sem ler o documento inteiro.
 
 ---
 
-## 1. Bloco: Abertura por Status (Traffic Light)
+## 1. Bloco: Abertura de Status (TL;DR)
 
-### Variante: Status Verde (On Track)
+### Propósito
+Comunicar estado geral e principais destaques em formato ultra-compacto.
+
+### Template
+
 ```markdown
-## Resumo Executivo
+## TL;DR
 
-**Status geral: ON TRACK**
+**Status geral:** [Verde / Amarelo / Vermelho]
 
-[Projeto/Trimestre/Iniciativa] está dentro do planejado. Os principais indicadores estão [em linha com / acima de] as metas estabelecidas. [Métrica principal] atingiu [valor], representando [X% da meta / X% de crescimento].
-
-**Destaques:** [2-3 bullets com conquistas]
-**Atenção:** [1 ponto de monitoramento]
-**Pedido:** [Se houver necessidade do leitor]
+1. **[Destaque positivo]:** [Métrica ou fato em uma frase]
+2. **[Destaque de atenção]:** [Métrica ou fato que requer ação]
+3. **[Próximo passo crítico]:** [Ação mais importante com prazo]
 ```
 
-### Variante: Status Amarelo (Atenção)
+### Variantes
+
+**Para board update:**
 ```markdown
-## Resumo Executivo
-
-**Status geral: ATENÇÃO**
-
-[Projeto/Iniciativa] apresenta desvios em [áreas específicas] que requerem monitoramento e possíveis ajustes. [Métrica principal] está em [valor] vs meta de [valor], representando gap de [X%]. A causa principal é [explicação concisa].
-
-**O que está funcionando:** [2 bullets]
-**O que requer ação:** [2 bullets com ações propostas]
-**Decisão necessária:** [Se aplicável]
+**Estado do Negócio:** [Saudável / Atenção / Crítico]
+- Receita: R$ [X]M ([+/- X%] vs plan) | Runway: [X] meses
+- Destaque: [Principal conquista do período]
+- Risco: [Principal preocupação]
+- Pedido ao board: [O que precisa de aprovação]
 ```
 
-### Variante: Status Vermelho (Crítico)
+**Para update de projeto:**
 ```markdown
-## Resumo Executivo
-
-**Status geral: CRÍTICO — AÇÃO NECESSÁRIA**
-
-[Projeto/Iniciativa] apresenta risco significativo de [não atingir meta / causar impacto em X]. [Descrição do problema em 1-2 frases]. Sem intervenção, o impacto estimado é [quantificar].
-
-**Situação:** [3 bullets factuais]
-**Causa raiz:** [1-2 frases]
-**Ação imediata proposta:** [O que precisa acontecer e quem decide]
-**Impacto se não agir:** [Quantificar]
+**Projeto [Nome] — Status: [On Track / At Risk / Blocked]**
+- Progresso: [X%] concluído | Prazo: [on time / X dias atrasado]
+- Conquista: [Principal entrega do período]
+- Bloqueio: [Principal impedimento — ação necessária de quem]
 ```
 
----
-
-## 2. Bloco: Resumo Financeiro Compacto
-
+**Para comunicação de crise:**
 ```markdown
-### Snapshot Financeiro — [Período]
-
-| Métrica | Real | Meta | Var | Tendência |
-|---------|------|------|-----|-----------|
-| Receita | R$ [X] | R$ [Y] | [+/-Z%] | [Seta] |
-| EBITDA | R$ [X] | R$ [Y] | [+/-Z%] | [Seta] |
-| Cash | R$ [X] | R$ [Y] | [+/-Z%] | [Seta] |
-| Runway | [N meses] | [N meses] | [+/-N] | [Seta] |
-
-**Narrativa:** [1-2 frases contextualizando os números mais importantes]
+**Situação: [Título da crise]**
+- Status: [Em andamento / Sob controle / Resolvida]
+- Impacto: [N clientes / R$ X / X horas de indisponibilidade]
+- Ação imediata: [O que estamos fazendo agora]
+- Próxima atualização: [Data/hora]
 ```
 
 ---
 
-## 3. Bloco: Resumo de Progresso (OKRs/Iniciativas)
+## 2. Bloco: Contexto e Motivação
+
+### Propósito
+Fornecer contexto mínimo para que o leitor entenda por que este documento existe.
+
+### Template
 
 ```markdown
-### Progresso das Iniciativas Estratégicas
+## Contexto
 
-| Iniciativa | Progresso | Status | Próximo Marco |
-|-----------|:---------:|:------:|--------------|
-| [Nome 1] | [██████░░░░ 60%] | [Verde] | [Marco — Data] |
-| [Nome 2] | [████░░░░░░ 40%] | [Amarelo] | [Marco — Data] |
-| [Nome 3] | [████████░░ 80%] | [Verde] | [Marco — Data] |
+[Empresa/Time] enfrenta [problema/oportunidade] que [impacto quantificado]. 
+Este documento propõe [solução/decisão] com investimento de [R$ X] e 
+retorno esperado de [R$ Y / X% de melhoria] em [prazo].
+```
 
-**Destaque:** [Iniciativa com maior progresso — o que impulsionou]
-**Risco:** [Iniciativa com maior risco — o que está bloqueando]
+### Variantes
+
+**Contexto orientado a problema:**
+```markdown
+**Problema:** [Descrição em 1-2 frases]
+**Impacto atual:** [Métrica — custo, tempo, perda]
+**Causa raiz:** [Por que o problema existe]
+**Urgência:** [Por que precisa ser resolvido agora]
+```
+
+**Contexto orientado a oportunidade:**
+```markdown
+**Oportunidade:** [Descrição em 1-2 frases]
+**Tamanho da oportunidade:** [R$ X / N clientes / X% do mercado]
+**Janela de oportunidade:** [Por que agora — o que muda se demorarmos]
+**Requisitos para capturar:** [O que precisamos investir/mudar]
 ```
 
 ---
 
-## 4. Bloco: Resumo de Decisão (BLUF — Bottom Line Up Front)
+## 3. Bloco: Recomendação e Decisão
+
+### Propósito
+Apresentar recomendação de forma clara para facilitar tomada de decisão.
+
+### Template
 
 ```markdown
-### Recomendação
+## Recomendação
 
-**Decisão solicitada:** [O que precisa ser decidido]
-**Recomendação:** [O que recomendamos e por quê — 1 frase]
-**Impacto:** [R$ X / N pessoas / X% de melhoria]
-**Alternativa considerada:** [Opção B e por que não recomendamos]
-**Prazo para decisão:** [Data — o que acontece se atrasar]
+**Decisão solicitada:** [O que precisa ser aprovado/decidido]
+
+**Recomendamos:** [Opção X] porque [razão principal com dado].
+
+| Critério | Opção A | Opção B | Status Quo |
+|----------|:---:|:---:|:---:|
+| Custo | [R$ X] | [R$ X] | [R$ X] |
+| Benefício | [R$ X] | [R$ X] | [R$ X] |
+| Risco | [A/M/B] | [A/M/B] | [A/M/B] |
+| Prazo | [X meses] | [X meses] | [N/A] |
+
+**Se aprovado, próximo passo:** [Ação imediata]
+**Se não aprovado, consequência:** [O que acontece]
+```
+
+### Variantes
+
+**Recomendação simples (go/no-go):**
+```markdown
+**Recomendação:** [Aprovação / Rejeição] do [investimento/projeto/contratação]
+- **A favor:** [Argumento 1], [Argumento 2], [Argumento 3]
+- **Contra:** [Trade-off 1], [Trade-off 2]
+- **Risco residual:** [O que pode dar errado mesmo aprovando]
+```
+
+**Recomendação com urgência:**
+```markdown
+**DECISÃO URGENTE (prazo: [data])**
+[Contexto em 2 frases]. Recomendamos [ação] com custo de [R$ X].
+Delay de [N dias] resulta em [custo/perda de R$ X].
 ```
 
 ---
 
-## 5. Bloco: Resumo de Mudança / Novidade
+## 4. Bloco: Métricas-Chave
+
+### Propósito
+Apresentar números essenciais de forma scannable.
+
+### Template
 
 ```markdown
-### O que Mudou desde o Último Report
+## Métricas-Chave
 
-1. **[Mudança 1]:** [Descrição concisa + impacto]
-2. **[Mudança 2]:** [Descrição + impacto]
-3. **[Mudança 3]:** [Descrição + impacto]
+| Métrica | Atual | Meta | Variação | Tendência |
+|---------|-------|------|----------|-----------|
+| [Métrica 1] | [Valor] | [Valor] | [+/- X%] | [Subindo/Estável/Caindo] |
+| [Métrica 2] | [Valor] | [Valor] | [+/- X%] | [Tendência] |
+| [Métrica 3] | [Valor] | [Valor] | [+/- X%] | [Tendência] |
+```
 
-**Implicação:** [O que estas mudanças significam para a estratégia/operação]
+### Variantes
+
+**Métricas financeiras SaaS:**
+```markdown
+| ARR | MRR | NRR | Churn | LTV/CAC | Runway |
+|-----|-----|-----|-------|---------|--------|
+| R$ [X]M | R$ [X]K | [X%] | [X%] | [X.X] | [X] meses |
+```
+
+**Métricas de produto:**
+```markdown
+| DAU | MAU | DAU/MAU | NPS | Retention D7 | Retention D30 |
+|-----|-----|---------|-----|-------------|---------------|
+| [N]K | [N]K | [X%] | [Score] | [X%] | [X%] |
 ```
 
 ---
 
-## 6. Bloco: Resumo para Board
+## 5. Bloco: Riscos e Mitigações (Compacto)
+
+### Template
 
 ```markdown
-## Board Summary — [Período]
+## Riscos Principais
 
-**Em uma frase:** [Estado da empresa em uma frase]
-
-**3 destaques positivos:**
-1. [Conquista com métrica]
-2. [Conquista com métrica]
-3. [Conquista com métrica]
-
-**2 pontos de atenção:**
-1. [Desafio — ação em curso]
-2. [Desafio — ação em curso]
-
-**1 pedido ao board:**
-[O que o management precisa do board — decisão, conselho ou conexão]
+| # | Risco | Severidade | Status | Ação |
+|---|-------|:---------:|--------|------|
+| 1 | [Risco em 1 frase] | [Crítico/Alto/Médio] | [Novo/Monitorando/Mitigando] | [Ação em curso] |
+| 2 | [Risco] | [Severidade] | [Status] | [Ação] |
+| 3 | [Risco] | [Severidade] | [Status] | [Ação] |
 ```
 
 ---
 
-## 7. Bloco: Resumo para All-Hands
+## 6. Bloco: Próximos Passos
+
+### Template
 
 ```markdown
-## Update da Empresa — [Mês/Trimestre]
+## Próximos Passos
 
-Oi time! Aqui vai o resumo do que aconteceu em [período]:
-
-**Celebrações:**
-- [Conquista 1 — dar crédito ao time/pessoa]
-- [Conquista 2]
-
-**Números importantes:**
-- [Métrica 1]: [valor] ([contexto])
-- [Métrica 2]: [valor] ([contexto])
-
-**Desafios que estamos enfrentando:**
-- [Desafio 1 — o que estamos fazendo]
-
-**O que vem pela frente:**
-- [Prioridade 1 para o próximo período]
-- [Prioridade 2]
-
-Obrigado(a) pelo trabalho de cada um. [Mensagem motivacional autêntica].
+| Ação | Owner | Prazo | Dependência |
+|------|-------|-------|------------|
+| [Ação 1] | [Nome] | [Data] | [Nenhuma / Aprovação de X] |
+| [Ação 2] | [Nome] | [Data] | [Dependência] |
+| [Ação 3] | [Nome] | [Data] | [Dependência] |
 ```
 
 ---
 
-## 8. Bloco: Resumo de Crise
+## Exemplos de Uso Combinado
 
+### Executive Summary de Board Deck
 ```markdown
-## Situação Atual — [Título da Crise]
+## Resumo Executivo — Q2 2026
 
-**Status:** [Em andamento / Sob controle / Resolvido]
-**Última atualização:** [DD/MM HH:MM]
+**Status:** Amarelo — receita on track, churn acima do esperado
 
-**O que aconteceu:** [Fatos em 2-3 frases — sem especulação]
-**Quem é afetado:** [N pessoas/clientes — % da base]
-**O que estamos fazendo:** [Ações concretas em andamento]
-**Próxima atualização:** [Data/hora]
-**Contato:** [Quem procurar para dúvidas]
+1. **ARR atingiu R$ 42M** (+18% QoQ), acima do plan em 3%
+2. **Churn MRR subiu para 3.2%** (meta: 2.5%) — plano de ação em execução
+3. **Pedido ao board:** Aprovação de R$ 2M para programa de retenção
+
+| ARR | NRR | Churn | Runway | HC |
+|-----|-----|-------|--------|----|
+| R$ 42M | 112% | 3.2% | 18m | 185 |
 ```
-
----
-
-## Exemplos de Uso
-
-### Combinando Blocos para Board Deck:
-1. Bloco 6 (Board Summary) como slide 2
-2. Bloco 2 (Financeiro) como slide 3
-3. Bloco 3 (Progresso) como slide 4
-4. Bloco 4 (Decisão) como slide final
-
-### Combinando para Weekly Update:
-1. Bloco 1 (Status verde/amarelo/vermelho)
-2. Bloco 5 (O que mudou)
-3. Bloco 3 (Progresso)
 
 ---
 
 ## Dicas de Uso
-- Sempre lidere com a conclusão, não com o contexto — executivos querem o BLUF
-- Um bom resumo executivo pode ser lido em menos de 2 minutos
-- Use números, não adjetivos — "cresceu 23%" é melhor que "cresceu significativamente"
-- Cada bloco deve funcionar sozinho — não dependa de contexto externo
-- Adapte o tom à audiência — board é formal, all-hands é humano
+- Executive summary SEMPRE no topo — muitos leitores param aqui
+- Máximo 1 página — se precisou de mais, não é resumo
+- Números > narrativa — "crescemos 18%" é mais forte que "tivemos bom crescimento"
+- Use status visual (verde/amarelo/vermelho) para scan rápido
+- Inclua SEMPRE o "ask" — o que você precisa do leitor
+- Teste: alguém que leu só o executive summary consegue tomar a decisão?

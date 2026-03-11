@@ -1,177 +1,225 @@
 # Financial Analysis Blocks — Blocos Reutilizáveis para Análise Financeira
 
 > Blocos padronizados para análises financeiras em documentos executivos.
-> Use como componentes modulares em business cases, reports e apresentações.
+> Use como componentes modulares em business cases, board decks, forecasts e reports.
 
 ---
 
 ## 1. Bloco: P&L Resumido
 
+### Template
 ```markdown
-### Demonstração de Resultados — [Período]
+## Demonstração de Resultado (P&L)
 
-| Linha | Real | Budget | Var | YoY |
-|-------|------|--------|-----|-----|
-| **Receita Bruta** | R$ [X] | R$ [X] | [+/-X%] | [+/-X%] |
-| (-) Deduções | (R$ [X]) | (R$ [X]) | | |
-| **Receita Líquida** | R$ [X] | R$ [X] | [+/-X%] | [+/-X%] |
-| (-) COGS | (R$ [X]) | (R$ [X]) | | |
-| **Margem Bruta** | R$ [X] ([X%]) | R$ [X] ([X%]) | [+/-X pp] | |
-| (-) OPEX | (R$ [X]) | (R$ [X]) | | |
-| **EBITDA** | R$ [X] ([X%]) | R$ [X] ([X%]) | [+/-X pp] | |
-| (-) D&A / Juros / IR | (R$ [X]) | (R$ [X]) | | |
-| **Resultado Líquido** | R$ [X] | R$ [X] | [+/-X%] | |
+| Linha | Período Anterior | Período Atual | Variação | % Receita |
+|-------|-----------------|--------------|----------|-----------|
+| Receita Bruta | [R$ X] | [R$ X] | [+/- X%] | 100% |
+| (-) Deduções | [(R$ X)] | [(R$ X)] | [+/- X%] | [X%] |
+| = Receita Líquida | [R$ X] | [R$ X] | [+/- X%] | [X%] |
+| (-) COGS | [(R$ X)] | [(R$ X)] | [+/- X%] | [X%] |
+| = Margem Bruta | [R$ X] | [R$ X] | [+/- X pp] | [X%] |
+| (-) OPEX | [(R$ X)] | [(R$ X)] | [+/- X%] | [X%] |
+| = EBITDA | [R$ X] | [R$ X] | [+/- X%] | [X%] |
+| (-) D&A | [(R$ X)] | [(R$ X)] | [+/- X%] | [X%] |
+| = EBIT | [R$ X] | [R$ X] | [+/- X%] | [X%] |
+| (-) Juros e Impostos | [(R$ X)] | [(R$ X)] | [+/- X%] | [X%] |
+| = Resultado Líquido | [R$ X] | [R$ X] | [+/- X%] | [X%] |
+```
+
+### Variante: P&L Simplificado para Board
+```markdown
+| Linha | Budget | Realizado | Var | Forecast FY |
+|-------|--------|-----------|-----|------------|
+| Receita | [R$ X] | [R$ X] | [X%] | [R$ X] |
+| Margem Bruta | [X%] | [X%] | [X pp] | [X%] |
+| OPEX | [(R$ X)] | [(R$ X)] | [X%] | [(R$ X)] |
+| EBITDA | [R$ X] | [R$ X] | [X%] | [R$ X] |
 ```
 
 ---
 
 ## 2. Bloco: Unit Economics SaaS
 
+### Template
 ```markdown
-### Unit Economics — [Período]
+## Unit Economics
 
 | Métrica | Valor | Benchmark | Status |
 |---------|-------|-----------|--------|
-| **CAC** (Custo de Aquisição) | R$ [X] | [Referência do setor] | [Bom/Atenção/Ruim] |
-| **LTV** (Lifetime Value) | R$ [X] | — | |
-| **LTV/CAC** | [X.X]x | >3x ideal | [Status] |
-| **Payback de CAC** | [X meses] | <12 meses ideal | [Status] |
-| **ARPU** (Receita por usuário/mês) | R$ [X] | — | |
-| **Gross Margin** | [X%] | >70% para SaaS | [Status] |
-| **Net Revenue Retention** | [X%] | >110% ideal | [Status] |
-| **Logo Churn** | [X%/mês] | <2% ideal | [Status] |
-| **MRR Churn** | [X%/mês] | <1.5% ideal | [Status] |
+| **CAC (Custo de Aquisição)** | R$ [X] | R$ [X] | [Saudável/Atenção] |
+| **LTV (Lifetime Value)** | R$ [X] | R$ [X] | [Status] |
+| **LTV/CAC** | [X.X]x | >3x | [Status] |
+| **Payback CAC** | [X] meses | <12 meses | [Status] |
+| **ARPU** | R$ [X]/mês | R$ [X] | [Status] |
+| **Gross Margin** | [X%] | >70% | [Status] |
+| **Net Revenue Retention** | [X%] | >110% | [Status] |
+| **Logo Churn** | [X%]/mês | <2%/mês | [Status] |
+| **Revenue Churn** | [X%]/mês | <1%/mês | [Status] |
 
-**Narrativa:** [O que os unit economics dizem sobre a saúde do negócio]
+### Cálculos
+- CAC = (Sales + Marketing spend) / Novos clientes = R$ [X] / [N] = R$ [X]
+- LTV = ARPU x Gross Margin / Churn Rate = R$ [X] x [X%] / [X%] = R$ [X]
+- Payback = CAC / (ARPU x Gross Margin) = [X] meses
 ```
 
 ---
 
-## 3. Bloco: Cash Flow Simplificado
+## 3. Bloco: Análise de Cash Flow
 
+### Template
 ```markdown
-### Fluxo de Caixa — [Período]
+## Fluxo de Caixa
 
-| Categoria | [Mês 1] | [Mês 2] | [Mês 3] | Total Q |
-|-----------|---------|---------|---------|---------|
-| **Saldo Inicial** | R$ [X] | R$ [X] | R$ [X] | R$ [X] |
-| (+) Receitas recebidas | R$ [X] | R$ [X] | R$ [X] | R$ [X] |
-| (+) Outros recebimentos | R$ [X] | R$ [X] | R$ [X] | R$ [X] |
-| (-) Folha + encargos | (R$ [X]) | (R$ [X]) | (R$ [X]) | (R$ [X]) |
-| (-) Fornecedores | (R$ [X]) | (R$ [X]) | (R$ [X]) | (R$ [X]) |
-| (-) Infra/Cloud | (R$ [X]) | (R$ [X]) | (R$ [X]) | (R$ [X]) |
-| (-) Marketing | (R$ [X]) | (R$ [X]) | (R$ [X]) | (R$ [X]) |
-| (-) Outros | (R$ [X]) | (R$ [X]) | (R$ [X]) | (R$ [X]) |
-| **Fluxo Líquido** | R$ [X] | R$ [X] | R$ [X] | R$ [X] |
-| **Saldo Final** | R$ [X] | R$ [X] | R$ [X] | R$ [X] |
+| Mês | Entradas | Saídas | Fluxo Líquido | Saldo Acumulado |
+|-----|---------|--------|-------------|----------------|
+| [M1] | R$ [X] | (R$ [X]) | R$ [+/- X] | R$ [X] |
+| [M2] | R$ [X] | (R$ [X]) | R$ [+/- X] | R$ [X] |
+| [M3] | R$ [X] | (R$ [X]) | R$ [+/- X] | R$ [X] |
 
-**Burn Rate Mensal:** R$ [X] | **Runway:** [N meses]
+**Burn rate médio:** R$ [X]/mês
+**Runway:** [X] meses (caixa atual / burn rate)
+**Meses até breakeven:** [X] meses
+```
+
+### Variante: Cash Flow por Categoria
+```markdown
+| Categoria | M1 | M2 | M3 | Total Q |
+|-----------|-----|-----|-----|---------|
+| **Entradas** | | | | |
+| Receita recorrente | R$ [X] | R$ [X] | R$ [X] | R$ [X] |
+| Receita não-recorrente | R$ [X] | R$ [X] | R$ [X] | R$ [X] |
+| **Saídas** | | | | |
+| Folha de pagamento | (R$ [X]) | (R$ [X]) | (R$ [X]) | (R$ [X]) |
+| Infraestrutura | (R$ [X]) | (R$ [X]) | (R$ [X]) | (R$ [X]) |
+| Marketing | (R$ [X]) | (R$ [X]) | (R$ [X]) | (R$ [X]) |
+| G&A | (R$ [X]) | (R$ [X]) | (R$ [X]) | (R$ [X]) |
+| **Fluxo Líquido** | **R$ [X]** | **R$ [X]** | **R$ [X]** | **R$ [X]** |
 ```
 
 ---
 
-## 4. Bloco: Análise de Variação (Bridge)
+## 4. Bloco: ROI Simplificado
 
+### Template
 ```markdown
-### Bridge de Receita — Budget vs Real [Período]
+## Análise de ROI
 
-Budget: R$ [X]
-(+) Clientes novos acima do plan: +R$ [X]
-(+) Upsell acima do plan: +R$ [X]
-(-) Churn acima do plan: -R$ [X]
-(-) Delay em enterprise deals: -R$ [X]
-(-) Desconto não planejado: -R$ [X]
-= **Realizado: R$ [X]** (Variação: [+/-X%])
+**Investimento:** R$ [X]
+**Benefício anual:** R$ [X]
+**ROI:** [((Benefício - Investimento) / Investimento) x 100]%
+**Payback:** [Investimento / Benefício mensal] meses
 
-**Conclusão:** [O que explica a maior parte da variação]
+| Cenário | Investimento | Benefício (12m) | ROI | Payback |
+|---------|-------------|----------------|-----|---------|
+| Otimista | R$ [X] | R$ [X] | [X%] | [X]m |
+| Base | R$ [X] | R$ [X] | [X%] | [X]m |
+| Pessimista | R$ [X] | R$ [X] | [X%] | [X]m |
 ```
 
 ---
 
-## 5. Bloco: Análise de Cohort de Receita
+## 5. Bloco: Budget vs Realizado
 
+### Template
 ```markdown
-### Cohort de Receita Mensal (MRR por mês de aquisição)
+## Budget vs Realizado
 
-| Cohort | Mês 0 | Mês 3 | Mês 6 | Mês 12 | Retenção 12m |
-|--------|-------|-------|-------|--------|:------------:|
-| [Jan/24] | R$ [X] | R$ [X] | R$ [X] | R$ [X] | [X%] |
-| [Abr/24] | R$ [X] | R$ [X] | R$ [X] | R$ [X] | [X%] |
-| [Jul/24] | R$ [X] | R$ [X] | R$ [X] | — | [Projeção] |
-| [Out/24] | R$ [X] | R$ [X] | — | — | [Projeção] |
+| Área | Budget | Realizado | Variação | Comentário |
+|------|--------|-----------|----------|------------|
+| [Área 1] | R$ [X] | R$ [X] | [+/- X%] | [Motivo da variação] |
+| [Área 2] | R$ [X] | R$ [X] | [+/- X%] | [Motivo] |
+| [Área 3] | R$ [X] | R$ [X] | [+/- X%] | [Motivo] |
+| **Total** | **R$ [X]** | **R$ [X]** | **[+/- X%]** | |
 
-**Tendência:** [Cohorts melhorando/piorando — o que explica]
+**Variações > 10% requerem explicação detalhada.**
 ```
 
 ---
 
-## 6. Bloco: Comparação de Cenários Financeiros
+## 6. Bloco: Análise de Cenários
 
+### Template
 ```markdown
-### Cenários Financeiros — [Decisão/Contexto]
+## Cenários Financeiros
 
-| Métrica | Conservador | Base | Otimista |
-|---------|:----------:|:----:|:--------:|
-| Premissa principal | [Premissa] | [Premissa] | [Premissa] |
-| Receita (12m) | R$ [X] | R$ [X] | R$ [X] |
-| Custo total | R$ [X] | R$ [X] | R$ [X] |
+| Variável | Pessimista | Base | Otimista |
+|----------|-----------|------|----------|
+| Crescimento de receita | [X%] | [X%] | [X%] |
+| Churn rate | [X%] | [X%] | [X%] |
+| CAC | R$ [X] | R$ [X] | R$ [X] |
+| **Resultado** | | | |
+| Receita FY | R$ [X] | R$ [X] | R$ [X] |
 | EBITDA | R$ [X] | R$ [X] | R$ [X] |
-| Runway | [N meses] | [N meses] | [N meses] |
-| Headcount final | [N] | [N] | [N] |
-| Probabilidade | [X%] | [X%] | [X%] |
-
-**Recomendação:** Planejar para cenário [base] com contingência para [conservador].
+| Caixa final | R$ [X] | R$ [X] | R$ [X] |
+| Runway | [X] meses | [X] meses | [X] meses |
 ```
 
 ---
 
-## 7. Bloco: Métricas de Eficiência
+## 7. Bloco: Waterfall de Receita
 
+### Template
 ```markdown
-### Eficiência Operacional — [Período]
+## Waterfall de Receita MRR
 
-| Métrica | Valor | QoQ | Benchmark |
-|---------|-------|-----|-----------|
-| Receita por funcionário | R$ [X]/mês | [+/-X%] | [Referência] |
-| ARR por funcionário | R$ [X] | [+/-X%] | [>R$ 200K para SaaS B2B] |
-| Burn multiple | [X.X]x | [+/-X] | [<2x ideal] |
-| Magic number | [X.X] | [+/-X] | [>0.75 ideal] |
-| Rule of 40 | [X] | [+/-X] | [>40 ideal] |
-| OPEX como % da receita | [X%] | [+/-X pp] | [Referência] |
+| Componente | Valor | % do MRR Inicial |
+|-----------|-------|-----------------|
+| MRR Início do Período | R$ [X] | 100% |
+| (+) New MRR | +R$ [X] | +[X%] |
+| (+) Expansion MRR | +R$ [X] | +[X%] |
+| (-) Churn MRR | -R$ [X] | -[X%] |
+| (-) Contraction MRR | -R$ [X] | -[X%] |
+| = **MRR Final do Período** | **R$ [X]** | **[X%]** |
+| = **Net New MRR** | **R$ [X]** | **[X%]** |
 ```
 
 ---
 
-## 8. Bloco: ROI Simplificado
+## 8. Bloco: Headcount e Custo por Área
 
+### Template
 ```markdown
-### ROI — [Nome do Investimento]
+## Custo de Headcount
 
-| | Valor |
-|---|-------|
-| **Investimento total** | R$ [X] |
-| **Benefício anual** | R$ [X] |
-| **ROI** | **[X%]** |
-| **Payback** | **[X meses]** |
-| **NPV (taxa X%)** | R$ [X] |
+| Área | HC | Salário Médio | Encargos | Custo Total Mensal | % do OPEX |
+|------|:--:|-------------|---------|-------------------|-----------|
+| Engineering | [N] | R$ [X] | R$ [X] | R$ [X] | [X%] |
+| Sales | [N] | R$ [X] | R$ [X] | R$ [X] | [X%] |
+| Marketing | [N] | R$ [X] | R$ [X] | R$ [X] | [X%] |
+| CS | [N] | R$ [X] | R$ [X] | R$ [X] | [X%] |
+| G&A | [N] | R$ [X] | R$ [X] | R$ [X] | [X%] |
+| **Total** | **[N]** | | | **R$ [X]** | **100%** |
 
-**Racional:** [1-2 frases explicando de onde vem o retorno]
+**Custo per capita médio:** R$ [X]/mês
+**Receita per capita:** R$ [X]/mês
+**Eficiência (receita/headcount):** [Valor comparado com benchmark]
 ```
 
 ---
 
-## Exemplos de Uso
+## Exemplos de Uso Combinado
 
-**Para Business Case:** Blocos 1 (P&L) + 6 (Cenários) + 8 (ROI)
-**Para Board Deck:** Blocos 1 (P&L) + 2 (Unit Economics) + 3 (Cash Flow) + 4 (Bridge)
-**Para Forecast:** Blocos 1 (P&L) + 3 (Cash Flow) + 5 (Cohort) + 6 (Cenários)
-**Para Budget Request:** Blocos 8 (ROI) + 6 (Cenários)
+### Análise Financeira para Business Case
+```markdown
+## Análise Financeira
+
+**Investimento:** R$ 450K (3 engenheiros x 6 meses + R$ 50K infra)
+**Benefício:** R$ 1.2M/ano em redução de churn (de 3% para 2% MRR churn)
+**ROI:** 167% | **Payback:** 5 meses
+
+| Cenário | Redução de Churn | Receita Retida | ROI |
+|---------|-----------------|---------------|-----|
+| Pessimista | 0.5 pp | R$ 600K | 33% |
+| Base | 1.0 pp | R$ 1.2M | 167% |
+| Otimista | 1.5 pp | R$ 1.8M | 300% |
+```
 
 ---
 
 ## Dicas de Uso
-- Sempre inclua variação (vs budget, QoQ, YoY) — números absolutos sem contexto não informam
-- Use formatação consistente: negativos entre parênteses, percentuais com 1 casa decimal
-- Narrative é obrigatória — tabela sem explicação gera mais perguntas que respostas
-- Benchmarks dão contexto — "CAC de R$ 500" sozinho não diz nada, "vs benchmark de R$ 800" sim
-- Arredonde para facilitar leitura — R$ 1.2M é melhor que R$ 1.234.567 em apresentações
+- Sempre compare com benchmark ou período anterior — números absolutos sem referência são inúteis
+- Use % da receita para OPEX — facilita comparação entre períodos de tamanhos diferentes
+- Destaque variações > 10% — são as que importam para decisão
+- Inclua cenários — ninguém acredita em previsão de número único
+- Mostre tendência (subindo/estável/caindo) além do snapshot — dá contexto direcional
+- Para board, simplifique — para finance, detalhe

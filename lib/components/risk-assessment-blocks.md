@@ -1,172 +1,202 @@
 # Risk Assessment Blocks — Blocos Reutilizáveis para Avaliação de Risco
 
 > Blocos padronizados para identificar, avaliar e comunicar riscos em documentos executivos.
+> Riscos bem documentados permitem decisões informadas e preparação adequada.
 
 ---
 
-## 1. Bloco: Matriz de Risco (Padrão)
+## 1. Bloco: Matriz de Riscos
 
+### Template Padrão
 ```markdown
-### Matriz de Riscos — [Contexto]
+## Matriz de Riscos
 
-| # | Risco | Prob. | Impacto | Score | Mitigação | Owner | Status |
-|---|-------|:-----:|:-------:|:-----:|-----------|-------|--------|
-| R1 | [Descrição] | [A/M/B] | [A/M/B] | [1-9] | [Ação] | [Nome] | [Aberto/Em mitigação/Mitigado] |
-| R2 | [Descrição] | [A/M/B] | [A/M/B] | [1-9] | [Ação] | [Nome] | [Status] |
-| R3 | [Descrição] | [A/M/B] | [A/M/B] | [1-9] | [Ação] | [Nome] | [Status] |
+| # | Risco | Categoria | Probabilidade | Impacto | Severidade | Owner | Status |
+|---|-------|-----------|:---:|:---:|:---:|-------|--------|
+| R1 | [Descrição] | [Cat.] | [A/M/B] | [A/M/B] | [Crítico/Alto/Médio/Baixo] | [Nome] | [Novo/Monitorando/Mitigando/Mitigado] |
+| R2 | [Descrição] | [Cat.] | [A/M/B] | [A/M/B] | [Severidade] | [Nome] | [Status] |
+```
 
-**Score:** Alto(3) x Alto(3) = 9, Alto x Médio = 6, Médio x Médio = 4, etc.
-**Threshold de ação imediata:** Score >= 6
+### Variante: Matriz Visual (Heat Map em Texto)
+```markdown
+              │ Baixo Impacto │ Médio Impacto │ Alto Impacto │
+──────────────┼───────────────┼───────────────┼──────────────┤
+Alta Prob.    │   MÉDIO       │   ALTO        │  CRÍTICO     │
+              │               │               │  [R1, R3]    │
+──────────────┼───────────────┼───────────────┼──────────────┤
+Média Prob.   │   BAIXO       │   MÉDIO       │  ALTO        │
+              │               │   [R4]        │  [R2]        │
+──────────────┼───────────────┼───────────────┼──────────────┤
+Baixa Prob.   │   BAIXO       │   BAIXO       │  MÉDIO       │
+              │   [R5]        │               │  [R6]        │
+──────────────┴───────────────┴───────────────┴──────────────┘
 ```
 
 ---
 
-## 2. Bloco: Heat Map de Riscos
+## 2. Bloco: Risco Detalhado
 
+### Template
 ```markdown
-### Mapa de Calor de Riscos
+### Risco: [Título]
 
-|              | Baixo Impacto | Médio Impacto | Alto Impacto |
-|:------------:|:---:|:---:|:---:|
-| **Alta Prob** | [R5] Amarelo | [R2] Vermelho | [R1] Vermelho |
-| **Média Prob** | [R6] Verde | [R4] Amarelo | [R3] Vermelho |
-| **Baixa Prob** | Verde | [R7] Verde | [R8] Amarelo |
-
-**Vermelho (Score 6-9):** Ação imediata obrigatória
-**Amarelo (Score 3-4):** Monitorar com plano de mitigação
-**Verde (Score 1-2):** Aceitar e monitorar periodicamente
+| Campo | Detalhes |
+|-------|---------|
+| **ID** | [R-NNN] |
+| **Categoria** | [Estratégico / Operacional / Financeiro / Técnico / Legal / Reputacional / People] |
+| **Descrição** | [O que pode acontecer — ser específico] |
+| **Causa raiz** | [Por que pode acontecer] |
+| **Probabilidade** | [Alta (>60%) / Média (30-60%) / Baixa (<30%)] |
+| **Impacto** | [Alto / Médio / Baixo — quantificar quando possível: R$ X, N dias] |
+| **Severidade** | [Probabilidade x Impacto] |
+| **Trigger/Indicador** | [Sinal que indica que o risco está se materializando] |
+| **Mitigação** | [Ação para reduzir probabilidade ou impacto] |
+| **Contingência** | [Plano B se o risco se materializar] |
+| **Owner** | [Nome — responsável pela mitigação] |
+| **Prazo de revisão** | [Quando reavaliar] |
 ```
 
 ---
 
-## 3. Bloco: Risco com Impacto Financeiro
+## 3. Bloco: Análise FMEA (Failure Mode and Effects Analysis)
 
+### Template
 ```markdown
-### Riscos com Quantificação Financeira
+## FMEA — Análise de Modos de Falha
 
-| Risco | Probabilidade | Impacto (R$) | Valor Esperado | Custo de Mitigação | Decisão |
-|-------|:---:|---:|---:|---:|---------|
-| [Risco 1] | [X%] | R$ [X] | R$ [prob x impacto] | R$ [X] | [Mitigar/Aceitar/Transferir] |
-| [Risco 2] | [X%] | R$ [X] | R$ [X] | R$ [X] | [Decisão] |
-| [Risco 3] | [X%] | R$ [X] | R$ [X] | R$ [X] | [Decisão] |
+| Modo de Falha | Efeito | Severidade (1-10) | Probabilidade (1-10) | Detecção (1-10) | RPN | Ação |
+|--------------|--------|:-:|:-:|:-:|:-:|------|
+| [Como pode falhar] | [Impacto da falha] | [1-10] | [1-10] | [1-10] | [SxPxD] | [Mitigação] |
+| [Modo 2] | [Efeito] | [S] | [P] | [D] | [RPN] | [Ação] |
 
-**Regra:** Mitigar se custo de mitigação < valor esperado do risco
-**Exposição total:** R$ [soma dos valores esperados]
+**RPN (Risk Priority Number)** = Severidade x Probabilidade x (in)Detecção
+- RPN > 200: Ação imediata obrigatória
+- RPN 100-200: Plano de mitigação necessário
+- RPN < 100: Monitorar
 ```
 
 ---
 
 ## 4. Bloco: Riscos por Categoria
 
+### Template
 ```markdown
+## Panorama de Riscos por Categoria
+
 ### Riscos Estratégicos
-- [Risco de mercado] — [Mitigação]
-- [Risco competitivo] — [Mitigação]
-- [Risco regulatório] — [Mitigação]
+- [Mudança de mercado / Concorrência / Regulação]
 
 ### Riscos Operacionais
-- [Risco de execução] — [Mitigação]
-- [Risco de dependência] — [Mitigação]
-- [Risco de capacidade] — [Mitigação]
+- [Processos / Sistemas / Capacidade / Dependências]
 
 ### Riscos Financeiros
-- [Risco de caixa] — [Mitigação]
-- [Risco cambial] — [Mitigação]
-- [Risco de concentração de receita] — [Mitigação]
+- [Liquidez / Câmbio / Inadimplência / Custos]
 
 ### Riscos de Pessoas
-- [Risco de turnover key person] — [Mitigação]
-- [Risco de hiring] — [Mitigação]
-- [Risco de burnout] — [Mitigação]
+- [Turnover / Key-person dependency / Cultura]
 
 ### Riscos Tecnológicos
-- [Risco de segurança] — [Mitigação]
-- [Risco de scalability] — [Mitigação]
-- [Risco de vendor lock-in] — [Mitigação]
+- [Segurança / Escalabilidade / Dívida técnica / Vendor lock-in]
+
+### Riscos Legais/Regulatórios
+- [LGPD / Trabalhista / Tributário / Contratos]
+
+### Riscos Reputacionais
+- [Marca / Confiança de clientes / ESG]
 ```
 
 ---
 
-## 5. Bloco: Evolução de Riscos (Trending)
+## 5. Bloco: Evolução de Riscos
 
+### Template
 ```markdown
-### Evolução de Riscos — [Período]
+## Evolução de Riscos (período a período)
 
-| Risco | Score Q Anterior | Score Q Atual | Tendência | Comentário |
-|-------|:---:|:---:|:---:|-----------|
-| [Risco 1] | [6] | [4] | Melhorando | [Mitigação X surtiu efeito] |
-| [Risco 2] | [3] | [6] | Piorando | [Novo contexto aumentou probabilidade] |
-| [Risco 3] | [4] | [4] | Estável | [Monitorando] |
-
-**Novos riscos identificados:** [Lista]
-**Riscos removidos:** [Lista — por que não são mais relevantes]
+| Risco | Q Anterior | Q Atual | Tendência | Comentário |
+|-------|:---:|:---:|:---:|------------|
+| [Risco 1] | [Médio] | [Alto] | Piorando | [O que mudou] |
+| [Risco 2] | [Alto] | [Médio] | Melhorando | [Mitigação funcionou] |
+| [Risco 3] | [N/A] | [Alto] | Novo | [Identificado esta semana] |
+| [Risco 4] | [Baixo] | [Encerrado] | Resolvido | [O que foi feito] |
 ```
 
 ---
 
-## 6. Bloco: Análise de Risco para Decisão
+## 6. Bloco: Risk Appetite Statement
 
+### Template
 ```markdown
-### Análise de Risco — [Nome da Decisão]
+## Apetite de Risco
 
-**Se fizermos:**
-| Risco | Prob | Impacto | Mitigação |
-|-------|:---:|:---:|-----------|
-| [Risco 1] | [A/M/B] | [A/M/B] | [Plano] |
-| [Risco 2] | [A/M/B] | [A/M/B] | [Plano] |
-
-**Se NÃO fizermos:**
-| Risco | Prob | Impacto | Consequência |
-|-------|:---:|:---:|-------------|
-| [Risco de inação 1] | [A/M/B] | [A/M/B] | [O que acontece] |
-| [Risco de inação 2] | [A/M/B] | [A/M/B] | [O que acontece] |
-
-**Conclusão:** [Fazer / Não fazer — baseado na análise comparativa de riscos]
+| Categoria | Apetite | Descrição | Limite |
+|-----------|---------|-----------|--------|
+| Financeiro | [Baixo/Médio/Alto] | [Quanto estamos dispostos a perder] | [R$ X máximo] |
+| Técnico | [Baixo/Médio/Alto] | [Quanto downtime aceitamos] | [X horas/trimestre] |
+| Reputacional | [Baixo] | [Zero tolerância para incidentes públicos graves] | [N/A] |
+| Regulatório | [Muito Baixo] | [Compliance total é obrigatório] | [Zero violações] |
+| Inovação | [Alto] | [Aceitamos falhas em projetos experimentais] | [X% do budget para bets] |
 ```
 
 ---
 
-## 7. Bloco: RAID Log (Riscos, Ações, Issues, Dependências)
+## 7. Bloco: Análise de Impacto
 
+### Template
 ```markdown
-### RAID Log — [Projeto]
+## Análise de Impacto — Cenário: [Descrição]
 
-| Tipo | Descrição | Status | Owner | Data |
-|:----:|-----------|--------|-------|------|
-| R | [Risco identificado] | [Aberto] | [Nome] | [Data] |
-| A | [Ação pendente] | [Em andamento] | [Nome] | [Data] |
-| I | [Issue/Problema ativo] | [Bloqueando] | [Nome] | [Data] |
-| D | [Dependência externa] | [Aguardando] | [Nome] | [Data] |
+| Dimensão | Impacto Imediato (0-30 dias) | Impacto Médio Prazo (1-6 meses) | Impacto Longo Prazo (6-12 meses) |
+|----------|----------------------------|-------------------------------|-------------------------------|
+| Receita | [R$ X / X%] | [R$ X / X%] | [R$ X / X%] |
+| Operações | [Descrição] | [Descrição] | [Descrição] |
+| Clientes | [N afetados] | [Churn estimado] | [Recuperação] |
+| Pessoas | [Descrição] | [Descrição] | [Descrição] |
+| Reputação | [Descrição] | [Descrição] | [Descrição] |
 ```
 
 ---
 
-## 8. Bloco: Triggers e Early Warning
+## 8. Bloco: Plano de Contingência
 
+### Template
 ```markdown
-### Early Warning Indicators
+## Plano de Contingência — Risco: [Nome]
 
-| Risco | Trigger / Sinal de Alerta | Threshold | Monitoramento | Ação se Triggered |
-|-------|--------------------------|-----------|--------------|-------------------|
-| [Risco 1] | [Indicador observável] | [Valor limite] | [Como monitorar] | [Ação imediata] |
-| [Risco 2] | [Indicador] | [Threshold] | [Monitoramento] | [Ação] |
-| [Risco 3] | [Indicador] | [Threshold] | [Monitoramento] | [Ação] |
+**Trigger:** [O que ativa o plano de contingência]
+
+| Passo | Ação | Responsável | Prazo | Recursos |
+|-------|------|-------------|-------|----------|
+| 1 | [Ação imediata] | [Nome] | [Imediato] | [O que precisa] |
+| 2 | [Ação de curto prazo] | [Nome] | [24-48h] | [Recursos] |
+| 3 | [Ação de estabilização] | [Nome] | [1 semana] | [Recursos] |
+| 4 | [Ação de normalização] | [Nome] | [1 mês] | [Recursos] |
+
+**Custo estimado da contingência:** [R$ X]
+**Impacto residual após contingência:** [Descrição do impacto que ainda resta]
 ```
 
 ---
 
 ## Exemplos de Uso
 
-**Para Strategy Doc:** Blocos 1 (Matriz) + 4 (Por categoria) + 8 (Triggers)
-**Para Board Deck:** Blocos 2 (Heat map) + 5 (Evolução) + 3 (Financeiro)
-**Para Projeto:** Blocos 7 (RAID) + 1 (Matriz) + 8 (Triggers)
-**Para Decisão:** Bloco 6 (Análise comparativa) + 3 (Financeiro)
+### Para Board Deck (compacto)
+```markdown
+## Top 3 Riscos
+
+| Risco | Severidade | Mitigação | Status |
+|-------|:---------:|-----------|--------|
+| Churn acima do plan (3.2% vs 2.5%) | Alto | Programa de retenção + CS proativo | Em execução |
+| Key engineer saiu (arquiteto do core) | Alto | Documentação + contratação urgente | Contratação em andamento |
+| Regulação LGPD para AI features | Médio | Consultoria jurídica + DPO envolvido | Monitorando |
+```
 
 ---
 
 ## Dicas de Uso
-- Risco sem owner é risco ignorado — sempre atribua
-- Revise riscos a cada ciclo (sprint, mês, trimestre) — novos riscos surgem continuamente
-- Quantifique quando possível — "risco alto" é subjetivo, "R$ 500K de impacto" é concreto
-- Inclua riscos de INAÇÃO — frequentemente maiores que riscos de ação
-- Triggers são mais úteis que probabilidades — defina sinais observáveis
+- Risco sem owner é risco ignorado — sempre atribua responsável
+- Quantifique impacto sempre que possível — "alto impacto" é vago, "R$ 500K de perda" é claro
+- Triggers são essenciais — defina indicadores que alertam sobre materialização
+- Revise riscos mensalmente no mínimo — cenário muda rápido
+- Novos riscos não são falha — é sinal de que você está atento
+- Risco mitigado não é risco eliminado — continue monitorando
