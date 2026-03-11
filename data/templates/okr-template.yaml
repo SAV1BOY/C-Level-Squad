@@ -1,0 +1,231 @@
+# Template YAML de OKR (Objectives and Key Results)
+# Estrutura padronizada para definir e acompanhar OKRs em todos os níveis
+# Versão: 1.0 | Última atualização: Março 2026
+
+okr_plan:
+  metadata:
+    plan_id: "OKR-{YYYY}-Q{Q}"
+    period:
+      quarter: null          # 1, 2, 3 ou 4
+      year: null
+      start_date: null
+      end_date: null
+    created_by: null
+    created_at: null
+    last_updated: null
+    status: draft            # draft | active | review | closed
+    cadence:
+      check_in: weekly       # weekly | biweekly
+      scoring: quarterly     # quarterly
+      planning: quarterly    # quarterly
+
+  principles:
+    - "OKRs devem ser ambiciosos - atingir 70% já é sucesso"
+    - "Key Results devem ser mensuráveis e verificáveis"
+    - "Máximo de 3-5 objetivos por nível"
+    - "Máximo de 3-5 KRs por objetivo"
+    - "OKRs não são lista de tarefas - são resultados desejados"
+    - "Pelo menos 40% dos OKRs devem ser bottom-up"
+
+  scoring_guide:
+    scale: "0.0 a 1.0"
+    ranges:
+      - score: "0.0 - 0.3"
+        meaning: "Falha significativa - não avançamos"
+        action: "Post-mortem e replanejar"
+      - score: "0.4 - 0.6"
+        meaning: "Progresso parcial - faltou execução ou o KR era muito ambicioso"
+        action: "Analisar causa e ajustar"
+      - score: "0.7 - 0.8"
+        meaning: "Sucesso - atingimos o esperado para OKRs stretch"
+        action: "Celebrar e iterar"
+      - score: "0.9 - 1.0"
+        meaning: "Superou - possivelmente o KR não era ambicioso o suficiente"
+        action: "Aumentar ambição no próximo ciclo"
+
+  company_okrs:
+    mission_statement: ""
+    annual_theme: ""
+
+    objectives:
+      - id: "C-O1"
+        objective: ""
+        owner: ""            # CEO ou líder responsável
+        type: committed      # committed | aspirational
+        alignment: ""        # Qual pilar estratégico suporta
+        confidence: null     # 0.0 a 1.0 (avaliação atual)
+
+        key_results:
+          - id: "C-O1-KR1"
+            key_result: ""
+            metric: ""
+            baseline: null   # Valor atual (ponto de partida)
+            target: null     # Meta para o trimestre
+            current: null    # Valor atual (atualizado no check-in)
+            score: null      # 0.0 a 1.0
+            owner: ""
+            data_source: ""  # Onde a métrica é medida
+            update_frequency: weekly
+            status: on_track # on_track | at_risk | behind | achieved
+
+          - id: "C-O1-KR2"
+            key_result: ""
+            metric: ""
+            baseline: null
+            target: null
+            current: null
+            score: null
+            owner: ""
+            data_source: ""
+            update_frequency: weekly
+            status: on_track
+
+          - id: "C-O1-KR3"
+            key_result: ""
+            metric: ""
+            baseline: null
+            target: null
+            current: null
+            score: null
+            owner: ""
+            data_source: ""
+            update_frequency: weekly
+            status: on_track
+
+        initiatives:       # Projetos/ações que contribuem para o objetivo
+          - name: ""
+            owner: ""
+            status: ""
+            contributes_to: []  # Lista de KR IDs
+
+        check_ins:
+          - week: null
+            date: null
+            confidence: null
+            commentary: ""
+            blockers: []
+            actions: []
+
+      - id: "C-O2"
+        objective: ""
+        owner: ""
+        type: committed
+        alignment: ""
+        confidence: null
+        key_results: []
+        initiatives: []
+        check_ins: []
+
+  department_okrs:
+    - department: "engineering"
+      lead: ""
+      objectives:
+        - id: "ENG-O1"
+          objective: ""
+          owner: ""
+          type: committed
+          aligned_to: "C-O1"  # ID do OKR company que suporta
+          confidence: null
+          key_results:
+            - id: "ENG-O1-KR1"
+              key_result: ""
+              metric: ""
+              baseline: null
+              target: null
+              current: null
+              score: null
+              owner: ""
+              data_source: ""
+              status: on_track
+          initiatives: []
+          check_ins: []
+
+    - department: "product"
+      lead: ""
+      objectives: []
+
+    - department: "sales"
+      lead: ""
+      objectives: []
+
+    - department: "finance"
+      lead: ""
+      objectives: []
+
+    - department: "ai_data"
+      lead: ""
+      objectives: []
+
+    - department: "people"
+      lead: ""
+      objectives: []
+
+  team_okrs:
+    - team: ""
+      department: ""
+      lead: ""
+      objectives:
+        - id: "TEAM-O1"
+          objective: ""
+          owner: ""
+          aligned_to: ""     # ID do OKR departamental
+          confidence: null
+          key_results:
+            - id: "TEAM-O1-KR1"
+              key_result: ""
+              metric: ""
+              baseline: null
+              target: null
+              current: null
+              score: null
+              owner: ""
+              status: on_track
+
+  quarterly_summary:
+    overall_score: null
+    objectives_achieved: null
+    objectives_total: null
+    achievement_rate: null
+    top_achievements:
+      - okr_id: ""
+        description: ""
+        score: null
+    biggest_misses:
+      - okr_id: ""
+        description: ""
+        score: null
+        learnings: ""
+    learnings:
+      - learning: ""
+        action_for_next_quarter: ""
+    process_improvements:
+      - improvement: ""
+        owner: ""
+
+  rituals:
+    planning:
+      duration: "2 semanas antes do início do trimestre"
+      steps:
+        - "CEO define temas estratégicos e OKRs company"
+        - "Departamentos propõem OKRs alinhados (bottom-up + top-down)"
+        - "Sessão de alinhamento cross-funcional"
+        - "Finalização e publicação dos OKRs"
+    weekly_check_in:
+      duration: "15 minutos por time"
+      format:
+        - "Atualizar scores dos KRs"
+        - "Reportar confidence level"
+        - "Identificar blockers"
+        - "Definir ações da semana"
+    mid_quarter_review:
+      duration: "1 hora por departamento"
+      format:
+        - "Revisão de progresso de cada OKR"
+        - "Ajuste de confidence levels"
+        - "Decisão sobre OKRs at-risk (pivotar, reforçar ou aceitar)"
+    quarterly_scoring:
+      duration: "2 horas (company-wide)"
+      format:
+        - "Scoring final de cada KR"
+        - "Reflexão sobre learnings"
+        - "Input para próximo ciclo de planning"

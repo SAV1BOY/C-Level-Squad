@@ -1,0 +1,185 @@
+# Template YAML de Relatório Semanal
+# Utilizado por todos os agentes C-Level para reports semanais padronizados
+# Versão: 1.0 | Última atualização: Março 2026
+
+weekly_report:
+  metadata:
+    report_id: "WR-{YYYY}-W{WW}"
+    period:
+      week_number: null  # Número da semana ISO
+      start_date: null   # YYYY-MM-DD (segunda-feira)
+      end_date: null     # YYYY-MM-DD (sexta-feira)
+    author:
+      agent: null        # cfo-strategist | cio-engineer | caio-architect | squad-coordinator
+      generated_at: null # ISO 8601 timestamp
+    status: draft        # draft | review | approved | published
+    distribution:
+      - ceo
+      - c-level-squad
+      - board  # opcional, para reports consolidados
+
+  executive_summary:
+    headline: ""          # Frase única com o ponto mais importante da semana
+    sentiment: neutral    # positive | neutral | negative | mixed
+    top_highlights:       # Máximo 3 destaques
+      - description: ""
+        impact: ""        # Impacto quantificado quando possível
+        category: ""      # revenue | cost | risk | growth | people | tech
+      - description: ""
+        impact: ""
+        category: ""
+    top_concerns:         # Máximo 3 preocupações
+      - description: ""
+        severity: medium  # low | medium | high | critical
+        action_taken: ""
+        owner: ""
+
+  kpis:
+    financial:
+      mrr:
+        current: null
+        previous_week: null
+        target: null
+        variance_pct: null
+        trend: null       # up | down | flat
+      arr:
+        current: null
+        growth_yoy_pct: null
+      burn_rate:
+        monthly: null
+        runway_months: null
+      cash_position: null
+      revenue_week:
+        actual: null
+        budget: null
+
+    product:
+      active_users:
+        dau: null
+        wau: null
+        mau: null
+      nps_score: null
+      churn_rate_monthly: null
+      feature_adoption:
+        feature_name: ""
+        adoption_pct: null
+      uptime_pct: null
+
+    growth:
+      new_customers: null
+      pipeline_value: null
+      conversion_rate: null
+      cac: null
+      ltv_cac_ratio: null
+
+    engineering:
+      deployment_frequency: null  # deploys na semana
+      lead_time_hours: null
+      change_failure_rate_pct: null
+      mttr_minutes: null
+      open_incidents: null
+      tech_debt_score: null       # 1-10
+
+    ai:
+      models_in_production: null
+      inference_volume_daily: null
+      model_accuracy_avg: null
+      data_quality_score: null    # 0-100
+      ai_roi_monthly: null
+
+  achievements:
+    completed_items:
+      - title: ""
+        description: ""
+        category: ""      # project | task | milestone | decision
+        owner: ""
+        impact: ""
+        link: ""           # URL para evidência ou documentação
+    milestones_reached:
+      - milestone: ""
+        project: ""
+        planned_date: null
+        actual_date: null
+        status: on_time    # on_time | early | delayed
+
+  in_progress:
+    active_projects:
+      - name: ""
+        status: green     # green | yellow | red
+        progress_pct: null
+        next_milestone: ""
+        next_milestone_date: null
+        blockers: []
+        owner: ""
+    active_tasks:
+      - title: ""
+        priority: medium  # low | medium | high | critical
+        status: ""        # not_started | in_progress | blocked | completed
+        due_date: null
+        owner: ""
+
+  risks_and_issues:
+    new_risks:
+      - id: "R-{NNN}"
+        description: ""
+        probability: medium  # low | medium | high
+        impact: medium       # low | medium | high
+        category: ""         # financial | operational | technical | regulatory | people
+        mitigation: ""
+        owner: ""
+    escalated_issues:
+      - description: ""
+        severity: high
+        action_required: ""
+        deadline: null
+        escalated_to: ""
+
+  decisions_made:
+    - decision: ""
+      context: ""
+      alternatives_considered: []
+      rationale: ""
+      decided_by: ""
+      date: null
+      impact: ""
+
+  action_items:
+    new_actions:
+      - action: ""
+        owner: ""
+        due_date: null
+        priority: medium
+        depends_on: ""     # ID de outra ação, se houver dependência
+    pending_from_previous:
+      - action: ""
+        original_due_date: null
+        new_due_date: null
+        status: ""
+        reason_for_delay: ""
+
+  next_week_priorities:
+    - priority: ""
+      owner: ""
+      expected_outcome: ""
+      dependencies: []
+
+  asks_and_needs:
+    from_leadership:
+      - request: ""
+        context: ""
+        urgency: medium    # low | medium | high
+    from_other_teams:
+      - request: ""
+        team: ""
+        context: ""
+
+  notes:
+    additional_context: ""
+    kudos:                 # Reconhecimento de contribuições
+      - person_or_team: ""
+        reason: ""
+    upcoming_events:
+      - event: ""
+        date: null
+        participants: []
+        preparation_needed: ""

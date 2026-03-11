@@ -1,0 +1,291 @@
+# Template YAML de Review Trimestral
+# Estrutura para conduzir revisões trimestrais abrangentes de negócio
+# Versão: 1.0 | Última atualização: Março 2026
+
+quarterly_review:
+  metadata:
+    review_id: "QR-{YYYY}-Q{Q}"
+    quarter: null          # 1, 2, 3 ou 4
+    year: null
+    period:
+      start_date: null     # YYYY-MM-DD
+      end_date: null       # YYYY-MM-DD
+    prepared_by: null
+    review_date: null
+    attendees: []
+    status: draft          # draft | review | presented | archived
+
+  executive_summary:
+    overall_assessment: ""    # 2-3 frases sobre o trimestre
+    grade: null               # A | B | C | D | F
+    key_achievements:
+      - achievement: ""
+        impact: ""
+    key_misses:
+      - miss: ""
+        root_cause: ""
+        corrective_action: ""
+    strategic_health: green   # green | yellow | red
+
+  financial_performance:
+    revenue:
+      target: null
+      actual: null
+      achievement_pct: null
+      yoy_growth_pct: null
+      qoq_growth_pct: null
+      commentary: ""
+      monthly_breakdown:
+        - month: 1
+          target: null
+          actual: null
+        - month: 2
+          target: null
+          actual: null
+        - month: 3
+          target: null
+          actual: null
+
+    profitability:
+      gross_margin:
+        target_pct: null
+        actual_pct: null
+        trend: ""
+      ebitda:
+        target: null
+        actual: null
+        margin_pct: null
+      operating_expenses:
+        target: null
+        actual: null
+        variance_pct: null
+        commentary: ""
+
+    unit_economics:
+      cac:
+        current: null
+        previous_quarter: null
+        target: null
+      ltv:
+        current: null
+        previous_quarter: null
+      ltv_cac_ratio:
+        current: null
+        target: null
+      payback_months:
+        current: null
+        target: null
+      burn_multiple:
+        current: null
+        previous_quarter: null
+
+    cash:
+      beginning_balance: null
+      ending_balance: null
+      net_burn: null
+      runway_months: null
+      fundraising_status: ""
+
+  strategic_initiatives:
+    - initiative_id: "SI-{NNN}"
+      name: ""
+      owner: ""
+      status: on_track       # on_track | at_risk | behind | completed | cancelled
+      priority: high          # high | medium | low
+      description: ""
+      quarter_goals:
+        - goal: ""
+          target: ""
+          actual: ""
+          status: met          # met | partially_met | not_met
+      key_results:
+        - result: ""
+          metric: ""
+          target: null
+          actual: null
+      progress_narrative: ""
+      blockers: []
+      next_quarter_plan: ""
+      investment:
+        budgeted: null
+        spent: null
+        roi_estimate: ""
+
+  okr_review:
+    company_level:
+      - objective: ""
+        confidence: null       # 0.0 a 1.0
+        key_results:
+          - kr: ""
+            target: null
+            actual: null
+            score: null        # 0.0 a 1.0
+        learnings: ""
+
+    department_level:
+      - department: ""
+        objectives:
+          - objective: ""
+            confidence: null
+            key_results:
+              - kr: ""
+                target: null
+                actual: null
+                score: null
+
+  customer_performance:
+    overview:
+      total_customers:
+        beginning: null
+        ending: null
+        net_change: null
+      nrr: null
+      nps:
+        current: null
+        previous_quarter: null
+        trend: ""
+    acquisition:
+      new_customers: null
+      target: null
+      achievement_pct: null
+      top_wins:
+        - customer: ""
+          segment: ""
+          arr: null
+          significance: ""
+    retention:
+      churned_customers: null
+      churned_arr: null
+      churn_reasons:
+        - reason: ""
+          count: null
+          pct: null
+      save_rate: null
+    expansion:
+      expanded_customers: null
+      expansion_arr: null
+      upsell_rate: null
+    satisfaction:
+      nps_verbatims:
+        positive: []
+        negative: []
+      support_metrics:
+        tickets_total: null
+        resolution_time_avg: null
+        csat: null
+
+  product_and_technology:
+    product_highlights:
+      - feature: ""
+        impact: ""
+        adoption: ""
+    roadmap_execution:
+      planned_items: null
+      delivered_items: null
+      delivery_rate_pct: null
+      deferred_items:
+        - item: ""
+          reason: ""
+    engineering_health:
+      velocity_trend: ""       # improving | stable | declining
+      quality_metrics:
+        bug_rate: null
+        critical_incidents: null
+        uptime_pct: null
+      tech_debt:
+        assessment: ""        # low | moderate | high | critical
+        remediation_plan: ""
+      dora_summary:
+        deployment_frequency: ""
+        lead_time: ""
+        change_failure_rate: ""
+        mttr: ""
+
+  ai_and_data:
+    ai_initiatives:
+      - name: ""
+        status: ""
+        business_impact: ""
+        model_performance: ""
+    data_infrastructure:
+      health: ""               # green | yellow | red
+      improvements: []
+      concerns: []
+    ai_governance:
+      models_audited: null
+      bias_assessments: null
+      compliance_status: ""
+
+  people_and_culture:
+    headcount:
+      beginning: null
+      ending: null
+      plan: null
+      hiring_velocity: ""
+    key_hires:
+      - role: ""
+        impact: ""
+    departures:
+      - role: ""
+        impact: ""
+        replacement_status: ""
+    engagement:
+      enps: null
+      survey_highlights: []
+      survey_concerns: []
+    culture_initiatives:
+      - initiative: ""
+        progress: ""
+        impact: ""
+
+  risk_assessment:
+    top_risks:
+      - risk_id: "R-{NNN}"
+        description: ""
+        category: ""         # strategic | financial | operational | regulatory | tech
+        probability: ""      # low | medium | high
+        impact: ""           # low | medium | high
+        trend: ""            # increasing | stable | decreasing
+        mitigation: ""
+        owner: ""
+        status: ""           # monitoring | mitigating | escalated | closed
+    new_risks_identified: []
+    risks_closed: []
+    risk_heat_map_summary: ""
+
+  competitive_landscape:
+    market_trends: []
+    competitor_moves:
+      - competitor: ""
+        action: ""
+        our_response: ""
+    market_position_assessment: ""
+
+  next_quarter_plan:
+    strategic_priorities:
+      - priority: ""
+        owner: ""
+        key_milestones: []
+        resources_needed: ""
+        success_criteria: ""
+    financial_targets:
+      revenue: null
+      ebitda: null
+      key_hires: null
+      investment_areas: []
+    okrs_proposed:
+      - objective: ""
+        key_results:
+          - kr: ""
+            target: null
+    key_decisions_needed:
+      - decision: ""
+        deadline: null
+        options: []
+
+  appendix:
+    detailed_financials: ""    # Link para planilha detalhada
+    customer_data: ""          # Link para dados de clientes
+    product_roadmap: ""        # Link para roadmap
+    org_chart: ""              # Link para organograma
+    board_deck: ""             # Link para deck do board

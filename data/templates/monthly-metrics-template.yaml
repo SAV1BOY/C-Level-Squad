@@ -1,0 +1,291 @@
+# Template YAML de Métricas Mensais
+# Consolidação de todas as métricas relevantes para análise mensal
+# Versão: 1.0 | Última atualização: Março 2026
+
+monthly_metrics:
+  metadata:
+    report_id: "MM-{YYYY}-{MM}"
+    period:
+      month: null         # 1-12
+      year: null
+      start_date: null    # YYYY-MM-DD
+      end_date: null      # YYYY-MM-DD
+    generated_by: null    # Agente responsável
+    generated_at: null    # ISO 8601
+    status: draft         # draft | review | approved
+    comparison_periods:
+      previous_month: true
+      same_month_last_year: true
+      budget: true
+
+  financial_metrics:
+    revenue:
+      total_revenue:
+        current: null
+        previous_month: null
+        budget: null
+        yoy: null
+        variance_pct: null
+      mrr:
+        current: null
+        new_mrr: null
+        expansion_mrr: null
+        contraction_mrr: null
+        churned_mrr: null
+        net_new_mrr: null
+      arr:
+        current: null
+        growth_rate_yoy: null
+      revenue_by_segment:
+        - segment: ""
+          revenue: null
+          pct_of_total: null
+          growth_mom: null
+      revenue_by_product:
+        - product: ""
+          revenue: null
+          pct_of_total: null
+
+    profitability:
+      gross_profit:
+        amount: null
+        margin_pct: null
+        previous_month_margin: null
+        budget_margin: null
+      ebitda:
+        amount: null
+        margin_pct: null
+        adjusted_ebitda: null
+        adjustments:
+          - description: ""
+            amount: null
+      net_income:
+        amount: null
+        margin_pct: null
+      contribution_margin:
+        amount: null
+        margin_pct: null
+
+    costs:
+      cogs:
+        total: null
+        as_pct_of_revenue: null
+        breakdown:
+          - category: "infraestrutura"
+            amount: null
+          - category: "suporte"
+            amount: null
+          - category: "serviços profissionais"
+            amount: null
+      opex:
+        total: null
+        rd:
+          amount: null
+          as_pct_of_revenue: null
+          headcount: null
+        sales_marketing:
+          amount: null
+          as_pct_of_revenue: null
+          headcount: null
+        general_admin:
+          amount: null
+          as_pct_of_revenue: null
+          headcount: null
+      cost_per_employee:
+        average: null
+        fully_loaded: null
+
+    cash:
+      cash_position:
+        beginning: null
+        ending: null
+        net_change: null
+      burn_rate:
+        gross: null
+        net: null
+      runway_months: null
+      accounts_receivable:
+        total: null
+        dso: null  # Days Sales Outstanding
+        aging:
+          current: null
+          days_30: null
+          days_60: null
+          days_90_plus: null
+      accounts_payable:
+        total: null
+        dpo: null  # Days Payable Outstanding
+
+  growth_metrics:
+    customers:
+      total_customers: null
+      new_customers: null
+      churned_customers: null
+      net_new: null
+      logo_churn_rate: null
+      customers_by_segment:
+        - segment: ""
+          count: null
+          revenue: null
+      concentration:
+        top_10_pct_of_revenue: null
+        top_1_customer_pct: null
+
+    retention:
+      gross_revenue_retention: null
+      net_revenue_retention: null
+      logo_retention: null
+      cohort_retention:
+        - cohort: ""  # "2025-Q1"
+          month_1: null
+          month_3: null
+          month_6: null
+          month_12: null
+
+    acquisition:
+      cac:
+        blended: null
+        by_channel:
+          - channel: "orgânico"
+            cac: null
+            customers: null
+          - channel: "pago"
+            cac: null
+            customers: null
+          - channel: "outbound"
+            cac: null
+            customers: null
+      ltv:
+        average: null
+        by_segment:
+          - segment: ""
+            ltv: null
+      ltv_cac_ratio: null
+      payback_months: null
+      pipeline:
+        total_value: null
+        qualified_value: null
+        coverage_ratio: null  # pipeline / quota
+        conversion_rate: null
+        average_deal_size: null
+        average_sales_cycle_days: null
+
+  product_metrics:
+    engagement:
+      dau: null
+      wau: null
+      mau: null
+      dau_mau_ratio: null
+      sessions_per_user: null
+      avg_session_duration_minutes: null
+    satisfaction:
+      nps: null
+      csat: null
+      ces: null  # Customer Effort Score
+      support_tickets:
+        opened: null
+        resolved: null
+        avg_resolution_hours: null
+        first_response_hours: null
+    adoption:
+      feature_usage:
+        - feature: ""
+          adoption_pct: null
+          usage_frequency: null
+      activation_rate: null
+      time_to_value_days: null
+
+  engineering_metrics:
+    dora_metrics:
+      deployment_frequency: null       # deploys/semana
+      lead_time_for_changes_hours: null
+      change_failure_rate_pct: null
+      mttr_minutes: null
+    quality:
+      bug_count:
+        opened: null
+        resolved: null
+        critical_open: null
+      test_coverage_pct: null
+      code_review_turnaround_hours: null
+    reliability:
+      uptime_pct: null
+      incidents:
+        p0: null
+        p1: null
+        p2: null
+        total: null
+      latency:
+        p50_ms: null
+        p95_ms: null
+        p99_ms: null
+    capacity:
+      infrastructure_cost: null
+      cost_per_transaction: null
+      headroom_pct: null
+
+  ai_metrics:
+    models:
+      total_in_production: null
+      new_this_month: null
+      deprecated_this_month: null
+    performance:
+      avg_accuracy: null
+      avg_latency_ms: null
+      total_inferences: null
+      error_rate_pct: null
+    business_impact:
+      revenue_attributed: null
+      cost_savings: null
+      roi_pct: null
+    data_quality:
+      completeness_score: null
+      freshness_score: null
+      accuracy_score: null
+      overall_dqi: null  # Data Quality Index 0-100
+    fairness:
+      models_evaluated: null
+      models_compliant: null
+      compliance_rate_pct: null
+
+  people_metrics:
+    headcount:
+      beginning: null
+      hires: null
+      departures: null
+      ending: null
+    turnover:
+      voluntary_rate: null
+      involuntary_rate: null
+      total_rate: null
+    hiring:
+      open_positions: null
+      time_to_fill_days: null
+      offer_acceptance_rate: null
+      pipeline_by_role:
+        - role: ""
+          candidates: null
+          stage: ""
+    engagement:
+      enps: null  # Employee NPS
+      survey_response_rate: null
+    diversity:
+      gender_pct:
+        female: null
+        male: null
+        other: null
+      leadership_diversity_pct: null
+
+  commentary:
+    highlights:
+      - area: ""
+        description: ""
+        impact: ""
+    concerns:
+      - area: ""
+        description: ""
+        action: ""
+    outlook:
+      next_month_forecast: ""
+      key_assumptions: []
+      risks: []
