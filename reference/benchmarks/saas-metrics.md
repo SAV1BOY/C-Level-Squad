@@ -2,169 +2,184 @@
 
 ## Visão Geral
 
-Este documento compila benchmarks de métricas SaaS por estágio de empresa, baseado em dados de fontes como Bessemer Venture Partners, OpenView, SaaS Capital, KeyBanc e Stripe. Os ranges representam medianas e quartis superiores — empresas de alto desempenho frequentemente superam significativamente esses benchmarks.
+Este documento compila benchmarks de métricas-chave para empresas SaaS (Software as a Service) em diferentes estágios de maturidade. Os ranges são baseados em dados de mercado de fontes como Bessemer Cloud Index, OpenView Partners, SaaS Capital, KeyBanc, e relatórios de bancos de investimento especializados. Use como referência para avaliar a saúde da empresa e identificar áreas de melhoria.
 
 ## Métricas de Crescimento
 
-### ARR Growth Rate (Crescimento Anual)
-| Estágio | ARR | Mediana | Top Quartile |
-|---------|-----|---------|-------------|
-| Seed | <$1M | N/A (pré-receita ou muito cedo) | N/A |
-| Series A | $1M-$5M | 100-200% | >300% |
-| Series B | $5M-$15M | 80-120% | >150% |
-| Series C | $15M-$50M | 50-80% | >100% |
-| Growth | $50M-$100M | 30-50% | >60% |
-| Scale | >$100M | 20-35% | >40% |
+### ARR Growth Rate (Crescimento de Receita Recorrente Anual)
+| Estágio | ARR | Growth Rate Bom | Growth Rate Excelente |
+|---------|-----|-----------------|----------------------|
+| Seed | <$1M | N/A (pré-PMF) | N/A |
+| Series A | $1-5M | >100% YoY | >200% YoY |
+| Series B | $5-20M | >80% YoY | >150% YoY |
+| Series C | $20-50M | >50% YoY | >100% YoY |
+| Growth | $50-100M | >40% YoY | >70% YoY |
+| Scale | >$100M | >25% YoY | >40% YoY |
+
+**Como medir:** ARR final do período / ARR inicial do período - 1
 
 ### T2D3 Framework (Triple, Triple, Double, Double, Double)
 ```
-Ano 1: $1M ARR
-Ano 2: $3M (3x)
-Ano 3: $9M (3x)
-Ano 4: $18M (2x)
-Ano 5: $36M (2x)
-Ano 6: $72M (2x)
-
-Empresas que seguem T2D3 são top-decile performers
-Poucas empresas mantêm essa trajetória completa
+Benchmark para empresas de alto crescimento após $1M ARR:
+Ano 1: $1M → $3M (3x)
+Ano 2: $3M → $9M (3x)
+Ano 3: $9M → $18M (2x)
+Ano 4: $18M → $36M (2x)
+Ano 5: $36M → $72M (2x)
 ```
 
-### Net Dollar Retention (NDR)
-| Estágio | Mediana | Bom | Excelente |
-|---------|---------|-----|-----------|
-| SMB-focused | 90-100% | 100-110% | >110% |
-| Mid-market | 100-110% | 110-120% | >120% |
-| Enterprise | 110-120% | 120-130% | >130% |
+### Net Dollar Retention (NDR / Net Revenue Retention)
+| Segmento | Mediano | Bom | Excelente |
+|----------|---------|-----|-----------|
+| SMB | 90-95% | 95-105% | >105% |
+| Mid-Market | 100-105% | 105-115% | >115% |
+| Enterprise | 110-115% | 115-130% | >130% |
 
-Composição do NDR:
-- Gross Retention: 85-95% (% de receita mantida sem expansão)
-- Expansion Rate: 10-30% (upsell + cross-sell)
-- NDR = Gross Retention + Expansion - Downgrades
+**Como medir:** (ARR início + expansão - contração - churn) / ARR início x 100
+**Fonte:** KeyBanc SaaS Survey, Bessemer
 
-### Gross Churn Rate (Mensal)
-| Segmento | Aceitável | Bom | Excelente |
-|----------|-----------|-----|-----------|
-| SMB | <3% | <2% | <1.5% |
-| Mid-market | <1.5% | <1% | <0.5% |
-| Enterprise | <1% | <0.5% | <0.3% |
+### Gross Revenue Retention (GRR)
+| Quartil | Range |
+|---------|-------|
+| Top quartile | >95% |
+| Mediana | 90% |
+| Bottom quartile | <85% |
+
+**Como medir:** (ARR início - contração - churn) / ARR início x 100
 
 ## Métricas de Eficiência
 
-### CAC Payback Period (Meses)
-| Estágio | Aceitável | Bom | Excelente |
-|---------|-----------|-----|-----------|
-| Early-stage | <24 meses | <18 meses | <12 meses |
-| Growth | <18 meses | <12 meses | <9 meses |
-| Scale | <15 meses | <12 meses | <6 meses |
-
-### LTV/CAC Ratio
-| Rating | Ratio | Interpretação |
-|--------|-------|---------------|
-| Abaixo do esperado | <3x | Não sustentável, rever unit economics |
-| Bom | 3-5x | Saudável, negócio viável |
-| Excelente | 5-8x | Eficiente, possível sub-investimento em growth |
-| Muito alto | >8x | Provavelmente sub-investindo em aquisição |
-
-### Magic Number (Eficiência de Vendas)
+### Rule of 40
 ```
-Magic Number = (ARR novo net do trimestre) / (S&M spend do trimestre anterior)
+Growth Rate (%) + Profit Margin (%) >= 40%
 
-< 0.5: Ineficiente — reavaliar go-to-market
-0.5 - 0.75: Aceitável — otimizar
-0.75 - 1.0: Bom — continuar investindo
-> 1.0: Excelente — acelerar investimento em S&M
+Interpretação:
+- <20%: Preocupante
+- 20-40%: Aceitável
+- 40-60%: Bom
+- >60%: Excepcional
+
+Exemplos:
+- 100% growth + -60% margin = 40% ✓
+- 30% growth + 15% margin = 45% ✓
+- 20% growth + 5% margin = 25% ✗
 ```
 
 ### Burn Multiple
 ```
 Burn Multiple = Net Burn / Net New ARR
 
-< 1.0x: Excelente eficiência
-1.0-1.5x: Bom
-1.5-2.0x: Aceitável para early-stage
-2.0-3.0x: Preocupante
-> 3.0x: Insustentável
+Interpretação:
+- <1x: Excelente (eficiente)
+- 1-1.5x: Bom
+- 1.5-2x: Aceitável
+- >2x: Preocupante (queimando muito para crescer pouco)
+
+Fonte: David Sacks / Craft Ventures
 ```
 
-### Rule of 40
+### CAC Payback Period
+| Segmento | Bom | Excelente |
+|----------|-----|-----------|
+| SMB | <12 meses | <6 meses |
+| Mid-Market | <18 meses | <12 meses |
+| Enterprise | <24 meses | <18 meses |
+
+**Como medir:** CAC / (ARPU mensal x Gross Margin %)
+
+### LTV/CAC Ratio
+| Rating | Range |
+|--------|-------|
+| Excelente | >5x |
+| Bom | 3-5x |
+| Aceitável | 2-3x |
+| Preocupante | <2x |
+
+**Como medir:** (ARPU x Gross Margin x Vida média do cliente) / CAC
+
+### Magic Number
 ```
-Rule of 40 = Revenue Growth Rate (%) + EBITDA Margin (%)
+Magic Number = Net New ARR do trimestre / S&M spend do trimestre anterior
 
-> 40%: Excelente — empresa saudável
-30-40%: Bom
-20-30%: Aceitável
-< 20%: Abaixo do esperado
-
-Exemplos:
-- 100% growth + (-60%) margin = 40% ✓ (early-stage ok)
-- 30% growth + 15% margin = 45% ✓ (growth balanced)
-- 10% growth + 5% margin = 15% ✗ (problema)
+Interpretação:
+- >1.0: Investir mais em S&M (eficiente)
+- 0.5-1.0: Bom, otimizar
+- <0.5: Rever GTM e unit economics
 ```
 
-## Métricas de Produto
-
-### Engagement
-| Métrica | SMB SaaS | Enterprise SaaS |
-|---------|----------|-----------------|
-| DAU/MAU | 20-30% | 30-50% |
-| WAU/MAU | 50-60% | 60-75% |
-| Feature Adoption (top features) | 30-50% | 40-60% |
-| Sessions/user/week | 3-5 | 5-10 |
-
-### Ativação e Onboarding
-| Métrica | Benchmark |
-|---------|-----------|
-| Free-to-Paid Conversion | 2-5% (self-serve), 15-25% (sales-assisted) |
-| Trial-to-Paid | 15-25% (14-day trial), 10-15% (30-day trial) |
-| Time-to-Value | <24h é excelente, <7 dias é bom |
-| Onboarding Completion | >80% é bom |
-
-## Métricas Financeiras
+## Métricas Operacionais
 
 ### Gross Margin
-| Tipo | Mediana | Top Quartile |
-|------|---------|-------------|
-| SaaS puro (cloud) | 70-75% | >80% |
-| SaaS + serviços | 55-65% | >70% |
-| SaaS + hardware | 40-55% | >60% |
+| Tipo de SaaS | Mediana | Top Quartile |
+|--------------|---------|--------------|
+| Pure Software | 75-80% | >80% |
+| Infra/Usage-based | 55-65% | >70% |
+| Services-heavy | 50-60% | >65% |
 
-### Operating Expenses (% da Receita)
-| Categoria | Early-stage | Growth | Scale |
-|-----------|-------------|--------|-------|
-| S&M | 50-80% | 30-50% | 20-35% |
-| R&D | 30-50% | 20-35% | 15-25% |
-| G&A | 15-25% | 10-20% | 8-15% |
-| Total OpEx | 100-150% | 70-100% | 50-75% |
+### Operating Margins por Estágio
+| Estágio | Mediana | Top Quartile |
+|---------|---------|--------------|
+| Series A | -80% a -40% | >-40% |
+| Series B | -50% a -20% | >-20% |
+| Series C | -30% a 0% | >0% |
+| Pre-IPO | -10% a +10% | >10% |
+| Public | +5% a +20% | >20% |
 
 ### Revenue per Employee
 | Estágio | Mediana | Top Quartile |
-|---------|---------|-------------|
-| <$10M ARR | $80K-$120K | >$150K |
-| $10M-$50M | $120K-$180K | >$200K |
-| $50M-$100M | $150K-$250K | >$300K |
-| >$100M | $200K-$350K | >$400K |
+|---------|---------|--------------|
+| <$10M ARR | $80-120K | >$150K |
+| $10-50M ARR | $120-180K | >$200K |
+| $50-100M ARR | $150-250K | >$300K |
+| >$100M ARR | $200-350K | >$400K |
+
+## Métricas de Produto
+
+### Monthly Churn Rate
+| Segmento | Bom | Excelente |
+|----------|-----|-----------|
+| SMB | <3% | <2% |
+| Mid-Market | <1.5% | <1% |
+| Enterprise | <0.5% | <0.3% |
+
+### DAU/MAU Ratio (Stickiness)
+| Tipo de Produto | Bom | Excelente |
+|-----------------|-----|-----------|
+| SaaS B2B Workflow | 30-40% | >50% |
+| SaaS B2B Analytics | 15-25% | >30% |
+| SaaS B2C | 20-30% | >40% |
+
+### NPS (Net Promoter Score)
+| Rating | Range |
+|--------|-------|
+| Excelente | >50 |
+| Bom | 30-50 |
+| Aceitável | 10-30 |
+| Preocupante | <10 |
+
+## Métricas de Go-to-Market
+
+### Sales Efficiency por Modelo
+```
+Self-serve/PLG: ACV < $5K, CAC < $500, Payback < 3 meses
+Inside Sales: ACV $5K-50K, CAC $5K-15K, Payback 6-12 meses
+Mid-Market: ACV $50K-250K, CAC $20K-50K, Payback 12-18 meses
+Enterprise: ACV >$250K, CAC $50K-150K, Payback 18-24 meses
+```
+
+### Quota Attainment
+| Rating | Range |
+|--------|-------|
+| Excelente | >70% dos reps atingem quota |
+| Bom | 50-70% dos reps atingem quota |
+| Preocupante | <50% dos reps atingem quota |
 
 ## Fontes de Referência
-- Bessemer Cloud Index (BVP)
-- OpenView SaaS Benchmarks Report
-- KeyBanc SaaS Survey (anual)
+- Bessemer Cloud Index e State of the Cloud
+- OpenView SaaS Benchmarks
+- KeyBanc Capital Markets SaaS Survey
 - SaaS Capital Index
-- Stripe Atlas / Patrick McKenzie
-- Baremetrics Open Benchmarks
-- ChartMogul SaaS Benchmarks
-
-## Como Medir
-```
-Ferramentas recomendadas:
-- ChartMogul, Baremetrics, ProfitWell (métricas de subscription)
-- Amplitude, Mixpanel (métricas de produto)
-- Salesforce, HubSpot (métricas de vendas)
-- Stripe, Chargebee (métricas de billing)
-- Looker, Metabase (dashboards customizados)
-
-Cadência de revisão:
-- Semanal: pipeline, MRR, churn signals
-- Mensal: unit economics, cohort analysis, burn rate
-- Trimestral: NDR, Rule of 40, benchmarking vs. peers
-- Anual: LTV/CAC, TAM penetration, efficiency trends
-```
+- Tomasz Tunguz blog e análises
+- Jason Lemkin / SaaStr benchmarks
+- Craft Ventures / David Sacks
+- Meritech Capital Public SaaS Comps
