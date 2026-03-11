@@ -1,0 +1,205 @@
+# Template YAML de Log de Decisões
+# Registro estruturado de decisões organizacionais para rastreabilidade
+# Versão: 1.0 | Última atualização: Março 2026
+
+decision_log:
+  metadata:
+    log_id: "DL-{YYYY}"
+    organization: ""
+    maintained_by: ""
+    last_updated: null
+    version: "1.0"
+
+  decision_framework:
+    principles:
+      - "Toda decisão material deve ser documentada"
+      - "Decisões reversíveis devem ser tomadas rapidamente"
+      - "Decisões irreversíveis requerem análise profunda"
+      - "O contexto da decisão é tão importante quanto a decisão em si"
+      - "Revisitar decisões passadas é fonte de aprendizado"
+
+    classification:
+      type_1:
+        name: "Irreversível"
+        description: "Decisões difíceis de reverter, alto impacto"
+        process: "Análise profunda, múltiplas perspectivas, aprovação C-Level"
+        timeline: "1-4 semanas de análise"
+        examples:
+          - "Aquisições e fusões"
+          - "Entrada em novos mercados"
+          - "Mudança de modelo de negócio"
+          - "Demissão em massa"
+      type_2:
+        name: "Reversível"
+        description: "Decisões que podem ser ajustadas, impacto moderado"
+        process: "Análise rápida, decisão do owner, comunicação ao time"
+        timeline: "1-5 dias"
+        examples:
+          - "Escolha de ferramenta/vendor"
+          - "Estrutura de time"
+          - "Pricing de produto"
+          - "Priorização de roadmap"
+
+    decision_methods:
+      - method: "DACI"
+        description: "Driver, Approver, Contributors, Informed"
+        when_to_use: "Decisões com múltiplos stakeholders"
+      - method: "Consent-based"
+        description: "Avança se não há objeção material"
+        when_to_use: "Decisões de time com autonomia"
+      - method: "Data-driven"
+        description: "Decisão baseada em análise quantitativa"
+        when_to_use: "Quando dados confiáveis estão disponíveis"
+      - method: "Expert judgment"
+        description: "Delegação ao especialista do domínio"
+        when_to_use: "Decisões técnicas especializadas"
+      - method: "CEO call"
+        description: "Decisão unilateral do CEO após consulta"
+        when_to_use: "Urgência ou impasse entre líderes"
+
+  decisions:
+    - decision_id: "D-{YYYY}-{NNN}"
+      title: ""
+      date: null
+      status: decided         # proposed | evaluating | decided | implemented | revisited | reversed
+
+      classification:
+        type: type_2           # type_1 | type_2
+        category: ""           # strategy | product | technology | finance | people | operations
+        urgency: medium        # low | medium | high | critical
+        reversibility: high    # low | medium | high
+        impact_scope: ""       # company | department | team | individual
+
+      context:
+        background: ""         # Por que essa decisão foi necessária
+        trigger: ""            # O que motivou a tomada de decisão agora
+        constraints: []        # Restrições que influenciaram
+        assumptions: []        # Premissas consideradas
+        data_considered:
+          - source: ""
+            finding: ""
+        related_decisions: []  # IDs de decisões relacionadas
+
+      options:
+        - option: "A"
+          description: ""
+          pros: []
+          cons: []
+          cost_estimate: null
+          risk_assessment: ""
+          timeline: ""
+          recommended: false
+
+        - option: "B"
+          description: ""
+          pros: []
+          cons: []
+          cost_estimate: null
+          risk_assessment: ""
+          timeline: ""
+          recommended: true
+
+        - option: "C"
+          description: ""
+          pros: []
+          cons: []
+          cost_estimate: null
+          risk_assessment: ""
+          timeline: ""
+          recommended: false
+
+      decision:
+        chosen_option: "B"
+        rationale: ""          # Por que essa opção foi escolhida
+        conditions: []         # Condições para a decisão se manter válida
+        review_trigger: ""     # O que deveria nos fazer revisitar essa decisão
+        review_date: null      # Quando revisitar (se aplicável)
+
+      stakeholders:
+        driver: ""             # Quem conduziu o processo de decisão
+        approver: ""           # Quem aprovou a decisão final
+        contributors: []       # Quem contribuiu com input
+        informed: []           # Quem foi informado após a decisão
+        method_used: "DACI"    # DACI | consent | data-driven | expert | ceo-call
+
+      implementation:
+        action_items:
+          - action: ""
+            owner: ""
+            due_date: null
+            status: not_started # not_started | in_progress | completed
+        communication_plan:
+          - audience: ""
+            channel: ""
+            date: null
+            message_summary: ""
+        success_metrics:
+          - metric: ""
+            target: null
+            measurement_date: null
+            actual: null
+
+      outcome:
+        result: ""             # Preenchido após implementação
+        actual_impact: ""
+        lessons_learned: ""
+        would_decide_differently: null  # true | false | null
+        reason: ""
+
+      audit_trail:
+        created_by: ""
+        created_at: null
+        last_modified_by: ""
+        last_modified_at: null
+        changes:
+          - date: null
+            field: ""
+            old_value: ""
+            new_value: ""
+            changed_by: ""
+            reason: ""
+
+  analytics:
+    total_decisions: null
+    by_category:
+      strategy: null
+      product: null
+      technology: null
+      finance: null
+      people: null
+      operations: null
+    by_status:
+      proposed: null
+      evaluating: null
+      decided: null
+      implemented: null
+      revisited: null
+      reversed: null
+    avg_time_to_decide_days: null
+    decisions_reversed_pct: null
+    decisions_with_positive_outcome_pct: null
+
+  templates:
+    quick_decision:
+      fields:
+        - decision_id
+        - title
+        - date
+        - context.background
+        - decision.chosen_option
+        - decision.rationale
+        - stakeholders.approver
+        - implementation.action_items
+
+    full_decision:
+      fields: "all"
+
+    retrospective:
+      fields:
+        - decision_id
+        - title
+        - date
+        - decision.chosen_option
+        - outcome.result
+        - outcome.lessons_learned
+        - outcome.would_decide_differently

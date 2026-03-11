@@ -1,0 +1,339 @@
+# Schema de Métrica
+# Define a estrutura padronizada para definição e registro de métricas
+# Versão: 1.0 | Última atualização: Março 2026
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: "Metric Schema"
+description: "Schema para definição e rastreamento de métricas organizacionais"
+type: object
+
+required:
+  - metric_id
+  - name
+  - category
+  - definition
+  - data_source
+  - owner
+
+properties:
+  metric_id:
+    type: string
+    pattern: "^M-[A-Z]{3}-\\d{3}$"
+    description: "Identificador único da métrica"
+    examples:
+      - "M-FIN-001"
+      - "M-ENG-015"
+      - "M-GRO-003"
+
+  name:
+    type: string
+    minLength: 3
+    maxLength: 80
+    description: "Nome curto e descritivo da métrica"
+
+  display_name:
+    type: string
+    description: "Nome para exibição em dashboards"
+
+  description:
+    type: string
+    maxLength: 500
+    description: "Descrição detalhada do que a métrica mede e por que importa"
+
+  category:
+    type: string
+    enum:
+      - financial
+      - revenue
+      - growth
+      - product
+      - engineering
+      - ai
+      - people
+      - operations
+      - customer
+      - risk
+    description: "Categoria principal da métrica"
+
+  subcategory:
+    type: string
+    description: "Subcategoria para agrupamento mais específico"
+
+  definition:
+    type: object
+    required:
+      - formula
+      - unit
+    properties:
+      formula:
+        type: string
+        description: "Fórmula de cálculo em linguagem clara"
+        examples:
+          - "Receita Recorrente Mensal total ao final do período"
+          - "(Clientes início - Clientes churned) / Clientes início * 100"
+          - "Total de deploys realizados / Número de dias úteis"
+      formula_technical:
+        type: string
+        description: "Fórmula técnica/SQL se aplicável"
+      unit:
+        type: string
+        enum:
+          - currency_brl
+          - currency_usd
+          - percentage
+          - count
+          - ratio
+          - days
+          - hours
+          - minutes
+          - score
+          - per_thousand
+          - per_million
+        description: "Unidade de medida"
+      precision:
+        type: integer
+        minimum: 0
+        maximum: 6
+        default: 2
+        description: "Casas decimais"
+      direction:
+        type: string
+        enum: [higher_is_better, lower_is_better, target_range]
+        description: "Direção desejada do indicador"
+      aggregation:
+        type: string
+        enum: [sum, average, median, min, max, last, count, weighted_avg]
+        description: "Método de agregação temporal"
+
+  classification:
+    type: object
+    properties:
+      level:
+        type: string
+        enum:
+          - l1_executive     # Métricas para Board/C-Level
+          - l2_management    # Métricas para gestão
+          - l3_operational   # Métricas operacionais
+        description: "Nível hierárquico da métrica"
+      type:
+        type: string
+        enum:
+          - leading          # Indicador antecedente (preditivo)
+          - lagging          # Indicador de resultado
+          - health           # Indicador de saúde
+        description: "Tipo temporal do indicador"
+      visibility:
+        type: string
+        enum: [public, internal, restricted, confidential]
+        default: internal
+      is_kpi:
+        type: boolean
+        default: false
+        description: "Se é um KPI principal da organização"
+      is_okr:
+        type: boolean
+        default: false
+        description: "Se está vinculado a um OKR"
+      okr_reference:
+        type: string
+        description: "ID do OKR relacionado"
+
+  data_source:
+    type: object
+    required:
+      - system
+      - refresh_frequency
+    properties:
+      system:
+        type: string
+        description: "Sistema de origem dos dados"
+        examples:
+          - "Stripe"
+          - "Salesforce"
+          - "Datadog"
+          - "PostgreSQL"
+          - "Google Analytics"
+      table_or_endpoint:
+        type: string
+        description: "Tabela, API endpoint ou query"
+      refresh_frequency:
+        type: string
+        enum: [real_time, hourly, daily, weekly, monthly, quarterly, manual]
+      last_refresh:
+        type: string
+        format: date-time
+      data_quality:
+        type: object
+        properties:
+          reliability:
+            type: string
+            enum: [high, medium, low]
+          known_issues:
+            type: array
+            items:
+              type: string
+          validation_rules:
+            type: array
+            items:
+              type: string
+
+  targets:
+    type: object
+    properties:
+      current_target:
+        type: number
+        description: "Meta atual"
+      target_period:
+        type: string
+        description: "Período da meta (ex: Q1 2026, FY 2026)"
+      stretch_target:
+        type: number
+        description: "Meta aspiracional"
+      minimum_acceptable:
+        type: number
+        description: "Valor mínimo aceitável"
+      benchmark:
+        type: object
+        properties:
+          industry_median:
+            type: number
+          top_quartile:
+            type: number
+          source:
+            type: string
+      historical_targets:
+        type: array
+        items:
+          type: object
+          properties:
+            period:
+              type: string
+            target:
+              type: number
+            actual:
+              type: number
+            achievement_pct:
+              type: number
+
+  alerting:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        default: false
+      rules:
+        type: array
+        items:
+          type: object
+          properties:
+            condition:
+              type: string
+              enum: [above, below, change_pct, missing_data]
+            threshold:
+              type: number
+            severity:
+              type: string
+              enum: [info, warning, critical]
+            notification_channels:
+              type: array
+              items:
+                type: string
+            cooldown_minutes:
+              type: integer
+              default: 60
+
+  visualization:
+    type: object
+    properties:
+      chart_type:
+        type: string
+        enum: [line, bar, area, gauge, number, table, heatmap, scatter]
+        default: line
+      color:
+        type: string
+        description: "Cor primária no dashboard"
+      show_trend:
+        type: boolean
+        default: true
+      comparison_periods:
+        type: array
+        items:
+          type: string
+          enum: [previous_period, same_period_last_year, target, benchmark]
+      dashboard_position:
+        type: object
+        properties:
+          dashboard:
+            type: string
+          section:
+            type: string
+          order:
+            type: integer
+
+  relationships:
+    type: object
+    properties:
+      parent_metric:
+        type: string
+        description: "Métrica pai (para drill-down)"
+      child_metrics:
+        type: array
+        items:
+          type: string
+        description: "Métricas filho que compõem esta"
+      correlated_metrics:
+        type: array
+        items:
+          type: object
+          properties:
+            metric_id:
+              type: string
+            correlation:
+              type: string
+              enum: [positive, negative, causal]
+            description:
+              type: string
+      leading_indicators:
+        type: array
+        items:
+          type: string
+        description: "Métricas que antecipam mudanças nesta"
+
+  owner:
+    type: object
+    required: [agent]
+    properties:
+      agent:
+        type: string
+        description: "Agente C-Level responsável"
+      team:
+        type: string
+      contact:
+        type: string
+
+  metadata:
+    type: object
+    properties:
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+      created_by:
+        type: string
+      tags:
+        type: array
+        items:
+          type: string
+      documentation_url:
+        type: string
+      status:
+        type: string
+        enum: [active, deprecated, proposed]
+        default: active
+      deprecation_date:
+        type: string
+        format: date
+      replacement_metric:
+        type: string

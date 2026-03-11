@@ -1,0 +1,394 @@
+# Schema de Workflow
+# Define a estrutura para workflows automatizados entre agentes
+# Versão: 1.0 | Última atualização: Março 2026
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: "Workflow Schema"
+description: "Schema para definição de workflows do C-Level Squad"
+type: object
+
+required:
+  - workflow_id
+  - name
+  - trigger
+  - steps
+  - version
+
+properties:
+  workflow_id:
+    type: string
+    pattern: "^WF-[A-Z]+-\\d{3}$"
+    description: "Identificador único do workflow"
+    examples:
+      - "WF-FIN-001"
+      - "WF-ENG-015"
+      - "WF-AI-003"
+
+  name:
+    type: string
+    minLength: 5
+    maxLength: 100
+    description: "Nome descritivo do workflow"
+
+  description:
+    type: string
+    maxLength: 500
+
+  version:
+    type: string
+    pattern: "^\\d+\\.\\d+$"
+
+  category:
+    type: string
+    enum:
+      - financial
+      - engineering
+      - ai_ml
+      - operations
+      - people
+      - strategy
+      - governance
+      - cross_functional
+    description: "Categoria do workflow"
+
+  priority:
+    type: string
+    enum: [low, medium, high, critical]
+    default: medium
+
+  status:
+    type: string
+    enum: [draft, active, paused, deprecated, archived]
+    default: draft
+
+  owner:
+    type: object
+    required: [agent, name]
+    properties:
+      agent:
+        type: string
+        description: "ID do agente responsável"
+      name:
+        type: string
+      backup:
+        type: string
+        description: "Agente backup em caso de indisponibilidade"
+
+  trigger:
+    type: object
+    required: [type]
+    properties:
+      type:
+        type: string
+        enum:
+          - scheduled
+          - event
+          - manual
+          - condition
+          - webhook
+        description: "Tipo de gatilho que inicia o workflow"
+
+      schedule:
+        type: object
+        description: "Configuração para triggers agendados"
+        properties:
+          cron:
+            type: string
+            description: "Expressão cron"
+            examples:
+              - "0 9 * * 1"       # Toda segunda às 9h
+              - "0 8 1 * *"       # Primeiro dia do mês às 8h
+          timezone:
+            type: string
+            default: "America/Sao_Paulo"
+          start_date:
+            type: string
+            format: date
+          end_date:
+            type: string
+            format: date
+
+      event:
+        type: object
+        description: "Configuração para triggers baseados em evento"
+        properties:
+          source:
+            type: string
+          event_type:
+            type: string
+          filters:
+            type: object
+
+      condition:
+        type: object
+        description: "Configuração para triggers condicionais"
+        properties:
+          metric:
+            type: string
+          operator:
+            type: string
+            enum: [gt, gte, lt, lte, eq, neq, between]
+          threshold:
+            type: number
+          check_frequency:
+            type: string
+
+  inputs:
+    type: array
+    items:
+      type: object
+      required: [name, type]
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          enum: [string, number, boolean, date, array, object, file]
+        required:
+          type: boolean
+          default: true
+        default:
+          description: "Valor padrão se não fornecido"
+        validation:
+          type: object
+          properties:
+            min:
+              type: number
+            max:
+              type: number
+            pattern:
+              type: string
+            enum:
+              type: array
+        description:
+          type: string
+    description: "Inputs necessários para iniciar o workflow"
+
+  steps:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required: [step_id, name, type, agent]
+      properties:
+        step_id:
+          type: string
+          pattern: "^S\\d{2}$"
+          description: "ID sequencial do step"
+
+        name:
+          type: string
+
+        description:
+          type: string
+
+        type:
+          type: string
+          enum:
+            - action         # Execução de ação
+            - decision       # Ponto de decisão
+            - approval       # Requer aprovação humana
+            - notification   # Envio de notificação
+            - wait           # Espera por condição ou tempo
+            - parallel       # Execução paralela de sub-steps
+            - loop           # Iteração sobre coleção
+            - subprocess     # Chamada a outro workflow
+
+        agent:
+          type: string
+          description: "Agente responsável pela execução"
+
+        action:
+          type: object
+          properties:
+            command:
+              type: string
+              description: "Ação a ser executada"
+            parameters:
+              type: object
+            template:
+              type: string
+              description: "Template a ser usado (referência)"
+
+        decision:
+          type: object
+          description: "Configuração para steps do tipo decision"
+          properties:
+            conditions:
+              type: array
+              items:
+                type: object
+                properties:
+                  condition:
+                    type: string
+                  next_step:
+                    type: string
+                  description:
+                    type: string
+            default_next:
+              type: string
+
+        approval:
+          type: object
+          description: "Configuração para steps do tipo approval"
+          properties:
+            approvers:
+              type: array
+              items:
+                type: string
+            min_approvals:
+              type: integer
+              default: 1
+            timeout_hours:
+              type: integer
+              default: 48
+            on_timeout:
+              type: string
+              enum: [escalate, auto_approve, auto_reject, skip]
+
+        dependencies:
+          type: array
+          items:
+            type: string
+          description: "IDs dos steps que devem ser concluídos antes"
+
+        timeout:
+          type: object
+          properties:
+            duration:
+              type: string
+              description: "Duração máxima (ex: 1h, 30m, 2d)"
+            on_timeout:
+              type: string
+              enum: [fail, skip, retry, escalate]
+
+        retry:
+          type: object
+          properties:
+            max_attempts:
+              type: integer
+              default: 3
+            backoff:
+              type: string
+              enum: [fixed, exponential]
+            interval:
+              type: string
+
+        error_handling:
+          type: object
+          properties:
+            on_error:
+              type: string
+              enum: [fail, skip, retry, fallback, escalate]
+            fallback_step:
+              type: string
+            notification:
+              type: array
+              items:
+                type: string
+
+        outputs:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+              description:
+                type: string
+
+        sla:
+          type: object
+          properties:
+            expected_duration:
+              type: string
+            max_duration:
+              type: string
+            alert_on_breach:
+              type: boolean
+              default: true
+
+  outputs:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        source_step:
+          type: string
+        description:
+          type: string
+    description: "Outputs gerados pelo workflow"
+
+  notifications:
+    type: object
+    properties:
+      on_start:
+        type: array
+        items:
+          type: string
+      on_complete:
+        type: array
+        items:
+          type: string
+      on_failure:
+        type: array
+        items:
+          type: string
+      channels:
+        type: array
+        items:
+          type: string
+          enum: [slack, email, webhook, dashboard]
+
+  sla:
+    type: object
+    properties:
+      total_duration:
+        type: string
+        description: "Duração total esperada do workflow"
+      critical_path:
+        type: array
+        items:
+          type: string
+        description: "Steps no caminho crítico"
+
+  audit:
+    type: object
+    properties:
+      log_inputs:
+        type: boolean
+        default: true
+      log_outputs:
+        type: boolean
+        default: true
+      log_decisions:
+        type: boolean
+        default: true
+      retention_days:
+        type: integer
+        default: 365
+
+  metadata:
+    type: object
+    properties:
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+      created_by:
+        type: string
+      tags:
+        type: array
+        items:
+          type: string
+      documentation_url:
+        type: string
+        format: uri

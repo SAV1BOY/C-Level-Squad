@@ -1,0 +1,404 @@
+# Schema de Checklist
+# Define a estrutura padronizada para todos os checklists do repositório
+# Versão: 1.0 | Última atualização: Março 2026
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: "Checklist Schema"
+description: "Schema para definição e execução de checklists no C-Level Squad"
+type: object
+
+required:
+  - checklist_id
+  - title
+  - category
+  - sections
+  - version
+
+properties:
+  checklist_id:
+    type: string
+    pattern: "^CL-[A-Z]{2,4}-\\d{3}$"
+    description: "Identificador único do checklist"
+    examples:
+      - "CL-AI-001"
+      - "CL-FIN-003"
+      - "CL-ENG-010"
+
+  title:
+    type: string
+    minLength: 10
+    maxLength: 100
+    description: "Título descritivo do checklist"
+
+  description:
+    type: string
+    maxLength: 500
+    description: "Propósito e contexto de uso do checklist"
+
+  category:
+    type: string
+    enum:
+      - ai
+      - finance
+      - engineering
+      - operations
+      - security
+      - compliance
+      - people
+      - strategy
+      - product
+      - governance
+    description: "Categoria do checklist"
+
+  subcategory:
+    type: string
+    description: "Subcategoria para organização mais granular"
+
+  version:
+    type: string
+    pattern: "^\\d+\\.\\d+$"
+
+  status:
+    type: string
+    enum: [draft, active, review, deprecated, archived]
+    default: active
+
+  applicability:
+    type: object
+    properties:
+      when_to_use:
+        type: string
+        description: "Quando este checklist deve ser utilizado"
+      frequency:
+        type: string
+        enum:
+          - one_time
+          - per_event
+          - daily
+          - weekly
+          - monthly
+          - quarterly
+          - annually
+        description: "Frequência de uso esperada"
+      trigger_events:
+        type: array
+        items:
+          type: string
+        description: "Eventos que disparam o uso deste checklist"
+        examples:
+          - "Novo deploy de modelo AI"
+          - "Fechamento contábil mensal"
+          - "Início de processo de fundraising"
+      audience:
+        type: array
+        items:
+          type: string
+        description: "Papéis que devem usar este checklist"
+      prerequisites:
+        type: array
+        items:
+          type: string
+        description: "Pré-requisitos para iniciar o checklist"
+
+  sections:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required:
+        - section_id
+        - title
+        - items
+      properties:
+        section_id:
+          type: string
+          pattern: "^S\\d{2}$"
+
+        title:
+          type: string
+          description: "Título da seção"
+
+        description:
+          type: string
+          description: "Descrição e contexto da seção"
+
+        order:
+          type: integer
+          minimum: 1
+          description: "Ordem de execução (sequencial ou paralelo)"
+
+        execution_mode:
+          type: string
+          enum: [sequential, parallel, any_order]
+          default: any_order
+
+        required:
+          type: boolean
+          default: true
+          description: "Se a seção é obrigatória"
+
+        condition:
+          type: string
+          description: "Condição para esta seção ser aplicável"
+
+        items:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required:
+              - item_id
+              - description
+            properties:
+              item_id:
+                type: string
+                pattern: "^S\\d{2}-I\\d{2}$"
+
+              description:
+                type: string
+                description: "Descrição do item do checklist"
+
+              detail:
+                type: string
+                description: "Instrução detalhada de como executar"
+
+              required:
+                type: boolean
+                default: true
+
+              priority:
+                type: string
+                enum: [must_have, should_have, nice_to_have]
+                default: must_have
+
+              category:
+                type: string
+                description: "Subcategoria do item dentro da seção"
+
+              responsible:
+                type: string
+                description: "Papel ou agente responsável"
+
+              evidence:
+                type: object
+                properties:
+                  required:
+                    type: boolean
+                    default: false
+                  type:
+                    type: string
+                    enum:
+                      - document
+                      - screenshot
+                      - link
+                      - approval
+                      - metric
+                      - test_result
+                      - none
+                  description:
+                    type: string
+
+              automation:
+                type: object
+                properties:
+                  automated:
+                    type: boolean
+                    default: false
+                  tool:
+                    type: string
+                  check_command:
+                    type: string
+                  expected_result:
+                    type: string
+
+              dependencies:
+                type: array
+                items:
+                  type: string
+                description: "IDs de itens que devem ser concluídos antes"
+
+              estimated_duration:
+                type: string
+                description: "Tempo estimado para completar (ex: 15min, 2h)"
+
+              reference:
+                type: object
+                properties:
+                  documentation:
+                    type: string
+                    description: "Link para documentação relevante"
+                  template:
+                    type: string
+                    description: "Template a ser usado"
+                  examples:
+                    type: array
+                    items:
+                      type: string
+
+              tags:
+                type: array
+                items:
+                  type: string
+
+  execution:
+    type: object
+    description: "Dados de uma execução específica do checklist"
+    properties:
+      execution_id:
+        type: string
+        pattern: "^EX-\\d{8}-\\d{3}$"
+      started_at:
+        type: string
+        format: date-time
+      completed_at:
+        type: string
+        format: date-time
+      executed_by:
+        type: string
+      status:
+        type: string
+        enum: [not_started, in_progress, completed, blocked, cancelled]
+      context:
+        type: string
+        description: "Contexto específico desta execução"
+      items_completed:
+        type: integer
+      items_total:
+        type: integer
+      completion_pct:
+        type: number
+      items_status:
+        type: array
+        items:
+          type: object
+          properties:
+            item_id:
+              type: string
+            status:
+              type: string
+              enum: [pending, completed, skipped, na, blocked]
+            completed_at:
+              type: string
+              format: date-time
+            completed_by:
+              type: string
+            notes:
+              type: string
+            evidence_url:
+              type: string
+            blocker:
+              type: string
+      notes:
+        type: string
+      issues_found:
+        type: array
+        items:
+          type: object
+          properties:
+            item_id:
+              type: string
+            issue:
+              type: string
+            severity:
+              type: string
+              enum: [low, medium, high, critical]
+            resolution:
+              type: string
+
+  scoring:
+    type: object
+    properties:
+      method:
+        type: string
+        enum:
+          - binary         # Completo ou não
+          - percentage     # % de itens completos
+          - weighted       # Ponderado por prioridade
+          - pass_fail      # Passa se todos os must_have estão OK
+      pass_threshold:
+        type: number
+        description: "Percentual mínimo para aprovação"
+        default: 100
+      weights:
+        type: object
+        properties:
+          must_have:
+            type: number
+            default: 3
+          should_have:
+            type: number
+            default: 2
+          nice_to_have:
+            type: number
+            default: 1
+
+  governance:
+    type: object
+    properties:
+      owner:
+        type: string
+        description: "Agente ou pessoa responsável pelo checklist"
+      reviewers:
+        type: array
+        items:
+          type: string
+      review_frequency:
+        type: string
+        enum: [monthly, quarterly, semi_annually, annually]
+      last_reviewed:
+        type: string
+        format: date
+      next_review:
+        type: string
+        format: date
+      change_log:
+        type: array
+        items:
+          type: object
+          properties:
+            version:
+              type: string
+            date:
+              type: string
+              format: date
+            author:
+              type: string
+            changes:
+              type: string
+
+  related_resources:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [checklist, template, framework, policy, tool, documentation]
+        name:
+          type: string
+        path:
+          type: string
+        description:
+          type: string
+
+  metadata:
+    type: object
+    properties:
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+      created_by:
+        type: string
+      tags:
+        type: array
+        items:
+          type: string
+      language:
+        type: string
+        default: "pt-BR"
+      estimated_total_duration:
+        type: string
+        description: "Tempo total estimado para completar"

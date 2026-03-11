@@ -1,0 +1,323 @@
+# Schema de Configuração de Agente C-Level
+# Define a estrutura de configuração para cada agente do squad
+# Versão: 1.0 | Última atualização: Março 2026
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: "Agent Configuration Schema"
+description: "Schema para configuração de agentes C-Level do Squad"
+type: object
+
+required:
+  - agent_id
+  - name
+  - role
+  - version
+  - capabilities
+  - communication
+  - guardrails
+
+properties:
+  agent_id:
+    type: string
+    pattern: "^[a-z]+-[a-z]+-[a-z0-9]+$"
+    description: "Identificador único do agente (ex: cfo-strategist-v1)"
+    examples:
+      - "cfo-strategist-v1"
+      - "cio-engineer-v1"
+      - "caio-architect-v1"
+
+  name:
+    type: string
+    minLength: 3
+    maxLength: 50
+    description: "Nome legível do agente"
+
+  role:
+    type: string
+    enum:
+      - cfo-strategist
+      - cio-engineer
+      - caio-architect
+      - coo-operator
+      - chro-people
+      - cmo-growth
+      - squad-coordinator
+    description: "Papel do agente no squad"
+
+  version:
+    type: string
+    pattern: "^\\d+\\.\\d+\\.\\d+$"
+    description: "Versão semântica da configuração"
+
+  description:
+    type: string
+    maxLength: 500
+    description: "Descrição do propósito e responsabilidades do agente"
+
+  persona:
+    type: object
+    properties:
+      identity:
+        type: string
+        description: "Descrição da identidade e personalidade"
+      tone:
+        type: string
+        enum: [formal, professional, collaborative, technical, strategic]
+        description: "Tom predominante de comunicação"
+      expertise_areas:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 10
+        description: "Áreas de expertise do agente"
+      communication_style:
+        type: object
+        properties:
+          verbosity:
+            type: string
+            enum: [concise, balanced, detailed]
+          formality:
+            type: string
+            enum: [informal, semi-formal, formal]
+          data_orientation:
+            type: string
+            enum: [qualitative, balanced, quantitative]
+
+  capabilities:
+    type: object
+    required:
+      - primary
+    properties:
+      primary:
+        type: array
+        items:
+          type: object
+          required: [capability, description]
+          properties:
+            capability:
+              type: string
+            description:
+              type: string
+            tools:
+              type: array
+              items:
+                type: string
+        minItems: 1
+        description: "Capacidades principais do agente"
+
+      secondary:
+        type: array
+        items:
+          type: object
+          properties:
+            capability:
+              type: string
+            description:
+              type: string
+        description: "Capacidades secundárias de suporte"
+
+      restricted:
+        type: array
+        items:
+          type: string
+        description: "Ações que o agente NÃO deve realizar"
+
+  knowledge:
+    type: object
+    properties:
+      domains:
+        type: array
+        items:
+          type: string
+        description: "Domínios de conhecimento"
+      frameworks:
+        type: array
+        items:
+          type: string
+        description: "Frameworks e metodologias que o agente conhece"
+      data_sources:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+              enum: [database, api, file, manual]
+            access_level:
+              type: string
+              enum: [read, write, admin]
+            refresh_frequency:
+              type: string
+        description: "Fontes de dados que o agente acessa"
+      reference_files:
+        type: array
+        items:
+          type: string
+        description: "Caminhos para arquivos de referência no repositório"
+
+  communication:
+    type: object
+    required:
+      - channels
+      - response_format
+    properties:
+      channels:
+        type: array
+        items:
+          type: object
+          properties:
+            channel:
+              type: string
+              enum: [slack, email, report, dashboard, meeting, async]
+            priority:
+              type: string
+              enum: [primary, secondary, emergency]
+            format:
+              type: string
+        description: "Canais de comunicação do agente"
+
+      response_format:
+        type: object
+        properties:
+          default_language:
+            type: string
+            default: "pt-BR"
+          max_response_length:
+            type: integer
+            minimum: 100
+            maximum: 10000
+          include_sources:
+            type: boolean
+            default: true
+          include_confidence:
+            type: boolean
+            default: true
+          structured_output:
+            type: boolean
+            default: false
+
+      escalation:
+        type: object
+        properties:
+          escalate_to:
+            type: array
+            items:
+              type: string
+            description: "Agentes ou papéis para escalation"
+          escalation_criteria:
+            type: array
+            items:
+              type: string
+            description: "Critérios que disparam escalation"
+          response_time_sla:
+            type: object
+            properties:
+              critical:
+                type: string
+                description: "SLA para itens críticos (ex: 1h)"
+              high:
+                type: string
+              medium:
+                type: string
+              low:
+                type: string
+
+  guardrails:
+    type: object
+    required:
+      - ethical
+      - operational
+    properties:
+      ethical:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        description: "Limites éticos que o agente deve respeitar"
+        examples:
+          - "Nunca recomendar ações que violem LGPD"
+          - "Sempre mencionar incertezas em projeções"
+          - "Não tomar decisões que afetem pessoas sem supervisão humana"
+
+      operational:
+        type: array
+        items:
+          type: string
+        description: "Limites operacionais"
+        examples:
+          - "Não aprovar gastos acima de R$ 50K sem validação humana"
+          - "Sempre requerer aprovação para mudanças em produção"
+
+      data_handling:
+        type: object
+        properties:
+          pii_handling:
+            type: string
+            enum: [mask, redact, encrypt, none]
+          data_retention_days:
+            type: integer
+          audit_logging:
+            type: boolean
+            default: true
+          sensitive_topics:
+            type: array
+            items:
+              type: string
+            description: "Tópicos que requerem cuidado especial"
+
+  integrations:
+    type: array
+    items:
+      type: object
+      properties:
+        service:
+          type: string
+        type:
+          type: string
+          enum: [input, output, bidirectional]
+        config:
+          type: object
+        enabled:
+          type: boolean
+          default: true
+
+  metrics:
+    type: object
+    properties:
+      track:
+        type: array
+        items:
+          type: object
+          properties:
+            metric:
+              type: string
+            description:
+              type: string
+            target:
+              type: string
+        description: "Métricas que o agente deve rastrear"
+      report_frequency:
+        type: string
+        enum: [daily, weekly, monthly, quarterly]
+
+  metadata:
+    type: object
+    properties:
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+      created_by:
+        type: string
+      tags:
+        type: array
+        items:
+          type: string
+      environment:
+        type: string
+        enum: [development, staging, production]
