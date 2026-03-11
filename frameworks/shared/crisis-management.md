@@ -1,120 +1,124 @@
-# Framework de Gestão de Crise Compartilhada
+# Framework de Gestao de Crise Compartilhada
 
 ## Objetivo
 
-Este framework estabelece o protocolo unificado de gestão de crises para todo o C-Level Squad.
-Todas as áreas — financeira, tecnológica, de pessoas e de IA — seguem este mesmo fluxo,
-garantindo coordenação, velocidade e comunicação consistente durante eventos críticos.
+Este framework define os procedimentos, papeis e protocolos que o C-Level Squad deve seguir durante situacoes de crise organizacional. A gestao de crise eficaz exige coordenacao rapida, comunicacao clara e tomada de decisao baseada em dados.
 
-## Classificação de Severidade
+## Classificacao de Crises
 
-### Nível 1 — Crítico (War Room Imediato)
-- Indisponibilidade total de sistemas em produção
-- Vazamento confirmado de dados sensíveis
-- Fraude financeira detectada
-- Risco iminente de insolvência
-- Incidente regulatório com prazo legal inferior a 24 horas
+### Nivel 1 - Crise Operacional Leve
+- Impacto limitado a uma area funcional
+- Resolucao esperada em ate 24 horas
+- Exemplo: queda temporaria de sistema interno, atraso pontual em entrega
+- Responsavel primario: lider da area afetada
+- Escalonamento: apenas se nao resolvido em 12 horas
 
-### Nível 2 — Alto (Resposta em até 2 horas)
-- Degradação severa de performance (>50% dos usuários afetados)
-- Perda de cliente estratégico (top 10 em receita)
-- Falha em auditoria externa com achados materiais
-- Demissão inesperada de liderança-chave
-- Vulnerabilidade de segurança com exploit ativo
+### Nivel 2 - Crise Moderada
+- Impacto em multiplas areas ou afeta clientes diretamente
+- Resolucao esperada em ate 72 horas
+- Exemplo: vazamento de dados limitado, perda de cliente estrategico, falha em integracao critica
+- Responsavel primario: comite de crise (CEO + CTO + area afetada)
+- Comunicacao externa pode ser necessaria
 
-### Nível 3 — Moderado (Resposta em até 24 horas)
-- Atraso significativo em entrega de projeto estratégico
-- Desvio orçamentário acima de 15%
-- Turnover acima do benchmark por dois meses consecutivos
-- Incidente de marca em redes sociais com viralização
+### Nivel 3 - Crise Severa
+- Impacto organizacional amplo, risco reputacional ou financeiro significativo
+- Resolucao pode levar semanas
+- Exemplo: incidente de seguranca grave, acao regulatoria, crise de caixa
+- Responsavel primario: todo o C-Level Squad mobilizado
+- Comunicacao com board e stakeholders obrigatoria
 
-### Nível 4 — Baixo (Monitoramento Ativo)
-- Indicadores de alerta precoce fora da faixa
-- Reclamações recorrentes sem resolução
-- Dependência técnica identificada sem mitigação
+## Protocolo de Ativacao
 
-## Protocolo de Ativação
+### Passo 1 - Identificacao e Registro
+- Qualquer membro do squad pode acionar o protocolo de crise
+- Registrar no canal dedicado: natureza do incidente, hora de deteccao, areas afetadas
+- Classificar preliminarmente o nivel da crise
+- Designar um ponto focal imediato
 
-### Passo 1 — Detecção e Triagem
-1. Qualquer membro do squad pode acionar o protocolo de crise
-2. O acionador deve preencher o template de incidente com informações iniciais
-3. O coordenador do squad faz a triagem e classifica a severidade
-4. Notificação automática é disparada para os stakeholders relevantes
+### Passo 2 - Mobilizacao da Equipe
+- Nivel 1: notificacao via canal interno, reuniao opcional
+- Nivel 2: reuniao de crise em ate 2 horas, war room virtual ativado
+- Nivel 3: reuniao imediata (maximo 30 minutos), suspensao de agendas concorrentes
 
-### Passo 2 — Formação do Time de Resposta
-- **Nível 1:** Todos os C-levels + coordenador + assessoria jurídica
-- **Nível 2:** C-levels diretamente envolvidos + coordenador
-- **Nível 3:** Líder da área afetada + coordenador
-- **Nível 4:** Líder da área afetada com reporte semanal ao coordenador
+### Passo 3 - Avaliacao Inicial
+- Mapear escopo completo do impacto
+- Identificar causa raiz provavel
+- Estimar timeline de resolucao
+- Definir metricas de acompanhamento
+- Preparar comunicacao inicial para stakeholders relevantes
 
-### Passo 3 — Contenção Imediata
-1. Isolar o problema para evitar propagação
-2. Documentar todas as ações tomadas com timestamp
-3. Estabelecer canal de comunicação dedicado (war room virtual ou físico)
-4. Definir porta-voz único para comunicação externa
+### Passo 4 - Plano de Acao
+- Definir acoes imediatas de contencao
+- Atribuir responsaveis para cada frente de trabalho
+- Estabelecer cadencia de check-ins (a cada 2h para Nivel 3, a cada 6h para Nivel 2)
+- Documentar decisoes e racional
 
-### Passo 4 — Investigação e Diagnóstico
-1. Levantar timeline completa do incidente
-2. Identificar causa raiz (ou causas contribuintes)
-3. Mapear impacto em todas as áreas (financeiro, operacional, reputacional, legal)
-4. Documentar evidências de forma preservável
+## Papeis Durante a Crise
 
-### Passo 5 — Resolução e Recuperação
-1. Implementar correção definitiva ou workaround temporário documentado
-2. Validar que a correção não introduz novos riscos
-3. Restaurar operações normais de forma gradual e monitorada
-4. Comunicar resolução a todos os stakeholders
+### Comandante de Incidente
+- Coordena todas as frentes de resposta
+- Toma decisoes finais quando ha divergencia
+- Geralmente o CEO ou CTO, dependendo da natureza da crise
+- Responsavel por manter o board informado
 
-### Passo 6 — Post-Mortem
-1. Realizar sessão de post-mortem em até 5 dias úteis após a resolução
-2. Documentar lições aprendidas sem atribuição de culpa individual
-3. Definir ações preventivas com responsáveis e prazos
-4. Atualizar este framework se necessário
+### Lider de Comunicacao
+- Prepara mensagens para stakeholders internos e externos
+- Garante consistencia na narrativa
+- Valida toda comunicacao antes do envio
+- Monitora reacoes e sentimento
 
-## Matriz de Comunicação
+### Lider Tecnico
+- Coordena a investigacao e resolucao tecnica
+- Gerencia equipe de resposta a incidentes
+- Documenta timeline tecnica e acoes tomadas
+- Valida que a solucao e definitiva
 
-| Audiência         | Canal               | Frequência (Nível 1) | Responsável         |
-|-------------------|----------------------|-----------------------|---------------------|
-| Board             | E-mail + call        | A cada 4 horas        | CEO / Coordenador   |
-| Investidores      | E-mail formal        | A cada 12 horas       | CFO                 |
-| Clientes          | Status page + e-mail | A cada 2 horas        | CIO                 |
-| Colaboradores     | Slack + all-hands    | A cada 6 horas        | CHRO                |
-| Imprensa          | Nota oficial         | Conforme necessidade  | Assessoria          |
-| Reguladores       | Ofício formal        | Conforme exigência    | Jurídico + CFO      |
+### Lider Financeiro
+- Avalia impacto financeiro da crise
+- Prepara cenarios de custo
+- Coordena com seguradoras se aplicavel
+- Monitora impacto em fluxo de caixa
 
-## Templates Obrigatórios
+## Comunicacao Durante Crise
 
-### Template de Acionamento
-```
-INCIDENTE #[número]
-Data/Hora detecção: [timestamp]
-Severidade estimada: [1-4]
-Descrição resumida: [máximo 3 linhas]
-Áreas impactadas: [lista]
-Acionador: [nome e cargo]
-Ações imediatas tomadas: [lista]
-```
+### Principios Fundamentais
+- Transparencia proporcional ao publico
+- Frequencia alta nos primeiros momentos, reduzindo conforme estabilizacao
+- Uma unica fonte de verdade para evitar informacoes conflitantes
+- Tom serio porem calmo, transmitindo controle da situacao
+- Nunca especular sobre causas antes de confirmacao
 
-### Template de Atualização
-```
-ATUALIZAÇÃO #[sequencial] — INCIDENTE #[número]
-Data/Hora: [timestamp]
-Status atual: [Contenção | Investigação | Resolução | Encerrado]
-Progresso desde última atualização: [descrição]
-Próximos passos: [lista com ETA]
-Riscos pendentes: [lista]
-```
+### Templates de Comunicacao
+- **Comunicado Interno Inicial**: "Identificamos [situacao]. Estamos investigando e tomaremos as medidas necessarias. Atualizacoes serao enviadas a cada [periodo]."
+- **Comunicado para Clientes**: "Estamos cientes de [situacao] e trabalhando ativamente na resolucao. [Impacto esperado]. Entraremos em contato com atualizacoes."
+- **Comunicado para Board**: "Reportamos incidente classificado como Nivel [X]. Impacto estimado: [descricao]. Plano de acao em execucao. Proxima atualizacao: [data/hora]."
 
-## Indicadores de Efetividade
+## Pos-Crise
 
-- **Tempo médio de detecção (MTTD):** meta < 15 minutos para Nível 1
-- **Tempo médio de resposta (MTTR):** meta < 30 minutos para Nível 1
-- **Tempo médio de resolução:** meta < 4 horas para Nível 1
-- **Taxa de recorrência:** meta < 5% de incidentes repetidos
-- **Completude de post-mortem:** meta 100% em até 5 dias úteis
+### Retrospectiva Obrigatoria
+- Realizar em ate 5 dias uteis apos resolucao
+- Participacao de todos os envolvidos na resposta
+- Documentar: timeline completa, decisoes tomadas, o que funcionou, o que melhorar
+- Gerar action items com prazos e responsaveis
 
-## Revisão do Framework
+### Atualizacao de Processos
+- Revisar este framework com base nos aprendizados
+- Atualizar runbooks e playbooks afetados
+- Implementar melhorias preventivas identificadas
+- Comunicar mudancas ao squad completo
 
-Este framework deve ser revisado trimestralmente pelo coordenador do squad,
-com input de todos os C-levels. Simulações de crise (tabletop exercises) devem
-ser realizadas semestralmente para validar a efetividade dos protocolos.
+### Metricas de Avaliacao Pos-Crise
+- Tempo de deteccao (MTTD)
+- Tempo de resposta (MTTR)
+- Impacto financeiro total
+- Numero de stakeholders afetados
+- Eficacia da comunicacao (pesquisa de satisfacao)
+- Numero de action items gerados e cumpridos
+
+## Simulacoes e Preparacao
+
+- Realizar simulacao de crise trimestralmente
+- Alternar cenarios entre operacional, financeiro, reputacional e regulatorio
+- Avaliar tempo de mobilizacao e qualidade da resposta
+- Manter lista de contatos de emergencia atualizada mensalmente
+- Revisar e atualizar este documento semestralmente

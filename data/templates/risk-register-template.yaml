@@ -1,0 +1,213 @@
+# Template YAML de Registro de Riscos
+# Registro centralizado para identificação, avaliação e gestão de riscos
+# Versão: 1.0 | Última atualização: Março 2026
+
+risk_register:
+  metadata:
+    register_id: "RR-{YYYY}"
+    organization: ""
+    owner: ""               # Responsável geral pelo registro
+    last_review_date: null
+    next_review_date: null
+    review_frequency: monthly
+    version: "1.0"
+    status: active           # active | archived
+
+  risk_appetite:
+    statement: ""
+    by_category:
+      strategic:
+        appetite: moderate    # low | moderate | high
+        description: "Aceitamos riscos calculados para crescimento estratégico"
+      financial:
+        appetite: low
+        description: "Baixa tolerância a riscos que afetem liquidez ou solvência"
+      operational:
+        appetite: moderate
+        description: "Aceitamos riscos operacionais com plano de mitigação"
+      regulatory:
+        appetite: low
+        description: "Zero tolerância para não-conformidade regulatória"
+      technological:
+        appetite: moderate
+        description: "Aceitamos riscos tecnológicos com fallback definido"
+      reputational:
+        appetite: low
+        description: "Baixa tolerância para riscos que afetem reputação"
+
+  scoring_matrix:
+    probability:
+      - level: 1
+        label: "Raro"
+        description: "Menos de 5% de chance de ocorrer no período"
+      - level: 2
+        label: "Improvável"
+        description: "5-20% de chance"
+      - level: 3
+        label: "Possível"
+        description: "20-50% de chance"
+      - level: 4
+        label: "Provável"
+        description: "50-80% de chance"
+      - level: 5
+        label: "Quase certo"
+        description: "Mais de 80% de chance"
+
+    impact:
+      - level: 1
+        label: "Insignificante"
+        financial: "< R$ 50K"
+        operational: "Interrupção < 1 hora"
+        reputational: "Sem repercussão externa"
+      - level: 2
+        label: "Menor"
+        financial: "R$ 50K - R$ 200K"
+        operational: "Interrupção de 1-4 horas"
+        reputational: "Menção negativa isolada"
+      - level: 3
+        label: "Moderado"
+        financial: "R$ 200K - R$ 1M"
+        operational: "Interrupção de 4-24 horas"
+        reputational: "Cobertura negativa em mídia"
+      - level: 4
+        label: "Significativo"
+        financial: "R$ 1M - R$ 5M"
+        operational: "Interrupção de 1-7 dias"
+        reputational: "Dano significativo à marca"
+      - level: 5
+        label: "Catastrófico"
+        financial: "> R$ 5M"
+        operational: "Interrupção > 7 dias"
+        reputational: "Dano irreparável, perda de confiança do mercado"
+
+    risk_score:
+      calculation: "Probabilidade x Impacto"
+      ranges:
+        - range: "1-4"
+          level: "Baixo"
+          color: green
+          action: "Monitorar, aceitar com revisão periódica"
+        - range: "5-9"
+          level: "Médio"
+          color: yellow
+          action: "Plano de mitigação necessário"
+        - range: "10-15"
+          level: "Alto"
+          color: orange
+          action: "Mitigação prioritária, escalation para C-Level"
+        - range: "16-25"
+          level: "Crítico"
+          color: red
+          action: "Ação imediata, escalation para Board"
+
+  risks:
+    - risk_id: "R-001"
+      title: ""
+      description: ""
+      category: strategic     # strategic | financial | operational | regulatory | tech | people | reputational
+      subcategory: ""
+
+      assessment:
+        probability: null      # 1-5
+        impact: null           # 1-5
+        risk_score: null       # probabilidade x impacto
+        risk_level: ""         # Baixo | Médio | Alto | Crítico
+        velocity: ""           # slow | medium | fast (quão rápido o risco se materializa)
+        trend: stable          # increasing | stable | decreasing
+
+      context:
+        root_causes: []
+        triggers: []           # Eventos que podem materializar o risco
+        affected_areas: []     # Áreas/processos impactados
+        related_risks: []      # IDs de riscos relacionados
+        external_factors: []   # Fatores externos que influenciam
+
+      current_controls:
+        - control: ""
+          type: preventive     # preventive | detective | corrective
+          effectiveness: high  # low | medium | high
+          automated: false
+          owner: ""
+
+      mitigation:
+        strategy: mitigate     # accept | mitigate | transfer | avoid
+        actions:
+          - action: ""
+            owner: ""
+            due_date: null
+            status: not_started # not_started | in_progress | completed | overdue
+            cost_estimate: null
+            expected_impact: "" # Como reduz probabilidade ou impacto
+        residual_risk:
+          probability: null
+          impact: null
+          score: null
+
+      contingency:
+        trigger_conditions: "" # Quando ativar o plano de contingência
+        response_plan: ""
+        responsible: ""
+        resources_needed: []
+        communication_plan: ""
+
+      monitoring:
+        kris:                  # Key Risk Indicators
+          - indicator: ""
+            current_value: null
+            threshold: null
+            frequency: monthly
+            data_source: ""
+        review_frequency: monthly
+        last_review: null
+        next_review: null
+        escalation_path: ""
+
+      ownership:
+        risk_owner: ""         # Responsável pelo risco
+        mitigation_owner: ""   # Responsável pela mitigação
+        reviewer: ""           # Quem revisa periodicamente
+
+      history:
+        identified_date: null
+        identified_by: ""
+        status_changes:
+          - date: null
+            from_status: ""
+            to_status: ""
+            reason: ""
+        incidents:             # Vezes que o risco se materializou
+          - date: null
+            description: ""
+            impact_actual: ""
+            response: ""
+            lessons_learned: ""
+
+      status: open             # open | mitigating | accepted | closed | materialized
+      priority: medium         # low | medium | high | critical
+      notes: ""
+
+  summary:
+    total_risks: null
+    by_level:
+      critical: null
+      high: null
+      medium: null
+      low: null
+    by_category:
+      strategic: null
+      financial: null
+      operational: null
+      regulatory: null
+      technological: null
+      people: null
+      reputational: null
+    by_status:
+      open: null
+      mitigating: null
+      accepted: null
+      closed: null
+    overdue_actions: null
+    top_5_risks: []            # IDs dos 5 riscos mais críticos
+    new_risks_this_period: null
+    closed_risks_this_period: null
+    risk_trend: ""             # improving | stable | deteriorating
