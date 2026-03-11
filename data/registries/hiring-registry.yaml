@@ -1,0 +1,171 @@
+# =============================================================================
+# Hiring Registry
+# =============================================================================
+# Registry of all hiring decisions and their outcomes. Tracks the full
+# hiring lifecycle from opening to post-hire performance, enabling the
+# organization to evaluate hiring effectiveness and improve over time.
+#
+# Status: open -> interviewing -> offer_extended -> hired -> closed_no_hire
+# Level: IC1-IC6 (individual contributor), M1-M3 (management), D1-D2 (director), VP, C-level
+# 30/60/90 Status: on_track, exceeding, behind, not_started
+# =============================================================================
+
+schema:
+  id:
+    type: string
+    format: "HIRE-YYYY-NNN"
+    description: "Unique hiring record identifier"
+    required: true
+  role:
+    type: string
+    description: "Job title for the position"
+    required: true
+  level:
+    type: string
+    description: "Seniority level (IC1-IC6, M1-M3, D1-D2, VP, C-level)"
+    required: true
+  department:
+    type: string
+    description: "Department or team hiring for"
+    required: true
+  hiring_manager:
+    type: string
+    description: "Name or role of the hiring manager"
+    required: true
+  status:
+    type: enum
+    values: [open, interviewing, offer_extended, hired, closed_no_hire]
+    description: "Current status of the hiring process"
+    required: true
+  date_opened:
+    type: date
+    description: "Date the requisition was opened"
+    required: true
+  date_closed:
+    type: date
+    description: "Date the position was filled or closed (null if still open)"
+    required: false
+  candidate_selected:
+    type: string
+    description: "Name or identifier of the selected candidate (null if not yet hired)"
+    required: false
+  scorecard_score:
+    type: number
+    description: "Aggregate interview scorecard rating (1-5 scale)"
+    required: false
+  30_60_90_status:
+    type: enum
+    values: [not_started, on_track, exceeding, behind]
+    description: "Status of the 30/60/90-day onboarding plan"
+    required: false
+  performance_6m:
+    type: string
+    description: "6-month performance assessment (null if not yet reached)"
+    required: false
+  performance_12m:
+    type: string
+    description: "12-month performance assessment (null if not yet reached)"
+    required: false
+  lessons:
+    type: text
+    description: "Lessons learned from this hiring process"
+    required: false
+
+# =============================================================================
+# Entries
+# =============================================================================
+
+hires:
+  - id: "HIRE-2026-001"
+    role: "Senior ML Engineer"
+    level: "IC4"
+    department: "AI/ML Engineering"
+    hiring_manager: "CAIO"
+    status: "hired"
+    date_opened: "2025-11-15"
+    date_closed: "2026-01-20"
+    candidate_selected: "Candidate A"
+    scorecard_score: 4.5
+    30_60_90_status: "exceeding"
+    performance_6m: null
+    performance_12m: null
+    lessons: >
+      Strong technical assessment process identified this candidate well.
+      The take-home project was more predictive than whiteboard coding.
+      Candidate sourced through employee referral, validating the value
+      of the referral program for specialized roles.
+
+  - id: "HIRE-2026-002"
+    role: "Staff Site Reliability Engineer"
+    level: "IC5"
+    department: "Platform Engineering"
+    hiring_manager: "CTO"
+    status: "hired"
+    date_opened: "2025-12-01"
+    date_closed: "2026-02-15"
+    candidate_selected: "Candidate B"
+    scorecard_score: 4.2
+    30_60_90_status: "on_track"
+    performance_6m: null
+    performance_12m: null
+    lessons: >
+      Hiring took 11 weeks, longer than the 8-week target. The SRE market
+      is extremely competitive. We lost two strong candidates to competing
+      offers before closing this hire. Recommendation: accelerate the
+      interview loop for in-demand roles to 5 business days max.
+
+  - id: "HIRE-2026-003"
+    role: "Growth Marketing Manager"
+    level: "IC3"
+    department: "Marketing"
+    hiring_manager: "CMO"
+    status: "interviewing"
+    date_opened: "2026-02-01"
+    date_closed: null
+    candidate_selected: null
+    scorecard_score: null
+    30_60_90_status: "not_started"
+    performance_6m: null
+    performance_12m: null
+    lessons: null
+
+  - id: "HIRE-2026-004"
+    role: "Data Engineer"
+    level: "IC3"
+    department: "Data Engineering"
+    hiring_manager: "CIO"
+    status: "hired"
+    date_opened: "2025-10-20"
+    date_closed: "2025-12-18"
+    candidate_selected: "Candidate C"
+    scorecard_score: 3.8
+    30_60_90_status: "on_track"
+    performance_6m: "Meets expectations. Strong SQL skills. Needs coaching on distributed systems design."
+    performance_12m: null
+    lessons: >
+      The scorecard score of 3.8 was at our hire threshold (3.5). At
+      6 months, the hire is meeting but not exceeding expectations.
+      This validates the scorecard threshold but suggests we should
+      raise it to 4.0 for critical technical roles to improve the
+      odds of strong performance.
+
+  - id: "HIRE-2026-005"
+    role: "Product Designer"
+    level: "IC4"
+    department: "Product"
+    hiring_manager: "Vision Chief"
+    status: "closed_no_hire"
+    date_opened: "2025-11-01"
+    date_closed: "2026-02-28"
+    candidate_selected: null
+    scorecard_score: null
+    30_60_90_status: "not_started"
+    performance_6m: null
+    performance_12m: null
+    lessons: >
+      After 4 months and 35 candidates, no hire was made. The job
+      description was overly specific, requiring both AI product design
+      experience and enterprise UX background. Only 3 candidates met
+      all criteria, and all declined. Recommendation: split into
+      must-have and nice-to-have requirements, and consider hiring
+      for potential with a structured onboarding plan.

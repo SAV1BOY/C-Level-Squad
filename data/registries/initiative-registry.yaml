@@ -1,0 +1,257 @@
+# =============================================================================
+# Initiative Registry
+# =============================================================================
+# Central registry of all strategic initiatives undertaken by the C-Level Squad.
+# Tracks lifecycle from proposal through completion, including health, budget,
+# dependencies, milestones, and kill criteria.
+#
+# Health: green = on track, yellow = at risk, red = blocked or failing
+# Status Lifecycle: proposed -> approved -> active -> completed | killed | paused
+# =============================================================================
+
+schema:
+  id:
+    type: string
+    format: "INIT-YYYY-NNN"
+    description: "Unique initiative identifier"
+    required: true
+  name:
+    type: string
+    description: "Descriptive name of the initiative"
+    required: true
+  type:
+    type: string
+    description: "Category from initiative-taxonomy (e.g., product, infrastructure, growth, governance)"
+    required: true
+  owner:
+    type: string
+    description: "Agent or role accountable for delivery"
+    required: true
+  sponsor:
+    type: string
+    description: "Executive sponsor providing strategic oversight"
+    required: true
+  status:
+    type: enum
+    values: [proposed, approved, active, paused, completed, killed]
+    description: "Current lifecycle status"
+    required: true
+  start_date:
+    type: date
+    description: "Actual or planned start date"
+    required: true
+  target_end:
+    type: date
+    description: "Planned completion date"
+    required: true
+  actual_end:
+    type: date
+    description: "Actual completion date (null if still active)"
+    required: false
+  health:
+    type: enum
+    values: [green, yellow, red]
+    description: "Current health indicator"
+    required: true
+  kill_criteria:
+    type: list
+    description: "Conditions under which this initiative should be terminated"
+    required: true
+  budget:
+    type: object
+    properties:
+      allocated: "number - total budget allocated"
+      spent: "number - amount spent to date"
+      currency: "string - currency code (USD)"
+    required: true
+  resources:
+    type: list
+    description: "Teams, headcount, or roles assigned"
+    required: true
+  dependencies:
+    type: list
+    description: "Other initiative IDs or external dependencies"
+    required: false
+  milestones:
+    type: list
+    items:
+      name: "string"
+      target_date: "date"
+      status: "enum [pending, completed, missed, at_risk]"
+    description: "Key milestones with dates and statuses"
+    required: true
+  metrics:
+    type: list
+    description: "Metric IDs from metric-registry used to measure success"
+    required: true
+  last_review:
+    type: date
+    description: "Date of most recent status review"
+    required: true
+
+# =============================================================================
+# Entries
+# =============================================================================
+
+initiatives:
+  - id: "INIT-2026-001"
+    name: "AI-Powered Recommendation Engine"
+    type: "product"
+    owner: "CTO"
+    sponsor: "Vision Chief"
+    status: "active"
+    start_date: "2026-01-20"
+    target_end: "2026-04-30"
+    actual_end: null
+    health: "green"
+    kill_criteria:
+      - "Model accuracy drops below 80% after 3 consecutive evaluations"
+      - "Customer engagement with recommendations is < 5% after 4-week pilot"
+      - "Total cost exceeds 150% of allocated budget"
+    budget:
+      allocated: 350000
+      spent: 142000
+      currency: "USD"
+    resources:
+      - "ML Engineering Team (4 engineers)"
+      - "Backend Team (2 engineers)"
+      - "Product Manager"
+      - "Data Scientist"
+    dependencies:
+      - "INIT-2026-007"  # Data warehouse migration
+    milestones:
+      - name: "Model v1 trained and validated"
+        target_date: "2026-02-15"
+        status: "completed"
+      - name: "API integration with product"
+        target_date: "2026-03-01"
+        status: "completed"
+      - name: "Beta launch to 10% of users"
+        target_date: "2026-03-15"
+        status: "at_risk"
+      - name: "Full production rollout"
+        target_date: "2026-04-30"
+        status: "pending"
+    metrics:
+      - "MET-012"  # Model Accuracy
+      - "MET-013"  # AI ROI Index
+    last_review: "2026-03-07"
+
+  - id: "INIT-2026-002"
+    name: "Platform Reliability Improvement Program"
+    type: "infrastructure"
+    owner: "CTO"
+    sponsor: "COO"
+    status: "active"
+    start_date: "2026-01-10"
+    target_end: "2026-06-30"
+    actual_end: null
+    health: "yellow"
+    kill_criteria:
+      - "No measurable improvement in MTTR after 8 weeks of effort"
+      - "Budget overrun exceeds 200% of allocation"
+    budget:
+      allocated: 200000
+      spent: 85000
+      currency: "USD"
+    resources:
+      - "SRE Team (3 engineers)"
+      - "Platform Team (2 engineers)"
+    dependencies: []
+    milestones:
+      - name: "Incident response runbooks updated"
+        target_date: "2026-02-01"
+        status: "completed"
+      - name: "Automated failover for critical services"
+        target_date: "2026-03-15"
+        status: "at_risk"
+      - name: "Chaos engineering tests passing"
+        target_date: "2026-05-01"
+        status: "pending"
+      - name: "99.95% uptime sustained for 30 days"
+        target_date: "2026-06-30"
+        status: "pending"
+    metrics:
+      - "MET-007"  # System Uptime
+      - "MET-008"  # MTTR
+    last_review: "2026-03-07"
+
+  - id: "INIT-2026-003"
+    name: "Q2 Referral Program Launch"
+    type: "growth"
+    owner: "CMO"
+    sponsor: "Vision Chief"
+    status: "approved"
+    start_date: "2026-03-15"
+    target_end: "2026-06-30"
+    actual_end: null
+    health: "green"
+    kill_criteria:
+      - "Referral fraud rate exceeds 10% of total referrals"
+      - "CAC via referral channel exceeds paid channel CAC"
+      - "Fewer than 50 referrals after first 4 weeks"
+    budget:
+      allocated: 75000
+      spent: 5000
+      currency: "USD"
+    resources:
+      - "Growth Marketing Team (2 marketers)"
+      - "Engineering (1 developer for referral portal)"
+    dependencies: []
+    milestones:
+      - name: "Referral portal development complete"
+        target_date: "2026-03-30"
+        status: "pending"
+      - name: "Soft launch to top 100 customers"
+        target_date: "2026-04-07"
+        status: "pending"
+      - name: "Full launch"
+        target_date: "2026-04-15"
+        status: "pending"
+      - name: "Q2 review and optimization"
+        target_date: "2026-06-30"
+        status: "pending"
+    metrics:
+      - "MET-004"  # MQLs
+      - "MET-005"  # CAC
+      - "MET-006"  # NPS
+    last_review: "2026-03-01"
+
+  - id: "INIT-2026-007"
+    name: "Data Warehouse Migration to Snowflake"
+    type: "infrastructure"
+    owner: "CIO"
+    sponsor: "CTO"
+    status: "active"
+    start_date: "2026-01-05"
+    target_end: "2026-03-31"
+    actual_end: null
+    health: "green"
+    kill_criteria:
+      - "Data quality score drops below 80% during migration"
+      - "Migration timeline exceeds 6 months"
+    budget:
+      allocated: 180000
+      spent: 120000
+      currency: "USD"
+    resources:
+      - "Data Engineering Team (3 engineers)"
+      - "Analytics Team (1 analyst for validation)"
+    dependencies: []
+    milestones:
+      - name: "Schema design and mapping complete"
+        target_date: "2026-01-20"
+        status: "completed"
+      - name: "Core datasets migrated (finance, product)"
+        target_date: "2026-02-15"
+        status: "completed"
+      - name: "All datasets migrated"
+        target_date: "2026-03-15"
+        status: "at_risk"
+      - name: "Legacy system decommissioned"
+        target_date: "2026-03-31"
+        status: "pending"
+    metrics:
+      - "MET-010"  # Data Quality Score
+      - "MET-011"  # Pipeline SLA Compliance
+    last_review: "2026-03-07"

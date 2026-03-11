@@ -1,0 +1,209 @@
+# =============================================================================
+# AI Use Case Registry
+# =============================================================================
+# Registry of all AI/ML use cases across the organization. Tracks each use
+# case from ideation through production, including model details, evaluation
+# scores, guardrails, ROI, and governance status.
+#
+# Stages: ideation -> poc -> pilot -> production -> retired
+# Risk Levels: low, medium, high, critical
+# Governance: pending_review, approved, conditional, rejected
+# =============================================================================
+
+schema:
+  id:
+    type: string
+    format: "AI-YYYY-NNN"
+    description: "Unique AI use case identifier"
+    required: true
+  name:
+    type: string
+    description: "Descriptive name of the AI use case"
+    required: true
+  category:
+    type: string
+    description: "From ai-use-case-taxonomy (e.g., recommendation, prediction, generation, classification, optimization, anomaly_detection)"
+    required: true
+  stage:
+    type: enum
+    values: [ideation, poc, pilot, production, retired]
+    description: "Current lifecycle stage"
+    required: true
+  owner:
+    type: string
+    description: "Agent or role responsible for this use case"
+    required: true
+  model_type:
+    type: string
+    description: "Type of model or approach (e.g., transformer, gradient_boosting, LLM, ensemble)"
+    required: true
+  data_sources:
+    type: list
+    description: "Data sources feeding the model"
+    required: true
+  eval_score:
+    type: object
+    properties:
+      primary_metric: "string - name of the primary evaluation metric"
+      value: "number - current score"
+      threshold: "number - minimum acceptable score"
+    description: "Primary evaluation metric and current score"
+    required: true
+  guardrails:
+    type: list
+    description: "Safety and quality guardrails applied to this use case"
+    required: true
+  roi_projected:
+    type: string
+    description: "Projected return on investment"
+    required: true
+  roi_actual:
+    type: string
+    description: "Actual measured ROI (null if not yet in production)"
+    required: false
+  risk_level:
+    type: enum
+    values: [low, medium, high, critical]
+    description: "Risk classification based on impact and exposure"
+    required: true
+  last_eval:
+    type: date
+    description: "Date of last model evaluation or audit"
+    required: true
+  governance_status:
+    type: enum
+    values: [pending_review, approved, conditional, rejected]
+    description: "AI governance review status"
+    required: true
+
+# =============================================================================
+# Entries
+# =============================================================================
+
+ai_use_cases:
+  - id: "AI-2026-001"
+    name: "Product Recommendation Engine"
+    category: "recommendation"
+    stage: "pilot"
+    owner: "CAIO"
+    model_type: "transformer (collaborative filtering + content-based hybrid)"
+    data_sources:
+      - "User interaction logs (Snowflake)"
+      - "Product catalog (PostgreSQL)"
+      - "Purchase history (SAP ERP)"
+    eval_score:
+      primary_metric: "NDCG@10"
+      value: 0.82
+      threshold: 0.75
+    guardrails:
+      - "Diversity filter: no more than 3 items from same category in top 10"
+      - "Popularity bias check: at least 20% of recommendations from long-tail"
+      - "Content safety filter: exclude flagged or recalled products"
+      - "Confidence threshold: fallback to popularity-based if score < 0.3"
+    roi_projected: "15% increase in cross-sell revenue ($1.2M annually)"
+    roi_actual: null
+    risk_level: "medium"
+    last_eval: "2026-03-05"
+    governance_status: "approved"
+
+  - id: "AI-2026-002"
+    name: "Customer Churn Prediction"
+    category: "prediction"
+    stage: "production"
+    owner: "CAIO"
+    model_type: "gradient_boosting (XGBoost ensemble)"
+    data_sources:
+      - "CRM activity data (Salesforce)"
+      - "Product usage telemetry (Snowflake)"
+      - "Support ticket history (Zendesk)"
+      - "Billing data (Stripe)"
+    eval_score:
+      primary_metric: "AUC-ROC"
+      value: 0.89
+      threshold: 0.80
+    guardrails:
+      - "Feature importance monitoring: alert if top features shift"
+      - "Prediction drift detection: retrain if PSI > 0.2"
+      - "Fairness check: equal opportunity across customer segments"
+      - "No PII in feature set (uses only behavioral signals)"
+    roi_projected: "Reduce churn by 3 percentage points ($800K ARR saved)"
+    roi_actual: "2.1 percentage point reduction after 6 months ($560K ARR saved)"
+    risk_level: "medium"
+    last_eval: "2026-02-28"
+    governance_status: "approved"
+
+  - id: "AI-2026-003"
+    name: "Automated Support Ticket Triage"
+    category: "classification"
+    stage: "production"
+    owner: "CAIO"
+    model_type: "fine-tuned LLM (GPT-4 class) with classification head"
+    data_sources:
+      - "Support ticket text (Zendesk)"
+      - "Product documentation (internal knowledge base)"
+      - "Historical routing decisions (Zendesk)"
+    eval_score:
+      primary_metric: "Accuracy"
+      value: 0.94
+      threshold: 0.90
+    guardrails:
+      - "Human escalation for confidence < 0.7"
+      - "Sensitive topic detection: auto-route legal/security to humans"
+      - "No automated responses; classification only"
+      - "Daily accuracy sampling: 5% random audit by support leads"
+    roi_projected: "40% reduction in triage time (saves 2 FTE equivalent)"
+    roi_actual: "35% reduction in triage time (1.7 FTE equivalent)"
+    risk_level: "low"
+    last_eval: "2026-03-01"
+    governance_status: "approved"
+
+  - id: "AI-2026-004"
+    name: "Marketing Content Generation Assistant"
+    category: "generation"
+    stage: "poc"
+    owner: "CAIO"
+    model_type: "LLM (Claude) with RAG pipeline"
+    data_sources:
+      - "Brand guidelines (internal docs)"
+      - "Historical marketing content (HubSpot)"
+      - "Competitor content analysis (web scraping)"
+      - "Product documentation"
+    eval_score:
+      primary_metric: "Human preference score"
+      value: 0.72
+      threshold: 0.80
+    guardrails:
+      - "Human review required before any content is published"
+      - "Brand voice consistency checker"
+      - "Factual accuracy verification against product docs"
+      - "Competitor name mention filter"
+      - "Copyright and plagiarism detection"
+    roi_projected: "50% reduction in content creation time for standard assets"
+    roi_actual: null
+    risk_level: "medium"
+    last_eval: "2026-03-03"
+    governance_status: "conditional"
+
+  - id: "AI-2026-005"
+    name: "Infrastructure Cost Optimization"
+    category: "optimization"
+    stage: "ideation"
+    owner: "CAIO"
+    model_type: "reinforcement learning (planned)"
+    data_sources:
+      - "Cloud resource utilization (AWS CloudWatch)"
+      - "Application performance metrics (Datadog)"
+      - "Cost and billing data (AWS Cost Explorer)"
+    eval_score:
+      primary_metric: "Cost reduction percentage"
+      value: 0
+      threshold: 10
+    guardrails:
+      - "No changes to production infrastructure without human approval"
+      - "Recommendations only; no automated scaling actions initially"
+      - "Performance regression detection before any change"
+    roi_projected: "20% reduction in cloud infrastructure costs ($150K annually)"
+    roi_actual: null
+    risk_level: "high"
+    last_eval: "2026-02-15"
+    governance_status: "pending_review"

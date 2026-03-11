@@ -1,0 +1,205 @@
+# =============================================================================
+# Architecture Decision Records (ADR) Registry
+# =============================================================================
+# Registry of significant architecture decisions made by the C-Level Squad.
+# ADRs capture the context, decision, and consequences of technical and
+# organizational architecture choices for future reference.
+#
+# Status Lifecycle: proposed -> accepted -> deprecated | superseded
+# =============================================================================
+
+schema:
+  id:
+    type: string
+    format: "ADR-NNN"
+    description: "Unique ADR identifier"
+    required: true
+  date:
+    type: date
+    description: "Date the decision was recorded"
+    required: true
+  title:
+    type: string
+    description: "Concise title describing the architecture decision"
+    required: true
+  status:
+    type: enum
+    values: [proposed, accepted, deprecated, superseded]
+    description: "Current status of the ADR"
+    required: true
+  context:
+    type: text
+    description: "The forces at play, including technical, business, and organizational context"
+    required: true
+  decision:
+    type: text
+    description: "The architecture decision that was made"
+    required: true
+  consequences:
+    type: list
+    description: "Resulting context after applying the decision (positive and negative)"
+    required: true
+  alternatives_considered:
+    type: list
+    items:
+      option: "string"
+      reason_rejected: "string"
+    description: "Other options that were evaluated and why they were not chosen"
+    required: true
+  related_adrs:
+    type: list
+    description: "IDs of related ADRs"
+    required: false
+  owner:
+    type: string
+    description: "Agent or role who authored and owns this ADR"
+    required: true
+  review_date:
+    type: date
+    description: "Scheduled date to revisit whether this decision is still valid"
+    required: true
+
+# =============================================================================
+# Entries
+# =============================================================================
+
+adrs:
+  - id: "ADR-001"
+    date: "2026-01-10"
+    title: "Use event-driven architecture for inter-agent communication"
+    status: "accepted"
+    context: >
+      The C-Level Squad consists of six AI agents that need to coordinate
+      decisions, share state, and trigger workflows across domains. Direct
+      point-to-point communication creates tight coupling and makes it
+      difficult to add new agents or modify existing ones. We need a
+      communication pattern that supports loose coupling, auditability,
+      and asynchronous processing.
+    decision: >
+      Adopt an event-driven architecture using a message bus for all
+      inter-agent communication. Each agent publishes domain events to
+      named topics. Other agents subscribe to relevant topics. All events
+      are persisted for audit and replay capability.
+    consequences:
+      - "Positive: Agents are loosely coupled and can evolve independently"
+      - "Positive: Full audit trail of all inter-agent communication"
+      - "Positive: New agents can be added without modifying existing ones"
+      - "Positive: Supports replay for debugging and testing"
+      - "Negative: Eventual consistency; agents may act on stale data briefly"
+      - "Negative: Debugging distributed event flows is more complex"
+      - "Negative: Requires investment in event schema management"
+    alternatives_considered:
+      - option: "Direct API calls between agents"
+        reason_rejected: "Creates tight coupling; any agent change requires updating callers"
+      - option: "Shared database for state"
+        reason_rejected: "Database becomes bottleneck; no clear ownership of writes"
+      - option: "Polling-based coordination"
+        reason_rejected: "High latency; wasteful resource usage"
+    related_adrs:
+      - "ADR-002"
+      - "ADR-003"
+    owner: "CTO"
+    review_date: "2026-07-10"
+
+  - id: "ADR-002"
+    date: "2026-01-15"
+    title: "Use YAML as the standard format for all operational registries"
+    status: "accepted"
+    context: >
+      Operational data (decisions, metrics, risks, etc.) needs to be stored
+      in a format that is human-readable, version-controllable, supports
+      inline documentation, and produces clean diffs in git. The format must
+      work well for both humans reviewing and machines parsing.
+    decision: >
+      Standardize all operational registries on YAML format with enforced
+      linting via CI. JSON Schema validation files will be maintained
+      alongside each registry for automated validation.
+    consequences:
+      - "Positive: Excellent human readability with inline comments"
+      - "Positive: Clean git diffs for change tracking"
+      - "Positive: Easy to template and generate programmatically"
+      - "Negative: Indentation sensitivity can cause subtle bugs"
+      - "Negative: YAML implicit type coercion requires awareness (e.g., 'no' -> false)"
+      - "Negative: Large files can become unwieldy; may need splitting strategy"
+    alternatives_considered:
+      - option: "JSON"
+        reason_rejected: "No comment support; poor readability for large documents"
+      - option: "TOML"
+        reason_rejected: "Limited support for deeply nested structures"
+      - option: "Markdown with frontmatter"
+        reason_rejected: "Not structured enough for machine parsing"
+    related_adrs:
+      - "ADR-001"
+    owner: "CIO"
+    review_date: "2026-07-15"
+
+  - id: "ADR-003"
+    date: "2026-01-25"
+    title: "Adopt Snowflake as the central data warehouse"
+    status: "accepted"
+    context: >
+      The organization needs a scalable, cloud-native data warehouse that
+      can handle growing data volumes from multiple sources (ERP, CRM,
+      product analytics, AI/ML pipelines). The current on-prem data
+      warehouse is reaching capacity limits and lacks modern features
+      like semi-structured data support and elastic scaling.
+    decision: >
+      Migrate to Snowflake Data Cloud as the central data warehouse.
+      All operational, analytical, and ML feature data will flow through
+      Snowflake. Use Snowflake's native connectors for ERP and CRM
+      integration. Implement a medallion architecture (bronze/silver/gold)
+      for data quality tiers.
+    consequences:
+      - "Positive: Elastic scaling handles variable workloads cost-effectively"
+      - "Positive: Native semi-structured data support (JSON, Parquet)"
+      - "Positive: Separation of compute and storage reduces costs"
+      - "Positive: Strong ecosystem of connectors and partner tools"
+      - "Negative: Vendor lock-in to Snowflake SQL dialect and features"
+      - "Negative: Cost can escalate with poor query optimization"
+      - "Negative: Migration effort estimated at 3 months"
+    alternatives_considered:
+      - option: "Google BigQuery"
+        reason_rejected: "Less mature connector ecosystem for our existing tools"
+      - option: "Databricks Lakehouse"
+        reason_rejected: "Higher complexity; team more experienced with SQL-first approach"
+      - option: "Upgrade existing on-prem warehouse"
+        reason_rejected: "Does not solve scalability or cloud-native requirements"
+    related_adrs:
+      - "ADR-001"
+    owner: "CIO"
+    review_date: "2026-07-25"
+
+  - id: "ADR-004"
+    date: "2026-02-10"
+    title: "Implement guardrails-first approach for all production AI models"
+    status: "accepted"
+    context: >
+      As AI models move into production serving customer-facing features,
+      the risk of harmful, biased, or incorrect outputs increases. Industry
+      incidents and emerging regulation (EU AI Act) demand a proactive
+      approach to AI safety. We need a systematic way to ensure all models
+      meet safety and quality standards before and during production.
+    decision: >
+      Every production AI model must pass through a guardrails pipeline
+      before deployment and during inference. This includes: pre-deployment
+      bias audits, output validation filters, content safety classifiers,
+      confidence thresholds with fallback behavior, and real-time monitoring
+      with automated circuit breakers.
+    consequences:
+      - "Positive: Reduced risk of harmful or biased outputs reaching users"
+      - "Positive: Proactive compliance with emerging AI regulation"
+      - "Positive: Increased customer trust through transparent AI safety"
+      - "Negative: Adds latency to model inference pipeline (estimated 15-30ms)"
+      - "Negative: Requires dedicated ML engineering effort for guardrail maintenance"
+      - "Negative: May block legitimate outputs that trigger false positives"
+    alternatives_considered:
+      - option: "Post-hoc monitoring only (no real-time guardrails)"
+        reason_rejected: "Unacceptable risk window between harmful output and detection"
+      - option: "Manual review of all AI outputs"
+        reason_rejected: "Does not scale; introduces unacceptable latency"
+      - option: "Vendor guardrail solution"
+        reason_rejected: "Insufficient customization for our domain-specific needs"
+    related_adrs:
+      - "ADR-001"
+    owner: "CAIO"
+    review_date: "2026-08-10"

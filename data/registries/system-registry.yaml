@@ -1,0 +1,276 @@
+# =============================================================================
+# System Registry
+# =============================================================================
+# Registry of all internal systems, platforms, and tools used across the
+# organization. Tracks ownership, costs, integrations, health, and
+# replacement planning.
+#
+# Categories: ERP, CRM, HR, Marketing, Engineering, Data, AI/ML, Security,
+#             Communication, Finance, Monitoring, Analytics
+# Health: healthy, degraded, critical, decommissioning
+# =============================================================================
+
+schema:
+  id:
+    type: string
+    format: "SYS-NNN"
+    description: "Unique system identifier"
+    required: true
+  name:
+    type: string
+    description: "System or platform name"
+    required: true
+  category:
+    type: enum
+    values: [ERP, CRM, HR, Marketing, Engineering, Data, "AI/ML", Security, Communication, Finance, Monitoring, Analytics]
+    description: "Primary system category"
+    required: true
+  vendor:
+    type: string
+    description: "Vendor or provider name (or 'Internal' for homegrown)"
+    required: true
+  version:
+    type: string
+    description: "Current version or release"
+    required: true
+  owner:
+    type: string
+    description: "Agent or role responsible for this system"
+    required: true
+  users:
+    type: integer
+    description: "Number of active users or seats"
+    required: true
+  cost_monthly:
+    type: number
+    description: "Monthly cost in USD"
+    required: true
+  contract_end:
+    type: date
+    description: "Contract or license expiration date"
+    required: true
+  integration_points:
+    type: list
+    description: "Other system IDs this system integrates with"
+    required: false
+  sla:
+    type: object
+    properties:
+      uptime_target: "string - e.g., 99.9%"
+      support_response: "string - e.g., 4 hours for P1"
+    description: "Agreed service level"
+    required: true
+  health:
+    type: enum
+    values: [healthy, degraded, critical, decommissioning]
+    description: "Current operational health"
+    required: true
+  last_audit:
+    type: date
+    description: "Date of last security or compliance audit"
+    required: true
+  replacement_candidate:
+    type: string
+    description: "Proposed replacement system if applicable (null if none)"
+    required: false
+
+# =============================================================================
+# Entries
+# =============================================================================
+
+systems:
+  - id: "SYS-001"
+    name: "SAP S/4HANA Cloud"
+    category: "ERP"
+    vendor: "SAP"
+    version: "2025 FPS02"
+    owner: "CIO"
+    users: 150
+    cost_monthly: 45000
+    contract_end: "2028-12-31"
+    integration_points:
+      - "SYS-002"  # Salesforce CRM
+      - "SYS-006"  # Snowflake
+      - "SYS-009"  # Stripe
+    sla:
+      uptime_target: "99.95%"
+      support_response: "2 hours for P1"
+    health: "healthy"
+    last_audit: "2026-01-15"
+    replacement_candidate: null
+
+  - id: "SYS-002"
+    name: "Salesforce Sales Cloud"
+    category: "CRM"
+    vendor: "Salesforce"
+    version: "Enterprise Edition - Spring '26"
+    owner: "CMO"
+    users: 85
+    cost_monthly: 21250
+    contract_end: "2027-06-30"
+    integration_points:
+      - "SYS-001"  # SAP ERP
+      - "SYS-003"  # HubSpot
+      - "SYS-006"  # Snowflake
+    sla:
+      uptime_target: "99.9%"
+      support_response: "4 hours for P1"
+    health: "healthy"
+    last_audit: "2025-11-20"
+    replacement_candidate: null
+
+  - id: "SYS-003"
+    name: "HubSpot Marketing Hub"
+    category: "Marketing"
+    vendor: "HubSpot"
+    version: "Enterprise"
+    owner: "CMO"
+    users: 25
+    cost_monthly: 3600
+    contract_end: "2026-12-31"
+    integration_points:
+      - "SYS-002"  # Salesforce
+      - "SYS-006"  # Snowflake
+    sla:
+      uptime_target: "99.9%"
+      support_response: "8 hours for P1"
+    health: "healthy"
+    last_audit: "2026-02-10"
+    replacement_candidate: null
+
+  - id: "SYS-004"
+    name: "Workday HCM"
+    category: "HR"
+    vendor: "Workday"
+    version: "2026R1"
+    owner: "COO"
+    users: 200
+    cost_monthly: 16000
+    contract_end: "2027-09-30"
+    integration_points:
+      - "SYS-001"  # SAP ERP
+      - "SYS-006"  # Snowflake
+    sla:
+      uptime_target: "99.9%"
+      support_response: "4 hours for P1"
+    health: "healthy"
+    last_audit: "2026-01-30"
+    replacement_candidate: null
+
+  - id: "SYS-005"
+    name: "GitHub Enterprise"
+    category: "Engineering"
+    vendor: "GitHub (Microsoft)"
+    version: "Enterprise Cloud"
+    owner: "CTO"
+    users: 60
+    cost_monthly: 1260
+    contract_end: "2027-01-31"
+    integration_points:
+      - "SYS-008"  # Datadog
+      - "SYS-010"  # PagerDuty
+    sla:
+      uptime_target: "99.95%"
+      support_response: "4 hours for P1"
+    health: "healthy"
+    last_audit: "2026-02-15"
+    replacement_candidate: null
+
+  - id: "SYS-006"
+    name: "Snowflake Data Cloud"
+    category: "Data"
+    vendor: "Snowflake"
+    version: "Enterprise Edition"
+    owner: "CIO"
+    users: 45
+    cost_monthly: 28000
+    contract_end: "2027-12-31"
+    integration_points:
+      - "SYS-001"  # SAP ERP
+      - "SYS-002"  # Salesforce
+      - "SYS-003"  # HubSpot
+      - "SYS-007"  # MLflow
+    sla:
+      uptime_target: "99.9%"
+      support_response: "1 hour for P1"
+    health: "healthy"
+    last_audit: "2026-02-20"
+    replacement_candidate: null
+
+  - id: "SYS-007"
+    name: "MLflow"
+    category: "AI/ML"
+    vendor: "Databricks (OSS)"
+    version: "2.12"
+    owner: "CAIO"
+    users: 15
+    cost_monthly: 5000
+    contract_end: "2027-03-31"
+    integration_points:
+      - "SYS-006"  # Snowflake
+      - "SYS-005"  # GitHub
+      - "SYS-008"  # Datadog
+    sla:
+      uptime_target: "99.5%"
+      support_response: "8 hours for P1"
+    health: "healthy"
+    last_audit: "2026-01-25"
+    replacement_candidate: null
+
+  - id: "SYS-008"
+    name: "Datadog"
+    category: "Monitoring"
+    vendor: "Datadog"
+    version: "Enterprise"
+    owner: "CTO"
+    users: 50
+    cost_monthly: 12000
+    contract_end: "2027-06-30"
+    integration_points:
+      - "SYS-005"  # GitHub
+      - "SYS-007"  # MLflow
+      - "SYS-010"  # PagerDuty
+    sla:
+      uptime_target: "99.9%"
+      support_response: "2 hours for P1"
+    health: "healthy"
+    last_audit: "2026-02-01"
+    replacement_candidate: null
+
+  - id: "SYS-009"
+    name: "Stripe"
+    category: "Finance"
+    vendor: "Stripe"
+    version: "API v2024-12"
+    owner: "COO"
+    users: 10
+    cost_monthly: 8500
+    contract_end: "2027-12-31"
+    integration_points:
+      - "SYS-001"  # SAP ERP
+      - "SYS-006"  # Snowflake
+    sla:
+      uptime_target: "99.99%"
+      support_response: "1 hour for P1"
+    health: "healthy"
+    last_audit: "2026-01-10"
+    replacement_candidate: null
+
+  - id: "SYS-010"
+    name: "PagerDuty"
+    category: "Monitoring"
+    vendor: "PagerDuty"
+    version: "Business"
+    owner: "CTO"
+    users: 30
+    cost_monthly: 1200
+    contract_end: "2026-12-31"
+    integration_points:
+      - "SYS-005"  # GitHub
+      - "SYS-008"  # Datadog
+    sla:
+      uptime_target: "99.9%"
+      support_response: "1 hour for P1"
+    health: "healthy"
+    last_audit: "2026-02-10"
+    replacement_candidate: null

@@ -1,0 +1,400 @@
+# =============================================================================
+# Glossary
+# =============================================================================
+# Official glossary of terms used across the C-Level Squad. Provides shared
+# vocabulary and definitions to ensure consistent communication across all
+# domains: strategy, operations, marketing, engineering, IT, AI, and finance.
+#
+# Each term includes its definition, the context in which it is used,
+# related terms, and the authoritative source for the definition.
+# =============================================================================
+
+schema:
+  term:
+    type: string
+    description: "The term or acronym being defined"
+    required: true
+  definition:
+    type: text
+    description: "Clear, concise definition of the term"
+    required: true
+  context:
+    type: string
+    description: "Domain or context where this term is primarily used"
+    required: true
+  related_terms:
+    type: list
+    description: "Other glossary terms that are related"
+    required: false
+  source:
+    type: string
+    description: "Authoritative source or standard for this definition"
+    required: false
+
+# =============================================================================
+# Terms
+# =============================================================================
+
+glossary:
+
+  # ---------------------------------------------------------------------------
+  # Strategy
+  # ---------------------------------------------------------------------------
+  - term: "OKR"
+    definition: >
+      Objectives and Key Results. A goal-setting framework where an Objective
+      is a qualitative goal, and Key Results are measurable outcomes that
+      indicate whether the objective has been achieved.
+    context: "strategy"
+    related_terms: ["KPI", "North Star Metric", "Initiative"]
+    source: "Measure What Matters (John Doerr)"
+
+  - term: "North Star Metric"
+    definition: >
+      A single metric that best captures the core value the organization
+      delivers to customers. All teams and initiatives should ultimately
+      contribute to improving this metric.
+    context: "strategy"
+    related_terms: ["OKR", "KPI"]
+    source: "Growth Hacking methodology"
+
+  - term: "Type1 Decision"
+    definition: >
+      An irreversible or high-impact decision that requires careful
+      deliberation, full stakeholder input, and thorough analysis before
+      committing. Mistakes are costly and difficult to undo.
+    context: "strategy"
+    related_terms: ["Type2 Decision", "Decision Registry"]
+    source: "Amazon Leadership Principles (Jeff Bezos)"
+
+  - term: "Type2 Decision"
+    definition: >
+      A reversible, lower-risk decision that should be made quickly with
+      available information. If the decision proves wrong, it can be
+      reversed or adjusted with minimal cost.
+    context: "strategy"
+    related_terms: ["Type1 Decision", "Bias Toward Action"]
+    source: "Amazon Leadership Principles (Jeff Bezos)"
+
+  - term: "Moat"
+    definition: >
+      A sustainable competitive advantage that protects the organization
+      from competitors. Examples include proprietary data, network effects,
+      switching costs, and brand strength.
+    context: "strategy"
+    related_terms: ["North Star Metric"]
+    source: "Warren Buffett / competitive strategy literature"
+
+  # ---------------------------------------------------------------------------
+  # Operations
+  # ---------------------------------------------------------------------------
+  - term: "KPI"
+    definition: >
+      Key Performance Indicator. A quantifiable measure used to evaluate
+      success at meeting operational or strategic objectives.
+    context: "operations"
+    related_terms: ["OKR", "Metric", "SLA"]
+    source: "General management practice"
+
+  - term: "SLA"
+    definition: >
+      Service Level Agreement. A formal commitment between a service
+      provider and customer defining expected service quality, including
+      uptime, response times, and remedies for failures.
+    context: "operations"
+    related_terms: ["SLO", "SLI", "KPI"]
+    source: "ITIL framework"
+
+  - term: "SLO"
+    definition: >
+      Service Level Objective. An internal target for service performance,
+      typically more ambitious than the external SLA. The standard the
+      engineering team holds itself to.
+    context: "operations"
+    related_terms: ["SLA", "SLI"]
+    source: "Google SRE practices"
+
+  - term: "SLI"
+    definition: >
+      Service Level Indicator. A carefully defined quantitative measure of
+      some aspect of the level of service being provided (e.g., latency,
+      error rate, throughput).
+    context: "operations"
+    related_terms: ["SLA", "SLO"]
+    source: "Google SRE practices"
+
+  - term: "RalphLoop"
+    definition: >
+      The organization's continuous improvement feedback loop. Named
+      internally, it captures lessons learned from decisions, initiatives,
+      incidents, and reviews, and feeds them back into future planning.
+    context: "operations"
+    related_terms: ["Lessons Learned", "Retrospective", "PDCA"]
+    source: "Internal C-Level Squad methodology"
+
+  - term: "PDCA"
+    definition: >
+      Plan-Do-Check-Act. A four-stage iterative management method for
+      continuous improvement of processes and products.
+    context: "operations"
+    related_terms: ["RalphLoop", "Retrospective"]
+    source: "W. Edwards Deming"
+
+  # ---------------------------------------------------------------------------
+  # Marketing
+  # ---------------------------------------------------------------------------
+  - term: "MQL"
+    definition: >
+      Marketing Qualified Lead. A lead that has been evaluated by the
+      marketing team and meets predefined criteria (engagement, fit)
+      indicating readiness to be passed to sales.
+    context: "marketing"
+    related_terms: ["SQL", "CAC", "Lead Scoring"]
+    source: "Demand generation methodology"
+
+  - term: "SQL"
+    definition: >
+      Sales Qualified Lead. A lead that has been vetted by the sales team
+      and confirmed as a genuine opportunity worth pursuing.
+    context: "marketing"
+    related_terms: ["MQL", "CAC"]
+    source: "Demand generation methodology"
+
+  - term: "CAC"
+    definition: >
+      Customer Acquisition Cost. Total sales and marketing spend divided
+      by the number of new customers acquired in a given period.
+    context: "marketing"
+    related_terms: ["LTV", "MQL", "NRR"]
+    source: "SaaS metrics (David Skok)"
+
+  - term: "LTV"
+    definition: >
+      Lifetime Value (also CLV/CLTV). The total revenue a business
+      expects to earn from a customer over the entire duration of their
+      relationship.
+    context: "marketing"
+    related_terms: ["CAC", "NRR", "Churn"]
+    source: "SaaS metrics"
+
+  - term: "NPS"
+    definition: >
+      Net Promoter Score. A customer loyalty metric based on the likelihood
+      of recommending the product. Calculated as percentage of promoters
+      (9-10) minus percentage of detractors (0-6).
+    context: "marketing"
+    related_terms: ["LTV", "Churn"]
+    source: "Fred Reichheld / Bain & Company"
+
+  - term: "Churn"
+    definition: >
+      The rate at which customers stop doing business with the organization.
+      Measured as the percentage of customers lost over a given period.
+    context: "marketing"
+    related_terms: ["NRR", "LTV", "NPS"]
+    source: "SaaS metrics"
+
+  # ---------------------------------------------------------------------------
+  # Engineering / Technology
+  # ---------------------------------------------------------------------------
+  - term: "MTTR"
+    definition: >
+      Mean Time to Recovery. The average time from the detection of a
+      production incident to full service restoration.
+    context: "engineering"
+    related_terms: ["MTTD", "SLA", "Incident"]
+    source: "DORA metrics"
+
+  - term: "MTTD"
+    definition: >
+      Mean Time to Detect. The average time from when an issue begins
+      to when it is detected by monitoring or reported.
+    context: "engineering"
+    related_terms: ["MTTR", "Observability"]
+    source: "DORA metrics"
+
+  - term: "CI/CD"
+    definition: >
+      Continuous Integration / Continuous Delivery. A software development
+      practice where code changes are automatically built, tested, and
+      prepared for release to production.
+    context: "engineering"
+    related_terms: ["Deployment Frequency", "Change Failure Rate"]
+    source: "DORA / Accelerate (Nicole Forsgren)"
+
+  - term: "ADR"
+    definition: >
+      Architecture Decision Record. A document that captures a significant
+      architecture decision along with its context, consequences, and
+      alternatives considered.
+    context: "engineering"
+    related_terms: ["Decision Registry"]
+    source: "Michael Nygard"
+
+  - term: "Technical Debt"
+    definition: >
+      The implied cost of future rework caused by choosing an expedient
+      solution now instead of a more thorough approach. Must be tracked,
+      managed, and intentionally paid down.
+    context: "engineering"
+    related_terms: ["Refactoring", "Code Quality"]
+    source: "Ward Cunningham"
+
+  # ---------------------------------------------------------------------------
+  # Information / IT
+  # ---------------------------------------------------------------------------
+  - term: "Data Quality Score"
+    definition: >
+      A composite metric measuring the completeness, accuracy, consistency,
+      and timeliness of data across core datasets.
+    context: "information"
+    related_terms: ["Data Governance", "Data Pipeline"]
+    source: "Data quality management practices"
+
+  - term: "Medallion Architecture"
+    definition: >
+      A data architecture pattern with three layers: bronze (raw data),
+      silver (cleaned and conformed), and gold (business-ready aggregates
+      and features).
+    context: "information"
+    related_terms: ["Data Quality Score", "Data Pipeline"]
+    source: "Databricks / modern data stack"
+
+  - term: "Data Governance"
+    definition: >
+      The framework of policies, processes, and standards that ensure
+      data is managed as a strategic asset with appropriate quality,
+      security, privacy, and compliance.
+    context: "information"
+    related_terms: ["Data Quality Score", "Policy Registry"]
+    source: "DAMA-DMBOK"
+
+  - term: "ETL/ELT"
+    definition: >
+      Extract, Transform, Load (or Extract, Load, Transform). Processes
+      for moving data from source systems to a data warehouse. ELT loads
+      raw data first and transforms in the warehouse.
+    context: "information"
+    related_terms: ["Data Pipeline", "Medallion Architecture"]
+    source: "Data engineering practices"
+
+  # ---------------------------------------------------------------------------
+  # AI / Machine Learning
+  # ---------------------------------------------------------------------------
+  - term: "Guardrails"
+    definition: >
+      Safety mechanisms applied to AI models that prevent harmful, biased,
+      or incorrect outputs. Includes input validation, output filtering,
+      confidence thresholds, and content safety classifiers.
+    context: "ai"
+    related_terms: ["Bias Audit", "Model Monitoring", "AI Governance"]
+    source: "AI safety best practices"
+
+  - term: "Bias Audit"
+    definition: >
+      A systematic evaluation of an AI model's outputs across different
+      demographic groups or segments to identify and quantify unfair
+      treatment or disparate impact.
+    context: "ai"
+    related_terms: ["Guardrails", "Fairness", "AI Governance"]
+    source: "Responsible AI frameworks"
+
+  - term: "Model Drift"
+    definition: >
+      The degradation of model performance over time due to changes in
+      the statistical properties of the input data (data drift) or the
+      relationship between inputs and outputs (concept drift).
+    context: "ai"
+    related_terms: ["Model Monitoring", "PSI", "Retraining"]
+    source: "MLOps practices"
+
+  - term: "PSI"
+    definition: >
+      Population Stability Index. A metric that measures how much the
+      distribution of a variable has shifted between two datasets (e.g.,
+      training data vs. production data). Used to detect data drift.
+    context: "ai"
+    related_terms: ["Model Drift", "Model Monitoring"]
+    source: "Statistical process control / credit risk modeling"
+
+  - term: "RAG"
+    definition: >
+      Retrieval-Augmented Generation. An AI architecture pattern where a
+      language model's responses are grounded by retrieving relevant
+      documents from a knowledge base before generating output.
+    context: "ai"
+    related_terms: ["LLM", "Guardrails"]
+    source: "Lewis et al. (2020)"
+
+  - term: "LLM"
+    definition: >
+      Large Language Model. A neural network trained on vast text corpora
+      that can generate, summarize, translate, and reason about natural
+      language. Examples include Claude, GPT, and Gemini.
+    context: "ai"
+    related_terms: ["RAG", "Guardrails", "Fine-tuning"]
+    source: "AI/ML research"
+
+  - term: "AI Governance"
+    definition: >
+      The framework of policies, processes, and oversight mechanisms that
+      ensure AI systems are developed and deployed responsibly, ethically,
+      and in compliance with regulations.
+    context: "ai"
+    related_terms: ["Guardrails", "Bias Audit", "Policy Registry"]
+    source: "NIST AI Risk Management Framework"
+
+  # ---------------------------------------------------------------------------
+  # Finance
+  # ---------------------------------------------------------------------------
+  - term: "MRR"
+    definition: >
+      Monthly Recurring Revenue. The total predictable revenue from active
+      subscriptions in a given month, excluding one-time fees.
+    context: "finance"
+    related_terms: ["ARR", "NRR", "Churn"]
+    source: "SaaS metrics"
+
+  - term: "ARR"
+    definition: >
+      Annual Recurring Revenue. MRR multiplied by 12. Represents the
+      annualized value of recurring subscription revenue.
+    context: "finance"
+    related_terms: ["MRR", "NRR"]
+    source: "SaaS metrics"
+
+  - term: "NRR"
+    definition: >
+      Net Revenue Retention. The percentage of recurring revenue retained
+      from existing customers after accounting for expansion, contraction,
+      and churn over a 12-month period. Over 100% indicates net expansion.
+    context: "finance"
+    related_terms: ["MRR", "ARR", "Churn", "LTV"]
+    source: "SaaS metrics"
+
+  - term: "Burn Rate"
+    definition: >
+      The net rate at which an organization consumes cash, calculated as
+      total monthly expenses minus total monthly revenue. A key metric
+      for managing runway.
+    context: "finance"
+    related_terms: ["Runway", "MRR"]
+    source: "Startup finance"
+
+  - term: "Runway"
+    definition: >
+      The amount of time an organization can continue operating at its
+      current burn rate before running out of cash. Calculated as cash
+      reserves divided by monthly burn rate.
+    context: "finance"
+    related_terms: ["Burn Rate"]
+    source: "Startup finance"
+
+  - term: "ROI"
+    definition: >
+      Return on Investment. The ratio of net benefit to cost for an
+      investment, expressed as a percentage or multiple. Used to evaluate
+      and compare the efficiency of investments.
+    context: "finance"
+    related_terms: ["CAC", "LTV", "AI ROI Index"]
+    source: "General finance"

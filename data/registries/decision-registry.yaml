@@ -1,0 +1,271 @@
+# ============================================================================
+# Decision Registry
+# ============================================================================
+# Central registry of all executive decisions made by the C-Level Squad.
+# Every significant decision should be recorded here for accountability,
+# traceability, and organizational learning.
+#
+# Decision Types:
+#   Type1 - Irreversible or high-impact decisions (require full deliberation)
+#   Type2 - Reversible, low-risk decisions (can be made quickly and adjusted)
+#
+# Domains: strategy, operations, marketing, technology, information, ai, finance, hr, culture
+#
+# Statuses: proposed, approved, implemented, reviewed, superseded, revoked
+# ============================================================================
+
+schema:
+  id:
+    type: string
+    format: "DEC-YYYY-NNN"
+    description: "Unique decision identifier with year prefix"
+    required: true
+  date:
+    type: date
+    format: "YYYY-MM-DD"
+    description: "Date the decision was made"
+    required: true
+  title:
+    type: string
+    description: "Short descriptive title of the decision"
+    required: true
+  type:
+    type: enum
+    values: [Type1, Type2]
+    description: "Type1 = irreversible/high-impact; Type2 = reversible/low-risk"
+    required: true
+  domain:
+    type: enum
+    values: [strategy, operations, marketing, technology, information, ai, finance, hr, culture]
+    description: "Primary domain this decision affects"
+    required: true
+  decision_maker:
+    type: string
+    description: "Agent or role that made the final call"
+    required: true
+  stakeholders:
+    type: list
+    description: "Agents or roles consulted or impacted"
+    required: true
+  context:
+    type: text
+    description: "Background and circumstances leading to this decision"
+    required: true
+  options_considered:
+    type: list
+    items:
+      option: string
+      pros: list
+      cons: list
+    description: "All options evaluated before deciding"
+    required: true
+  decision:
+    type: text
+    description: "The actual decision statement"
+    required: true
+  rationale:
+    type: text
+    description: "Why this option was chosen over alternatives"
+    required: true
+  trade_offs:
+    type: list
+    description: "Known trade-offs accepted with this decision"
+    required: false
+  risks:
+    type: list
+    items:
+      risk: string
+      mitigation: string
+    description: "Identified risks and planned mitigations"
+    required: false
+  outcome_expected:
+    type: text
+    description: "What we expect to happen as a result"
+    required: true
+  outcome_actual:
+    type: text
+    description: "What actually happened (filled in post-review)"
+    required: false
+  review_date:
+    type: date
+    format: "YYYY-MM-DD"
+    description: "Scheduled date to review the outcome of this decision"
+    required: true
+  status:
+    type: enum
+    values: [proposed, approved, implemented, reviewed, superseded, revoked]
+    description: "Current lifecycle status of the decision"
+    required: true
+  lessons_learned:
+    type: text
+    description: "Insights gained after reviewing the decision outcome"
+    required: false
+
+# ============================================================================
+# Entries
+# ============================================================================
+decisions:
+  - id: "DEC-2026-001"
+    date: "2026-01-15"
+    title: "Adopt AI-first product development strategy"
+    type: Type1
+    domain: strategy
+    decision_maker: "Vision Chief"
+    stakeholders:
+      - COO
+      - CTO
+      - CAIO
+      - CMO
+    context: >
+      Market analysis shows competitors investing heavily in AI-native products.
+      Our current product line relies on traditional software development. Customer
+      surveys indicate growing demand for intelligent automation features.
+    options_considered:
+      - option: "Full AI-first pivot"
+        pros:
+          - "First-mover advantage in our segment"
+          - "Attracts top AI talent"
+        cons:
+          - "High upfront investment"
+          - "Risk of alienating existing customers"
+      - option: "Incremental AI feature additions"
+        pros:
+          - "Lower risk"
+          - "Preserves existing revenue"
+        cons:
+          - "Slower to market"
+          - "May not differentiate enough"
+      - option: "Maintain status quo and observe"
+        pros:
+          - "No disruption"
+          - "Lower cost"
+        cons:
+          - "Falling behind competitors"
+          - "Talent attrition risk"
+    decision: >
+      Adopt an AI-first product development strategy, allocating 40% of R&D
+      budget to AI capabilities over the next 12 months, while maintaining
+      core product stability.
+    rationale: >
+      The competitive landscape demands bold action. Incremental approaches
+      will not create sufficient differentiation. The 40% allocation balances
+      innovation with stability.
+    trade_offs:
+      - "Reduced investment in legacy feature requests"
+      - "Temporary increase in technical debt for existing systems"
+      - "Higher hiring costs for AI talent"
+    risks:
+      - risk: "AI talent shortage delays execution"
+        mitigation: "Partner with AI consultancies and invest in internal upskilling"
+      - risk: "Customer churn from reduced legacy investment"
+        mitigation: "Dedicated maintenance team for top 20 accounts"
+    outcome_expected: >
+      Within 12 months, launch 3 AI-powered product features, achieve 20%
+      new customer acquisition uplift, and establish market position as an
+      AI-forward company.
+    outcome_actual: null
+    review_date: "2026-07-15"
+    status: implemented
+    lessons_learned: null
+
+  - id: "DEC-2026-002"
+    date: "2026-02-01"
+    title: "Migrate from on-prem ERP to cloud-based solution"
+    type: Type1
+    domain: technology
+    decision_maker: "CIO"
+    stakeholders:
+      - CTO
+      - COO
+      - Vision Chief
+    context: >
+      Current on-prem ERP system is end-of-life in 18 months. Maintenance costs
+      have increased 30% year-over-year. Cloud ERP solutions now offer feature
+      parity with better scalability.
+    options_considered:
+      - option: "Migrate to cloud ERP (SAP S/4HANA Cloud)"
+        pros:
+          - "Modern architecture"
+          - "Lower long-term TCO"
+          - "Better integration capabilities"
+        cons:
+          - "12-month migration timeline"
+          - "Change management overhead"
+      - option: "Upgrade on-prem ERP to latest version"
+        pros:
+          - "Familiar system"
+          - "Lower short-term cost"
+        cons:
+          - "Continued high maintenance"
+          - "Limited scalability"
+      - option: "Build custom ERP"
+        pros:
+          - "Fully tailored to needs"
+        cons:
+          - "Extremely high cost and risk"
+          - "Long timeline (24+ months)"
+    decision: >
+      Proceed with migration to SAP S/4HANA Cloud with a phased rollout
+      over 12 months, starting with finance and procurement modules.
+    rationale: >
+      Cloud migration offers the best balance of modernization, cost reduction,
+      and risk management. Phased approach reduces disruption.
+    trade_offs:
+      - "Temporary dual-system operation during migration"
+      - "Staff retraining required"
+    risks:
+      - risk: "Data migration errors"
+        mitigation: "Triple validation process with parallel runs"
+      - risk: "Business disruption during cutover"
+        mitigation: "Weekend cutovers with rollback plans"
+    outcome_expected: >
+      Complete migration within 12 months, achieve 25% reduction in ERP
+      operating costs, and improve reporting capabilities.
+    outcome_actual: null
+    review_date: "2026-08-01"
+    status: approved
+    lessons_learned: null
+
+  - id: "DEC-2026-003"
+    date: "2026-02-20"
+    title: "Launch referral program for Q2"
+    type: Type2
+    domain: marketing
+    decision_maker: "CMO"
+    stakeholders:
+      - COO
+      - Vision Chief
+    context: >
+      Customer acquisition cost has risen 15% quarter-over-quarter. Existing
+      customers report high satisfaction (NPS 72). Referral programs in our
+      industry show 3-5x ROI.
+    options_considered:
+      - option: "Two-sided referral incentive ($50 credit each)"
+        pros:
+          - "Proven model"
+          - "Easy to implement"
+        cons:
+          - "Direct cost per acquisition"
+      - option: "Tiered referral rewards"
+        pros:
+          - "Encourages multiple referrals"
+        cons:
+          - "More complex to manage"
+    decision: >
+      Launch a two-sided referral program offering $50 credit to both
+      referrer and referee, capped at 5 referrals per customer per quarter.
+    rationale: >
+      Simple, proven model with clear ROI expectations. Cap limits downside
+      risk while still incentivizing advocacy.
+    trade_offs:
+      - "Direct cost of $100 per successful referral"
+    risks:
+      - risk: "Fraud or gaming of referral system"
+        mitigation: "Require 30-day active usage before credit release"
+    outcome_expected: >
+      Generate 200+ qualified referrals in Q2, with CAC 40% lower than
+      paid channels.
+    outcome_actual: null
+    review_date: "2026-06-30"
+    status: approved
+    lessons_learned: null

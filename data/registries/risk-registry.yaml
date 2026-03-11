@@ -1,0 +1,242 @@
+# =============================================================================
+# Risk Registry
+# =============================================================================
+# Central registry of organizational risks identified and tracked by the
+# C-Level Squad. Each risk is assessed for probability and impact, assigned
+# an owner, and monitored with defined mitigation and contingency plans.
+#
+# Risk Score: probability (1-5) x impact (1-5) = risk_score (1-25)
+#   Low: 1-6  |  Medium: 7-12  |  High: 13-19  |  Critical: 20-25
+#
+# Status: identified -> mitigating -> accepted -> resolved | materialized
+# =============================================================================
+
+schema:
+  id:
+    type: string
+    format: "RISK-YYYY-NNN"
+    description: "Unique risk identifier"
+    required: true
+  title:
+    type: string
+    description: "Concise risk description"
+    required: true
+  category:
+    type: string
+    description: "Category from risk-taxonomy (strategic, operational, financial, technology, compliance, reputational, ai_specific)"
+    required: true
+  probability:
+    type: integer
+    range: [1, 5]
+    description: "Likelihood of occurrence (1=rare, 2=unlikely, 3=possible, 4=likely, 5=almost certain)"
+    required: true
+  impact:
+    type: integer
+    range: [1, 5]
+    description: "Severity if realized (1=negligible, 2=minor, 3=moderate, 4=major, 5=catastrophic)"
+    required: true
+  risk_score:
+    type: integer
+    description: "Calculated as probability x impact"
+    required: true
+  owner:
+    type: string
+    description: "Agent or role responsible for managing this risk"
+    required: true
+  mitigation_strategy:
+    type: text
+    description: "Actions being taken to reduce probability or impact"
+    required: true
+  contingency:
+    type: text
+    description: "Plan to execute if the risk materializes"
+    required: true
+  monitoring_signals:
+    type: list
+    description: "Observable indicators that the risk is increasing"
+    required: true
+  status:
+    type: enum
+    values: [identified, mitigating, accepted, resolved, materialized]
+    description: "Current status of the risk"
+    required: true
+  review_cadence:
+    type: enum
+    values: [weekly, biweekly, monthly, quarterly]
+    description: "How often this risk is formally reviewed"
+    required: true
+  last_review:
+    type: date
+    description: "Date of most recent review"
+    required: true
+  history:
+    type: list
+    items:
+      date: "date"
+      probability: "integer"
+      impact: "integer"
+      note: "string"
+    description: "Historical changes to risk assessment over time"
+    required: false
+
+# =============================================================================
+# Entries
+# =============================================================================
+
+risks:
+  - id: "RISK-2026-001"
+    title: "Key AI talent departure causes delivery delays"
+    category: "operational"
+    probability: 3
+    impact: 4
+    risk_score: 12
+    owner: "COO"
+    mitigation_strategy: >
+      Implement retention packages for critical AI/ML engineers. Cross-train
+      team members to reduce single points of failure. Maintain relationships
+      with AI consultancies as backup capacity.
+    contingency: >
+      Activate consultancy partnership within 1 week. Reassign initiative
+      milestones and communicate revised timelines to stakeholders.
+    monitoring_signals:
+      - "Engagement scores declining for AI team members"
+      - "Increased recruiter outreach to our AI engineers (market signals)"
+      - "Team members declining stretch assignments or mentoring"
+      - "Exit interview themes mentioning compensation or growth"
+    status: "mitigating"
+    review_cadence: "biweekly"
+    last_review: "2026-03-01"
+    history:
+      - date: "2026-01-15"
+        probability: 2
+        impact: 4
+        note: "Initial assessment; market for AI talent is tightening"
+      - date: "2026-02-15"
+        probability: 3
+        impact: 4
+        note: "Two AI engineers received competing offers; upgraded probability"
+
+  - id: "RISK-2026-002"
+    title: "Data breach or unauthorized access to customer PII"
+    category: "compliance"
+    probability: 2
+    impact: 5
+    risk_score: 10
+    owner: "CIO"
+    mitigation_strategy: >
+      Quarterly penetration testing. SOC 2 Type II compliance maintenance.
+      Encryption at rest and in transit for all PII. Zero-trust network
+      architecture. Regular access reviews and principle of least privilege.
+    contingency: >
+      Activate incident response plan (IRP). Notify affected customers within
+      72 hours per GDPR. Engage forensics team. Legal and PR coordination
+      through established breach playbook.
+    monitoring_signals:
+      - "Unusual access patterns in audit logs"
+      - "Failed authentication spike"
+      - "Vulnerability scan findings rated critical"
+      - "Third-party breach affecting shared vendors"
+    status: "mitigating"
+    review_cadence: "monthly"
+    last_review: "2026-03-01"
+    history:
+      - date: "2026-01-10"
+        probability: 2
+        impact: 5
+        note: "Baseline assessment; SOC 2 audit passed with no findings"
+
+  - id: "RISK-2026-003"
+    title: "AI model produces biased or harmful outputs in production"
+    category: "ai_specific"
+    probability: 3
+    impact: 4
+    risk_score: 12
+    owner: "CAIO"
+    mitigation_strategy: >
+      Mandatory bias audits before any model reaches production. Real-time
+      output monitoring with automated guardrails. Human-in-the-loop review
+      for high-stakes decisions. Regular retraining on balanced datasets.
+    contingency: >
+      Immediately disable affected model endpoint. Revert to rule-based
+      fallback system. Conduct root cause analysis within 48 hours. Issue
+      public statement if customer-facing impact detected.
+    monitoring_signals:
+      - "Bias audit score degradation below threshold"
+      - "Customer complaints related to AI-generated content"
+      - "Distribution shift detected in model inputs"
+      - "Guardrail trigger rate exceeding 5% of requests"
+    status: "mitigating"
+    review_cadence: "weekly"
+    last_review: "2026-03-07"
+    history:
+      - date: "2026-01-20"
+        probability: 2
+        impact: 4
+        note: "Initial assessment with limited production models"
+      - date: "2026-02-20"
+        probability: 3
+        impact: 4
+        note: "Recommendation engine entering beta increases exposure"
+
+  - id: "RISK-2026-004"
+    title: "Cloud vendor outage disrupts critical business operations"
+    category: "technology"
+    probability: 2
+    impact: 4
+    risk_score: 8
+    owner: "CTO"
+    mitigation_strategy: >
+      Multi-region deployment for critical services. Automated failover
+      with sub-5-minute RTO. Regular disaster recovery drills quarterly.
+      Maintain vendor SLA with financial penalties for downtime.
+    contingency: >
+      Activate multi-region failover. Communicate status to customers via
+      status page. Escalate with vendor support. If extended outage, activate
+      business continuity plan with manual workarounds.
+    monitoring_signals:
+      - "Vendor status page warnings"
+      - "Increased latency from primary region"
+      - "Failover test failures"
+      - "Vendor communication about planned maintenance"
+    status: "mitigating"
+    review_cadence: "monthly"
+    last_review: "2026-02-28"
+    history:
+      - date: "2026-01-10"
+        probability: 2
+        impact: 4
+        note: "Baseline; multi-region setup in progress"
+
+  - id: "RISK-2026-005"
+    title: "Competitor launches superior AI-native product"
+    category: "strategic"
+    probability: 4
+    impact: 3
+    risk_score: 12
+    owner: "Vision Chief"
+    mitigation_strategy: >
+      Accelerate AI-first product roadmap. Maintain competitive intelligence
+      program with monthly landscape analysis. Invest in proprietary data
+      moats that competitors cannot easily replicate. Deepen customer
+      relationships through advisory boards and co-development.
+    contingency: >
+      Fast-follow with differentiated feature set within 60 days. Increase
+      marketing spend to defend market position. Engage top-20 accounts
+      with retention offers and roadmap previews.
+    monitoring_signals:
+      - "Competitor funding announcements or key hires"
+      - "Customer mentions of competitor AI features"
+      - "Win/loss ratio trending negatively"
+      - "Industry analyst reports shifting rankings"
+    status: "identified"
+    review_cadence: "monthly"
+    last_review: "2026-03-01"
+    history:
+      - date: "2026-01-15"
+        probability: 3
+        impact: 3
+        note: "Two competitors announced AI initiatives"
+      - date: "2026-03-01"
+        probability: 4
+        impact: 3
+        note: "Competitor X launched AI beta; upgraded probability"

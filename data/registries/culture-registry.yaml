@@ -1,0 +1,270 @@
+# =============================================================================
+# Culture Registry
+# =============================================================================
+# Registry of culture signals including rituals, values, and behaviors that
+# define the organizational culture. Tracks health, enforcement, and both
+# positive and negative signals for each cultural element.
+#
+# Types: ritual, value, behavior
+# Frequency: daily, weekly, biweekly, monthly, quarterly, annual, continuous
+# Health Score: 1-10 (1 = severely degraded, 10 = thriving)
+# =============================================================================
+
+schema:
+  id:
+    type: string
+    format: "CUL-NNN"
+    description: "Unique culture element identifier"
+    required: true
+  ritual_name:
+    type: string
+    description: "Name of the ritual, value, or behavior"
+    required: true
+  type:
+    type: enum
+    values: [ritual, value, behavior]
+    description: "Category of culture element"
+    required: true
+  description:
+    type: text
+    description: "Detailed description of the culture element and its purpose"
+    required: true
+  frequency:
+    type: enum
+    values: [daily, weekly, biweekly, monthly, quarterly, annual, continuous]
+    description: "How often this is practiced or reinforced"
+    required: true
+  owner:
+    type: string
+    description: "Agent or role responsible for championing this element"
+    required: true
+  enforcement_method:
+    type: text
+    description: "How adherence is encouraged and measured"
+    required: true
+  health_score:
+    type: integer
+    range: [1, 10]
+    description: "Current health rating (1=severely degraded, 10=thriving)"
+    required: true
+  last_audit:
+    type: date
+    description: "Date of last formal assessment of this culture element"
+    required: true
+  signals_positive:
+    type: list
+    description: "Observable indicators that this element is healthy"
+    required: true
+  signals_negative:
+    type: list
+    description: "Observable indicators that this element is degrading"
+    required: true
+
+# =============================================================================
+# Entries
+# =============================================================================
+
+culture_elements:
+  # ---------------------------------------------------------------------------
+  # Rituals
+  # ---------------------------------------------------------------------------
+  - id: "CUL-001"
+    ritual_name: "Monday Alignment Sync"
+    type: "ritual"
+    description: >
+      Weekly 30-minute sync where all six agents share their top priority
+      for the week, flag cross-domain dependencies, and escalate blockers.
+      Ensures all agents start the week aligned on organizational priorities.
+    frequency: "weekly"
+    owner: "COO"
+    enforcement_method: >
+      Calendar hold for all agents. Async written update required if unable
+      to attend. Attendance tracked; 2+ consecutive absences flagged to
+      Vision Chief.
+    health_score: 7
+    last_audit: "2026-03-01"
+    signals_positive:
+      - "All agents attend or submit async updates consistently"
+      - "Cross-domain conflicts identified and resolved within the meeting"
+      - "Agents reference sync decisions in their subsequent work"
+    signals_negative:
+      - "Agents frequently skip without async updates"
+      - "Meeting becomes a status report instead of alignment discussion"
+      - "Same conflicts resurface week after week without resolution"
+
+  - id: "CUL-002"
+    ritual_name: "Friday Retrospective"
+    type: "ritual"
+    description: >
+      End-of-week 20-minute reflection where agents share one thing that
+      went well, one thing that needs improvement, and one lesson learned.
+      Feeds directly into the lessons-learned registry (RalphLoop).
+    frequency: "weekly"
+    owner: "Vision Chief"
+    enforcement_method: >
+      Structured format enforced: each agent submits a written entry even
+      if they cannot attend live. Lessons are reviewed and the best ones
+      are promoted to the lessons-learned registry.
+    health_score: 8
+    last_audit: "2026-03-01"
+    signals_positive:
+      - "Agents share substantive lessons, not surface-level observations"
+      - "Lessons from past retros visibly influence future decisions"
+      - "Participation is voluntary but consistently high"
+    signals_negative:
+      - "Entries become formulaic or low-effort"
+      - "Same improvement items appear repeatedly without action"
+      - "Agents stop submitting written entries"
+
+  - id: "CUL-003"
+    ritual_name: "Quarterly Strategy Review"
+    type: "ritual"
+    description: >
+      Full-day quarterly session where the C-Level Squad reviews OKR
+      progress, reassesses the strategic landscape, updates the risk
+      registry, and sets priorities for the next quarter.
+    frequency: "quarterly"
+    owner: "Vision Chief"
+    enforcement_method: >
+      Mandatory attendance for all agents. Pre-read materials distributed
+      5 business days in advance. Each agent prepares a domain review
+      document. Decisions documented in the decision registry.
+    health_score: 9
+    last_audit: "2026-01-15"
+    signals_positive:
+      - "OKRs are meaningfully updated based on review findings"
+      - "Strategic pivots are identified and acted on"
+      - "All agents come prepared with data-backed assessments"
+    signals_negative:
+      - "Review becomes a presentation exercise instead of strategic dialogue"
+      - "No decisions or actions emerge from the review"
+      - "Pre-read materials are ignored or not distributed on time"
+
+  # ---------------------------------------------------------------------------
+  # Values
+  # ---------------------------------------------------------------------------
+  - id: "CUL-004"
+    ritual_name: "Data-Driven Decision Making"
+    type: "value"
+    description: >
+      All significant decisions must be supported by data, analysis, or
+      evidence. Intuition is valued but must be explicitly labeled as such
+      and validated against data when possible.
+    frequency: "continuous"
+    owner: "CIO"
+    enforcement_method: >
+      Decision registry requires evidence/data fields. During reviews,
+      decisions without data support are flagged for additional validation.
+      Metric registry provides the shared vocabulary for measurement.
+    health_score: 7
+    last_audit: "2026-02-15"
+    signals_positive:
+      - "Decisions in the registry consistently cite data sources"
+      - "Agents proactively seek data before proposing decisions"
+      - "Dashboards are actively used and referenced in discussions"
+    signals_negative:
+      - "Decisions are made on gut feeling without data"
+      - "Data is cherry-picked to support predetermined conclusions"
+      - "Agents do not update metrics or check dashboards regularly"
+
+  - id: "CUL-005"
+    ritual_name: "Radical Transparency"
+    type: "value"
+    description: >
+      All registries, decisions, and analyses are visible to all agents
+      by default. Information is shared openly unless there is a specific,
+      documented reason for restriction. Bad news travels fast.
+    frequency: "continuous"
+    owner: "Vision Chief"
+    enforcement_method: >
+      All registries are in a shared repository accessible to all agents.
+      Decision-making processes are documented. Escalation paths are clear
+      and do not require permission to use. Monthly audit of information
+      flow ensures no dark corners develop.
+    health_score: 8
+    last_audit: "2026-02-28"
+    signals_positive:
+      - "Agents proactively share updates without being asked"
+      - "Bad news is surfaced early and without blame"
+      - "Cross-domain visibility enables better collaboration"
+    signals_negative:
+      - "Information hoarding or selective sharing"
+      - "Bad news is delayed or sugarcoated"
+      - "Agents are surprised by decisions that affect their domain"
+
+  - id: "CUL-006"
+    ritual_name: "Bias Toward Action"
+    type: "value"
+    description: >
+      When facing reversible (Type2) decisions, prefer speed over
+      perfection. Make the decision, implement it, measure the outcome,
+      and adjust. Analysis paralysis is treated as a cultural anti-pattern.
+    frequency: "continuous"
+    owner: "COO"
+    enforcement_method: >
+      Type2 decisions have a 48-hour decision SLA. If no decision is made,
+      the COO escalates to the Vision Chief. Decision velocity is tracked
+      as a meta-metric. Weekly sync reviews pending decisions.
+    health_score: 6
+    last_audit: "2026-03-01"
+    signals_positive:
+      - "Type2 decisions are made within 48 hours consistently"
+      - "Agents experiment and iterate rather than over-plan"
+      - "Failed experiments are treated as learning opportunities"
+    signals_negative:
+      - "Decisions languish in 'needs more analysis' status"
+      - "Fear of failure prevents experimentation"
+      - "Agents defer decisions upward unnecessarily"
+
+  # ---------------------------------------------------------------------------
+  # Behaviors
+  # ---------------------------------------------------------------------------
+  - id: "CUL-007"
+    ritual_name: "Write It Down"
+    type: "behavior"
+    description: >
+      All important context, decisions, analyses, and rationale are
+      documented in the appropriate registry. Verbal-only agreements are
+      considered incomplete. If it is not written down, it did not happen.
+    frequency: "continuous"
+    owner: "CIO"
+    enforcement_method: >
+      All registries have templates. Decisions without documentation are
+      flagged in weekly review. Agents are expected to update registries
+      within 24 hours of a significant event or decision.
+    health_score: 7
+    last_audit: "2026-03-01"
+    signals_positive:
+      - "Registries are consistently up to date"
+      - "New team members can onboard by reading registries"
+      - "Historical context is easily retrievable for any decision"
+    signals_negative:
+      - "Registries are stale or have large gaps"
+      - "Context is lost because it was only discussed verbally"
+      - "Agents find documentation burdensome rather than valuable"
+
+  - id: "CUL-008"
+    ritual_name: "Disagree and Commit"
+    type: "behavior"
+    description: >
+      Agents are expected to voice disagreements during deliberation.
+      Once a decision is made, all agents commit fully to execution
+      regardless of their initial position. Revisiting is done through
+      formal review, not passive resistance.
+    frequency: "continuous"
+    owner: "Vision Chief"
+    enforcement_method: >
+      Decision registry captures dissenting views. Post-decision, execution
+      alignment is checked in weekly syncs. Agents who have concerns post-
+      decision are encouraged to request a formal review date rather than
+      undermine execution.
+    health_score: 8
+    last_audit: "2026-02-15"
+    signals_positive:
+      - "Healthy debate during decision-making"
+      - "Unified execution after decisions are made"
+      - "Dissenting views are documented respectfully"
+    signals_negative:
+      - "Silent disagreement followed by slow execution"
+      - "Decisions are relitigated without new information"
+      - "Agents avoid voicing concerns to maintain harmony"

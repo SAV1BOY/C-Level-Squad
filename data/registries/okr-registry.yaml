@@ -1,0 +1,212 @@
+# ============================================================================
+# OKR Registry
+# ============================================================================
+# Central registry of Objectives and Key Results for the C-Level Squad.
+# OKRs are set quarterly and reviewed weekly. Each objective is owned by
+# a specific agent, with key results that are measurable and time-bound.
+#
+# Confidence levels: 0.0 to 1.0 (probability of achieving the target)
+# Statuses: on_track, at_risk, behind, achieved, missed, deferred
+# ============================================================================
+
+schema:
+  cycle:
+    type: string
+    format: "QN-YYYY"
+    description: "Quarter and year (e.g., Q1-2026)"
+    required: true
+  objective:
+    type: object
+    properties:
+      id:
+        type: string
+        format: "OBJ-YYYY-QN-NN"
+        description: "Unique objective identifier"
+        required: true
+      description:
+        type: text
+        description: "Clear statement of what we want to achieve"
+        required: true
+      owner:
+        type: string
+        description: "Agent responsible for this objective"
+        required: true
+      status:
+        type: enum
+        values: [on_track, at_risk, behind, achieved, missed, deferred]
+        description: "Current progress status"
+        required: true
+  key_results:
+    type: list
+    items:
+      id:
+        type: string
+        format: "KR-YYYY-QN-NN-NN"
+        description: "Unique key result identifier"
+      description:
+        type: text
+        description: "Measurable outcome statement"
+      target:
+        type: number_or_string
+        description: "Target value to achieve"
+      current:
+        type: number_or_string
+        description: "Current measured value"
+      confidence:
+        type: float
+        range: [0.0, 1.0]
+        description: "Probability of hitting the target (updated weekly)"
+      status:
+        type: enum
+        values: [on_track, at_risk, behind, achieved, missed, deferred]
+    description: "Measurable results that indicate objective completion"
+    required: true
+  linked_initiatives:
+    type: list
+    description: "Initiative IDs from initiative-registry that support this OKR"
+    required: false
+
+# ============================================================================
+# Entries
+# ============================================================================
+okrs:
+  - cycle: "Q1-2026"
+    objectives:
+      - objective:
+          id: "OBJ-2026-Q1-01"
+          description: "Establish AI-first product capabilities to lead the market"
+          owner: "Vision Chief"
+          status: on_track
+        key_results:
+          - id: "KR-2026-Q1-01-01"
+            description: "Launch AI-powered recommendation engine in production"
+            target: "Production launch"
+            current: "Beta testing"
+            confidence: 0.7
+            status: on_track
+          - id: "KR-2026-Q1-01-02"
+            description: "Achieve 15% improvement in user engagement via AI features"
+            target: 15
+            current: 8.3
+            confidence: 0.6
+            status: at_risk
+          - id: "KR-2026-Q1-01-03"
+            description: "Hire 5 senior AI/ML engineers"
+            target: 5
+            current: 3
+            confidence: 0.8
+            status: on_track
+        linked_initiatives:
+          - "INIT-2026-001"
+          - "INIT-2026-004"
+
+      - objective:
+          id: "OBJ-2026-Q1-02"
+          description: "Achieve operational excellence with sub-99.9% system reliability"
+          owner: "CTO"
+          status: on_track
+        key_results:
+          - id: "KR-2026-Q1-02-01"
+            description: "Reduce mean time to recovery (MTTR) to under 30 minutes"
+            target: 30
+            current: 45
+            confidence: 0.65
+            status: at_risk
+          - id: "KR-2026-Q1-02-02"
+            description: "Achieve 99.95% uptime across all production services"
+            target: 99.95
+            current: 99.91
+            confidence: 0.7
+            status: on_track
+          - id: "KR-2026-Q1-02-03"
+            description: "Eliminate all critical (P0) security vulnerabilities"
+            target: 0
+            current: 2
+            confidence: 0.8
+            status: on_track
+        linked_initiatives:
+          - "INIT-2026-002"
+          - "INIT-2026-005"
+
+      - objective:
+          id: "OBJ-2026-Q1-03"
+          description: "Grow qualified pipeline by 30% through data-driven marketing"
+          owner: "CMO"
+          status: at_risk
+        key_results:
+          - id: "KR-2026-Q1-03-01"
+            description: "Increase MQLs from 800 to 1040 per month"
+            target: 1040
+            current: 870
+            confidence: 0.5
+            status: at_risk
+          - id: "KR-2026-Q1-03-02"
+            description: "Reduce customer acquisition cost (CAC) by 20%"
+            target: -20
+            current: -8
+            confidence: 0.4
+            status: behind
+          - id: "KR-2026-Q1-03-03"
+            description: "Launch referral program and achieve 150 referral signups"
+            target: 150
+            current: 0
+            confidence: 0.7
+            status: on_track
+        linked_initiatives:
+          - "INIT-2026-003"
+          - "INIT-2026-006"
+
+      - objective:
+          id: "OBJ-2026-Q1-04"
+          description: "Build a robust data infrastructure for enterprise intelligence"
+          owner: "CIO"
+          status: on_track
+        key_results:
+          - id: "KR-2026-Q1-04-01"
+            description: "Complete data warehouse migration to Snowflake"
+            target: "100% migrated"
+            current: "65% migrated"
+            confidence: 0.75
+            status: on_track
+          - id: "KR-2026-Q1-04-02"
+            description: "Establish data quality score above 95% for core datasets"
+            target: 95
+            current: 88
+            confidence: 0.6
+            status: at_risk
+          - id: "KR-2026-Q1-04-03"
+            description: "Deliver self-service analytics to all department heads"
+            target: "6 departments"
+            current: "3 departments"
+            confidence: 0.7
+            status: on_track
+        linked_initiatives:
+          - "INIT-2026-007"
+
+      - objective:
+          id: "OBJ-2026-Q1-05"
+          description: "Deploy responsible AI governance framework across all AI initiatives"
+          owner: "CAIO"
+          status: on_track
+        key_results:
+          - id: "KR-2026-Q1-05-01"
+            description: "Publish and ratify AI ethics policy and review board charter"
+            target: "Ratified"
+            current: "Draft v2 in review"
+            confidence: 0.85
+            status: on_track
+          - id: "KR-2026-Q1-05-02"
+            description: "Implement model monitoring for all production AI systems"
+            target: "100% coverage"
+            current: "40% coverage"
+            confidence: 0.5
+            status: at_risk
+          - id: "KR-2026-Q1-05-03"
+            description: "Achieve bias audit pass rate of 100% for customer-facing models"
+            target: 100
+            current: 75
+            confidence: 0.6
+            status: at_risk
+        linked_initiatives:
+          - "INIT-2026-008"
+          - "INIT-2026-009"

@@ -1,0 +1,351 @@
+# =============================================================================
+# Metric Registry
+# =============================================================================
+# Official registry of all key performance indicators (KPIs) and metrics
+# tracked by the C-Level Squad. Each metric has a clear definition, formula,
+# ownership, and thresholds for health assessment.
+#
+# Cadence: how often the metric is measured (daily, weekly, monthly, quarterly)
+# Thresholds: green = on target, yellow = needs attention, red = critical
+# =============================================================================
+
+schema:
+  id:
+    type: string
+    format: "MET-NNN"
+    description: "Unique metric identifier"
+    required: true
+  name:
+    type: string
+    description: "Human-readable metric name"
+    required: true
+  definition:
+    type: text
+    description: "Plain-language explanation of what this metric measures"
+    required: true
+  formula:
+    type: string
+    description: "Mathematical formula or calculation method"
+    required: true
+  data_source:
+    type: string
+    description: "System or tool where raw data originates"
+    required: true
+  owner:
+    type: string
+    description: "Agent or role responsible for this metric"
+    required: true
+  cadence:
+    type: enum
+    values: [real-time, daily, weekly, monthly, quarterly, annually]
+    description: "How often this metric is measured and reported"
+    required: true
+  target:
+    type: number_or_string
+    description: "Target value for the current period"
+    required: true
+  threshold_green:
+    type: string
+    description: "Range or condition indicating healthy performance"
+    required: true
+  threshold_yellow:
+    type: string
+    description: "Range or condition indicating caution"
+    required: true
+  threshold_red:
+    type: string
+    description: "Range or condition indicating critical concern"
+    required: true
+  dashboard_link:
+    type: string
+    description: "URL to the dashboard or report where this metric is visualized"
+    required: false
+  related_metrics:
+    type: list
+    description: "IDs of metrics that are correlated or causally linked"
+    required: false
+
+# =============================================================================
+# Entries
+# =============================================================================
+
+metrics:
+  # ---------------------------------------------------------------------------
+  # Financial KPIs (Owner: COO / Vision Chief)
+  # ---------------------------------------------------------------------------
+  - id: "MET-001"
+    name: "Monthly Recurring Revenue (MRR)"
+    definition: >
+      Total predictable revenue generated from active subscriptions in a given
+      month, excluding one-time fees and variable usage charges.
+    formula: "SUM(active_subscription_values)"
+    data_source: "Stripe / Billing System"
+    owner: "COO"
+    cadence: monthly
+    target: "$2,500,000"
+    threshold_green: ">= $2,400,000"
+    threshold_yellow: "$2,100,000 - $2,399,999"
+    threshold_red: "< $2,100,000"
+    dashboard_link: "/dashboards/finance/mrr"
+    related_metrics:
+      - "MET-002"
+      - "MET-003"
+
+  - id: "MET-002"
+    name: "Net Revenue Retention (NRR)"
+    definition: >
+      Percentage of recurring revenue retained from existing customers after
+      accounting for expansion, contraction, and churn over a 12-month period.
+    formula: "(MRR_start + expansion - contraction - churn) / MRR_start * 100"
+    data_source: "Stripe / CRM"
+    owner: "COO"
+    cadence: monthly
+    target: "115%"
+    threshold_green: ">= 110%"
+    threshold_yellow: "100% - 109%"
+    threshold_red: "< 100%"
+    dashboard_link: "/dashboards/finance/nrr"
+    related_metrics:
+      - "MET-001"
+      - "MET-006"
+
+  - id: "MET-003"
+    name: "Burn Rate"
+    definition: >
+      Net cash consumed per month, calculated as total monthly expenses minus
+      total monthly revenue.
+    formula: "total_monthly_expenses - total_monthly_revenue"
+    data_source: "Accounting System"
+    owner: "COO"
+    cadence: monthly
+    target: "< $200,000"
+    threshold_green: "< $200,000"
+    threshold_yellow: "$200,000 - $350,000"
+    threshold_red: "> $350,000"
+    dashboard_link: "/dashboards/finance/burn"
+    related_metrics:
+      - "MET-001"
+
+  # ---------------------------------------------------------------------------
+  # Marketing KPIs (Owner: CMO)
+  # ---------------------------------------------------------------------------
+  - id: "MET-004"
+    name: "Marketing Qualified Leads (MQLs)"
+    definition: >
+      Number of leads that meet predefined qualification criteria based on
+      engagement scoring, firmographic fit, and behavioral signals.
+    formula: "COUNT(leads WHERE score >= mql_threshold)"
+    data_source: "HubSpot / Marketing Automation"
+    owner: "CMO"
+    cadence: weekly
+    target: "260/week"
+    threshold_green: ">= 240/week"
+    threshold_yellow: "180 - 239/week"
+    threshold_red: "< 180/week"
+    dashboard_link: "/dashboards/marketing/mqls"
+    related_metrics:
+      - "MET-005"
+      - "MET-006"
+
+  - id: "MET-005"
+    name: "Customer Acquisition Cost (CAC)"
+    definition: >
+      Total sales and marketing spend divided by the number of new customers
+      acquired in a given period.
+    formula: "(sales_spend + marketing_spend) / new_customers"
+    data_source: "Accounting System + CRM"
+    owner: "CMO"
+    cadence: monthly
+    target: "< $1,200"
+    threshold_green: "< $1,200"
+    threshold_yellow: "$1,200 - $1,800"
+    threshold_red: "> $1,800"
+    dashboard_link: "/dashboards/marketing/cac"
+    related_metrics:
+      - "MET-004"
+      - "MET-006"
+
+  - id: "MET-006"
+    name: "Net Promoter Score (NPS)"
+    definition: >
+      Customer loyalty metric based on the question 'How likely are you to
+      recommend us?' scored 0-10. Calculated as % promoters minus % detractors.
+    formula: "(%_promoters_9_10) - (%_detractors_0_6)"
+    data_source: "Survey Tool (Delighted)"
+    owner: "CMO"
+    cadence: quarterly
+    target: "72"
+    threshold_green: ">= 65"
+    threshold_yellow: "45 - 64"
+    threshold_red: "< 45"
+    dashboard_link: "/dashboards/marketing/nps"
+    related_metrics:
+      - "MET-002"
+      - "MET-005"
+
+  # ---------------------------------------------------------------------------
+  # Engineering / Technology KPIs (Owner: CTO)
+  # ---------------------------------------------------------------------------
+  - id: "MET-007"
+    name: "System Uptime"
+    definition: >
+      Percentage of time production systems are available and responsive
+      to end users, measured across all critical services.
+    formula: "(total_minutes - downtime_minutes) / total_minutes * 100"
+    data_source: "Datadog / Monitoring"
+    owner: "CTO"
+    cadence: daily
+    target: "99.95%"
+    threshold_green: ">= 99.95%"
+    threshold_yellow: "99.5% - 99.94%"
+    threshold_red: "< 99.5%"
+    dashboard_link: "/dashboards/engineering/uptime"
+    related_metrics:
+      - "MET-008"
+
+  - id: "MET-008"
+    name: "Mean Time to Recovery (MTTR)"
+    definition: >
+      Average time from incident detection to full service restoration
+      for P0 and P1 incidents.
+    formula: "AVG(recovery_time - detection_time) for P0/P1 incidents"
+    data_source: "PagerDuty / Incident Tracker"
+    owner: "CTO"
+    cadence: weekly
+    target: "< 30 minutes"
+    threshold_green: "< 30 minutes"
+    threshold_yellow: "30 - 60 minutes"
+    threshold_red: "> 60 minutes"
+    dashboard_link: "/dashboards/engineering/mttr"
+    related_metrics:
+      - "MET-007"
+
+  - id: "MET-009"
+    name: "Deployment Frequency"
+    definition: >
+      Number of production deployments per week across all services,
+      indicating delivery velocity and CI/CD health.
+    formula: "COUNT(production_deployments) per week"
+    data_source: "GitHub Actions / CI/CD"
+    owner: "CTO"
+    cadence: weekly
+    target: ">= 20/week"
+    threshold_green: ">= 20/week"
+    threshold_yellow: "10 - 19/week"
+    threshold_red: "< 10/week"
+    dashboard_link: "/dashboards/engineering/deploys"
+    related_metrics:
+      - "MET-007"
+      - "MET-008"
+
+  # ---------------------------------------------------------------------------
+  # Information / Data KPIs (Owner: CIO)
+  # ---------------------------------------------------------------------------
+  - id: "MET-010"
+    name: "Data Quality Score"
+    definition: >
+      Composite score measuring completeness, accuracy, consistency, and
+      timeliness of data across core datasets.
+    formula: "weighted_avg(completeness, accuracy, consistency, timeliness)"
+    data_source: "Data Quality Platform (Great Expectations)"
+    owner: "CIO"
+    cadence: weekly
+    target: ">= 95%"
+    threshold_green: ">= 95%"
+    threshold_yellow: "85% - 94%"
+    threshold_red: "< 85%"
+    dashboard_link: "/dashboards/data/quality"
+    related_metrics:
+      - "MET-011"
+
+  - id: "MET-011"
+    name: "Data Pipeline SLA Compliance"
+    definition: >
+      Percentage of data pipelines that complete within their defined SLA
+      window each day.
+    formula: "pipelines_on_time / total_pipelines * 100"
+    data_source: "Airflow / Orchestration"
+    owner: "CIO"
+    cadence: daily
+    target: ">= 98%"
+    threshold_green: ">= 98%"
+    threshold_yellow: "90% - 97%"
+    threshold_red: "< 90%"
+    dashboard_link: "/dashboards/data/pipelines"
+    related_metrics:
+      - "MET-010"
+
+  # ---------------------------------------------------------------------------
+  # AI KPIs (Owner: CAIO)
+  # ---------------------------------------------------------------------------
+  - id: "MET-012"
+    name: "Model Accuracy (Production)"
+    definition: >
+      Weighted average accuracy of all production ML models, measured
+      against ground-truth labels on a rolling 30-day window.
+    formula: "weighted_avg(model_accuracy) across production models"
+    data_source: "ML Monitoring Platform (MLflow)"
+    owner: "CAIO"
+    cadence: weekly
+    target: ">= 92%"
+    threshold_green: ">= 92%"
+    threshold_yellow: "85% - 91%"
+    threshold_red: "< 85%"
+    dashboard_link: "/dashboards/ai/accuracy"
+    related_metrics:
+      - "MET-013"
+
+  - id: "MET-013"
+    name: "AI ROI Index"
+    definition: >
+      Ratio of measurable value generated by AI systems (cost savings +
+      revenue uplift) to total AI investment (infrastructure + talent + tools).
+    formula: "(ai_value_generated) / (ai_total_investment)"
+    data_source: "Finance System + AI Platform"
+    owner: "CAIO"
+    cadence: quarterly
+    target: ">= 3.0x"
+    threshold_green: ">= 3.0x"
+    threshold_yellow: "1.5x - 2.9x"
+    threshold_red: "< 1.5x"
+    dashboard_link: "/dashboards/ai/roi"
+    related_metrics:
+      - "MET-012"
+      - "MET-001"
+
+  # ---------------------------------------------------------------------------
+  # People / Culture KPIs (Owner: COO)
+  # ---------------------------------------------------------------------------
+  - id: "MET-014"
+    name: "Employee Engagement Score"
+    definition: >
+      Composite engagement score from quarterly pulse surveys measuring
+      satisfaction, alignment, and intent to stay.
+    formula: "weighted_avg(satisfaction, alignment, retention_intent)"
+    data_source: "Culture Amp / Pulse Surveys"
+    owner: "COO"
+    cadence: quarterly
+    target: ">= 80%"
+    threshold_green: ">= 80%"
+    threshold_yellow: "65% - 79%"
+    threshold_red: "< 65%"
+    dashboard_link: "/dashboards/people/engagement"
+    related_metrics:
+      - "MET-015"
+
+  - id: "MET-015"
+    name: "Voluntary Attrition Rate"
+    definition: >
+      Percentage of employees who voluntarily leave the organization in
+      a rolling 12-month window.
+    formula: "voluntary_departures / avg_headcount * 100 (trailing 12 months)"
+    data_source: "HRIS"
+    owner: "COO"
+    cadence: monthly
+    target: "< 12%"
+    threshold_green: "< 12%"
+    threshold_yellow: "12% - 18%"
+    threshold_red: "> 18%"
+    dashboard_link: "/dashboards/people/attrition"
+    related_metrics:
+      - "MET-014"

@@ -1,0 +1,197 @@
+# =============================================================================
+# Vendor Registry
+# =============================================================================
+# Registry of all third-party vendors and service providers. Tracks contract
+# details, SLA performance, risk levels, alternatives, and exit planning.
+#
+# Risk Levels: low, medium, high, critical
+# Categories: cloud_infrastructure, saas, consulting, data, security, marketing,
+#             hr, finance, ai_ml, communications
+# =============================================================================
+
+schema:
+  id:
+    type: string
+    format: "VEN-NNN"
+    description: "Unique vendor identifier"
+    required: true
+  name:
+    type: string
+    description: "Vendor or provider name"
+    required: true
+  category:
+    type: string
+    description: "Vendor category (cloud_infrastructure, saas, consulting, data, security, marketing, hr, finance, ai_ml, communications)"
+    required: true
+  contract_value:
+    type: number
+    description: "Total contract value in USD"
+    required: true
+  contract_start:
+    type: date
+    description: "Contract start date"
+    required: true
+  contract_end:
+    type: date
+    description: "Contract end date"
+    required: true
+  owner:
+    type: string
+    description: "Agent or role managing this vendor relationship"
+    required: true
+  sla_agreed:
+    type: string
+    description: "Agreed service level targets"
+    required: true
+  sla_actual:
+    type: string
+    description: "Actual service level performance"
+    required: true
+  risk_level:
+    type: enum
+    values: [low, medium, high, critical]
+    description: "Risk classification based on dependency, replaceability, and contract terms"
+    required: true
+  alternatives:
+    type: list
+    description: "Known alternative vendors or solutions"
+    required: true
+  exit_plan:
+    type: text
+    description: "Strategy for transitioning away from this vendor if needed"
+    required: true
+  last_review:
+    type: date
+    description: "Date of most recent vendor review"
+    required: true
+
+# =============================================================================
+# Entries
+# =============================================================================
+
+vendors:
+  - id: "VEN-001"
+    name: "Amazon Web Services (AWS)"
+    category: "cloud_infrastructure"
+    contract_value: 1200000
+    contract_start: "2025-01-01"
+    contract_end: "2027-12-31"
+    owner: "CTO"
+    sla_agreed: "99.99% uptime for core services; 15-minute response for P1"
+    sla_actual: "99.98% uptime (trailing 12 months); avg P1 response 12 minutes"
+    risk_level: "critical"
+    alternatives:
+      - "Google Cloud Platform (GCP)"
+      - "Microsoft Azure"
+    exit_plan: >
+      Multi-cloud abstraction layer in place for compute and storage.
+      Container workloads are Kubernetes-based and portable. Data egress
+      would require 3-6 month migration plan. Estimated switching cost:
+      $200K in engineering effort plus $50K in data transfer fees.
+    last_review: "2026-02-15"
+
+  - id: "VEN-002"
+    name: "Snowflake"
+    category: "data"
+    contract_value: 336000
+    contract_start: "2026-01-01"
+    contract_end: "2027-12-31"
+    owner: "CIO"
+    sla_agreed: "99.9% uptime; 1-hour response for P1"
+    sla_actual: "99.95% uptime; avg P1 response 45 minutes"
+    risk_level: "high"
+    alternatives:
+      - "Google BigQuery"
+      - "Databricks Lakehouse"
+      - "Amazon Redshift"
+    exit_plan: >
+      Data stored in open formats (Parquet) where possible. SQL queries
+      use ANSI-standard syntax for portability. Migration would require
+      re-implementing Snowflake-specific features (time travel, cloning).
+      Estimated timeline: 4-6 months.
+    last_review: "2026-02-20"
+
+  - id: "VEN-003"
+    name: "Salesforce"
+    category: "saas"
+    contract_value: 255000
+    contract_start: "2025-07-01"
+    contract_end: "2027-06-30"
+    owner: "CMO"
+    sla_agreed: "99.9% uptime; 4-hour response for P1"
+    sla_actual: "99.92% uptime; avg P1 response 3.5 hours"
+    risk_level: "high"
+    alternatives:
+      - "HubSpot CRM"
+      - "Microsoft Dynamics 365"
+      - "Pipedrive"
+    exit_plan: >
+      CRM data is regularly exported and backed up to Snowflake. Custom
+      objects and automations would need to be rebuilt. API integrations
+      use an abstraction layer. Estimated migration: 6-9 months including
+      data migration, workflow recreation, and team retraining.
+    last_review: "2026-01-30"
+
+  - id: "VEN-004"
+    name: "Datadog"
+    category: "security"
+    contract_value: 144000
+    contract_start: "2025-07-01"
+    contract_end: "2027-06-30"
+    owner: "CTO"
+    sla_agreed: "99.9% uptime; 2-hour response for P1"
+    sla_actual: "99.95% uptime; avg P1 response 1.5 hours"
+    risk_level: "medium"
+    alternatives:
+      - "New Relic"
+      - "Grafana Cloud"
+      - "Elastic Observability"
+    exit_plan: >
+      Dashboard definitions are version-controlled as code. Alert rules
+      are documented in the monitoring playbook. OpenTelemetry standard
+      is used for instrumentation, enabling vendor portability. Migration
+      timeline: 2-3 months.
+    last_review: "2026-02-01"
+
+  - id: "VEN-005"
+    name: "Anthropic"
+    category: "ai_ml"
+    contract_value: 96000
+    contract_start: "2026-01-01"
+    contract_end: "2026-12-31"
+    owner: "CAIO"
+    sla_agreed: "99.5% API uptime; rate limits per tier"
+    sla_actual: "99.7% uptime; no rate limit issues"
+    risk_level: "medium"
+    alternatives:
+      - "OpenAI"
+      - "Google (Gemini)"
+      - "Open-source models (Llama, Mistral)"
+    exit_plan: >
+      All prompts and system instructions are stored in version control,
+      not vendor-locked. Application layer uses a model abstraction that
+      supports multiple LLM providers. Fine-tuned models would require
+      retraining on alternative platforms. Switching timeline: 2-4 weeks
+      for API swap, 1-2 months if fine-tuned models are involved.
+    last_review: "2026-03-01"
+
+  - id: "VEN-006"
+    name: "Workday"
+    category: "hr"
+    contract_value: 192000
+    contract_start: "2025-10-01"
+    contract_end: "2027-09-30"
+    owner: "COO"
+    sla_agreed: "99.9% uptime; 4-hour response for P1"
+    sla_actual: "99.93% uptime; avg P1 response 3 hours"
+    risk_level: "medium"
+    alternatives:
+      - "BambooHR"
+      - "SAP SuccessFactors"
+      - "ADP Workforce Now"
+    exit_plan: >
+      Employee data is synced nightly to Snowflake. Payroll integrations
+      run through a middleware layer. Custom workflows documented in
+      runbooks. Migration would require 6-9 months including parallel
+      payroll runs for validation.
+    last_review: "2026-01-30"

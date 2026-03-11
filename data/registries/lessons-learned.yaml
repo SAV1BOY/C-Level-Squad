@@ -1,0 +1,228 @@
+# =============================================================================
+# Lessons Learned Registry (RalphLoop)
+# =============================================================================
+# Central repository of organizational lessons learned, feeding the
+# continuous improvement loop (RalphLoop). Every significant insight from
+# decisions, initiatives, incidents, and reviews is captured here to
+# prevent repeat failures and scale successes.
+#
+# Sources: decision, initiative, incident, review, retrospective
+# Status: identified -> action_taken -> validated -> archived
+# =============================================================================
+
+schema:
+  id:
+    type: string
+    format: "LL-YYYY-NNN"
+    description: "Unique lesson learned identifier"
+    required: true
+  date:
+    type: date
+    description: "Date the lesson was identified"
+    required: true
+  source:
+    type: enum
+    values: [decision, initiative, incident, review, retrospective]
+    description: "Where this lesson originated"
+    required: true
+  title:
+    type: string
+    description: "Concise title summarizing the lesson"
+    required: true
+  context:
+    type: text
+    description: "The situation or project where this lesson arose"
+    required: true
+  what_happened:
+    type: text
+    description: "Factual account of what occurred"
+    required: true
+  what_expected:
+    type: text
+    description: "What was expected or planned to happen"
+    required: true
+  root_cause:
+    type: text
+    description: "Underlying cause of the gap between expected and actual"
+    required: true
+  lesson:
+    type: text
+    description: "The actionable insight or principle derived"
+    required: true
+  action_taken:
+    type: text
+    description: "Concrete action taken to apply this lesson going forward"
+    required: true
+  owner:
+    type: string
+    description: "Agent or role responsible for ensuring this lesson is applied"
+    required: true
+  related_registries:
+    type: list
+    description: "IDs from other registries linked to this lesson (decisions, initiatives, risks, etc.)"
+    required: false
+  status:
+    type: enum
+    values: [identified, action_taken, validated, archived]
+    description: "Current status of the lesson"
+    required: true
+
+# =============================================================================
+# Entries
+# =============================================================================
+
+lessons:
+  - id: "LL-2026-001"
+    date: "2026-02-10"
+    source: "initiative"
+    title: "Data quality must be validated before migration, not after"
+    context: >
+      During the Snowflake data warehouse migration (INIT-2026-007), the
+      team discovered data quality issues in the source system only after
+      migrating the first batch of datasets.
+    what_happened: >
+      The finance dataset was migrated to Snowflake, but downstream
+      reports showed discrepancies. Investigation revealed that 8% of
+      records in the source system had inconsistent date formats and
+      null values in required fields. The team spent 2 weeks cleaning
+      data that should have been caught earlier.
+    what_expected: >
+      Migration would proceed smoothly with validated source data,
+      and downstream reports would match within 0.1% tolerance.
+    root_cause: >
+      No pre-migration data quality assessment was performed. The team
+      assumed source data quality was acceptable because it had been in
+      production for years. Legacy systems often accumulate data quality
+      debt that is invisible until migration.
+    lesson: >
+      Always run a comprehensive data quality assessment on source systems
+      before beginning any migration. Define quality gates that must pass
+      before each migration phase proceeds. Budget 15-20% of migration
+      time for data remediation.
+    action_taken: >
+      Added data quality gate to the migration playbook. Remaining
+      datasets now undergo automated quality checks (completeness,
+      consistency, format validation) before migration begins. Quality
+      report must be signed off by data owner.
+    owner: "CIO"
+    related_registries:
+      - "INIT-2026-007"
+      - "MET-010"
+    status: "validated"
+
+  - id: "LL-2026-002"
+    date: "2026-02-25"
+    source: "incident"
+    title: "Monitoring coverage must include dependent services, not just primary"
+    context: >
+      A production incident occurred when the recommendation engine API
+      experienced degraded performance, but alerts only triggered after
+      customer complaints because monitoring was focused on the primary
+      service, not its dependencies.
+    what_happened: >
+      The feature store serving the recommendation engine experienced a
+      slow memory leak over 6 hours. Response times degraded from 50ms
+      to 2500ms. The primary service health check returned 200 (healthy)
+      because it was technically running, but recommendations were timing
+      out. First alert came from customer support, not monitoring.
+    what_expected: >
+      Monitoring would detect latency degradation within 5 minutes and
+      page the on-call engineer before any customer impact.
+    root_cause: >
+      Health checks only verified the primary API was responsive, not
+      that dependent services (feature store, model serving) were meeting
+      latency SLAs. End-to-end latency monitoring was not configured.
+    lesson: >
+      Health checks must validate the full request path, including all
+      critical dependencies. Implement end-to-end latency monitoring
+      for every production service, with alerts on percentile degradation
+      (p95, p99) rather than just availability.
+    action_taken: >
+      Implemented synthetic monitoring that makes real recommendation
+      requests every 60 seconds and measures end-to-end latency. Added
+      dependency health to the service health endpoint. Created SLO-based
+      alerts on p95 latency for all production AI services.
+    owner: "CTO"
+    related_registries:
+      - "INIT-2026-001"
+      - "RISK-2026-004"
+      - "MET-008"
+    status: "action_taken"
+
+  - id: "LL-2026-003"
+    date: "2026-03-05"
+    source: "review"
+    title: "Cross-functional alignment prevents conflicting roadmap priorities"
+    context: >
+      During the Q1 mid-quarter review, it was discovered that the
+      engineering team and marketing team had conflicting priorities
+      regarding the product launch timeline.
+    what_happened: >
+      Marketing had committed to a launch event date for the AI
+      recommendation feature based on the original timeline. Engineering
+      had quietly shifted the beta launch by 2 weeks due to technical
+      challenges but only communicated within engineering channels.
+      Marketing had already booked press coverage and customer demos.
+    what_expected: >
+      Any timeline change would be immediately communicated to all
+      stakeholders, and marketing commitments would be adjusted
+      accordingly.
+    root_cause: >
+      No formal mechanism for cross-functional timeline change
+      notification. Engineering updated their project tracker, but
+      marketing was not subscribed to those updates. The weekly
+      alignment meeting had been skipped twice due to scheduling
+      conflicts.
+    lesson: >
+      Timeline changes for customer-facing initiatives must trigger
+      automatic notifications to all stakeholders, not just the
+      engineering team. The weekly alignment cadence must be treated
+      as immovable for initiative health. When meetings are skipped,
+      async updates must be mandatory.
+    action_taken: >
+      Implemented a timeline change notification system in the project
+      tracker that automatically alerts all stakeholders listed in
+      the initiative registry. Made the Monday alignment meeting
+      mandatory with async written updates required if any agent
+      cannot attend.
+    owner: "COO"
+    related_registries:
+      - "DEC-2026-002"
+      - "INIT-2026-001"
+    status: "action_taken"
+
+  - id: "LL-2026-004"
+    date: "2026-01-30"
+    source: "decision"
+    title: "YAML linting in CI prevents subtle configuration bugs"
+    context: >
+      After the decision to standardize on YAML for operational registries
+      (DEC-2026-003), several subtle bugs were introduced during the
+      initial migration.
+    what_happened: >
+      Three registry files had indentation errors that caused fields to
+      be parsed as children of the wrong parent. One file had a boolean
+      value interpreted incorrectly due to YAML implicit typing ('no'
+      was read as false instead of the string 'no'). These issues were
+      only caught during manual review.
+    what_expected: >
+      Migration to YAML would proceed without parsing or structural errors.
+    root_cause: >
+      No automated validation was in place during the migration. YAML's
+      indentation sensitivity and implicit typing are well-known pitfalls
+      but were not guarded against systematically.
+    lesson: >
+      When adopting a new data format, implement automated validation
+      (linting + schema checking) from day one, not as an afterthought.
+      For YAML specifically, always use explicit string quoting for values
+      that could be misinterpreted (yes/no/on/off/true/false).
+    action_taken: >
+      Added yamllint to CI pipeline with strict mode. Created JSON Schema
+      files for each registry type. All YAML values that could trigger
+      implicit typing are now explicitly quoted. Pre-commit hook validates
+      YAML before allowing commits.
+    owner: "CIO"
+    related_registries:
+      - "DEC-2026-003"
+      - "ADR-002"
+    status: "validated"
