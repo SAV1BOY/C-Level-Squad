@@ -1,0 +1,1303 @@
+# ============================================================
+# C-LEVEL SQUAD — config.yaml (Cérebro de Roteamento)
+# ============================================================
+# Versão: 2.0.0
+# Última atualização: 2026-03-11
+# Autor: MMOS C-Level Squad
+# Descrição: Manifesto central que roteia tasks → agents → frameworks
+#             → checklists → templates → registries para o C-Level OS.
+# ============================================================
+
+squad:
+  name: c-level
+  version: "2.0.0"
+  description: "C-Level OS: visão, operação, marketing, tecnologia, informação, IA"
+  chief_agent: vision-chief
+  total_agents: 6
+  monthly_budget: "R$ 540K"
+  methodology: "HRM (Hierarchical Reasoning Model) + Prompt Engineering Avançado"
+
+# ============================================================
+# PRINCÍPIOS OPERACIONAIS
+# ============================================================
+principles:
+  - id: artifacts_over_opinions
+    rule: "Se não está escrito, não é decisão — é conversa."
+    enforcement: "Todo output deve gerar registro em data/registries/ ou data/decisions/"
+
+  - id: cadence_is_the_os
+    rule: "Cadência (WBR/MBR/QBR) é o sistema operacional. Sem cadência, sem controle."
+    enforcement: "WBR semanal, MBR mensal, QBR trimestral — inegociável."
+
+  - id: accountability_by_default
+    rule: "Dono, prazo, métrica — sempre. Sem dono = sem responsável = não acontece."
+    enforcement: "Todo item de ação deve ter DRI (Directly Responsible Individual)."
+
+  - id: kill_before_it_kills_you
+    rule: "Kill criteria obrigatório para toda iniciativa. Se não define quando parar, não sabe o que está fazendo."
+    enforcement: "Revisão trimestral de kill list via checklists/execution/kill-criteria-quality.md"
+
+  - id: cross_squad_contracts
+    rule: "SLAs e handoffs explícitos entre squads. Sem contrato = sem entrega."
+    enforcement: "Handoffs documentados via templates/operational/cross-squad-handoff.md"
+
+  - id: ai_as_leverage
+    rule: "IA como alavanca real, não como buzzword. ROI medido, não assumido."
+    enforcement: "Evals mensais via caio-architect, ROI validado trimestralmente."
+
+  - id: compounding_decisions
+    rule: "Decisões que compõem no longo prazo > decisões que parecem boas no curto."
+    enforcement: "Decision quality review trimestral via workflows/18-decision-quality-review.md"
+
+  - id: evidence_over_intuition
+    rule: "Base-rates, dados e evidências primeiro. Intuição calibrada, não cega."
+    enforcement: "Toda decisão estratégica requer data/research/ como input."
+
+  - id: simplicity_by_design
+    rule: "Complexidade é o inimigo. Se precisa de 15 minutos para explicar, simplifique."
+    enforcement: "Checklist de simplificação em todo output de estratégia."
+
+# ============================================================
+# AGENTES
+# ============================================================
+agents:
+  vision-chief:
+    file: agents/vision-chief.md
+    role: "Vision Chief (CEO / Diretor Executivo)"
+    authority: "Direção estratégica, prioridades, kill list, tese, bets, narrativa"
+    decision_scope: "Type 1 (irreversíveis) + aprovação final de Type 2 estratégicos"
+    reports_to: "Board / Founder"
+    direct_reports: [coo-orchestrator, cmo-architect, cto-architect, cio-engineer, caio-architect]
+    primary_frameworks:
+      - frameworks/vision-strategy/strategy-choice-cascade.md
+      - frameworks/vision-strategy/three-horizons.md
+      - frameworks/vision-chief/vision-chief-strategic-thesis.md
+      - frameworks/vision-chief/vision-chief-kill-list.md
+      - frameworks/vision-chief/vision-chief-narrative-cascade.md
+    primary_kpis: [north_star_metric_trend, strategic_bet_success_rate, moat_strength_score]
+    cross_squad_ownership: [brand_squad, storytelling_squad, advisory_board]
+
+  coo-orchestrator:
+    file: agents/coo-orchestrator.md
+    role: "COO Orchestrator (Diretor de Operações)"
+    authority: "Sistema operacional, cadência, execução, accountability, riscos operacionais"
+    decision_scope: "Type 2 operacionais, escalonamento de bloqueios, alocação de recursos"
+    reports_to: vision-chief
+    primary_frameworks:
+      - frameworks/operating-system/wbr-mbr-qbr.md
+      - frameworks/operating-system/rasi-dri.md
+      - frameworks/coo-orchestrator/coo-operating-rhythm.md
+      - frameworks/coo-orchestrator/coo-execution-engine.md
+      - frameworks/coo-orchestrator/coo-bottleneck-theory.md
+    primary_kpis: [initiative_completion_rate, decision_lead_time, action_item_completion, meeting_decision_ratio]
+    cross_squad_ownership: [data_squad, cybersecurity_squad]
+
+  cmo-architect:
+    file: agents/cmo-architect.md
+    role: "CMO Architect (Diretor de Marketing / Crescimento)"
+    authority: "Crescimento, positioning-to-performance, GTM, aquisição, retenção e receita"
+    decision_scope: "Estratégia de canal, pricing, oferta, posicionamento, investimento em growth"
+    reports_to: vision-chief
+    primary_frameworks:
+      - frameworks/growth-gtm/stp.md
+      - frameworks/growth-gtm/jtbd.md
+      - frameworks/growth-gtm/offer-mechanism.md
+      - frameworks/cmo-architect/cmo-positioning-to-performance.md
+      - frameworks/cmo-architect/cmo-full-funnel-architecture.md
+    primary_kpis: [revenue_growth_rate, customer_acquisition_cost, ltv_cac_ratio, activation_rate, nrr_grr]
+    cross_squad_ownership: [brand_squad, copy_squad, storytelling_squad, movement_squad, traffic_squad]
+
+  cto-architect:
+    file: agents/cto-architect.md
+    role: "CTO Architect (Diretor de Tecnologia)"
+    authority: "Arquitetura, engenharia, plataforma, qualidade, velocidade com segurança"
+    decision_scope: "ADRs, build vs buy, stack, SLOs, dívida técnica, infra"
+    reports_to: vision-chief
+    primary_frameworks:
+      - frameworks/engineering-tech/dora-metrics.md
+      - frameworks/engineering-tech/architecture-patterns.md
+      - frameworks/engineering-tech/adr-system.md
+      - frameworks/cto-architect/cto-architecture-as-strategy.md
+      - frameworks/cto-architect/cto-reliability-engineering.md
+    primary_kpis: [dora_deployment_frequency, dora_lead_time, dora_mttr, dora_change_failure_rate, platform_availability]
+    cross_squad_ownership: [design_squad]
+
+  cio-engineer:
+    file: agents/cio-engineer.md
+    role: "CIO Engineer (Diretor de Informação)"
+    authority: "Informação, processos, sistemas internos, dados operacionais, governança"
+    decision_scope: "Portfólio de sistemas, governança de dados, integrações, LGPD, vendor selection"
+    reports_to: vision-chief
+    primary_frameworks:
+      - frameworks/it-information/itil-light.md
+      - frameworks/it-information/data-governance-lite.md
+      - frameworks/it-information/enterprise-architecture-lite.md
+      - frameworks/cio-engineer/cio-systems-rationalization.md
+      - frameworks/cio-engineer/cio-data-as-product.md
+    primary_kpis: [system_availability, integration_health, data_quality_score, it_satisfaction_score]
+    cross_squad_ownership: [data_squad, cybersecurity_squad]
+
+  caio-architect:
+    file: agents/caio-architect.md
+    role: "CAIO Architect (Diretor de Inteligência Artificial)"
+    authority: "Estratégia de IA, governança, MLOps, avaliação, adoção e alavancagem"
+    decision_scope: "Portfólio de IA, evals, guardrails, vendor de IA, build vs buy IA"
+    reports_to: vision-chief
+    primary_frameworks:
+      - frameworks/ai/ai-strategy.md
+      - frameworks/ai/ai-governance.md
+      - frameworks/ai/evals-and-redteaming.md
+      - frameworks/caio-architect/caio-ai-portfolio-strategy.md
+      - frameworks/caio-architect/caio-responsible-ai.md
+    primary_kpis: [ai_use_case_roi, ai_adoption_rate, ai_quality_score, ai_incident_rate]
+    cross_squad_ownership: [data_squad]
+
+# ============================================================
+# ROTEAMENTO: TASK → AGENTS → FRAMEWORKS → CHECKLISTS → TEMPLATES → REGISTRIES
+# ============================================================
+routing:
+
+  # ═══════════════════════════════════════════
+  # STRATEGY
+  # ═══════════════════════════════════════════
+  define-vision-and-bets:
+    description: "Definir visão, tese estratégica, 1-3 bets e kill list"
+    agents: [vision-chief, coo-orchestrator, cmo-architect, cto-architect]
+    frameworks:
+      - frameworks/vision-strategy/ogsm.md
+      - frameworks/vision-strategy/three-horizons.md
+      - frameworks/vision-chief/vision-chief-strategic-thesis.md
+      - frameworks/vision-chief/vision-chief-kill-list.md
+    checklists:
+      - checklists/strategy-memo-quality.md
+      - checklists/vision/vision-clarity-audit.md
+      - checklists/vision/strategic-bets-selection.md
+    templates:
+      - templates/strategy/strategy-one-pager.md
+    registries:
+      - data/registries/decision-registry.yaml
+      - data/registries/initiative-registry.yaml
+
+  run-quarterly-planning:
+    description: "Planejamento trimestral: bets, OKRs, recursos, riscos"
+    agents: [vision-chief, coo-orchestrator, cmo-architect, cto-architect, cio-engineer, caio-architect]
+    frameworks:
+      - frameworks/operating-system/okrs.md
+      - frameworks/vision-strategy/ogsm.md
+      - frameworks/vision-chief/vision-chief-bet-sizing.md
+    checklists:
+      - checklists/quarterly-planning-quality.md
+      - checklists/okr-quality.md
+      - checklists/strategy/strategy-alignment-quality.md
+    templates:
+      - templates/strategy/quarterly-plan.md
+    registries:
+      - data/registries/okr-registry.yaml
+      - data/registries/initiative-registry.yaml
+
+  run-annual-planning:
+    description: "Planejamento anual: metas, orçamento, headcount, iniciativas"
+    agents: [vision-chief, coo-orchestrator, cmo-architect, cto-architect, cio-engineer, caio-architect]
+    frameworks:
+      - frameworks/vision-strategy/ogsm.md
+      - frameworks/vision-strategy/scenario-planning.md
+      - frameworks/vision-chief/vision-chief-bet-sizing.md
+    checklists:
+      - checklists/annual-planning-quality.md
+      - checklists/okr-quality.md
+    templates:
+      - templates/strategy/annual-operating-plan.md
+    registries:
+      - data/registries/okr-registry.yaml
+      - data/registries/initiative-registry.yaml
+      - data/registries/decision-registry.yaml
+
+  market-thesis-update:
+    description: "Atualizar tese de mercado com evidências e tendências"
+    agents: [vision-chief, cmo-architect]
+    frameworks:
+      - frameworks/vision-strategy/wardley-mapping.md
+      - frameworks/vision-strategy/scenario-planning.md
+    checklists:
+      - checklists/strategy/market-thesis-quality.md
+      - checklists/strategy/competitive-moat-quality.md
+    templates:
+      - templates/strategy/market-thesis-update.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  competitive-response:
+    description: "Analisar e responder a movimentos competitivos"
+    agents: [vision-chief, cmo-architect, cto-architect]
+    frameworks:
+      - frameworks/vision-strategy/wardley-mapping.md
+      - frameworks/reference-intellectual/rumelt-good-strategy-bad-strategy.md
+    checklists:
+      - checklists/strategy/competitive-moat-quality.md
+    templates:
+      - templates/strategy/competitive-response-memo.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  moat-review:
+    description: "Revisão periódica da força do moat"
+    agents: [vision-chief, cmo-architect, cto-architect]
+    frameworks:
+      - frameworks/reference-intellectual/collins-flywheel-effect.md
+      - frameworks/vision-strategy/strategy-choice-cascade.md
+    checklists:
+      - checklists/strategy/competitive-moat-quality.md
+    templates:
+      - templates/strategy/strategy-one-pager.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  pivot-or-persevere:
+    description: "Decidir entre pivotar ou persistir com base em evidências"
+    agents: [vision-chief, coo-orchestrator, cmo-architect]
+    frameworks:
+      - frameworks/reference-intellectual/christensen-innovators-dilemma.md
+      - frameworks/vision-chief/vision-chief-strategic-thesis.md
+    checklists:
+      - checklists/pivot-or-persevere-quality.md
+    templates:
+      - templates/decision/kill-decision-memo.md
+    registries:
+      - data/registries/decision-registry.yaml
+      - data/registries/lessons-learned.yaml
+
+  board-prep:
+    description: "Preparação completa para apresentação ao board"
+    agents: [vision-chief, coo-orchestrator]
+    frameworks:
+      - frameworks/operating-system/decision-memo-framework.md
+    checklists:
+      - checklists/board-prep-quality.md
+      - checklists/stakeholder-communication-quality.md
+    templates:
+      - templates/operating-system/board-prep-pack.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  # ═══════════════════════════════════════════
+  # OPERATING SYSTEM
+  # ═══════════════════════════════════════════
+  run-wbr:
+    description: "Weekly Business Review — cadência semanal"
+    agents: [coo-orchestrator, vision-chief]
+    frameworks:
+      - frameworks/operating-system/wbr-mbr-qbr.md
+      - frameworks/coo-orchestrator/coo-operating-rhythm.md
+    checklists:
+      - checklists/operating-review-quality.md
+      - checklists/operating-system/meeting-quality.md
+    templates:
+      - templates/operating-system/wbr-template.md
+    registries:
+      - data/meeting-minutes/
+      - data/registries/decision-registry.yaml
+
+  run-mbr:
+    description: "Monthly Business Review — cadência mensal"
+    agents: [coo-orchestrator, vision-chief, cmo-architect, cto-architect]
+    frameworks:
+      - frameworks/operating-system/wbr-mbr-qbr.md
+      - frameworks/coo-orchestrator/coo-execution-engine.md
+    checklists:
+      - checklists/operating-review-quality.md
+    templates:
+      - templates/operating-system/mbr-template.md
+    registries:
+      - data/meeting-minutes/
+      - data/registries/decision-registry.yaml
+
+  run-qbr:
+    description: "Quarterly Business Review — cadência trimestral"
+    agents: [vision-chief, coo-orchestrator, cmo-architect, cto-architect, cio-engineer, caio-architect]
+    frameworks:
+      - frameworks/operating-system/wbr-mbr-qbr.md
+      - frameworks/vision-strategy/ogsm.md
+    checklists:
+      - checklists/operating-review-quality.md
+      - checklists/quarterly-planning-quality.md
+    templates:
+      - templates/operating-system/qbr-template.md
+    registries:
+      - data/meeting-minutes/
+      - data/registries/decision-registry.yaml
+      - data/registries/lessons-learned.yaml
+
+  unblock-and-escalate:
+    description: "Resolver bloqueios e escalar quando necessário"
+    agents: [coo-orchestrator]
+    frameworks:
+      - frameworks/operating-system/escalation-ladders.md
+      - frameworks/coo-orchestrator/coo-bottleneck-theory.md
+    checklists:
+      - checklists/operating-system/project-execution-quality.md
+    templates:
+      - templates/operational/action-items-tracker.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  initiative-health-review:
+    description: "Revisão de saúde das iniciativas em andamento"
+    agents: [coo-orchestrator, vision-chief]
+    frameworks:
+      - frameworks/coo-orchestrator/coo-execution-engine.md
+    checklists:
+      - checklists/operating-system/initiative-health-quality.md
+    templates:
+      - templates/operational/initiative-health-card.md
+    registries:
+      - data/registries/initiative-registry.yaml
+
+  kill-or-continue-review:
+    description: "Revisão: matar ou continuar iniciativa"
+    agents: [vision-chief, coo-orchestrator]
+    frameworks:
+      - frameworks/vision-chief/vision-chief-kill-list.md
+    checklists:
+      - checklists/execution/kill-criteria-quality.md
+    templates:
+      - templates/decision/kill-decision-memo.md
+    registries:
+      - data/registries/initiative-registry.yaml
+      - data/registries/decision-registry.yaml
+      - data/registries/lessons-learned.yaml
+
+  # ═══════════════════════════════════════════
+  # GROWTH / GTM
+  # ═══════════════════════════════════════════
+  gtm-plan:
+    description: "Criar plano Go-to-Market completo"
+    agents: [cmo-architect, vision-chief, coo-orchestrator]
+    frameworks:
+      - frameworks/growth-gtm/stp.md
+      - frameworks/growth-gtm/jtbd.md
+      - frameworks/growth-gtm/offer-mechanism.md
+      - frameworks/cmo-architect/cmo-positioning-to-performance.md
+    checklists:
+      - checklists/cmo/go-to-market-quality.md
+      - checklists/cmo/funnel-integrity-audit.md
+      - checklists/cmo/cmo-brand-to-revenue-alignment.md
+    templates:
+      - templates/marketing-growth/gtm-brief.md
+    registries:
+      - data/registries/initiative-registry.yaml
+      - data/registries/decision-registry.yaml
+
+  pipeline-review:
+    description: "Revisão do pipeline de receita e forecast"
+    agents: [cmo-architect, coo-orchestrator]
+    frameworks:
+      - frameworks/cmo-architect/cmo-full-funnel-architecture.md
+      - frameworks/growth-gtm/growth-loops.md
+    checklists:
+      - checklists/cmo/funnel-integrity-audit.md
+      - checklists/cmo/cmo-marketing-roi-quality.md
+    templates:
+      - templates/marketing-growth/marketing-roi-report.md
+    registries:
+      - data/registries/metric-registry.yaml
+
+  pricing-test:
+    description: "Planejar e executar testes de preço"
+    agents: [cmo-architect, vision-chief]
+    frameworks:
+      - frameworks/growth-gtm/pricing-value-metric.md
+    checklists:
+      - checklists/strategy/pricing-and-packaging-quality.md
+    templates:
+      - templates/marketing-growth/pricing-packaging-brief.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  channel-strategy-review:
+    description: "Revisão e otimização de estratégia de canais"
+    agents: [cmo-architect]
+    frameworks:
+      - frameworks/cmo-architect/cmo-channel-portfolio.md
+      - frameworks/growth-gtm/growth-loops.md
+    checklists:
+      - checklists/cmo/cmo-channel-diversification-audit.md
+    templates:
+      - templates/marketing-growth/gtm-brief.md
+    registries:
+      - data/registries/metric-registry.yaml
+
+  marketing-roi-review:
+    description: "Revisão de ROI de marketing: atribuição, CAC, incrementalidade"
+    agents: [cmo-architect, coo-orchestrator]
+    frameworks:
+      - frameworks/cmo-architect/cmo-growth-experimentation.md
+    checklists:
+      - checklists/cmo/cmo-marketing-roi-quality.md
+    templates:
+      - templates/marketing-growth/marketing-roi-report.md
+    registries:
+      - data/registries/metric-registry.yaml
+
+  brand-to-revenue-audit:
+    description: "Auditoria: brand awareness → demand → revenue"
+    agents: [cmo-architect, vision-chief]
+    frameworks:
+      - frameworks/growth-gtm/brand-to-demand.md
+      - frameworks/cmo-architect/cmo-brand-equity-engine.md
+    checklists:
+      - checklists/cmo/cmo-brand-to-revenue-alignment.md
+    templates:
+      - templates/marketing-growth/marketing-roi-report.md
+    registries:
+      - data/registries/metric-registry.yaml
+
+  # ═══════════════════════════════════════════
+  # TECH
+  # ═══════════════════════════════════════════
+  architecture-review:
+    description: "Revisão de arquitetura + ADR"
+    agents: [cto-architect, cio-engineer]
+    frameworks:
+      - frameworks/engineering-tech/architecture-patterns.md
+      - frameworks/engineering-tech/adr-system.md
+      - frameworks/cto-architect/cto-architecture-as-strategy.md
+    checklists:
+      - checklists/tech-architecture-decision-quality.md
+      - checklists/cto/architecture-review-audit.md
+      - checklists/cto/cto-build-vs-buy-quality.md
+    templates:
+      - templates/tech/architecture-decision-record.md
+    registries:
+      - data/registries/architecture-decisions.yaml
+      - data/registries/decision-registry.yaml
+
+  reliability-review:
+    description: "Revisão de confiabilidade: SLOs, incidentes, postmortems"
+    agents: [cto-architect]
+    frameworks:
+      - frameworks/engineering-tech/sre-basics.md
+      - frameworks/engineering-tech/dora-metrics.md
+      - frameworks/cto-architect/cto-reliability-engineering.md
+    checklists:
+      - checklists/cto/platform-reliability-audit.md
+      - checklists/cto/engineering-execution-audit.md
+    templates:
+      - templates/tech/reliability-report.md
+    registries:
+      - data/registries/metric-registry.yaml
+
+  platform-roadmap:
+    description: "Roadmap de plataforma e developer experience"
+    agents: [cto-architect, cio-engineer]
+    frameworks:
+      - frameworks/engineering-tech/platform-engineering.md
+      - frameworks/cto-architect/cto-developer-experience.md
+    checklists:
+      - checklists/roadmap-quality.md
+      - checklists/cto/cto-developer-experience-audit.md
+    templates:
+      - templates/tech/roadmap-template.md
+    registries:
+      - data/registries/initiative-registry.yaml
+
+  tech-debt-review:
+    description: "Revisão e priorização de dívida técnica"
+    agents: [cto-architect, cio-engineer]
+    frameworks:
+      - frameworks/cto-architect/cto-tech-debt-management.md
+    checklists:
+      - checklists/cto/cto-tech-debt-audit.md
+    templates:
+      - templates/tech/tech-debt-register.md
+    registries:
+      - data/registries/architecture-decisions.yaml
+
+  build-vs-buy-decision:
+    description: "Análise build vs buy: custo total, risco, time-to-value"
+    agents: [cto-architect, cio-engineer, vision-chief]
+    frameworks:
+      - frameworks/engineering-tech/build-vs-buy-framework.md
+    checklists:
+      - checklists/cto/cto-build-vs-buy-quality.md
+    templates:
+      - templates/decision/options-tradeoffs-matrix.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  engineering-health-check:
+    description: "Health check de engenharia: DORA, qualidade, throughput"
+    agents: [cto-architect]
+    frameworks:
+      - frameworks/engineering-tech/dora-metrics.md
+      - frameworks/cto-architect/cto-engineering-excellence.md
+    checklists:
+      - checklists/cto/engineering-execution-audit.md
+    templates:
+      - templates/tech/reliability-report.md
+    registries:
+      - data/registries/metric-registry.yaml
+
+  # ═══════════════════════════════════════════
+  # IT / DATA
+  # ═══════════════════════════════════════════
+  systems-audit:
+    description: "Auditoria completa do portfólio de sistemas"
+    agents: [cio-engineer, cto-architect]
+    frameworks:
+      - frameworks/it-information/enterprise-architecture-lite.md
+      - frameworks/cio-engineer/cio-systems-rationalization.md
+    checklists:
+      - checklists/cio/systems-portfolio-audit.md
+      - checklists/cio/cio-integration-health-audit.md
+      - checklists/cio/cio-total-cost-of-ownership-audit.md
+    templates:
+      - templates/it-data/systems-portfolio.md
+    registries:
+      - data/registries/system-registry.yaml
+
+  data-governance-review:
+    description: "Revisão de governança de dados: definições, owners, LGPD"
+    agents: [cio-engineer]
+    frameworks:
+      - frameworks/it-information/data-governance-lite.md
+      - frameworks/cio-engineer/cio-data-as-product.md
+    checklists:
+      - checklists/cio/data-governance-audit.md
+    templates:
+      - templates/it-data/data-definition-sheet.md
+    registries:
+      - data/registries/metric-registry.yaml
+      - data/registries/glossary.yaml
+
+  automation-opportunities:
+    description: "Identificar e priorizar oportunidades de automação"
+    agents: [cio-engineer, caio-architect]
+    frameworks:
+      - frameworks/cio-engineer/cio-automation-first.md
+    checklists:
+      - checklists/cio/internal-productivity-audit.md
+    templates:
+      - templates/it-data/integration-spec.md
+    registries:
+      - data/registries/initiative-registry.yaml
+
+  integration-health-review:
+    description: "Revisão de saúde das integrações"
+    agents: [cio-engineer, cto-architect]
+    frameworks:
+      - frameworks/cio-engineer/cio-integration-architecture.md
+    checklists:
+      - checklists/cio/cio-integration-health-audit.md
+    templates:
+      - templates/it-data/integration-spec.md
+    registries:
+      - data/registries/system-registry.yaml
+
+  vendor-consolidation:
+    description: "Consolidação de vendors: reduzir, integrar, otimizar"
+    agents: [cio-engineer, coo-orchestrator]
+    frameworks:
+      - frameworks/it-information/total-cost-of-ownership.md
+    checklists:
+      - checklists/vendor-selection-quality.md
+      - checklists/cio/cio-total-cost-of-ownership-audit.md
+    templates:
+      - templates/operational/vendor-evaluation-sheet.md
+    registries:
+      - data/registries/vendor-registry.yaml
+
+  # ═══════════════════════════════════════════
+  # AI
+  # ═══════════════════════════════════════════
+  select-ai-use-cases:
+    description: "Selecionar e priorizar casos de uso de IA"
+    agents: [caio-architect, cto-architect, cio-engineer, coo-orchestrator]
+    frameworks:
+      - frameworks/ai/ai-strategy.md
+      - frameworks/caio-architect/caio-ai-portfolio-strategy.md
+      - frameworks/caio-architect/caio-ai-readiness-assessment.md
+    checklists:
+      - checklists/ai-initiative-quality.md
+      - checklists/caio/ai-strategy-audit.md
+      - checklists/caio/caio-ai-risk-assessment.md
+    templates:
+      - templates/ai/ai-use-case-card.md
+    registries:
+      - data/registries/ai-use-case-registry.yaml
+      - data/registries/decision-registry.yaml
+
+  eval-and-guardrails:
+    description: "Avaliar modelos e definir guardrails"
+    agents: [caio-architect, cto-architect]
+    frameworks:
+      - frameworks/ai/evals-and-redteaming.md
+      - frameworks/ai/ai-governance.md
+      - frameworks/caio-architect/caio-responsible-ai.md
+    checklists:
+      - checklists/caio/model-eval-and-guardrails.md
+      - checklists/caio/caio-ai-risk-assessment.md
+    templates:
+      - templates/ai/eval-plan.md
+    registries:
+      - data/registries/ai-use-case-registry.yaml
+
+  deploy-and-adopt:
+    description: "Implantar e adotar IA na organização"
+    agents: [caio-architect, coo-orchestrator, cio-engineer]
+    frameworks:
+      - frameworks/ai/mlops.md
+      - frameworks/ai/adoption-playbook.md
+      - frameworks/caio-architect/caio-ai-native-workflows.md
+    checklists:
+      - checklists/caio/mlops-and-deployment-quality.md
+      - checklists/caio/ai-adoption-change-mgmt.md
+      - checklists/caio/caio-ai-roi-validation.md
+    templates:
+      - templates/ai/rollout-plan.md
+    registries:
+      - data/registries/ai-use-case-registry.yaml
+      - data/registries/lessons-learned.yaml
+
+  ai-roi-review:
+    description: "Revisão de ROI real de IA"
+    agents: [caio-architect, coo-orchestrator]
+    frameworks:
+      - frameworks/caio-architect/caio-ai-portfolio-strategy.md
+    checklists:
+      - checklists/caio/caio-ai-roi-validation.md
+    templates:
+      - templates/ai/ai-use-case-card.md
+    registries:
+      - data/registries/ai-use-case-registry.yaml
+      - data/registries/metric-registry.yaml
+
+  ai-risk-assessment:
+    description: "Assessment de risco de IA: bias, hallucination, data leakage"
+    agents: [caio-architect, cto-architect]
+    frameworks:
+      - frameworks/caio-architect/caio-responsible-ai.md
+    checklists:
+      - checklists/caio/caio-ai-risk-assessment.md
+    templates:
+      - templates/ai/eval-plan.md
+    registries:
+      - data/registries/risk-registry.yaml
+
+  ai-vendor-evaluation:
+    description: "Avaliação de vendors de IA: capability, cost, lock-in"
+    agents: [caio-architect, cio-engineer]
+    frameworks:
+      - frameworks/ai/ai-vendor-evaluation.md
+    checklists:
+      - checklists/caio/caio-ai-vendor-eval.md
+    templates:
+      - templates/ai/ai-vendor-scorecard.md
+    registries:
+      - data/registries/vendor-registry.yaml
+
+  # ═══════════════════════════════════════════
+  # PEOPLE
+  # ═══════════════════════════════════════════
+  exec-hiring:
+    description: "Contratação executiva end-to-end"
+    agents: [vision-chief, coo-orchestrator]
+    frameworks:
+      - frameworks/operating-system/decision-memo-framework.md
+    checklists:
+      - checklists/hiring-executive-quality.md
+      - checklists/people-culture/hiring-bar-quality.md
+    templates:
+      - templates/org-people/exec-hiring-scorecard.md
+      - templates/org-people/30-60-90-plan.md
+    registries:
+      - data/registries/hiring-registry.yaml
+      - data/registries/decision-registry.yaml
+
+  org-design-review:
+    description: "Revisão de design organizacional"
+    agents: [coo-orchestrator, vision-chief]
+    frameworks:
+      - frameworks/coo-orchestrator/coo-cross-functional-orchestration.md
+    checklists:
+      - checklists/org-design-quality.md
+      - checklists/people-culture/performance-system-quality.md
+    templates:
+      - templates/org-people/org-design-brief.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  performance-review-cycle:
+    description: "Ciclo de avaliação de performance"
+    agents: [coo-orchestrator]
+    frameworks:
+      - frameworks/operating-system/rasi-dri.md
+    checklists:
+      - checklists/people-culture/performance-system-quality.md
+    templates:
+      - templates/org-people/performance-review.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  succession-planning:
+    description: "Planejamento de sucessão de liderança"
+    agents: [vision-chief, coo-orchestrator]
+    checklists:
+      - checklists/succession-planning-quality.md
+    templates:
+      - templates/org-people/succession-planning-brief.md
+    registries:
+      - data/registries/hiring-registry.yaml
+
+  culture-audit:
+    description: "Auditoria de cultura: real vs declarada"
+    agents: [vision-chief, coo-orchestrator]
+    checklists:
+      - checklists/culture-audit-quality.md
+      - checklists/people-culture/leadership-trust-quality.md
+    registries:
+      - data/registries/culture-registry.yaml
+
+  team-health-check:
+    description: "Health check do time de liderança"
+    agents: [vision-chief, coo-orchestrator]
+    checklists:
+      - checklists/people-culture/leadership-trust-quality.md
+    registries:
+      - data/registries/culture-registry.yaml
+
+  # ═══════════════════════════════════════════
+  # RISK / CRISIS
+  # ═══════════════════════════════════════════
+  crisis-response:
+    description: "Resposta a crise: 24h contenção, 72h resolução"
+    agents: [vision-chief, coo-orchestrator]
+    checklists:
+      - checklists/incident-communication-quality.md
+      - checklists/governance-risk/crisis-response-quality.md
+    templates:
+      - templates/reports/postmortem-report.md
+    registries:
+      - data/registries/risk-registry.yaml
+      - data/registries/decision-registry.yaml
+      - data/registries/lessons-learned.yaml
+
+  # ═══════════════════════════════════════════
+  # REVIEW / LEARNING
+  # ═══════════════════════════════════════════
+  decision-quality-review:
+    description: "Revisão da qualidade das decisões tomadas"
+    agents: [vision-chief, coo-orchestrator]
+    frameworks:
+      - frameworks/reference-intellectual/kahneman-noise-in-decisions.md
+    checklists:
+      - checklists/ralphloop-quality.md
+      - checklists/governance-risk/decision-log-quality.md
+    templates:
+      - templates/reports/quarterly-exec-review.md
+    registries:
+      - data/registries/lessons-learned.yaml
+
+  forecast-accuracy-review:
+    description: "Revisão de acurácia de previsões"
+    agents: [coo-orchestrator, cmo-architect]
+    checklists:
+      - checklists/governance-risk/decision-log-quality.md
+    templates:
+      - templates/reports/quarterly-exec-review.md
+    registries:
+      - data/registries/lessons-learned.yaml
+
+  risk-register-update:
+    description: "Atualizar registro de riscos"
+    agents: [coo-orchestrator]
+    checklists:
+      - checklists/risk-register-quality.md
+    templates:
+      - templates/reports/risk-register-report.md
+    registries:
+      - data/registries/risk-registry.yaml
+
+  cross-squad-effectiveness-review:
+    description: "Revisão de efetividade cross-squad"
+    agents: [coo-orchestrator]
+    checklists:
+      - checklists/cross-squad/cross-squad-routing-audit.md
+      - checklists/cross-squad/cross-squad-sla-quality.md
+    registries:
+      - data/registries/lessons-learned.yaml
+
+  stakeholder-communication-review:
+    description: "Revisão de comunicação com stakeholders"
+    agents: [vision-chief]
+    checklists:
+      - checklists/stakeholder-communication-quality.md
+    templates:
+      - templates/reports/stakeholder-update.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  # ═══════════════════════════════════════════
+  # OPERATIONS
+  # ═══════════════════════════════════════════
+  weekly-c-level-sync:
+    description: "Sync semanal do C-Level"
+    agents: [coo-orchestrator, vision-chief]
+    frameworks:
+      - frameworks/operating-system/wbr-mbr-qbr.md
+    checklists:
+      - checklists/operating-system/meeting-quality.md
+    templates:
+      - templates/operating-system/meeting-agenda.md
+    registries:
+      - data/meeting-minutes/
+
+  cross-squad-sync:
+    description: "Sync com squads: handoffs, dependências, SLAs"
+    agents: [coo-orchestrator]
+    checklists:
+      - checklists/cross-squad-handoff-quality.md
+      - checklists/cross-squad/cross-squad-sla-quality.md
+    templates:
+      - templates/operational/cross-squad-handoff.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  update-registries:
+    description: "Atualizar todos os registries"
+    agents: [coo-orchestrator]
+    registries:
+      - data/registries/decision-registry.yaml
+      - data/registries/initiative-registry.yaml
+      - data/registries/metric-registry.yaml
+      - data/registries/risk-registry.yaml
+
+  update-scorecards:
+    description: "Atualizar scorecards de todos os agentes"
+    agents: [coo-orchestrator]
+    registries:
+      - data/registries/metric-registry.yaml
+
+  onboard-new-executive:
+    description: "Onboarding de novo executivo"
+    agents: [vision-chief, coo-orchestrator]
+    checklists:
+      - checklists/people-culture/hiring-bar-quality.md
+    templates:
+      - templates/org-people/30-60-90-plan.md
+    registries:
+      - data/registries/hiring-registry.yaml
+
+# ============================================================
+# CROSS-SQUAD INTEGRATION (bidirecional)
+# ============================================================
+cross_squad:
+  brand_squad:
+    description: "Squad de marca: identidade, propósito, posicionamento visual"
+    c_level_owner: cmo-architect
+    handoff_to_brand:
+      - "positioning thesis → brand/frameworks"
+      - "mission statement → brand/voice"
+      - "brand guidelines → brand/reference"
+    handoff_from_brand:
+      - "brand health metrics → data/metrics/growth/"
+      - "competitive positioning → data/research/competitive/"
+      - "brand audit results → data/registries/culture-registry.yaml"
+    shared_assets: [positioning-thesis, brand-purpose, visual-identity]
+    sla: "48h para handoffs, 1 semana para entregas"
+
+  copy_squad:
+    description: "Squad de copy: messaging, conversão, persuasão"
+    c_level_owner: cmo-architect
+    handoff_to_copy:
+      - "messaging framework → copy/frameworks"
+      - "value proposition → copy/templates"
+      - "ICP profiles → copy/reference"
+    handoff_from_copy:
+      - "conversion data → data/metrics/growth/"
+      - "tested messaging → data/registries/decision-registry.yaml"
+      - "copy performance → data/research/customer/"
+    shared_assets: [value-proposition, messaging-framework, icp-profiles]
+    sla: "24h para briefs, 48h para entregas"
+
+  storytelling_squad:
+    description: "Squad de storytelling: narrativa, conteúdo, autoridade"
+    c_level_owner: cmo-architect
+    secondary_owner: vision-chief
+    handoff_to_storytelling:
+      - "company narrative → storytelling/frameworks"
+      - "founder story → storytelling/reference"
+      - "thought leadership topics → storytelling/tasks"
+    handoff_from_storytelling:
+      - "narrative performance → data/metrics/growth/"
+      - "pitch narratives → data/memos/"
+      - "content metrics → data/research/customer/"
+    shared_assets: [company-narrative, fundraising-story, thought-leadership]
+    sla: "48h para briefs, 1 semana para entregas"
+
+  movement_squad:
+    description: "Squad de movimento: comunidade, cultura, engajamento"
+    c_level_owner: cmo-architect
+    handoff_to_movement:
+      - "mission/values → movement/frameworks"
+      - "culture thesis → movement/reference"
+      - "community strategy → movement/tasks"
+    handoff_from_movement:
+      - "community health → data/metrics/org-health/"
+      - "cultural insights → data/research/customer/"
+      - "engagement metrics → data/metrics/growth/"
+    shared_assets: [mission-thesis, cultural-signals, community-health]
+    sla: "48h para handoffs, 1 semana para entregas"
+
+  traffic_squad:
+    description: "Squad de tráfego: aquisição paga, orgânica, performance"
+    c_level_owner: cmo-architect
+    handoff_to_traffic:
+      - "budget allocation → traffic/data"
+      - "channel constraints → traffic/strategy"
+      - "campaign briefs → traffic/tasks"
+    handoff_from_traffic:
+      - "channel ROI → data/metrics/growth/"
+      - "acquisition data → data/research/customer/"
+      - "attribution data → data/registries/metric-registry.yaml"
+    shared_assets: [budget-allocation, channel-roi, attribution-model]
+    sla: "24h para ajustes, 48h para reports"
+
+  design_squad:
+    description: "Squad de design: experiência, sistema visual, entrega"
+    c_level_owner: cto-architect
+    handoff_to_design:
+      - "product strategy → design/tasks"
+      - "UX priorities → design/frameworks"
+      - "user research → design/reference"
+    handoff_from_design:
+      - "UX metrics → data/metrics/growth/"
+      - "design system → data/registries/system-registry.yaml"
+      - "usability data → data/research/customer/"
+    shared_assets: [product-metrics, design-system, user-research]
+    sla: "48h para handoffs, 1 semana para entregas"
+
+  data_squad:
+    description: "Squad de dados: métricas, evidência, decisão"
+    c_level_owner: cio-engineer
+    secondary_owner: coo-orchestrator
+    handoff_to_data:
+      - "metric definitions → data/registries/metric-registry.yaml"
+      - "scorecard needs → data/tasks"
+      - "experiment designs → data/research/"
+    handoff_from_data:
+      - "metrics dashboards → data/metrics/"
+      - "experiment results → data/research/"
+      - "evidence packs → data/memos/"
+    shared_assets: [metric-registry, experiment-results, board-scorecard]
+    sla: "24h para queries, 48h para análises"
+
+  cybersecurity_squad:
+    description: "Squad de cybersecurity: risco, compliance, segurança"
+    c_level_owner: cio-engineer
+    secondary_owner: cto-architect
+    handoff_to_cyber:
+      - "risk gates → cybersecurity/checklists"
+      - "compliance requirements → cybersecurity/tasks"
+      - "security policies → cybersecurity/reference"
+    handoff_from_cyber:
+      - "risk assessments → data/registries/risk-registry.yaml"
+      - "incident reports → data/registries/lessons-learned.yaml"
+      - "compliance status → data/registries/policy-registry.yaml"
+    shared_assets: [risk-register, compliance-status, security-posture]
+    sla: "4h para incidentes, 24h para assessments"
+
+  advisory_board:
+    description: "Advisory Board: orientação estratégica, rede, governança"
+    c_level_owner: vision-chief
+    handoff_to_advisory:
+      - "strategic questions → advisory/tasks"
+      - "board prep → advisory/templates"
+      - "decision memos → advisory/reference"
+    handoff_from_advisory:
+      - "strategic guidance → data/decisions/"
+      - "decision quality review → data/registries/lessons-learned.yaml"
+      - "network intros → data/registries/vendor-registry.yaml"
+    shared_assets: [strategic-decisions, board-scorecard, network-map]
+    sla: "1 semana para orientações, 48h para revisões"
+
+# ============================================================
+# QUALITY GATES
+# ============================================================
+quality_gates:
+  mandatory:
+    description: "Gates obrigatórios para QUALQUER decisão ou entrega"
+    gates:
+      - checklist: checklists/exec-decision-memo-quality.md
+        rule: "Toda decisão tem memo com contexto, opções, trade-offs, recomendação, owner, data"
+      - checklist: checklists/ralphloop-quality.md
+        rule: "Todo ciclo registra aprendizado: registrar → medir → retroalimentar"
+      - checklist: checklists/cross-squad-handoff-quality.md
+        rule: "Todo handoff é explícito: inputs/outputs, DoD/DoR, owners, evidências"
+
+  per_domain:
+    strategy:
+      - checklists/strategy-memo-quality.md
+      - checklists/okr-quality.md
+      - checklists/quarterly-planning-quality.md
+      - checklists/annual-planning-quality.md
+
+    operating_system:
+      - checklists/operating-review-quality.md
+      - checklists/operating-system/meeting-quality.md
+      - checklists/operating-system/project-execution-quality.md
+
+    growth:
+      - checklists/cmo/go-to-market-quality.md
+      - checklists/cmo/funnel-integrity-audit.md
+      - checklists/cmo/cmo-brand-to-revenue-alignment.md
+
+    tech:
+      - checklists/tech-architecture-decision-quality.md
+      - checklists/cto/platform-reliability-audit.md
+      - checklists/cto/engineering-execution-audit.md
+
+    it:
+      - checklists/cio/systems-portfolio-audit.md
+      - checklists/cio/data-governance-audit.md
+      - checklists/cio/cio-integration-health-audit.md
+
+    ai:
+      - checklists/ai-initiative-quality.md
+      - checklists/caio/model-eval-and-guardrails.md
+      - checklists/caio/caio-ai-risk-assessment.md
+
+    people:
+      - checklists/hiring-executive-quality.md
+      - checklists/org-design-quality.md
+      - checklists/people-culture/leadership-trust-quality.md
+
+    risk:
+      - checklists/risk-register-quality.md
+      - checklists/governance-risk/crisis-response-quality.md
+      - checklists/governance-risk/compliance-and-policy-quality.md
+
+    finance:
+      - checklists/capital-allocation-quality.md
+      - checklists/finance-capital/unit-economics-quality.md
+      - checklists/finance-capital/budget-quality.md
+
+# ============================================================
+# KPIs
+# ============================================================
+kpis:
+  strategic:
+    - name: north_star_metric_trend
+      description: "Tendência da North Star Metric"
+      owner: vision-chief
+      cadence: weekly
+    - name: strategic_bet_success_rate
+      description: "Taxa de sucesso das bets estratégicas"
+      owner: vision-chief
+      cadence: quarterly
+    - name: moat_strength_score
+      description: "Score de força do moat competitivo"
+      owner: vision-chief
+      cadence: quarterly
+    - name: market_position_score
+      description: "Score de posição de mercado"
+      owner: vision-chief
+      cadence: quarterly
+
+  growth:
+    - name: revenue_growth_rate
+      description: "Taxa de crescimento de receita"
+      owner: cmo-architect
+      cadence: monthly
+    - name: customer_acquisition_cost
+      description: "CAC (Customer Acquisition Cost)"
+      owner: cmo-architect
+      cadence: monthly
+    - name: ltv_cac_ratio
+      description: "Razão LTV/CAC"
+      owner: cmo-architect
+      cadence: monthly
+    - name: activation_rate
+      description: "Taxa de ativação de novos clientes"
+      owner: cmo-architect
+      cadence: weekly
+    - name: nrr_grr
+      description: "Net Revenue Retention / Gross Revenue Retention"
+      owner: cmo-architect
+      cadence: monthly
+
+  operational:
+    - name: initiative_completion_rate
+      description: "Taxa de conclusão de iniciativas no prazo"
+      owner: coo-orchestrator
+      cadence: monthly
+    - name: decision_lead_time
+      description: "Tempo médio de decisão (dias)"
+      owner: coo-orchestrator
+      cadence: monthly
+    - name: action_item_completion
+      description: "Taxa de conclusão de action items"
+      owner: coo-orchestrator
+      cadence: weekly
+    - name: meeting_decision_ratio
+      description: "% de meetings que geram decisão concreta"
+      owner: coo-orchestrator
+      cadence: monthly
+
+  engineering:
+    - name: dora_deployment_frequency
+      description: "DORA: frequência de deploy"
+      owner: cto-architect
+      cadence: weekly
+    - name: dora_lead_time
+      description: "DORA: lead time for changes"
+      owner: cto-architect
+      cadence: weekly
+    - name: dora_mttr
+      description: "DORA: Mean Time to Recovery"
+      owner: cto-architect
+      cadence: weekly
+    - name: dora_change_failure_rate
+      description: "DORA: Change Failure Rate"
+      owner: cto-architect
+      cadence: weekly
+    - name: platform_availability
+      description: "Disponibilidade da plataforma (%)"
+      owner: cto-architect
+      cadence: daily
+
+  ai:
+    - name: ai_use_case_roi
+      description: "ROI dos casos de uso de IA implementados"
+      owner: caio-architect
+      cadence: monthly
+    - name: ai_adoption_rate
+      description: "Taxa de adoção de IA na organização"
+      owner: caio-architect
+      cadence: monthly
+    - name: ai_quality_score
+      description: "Score de qualidade dos modelos (evals)"
+      owner: caio-architect
+      cadence: monthly
+    - name: ai_incident_rate
+      description: "Taxa de incidentes causados por IA"
+      owner: caio-architect
+      cadence: monthly
+
+  org_health:
+    - name: team_trust_index
+      description: "Índice de confiança do time de liderança"
+      owner: vision-chief
+      cadence: quarterly
+    - name: culture_alignment_score
+      description: "Alinhamento entre cultura declarada e praticada"
+      owner: vision-chief
+      cadence: quarterly
+    - name: leadership_pipeline_score
+      description: "Score de pipeline de liderança"
+      owner: coo-orchestrator
+      cadence: quarterly
+    - name: employee_nps
+      description: "Employee Net Promoter Score"
+      owner: coo-orchestrator
+      cadence: quarterly
+
+# ============================================================
+# DEFAULTS
+# ============================================================
+defaults:
+  review_agent: vision-chief
+  operating_agent: coo-orchestrator
+  min_checklists: 2
+  registry_on_completion: true
+  output_format: markdown
+  decision_memo_required: true
+  language: "pt-BR"
+  technical_terms: "en"
+
+  cadences:
+    wbr: weekly
+    mbr: monthly
+    qbr: quarterly
+    annual_planning: yearly
+    kill_review: quarterly
+    ai_eval: monthly
+    risk_review: monthly
+    culture_audit: semi-annual
+
+  content_standards:
+    min_lines_agent: 400
+    min_lines_framework: 150
+    min_lines_checklist: 80
+    min_lines_template: 100
+    min_lines_task: 120
+    min_lines_workflow: 250
+    min_lines_voice: 80
+    min_lines_reference: 100
+
+# ============================================================
+# WORKFLOWS (sequência numerada)
+# ============================================================
+workflows:
+  - id: "00"
+    file: workflows/00-c-level-setup.md
+    description: "Setup inicial: cadência, roles, artefatos, registries"
+  - id: "01"
+    file: workflows/01-vision-to-okrs.md
+    description: "Visão → bets → OKRs → métricas → owners"
+  - id: "02"
+    file: workflows/02-bets-to-roadmaps.md
+    description: "Bets → roadmaps (produto/tech/GTM)"
+  - id: "03"
+    file: workflows/03-kill-list-and-sunsetting.md
+    description: "Encerrar iniciativas sem ego"
+  - id: "04"
+    file: workflows/04-wbr-loop.md
+    description: "Inputs → review → decisões → follow-ups"
+  - id: "05"
+    file: workflows/05-mbr-loop.md
+    description: "Monthly Business Review loop"
+  - id: "06"
+    file: workflows/06-qbr-loop.md
+    description: "Quarterly Business Review loop"
+  - id: "07"
+    file: workflows/07-annual-planning-cycle.md
+    description: "Ciclo anual completo"
+  - id: "08"
+    file: workflows/08-exec-hiring-workflow.md
+    description: "Scorecard → entrevistas → referências → decisão"
+  - id: "09"
+    file: workflows/09-org-design-workflow.md
+    description: "Problema → opções → decisão → rollout"
+  - id: "10"
+    file: workflows/10-30-60-90-onboarding.md
+    description: "Plano → execução → checkpoints"
+  - id: "11"
+    file: workflows/11-incident-response-exec.md
+    description: "Comunicação + contenção + pós-mortem"
+  - id: "12"
+    file: workflows/12-risk-review-cycle.md
+    description: "Registro vivo de riscos"
+  - id: "13"
+    file: workflows/13-stakeholder-comms.md
+    description: "Comunicação com stakeholders"
+  - id: "14"
+    file: workflows/14-ai-use-case-pipeline.md
+    description: "Ideia → priorização → piloto → rollout"
+  - id: "15"
+    file: workflows/15-evals-and-guardrails-loop.md
+    description: "Evals contínuos + ajustes"
+  - id: "16"
+    file: workflows/16-cross-squad-orchestration.md
+    description: "C-Level → squads → feedback → ajuste"
+  - id: "17"
+    file: workflows/17-board-prep-and-delivery.md
+    description: "Prep → review → deliver → follow-up"
+  - id: "18"
+    file: workflows/18-decision-quality-review.md
+    description: "Revisão de decisões anteriores"
+  - id: "19"
+    file: workflows/19-culture-health-cycle.md
+    description: "Audit → diagnose → plan → execute → measure"
+  - id: "20"
+    file: workflows/20-postmortem-and-learning.md
+    description: "Evento → investigue → documente → atualize"
