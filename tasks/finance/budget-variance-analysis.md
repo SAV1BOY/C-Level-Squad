@@ -1,169 +1,168 @@
-# Análise de Variação Orçamentária
-
-> Processo estruturado para comparar resultados reais com orçamento aprovado,
-> identificar causas de desvios e tomar ações corretivas quando necessário.
+# Analise de Variacao Orcamentaria
 
 ## Objetivo
 
-Garantir que a execução financeira está alinhada com o plano, identificar
-desvios cedo para correção de curso, e alimentar o processo de re-forecast
-com dados reais.
+Comparar sistematicamente resultados financeiros reais com o orcamento aprovado,
+identificar causas raiz de desvios materiais e tomar acoes corretivas tempestivas
+para manter a execucao financeira alinhada ao plano estrategico.
 
-## Frequência
+## Frequencia
 
-- **Análise mensal:** Completa, todas as linhas
-- **Flash report:** Semanal para linhas de maior variabilidade
-- **Deep dive:** Trimestral para análise de tendências
-- **Re-forecast:** Trimestral com base nas variações observadas
+- **Analise mensal completa**: Todas as linhas do P&L (ate D+7)
+- **Flash report semanal**: Linhas de maior variabilidade (receita, marketing)
+- **Deep dive trimestral**: Analise de tendencias e ajuste de forecast
+- **Re-forecast**: Trimestral com base nas variacoes observadas
 
-## Processo
+## Processo Detalhado
 
-### Passo 1: Coleta de Dados (Dia 1-3 do mês)
-- [ ] Fechar contabilidade do mês anterior
-- [ ] Extrair P&L realizado por departamento e linha
-- [ ] Importar budget aprovado para o mesmo período
-- [ ] Calcular variações absolutas e percentuais
+### Passo 1: Coleta de Dados (Dia 1-3 do mes)
 
-### Passo 2: Cálculo de Variações (Dia 3-4)
+- [ ] Confirmar fechamento contabil do mes anterior (controller)
+- [ ] Extrair P&L realizado por departamento, centro de custo e linha
+- [ ] Importar budget aprovado para o mesmo periodo e granularidade
+- [ ] Calcular variacoes absolutas (R$) e percentuais (%)
+- [ ] Preparar base comparativa (mes anterior e mesmo mes ano anterior)
+
+### Passo 2: Calculo de Variacoes (Dia 3-4)
+
 Para cada linha do P&L:
-
 ```
-Variação Absoluta = Real - Budget
-Variação % = (Real - Budget) / Budget × 100%
+Variacao Absoluta = Real - Budget
+Variacao % = (Real - Budget) / Budget x 100%
 ```
 
-Classificação:
-- **Favorável:** Real melhor que budget (receita acima ou custo abaixo)
-- **Desfavorável:** Real pior que budget (receita abaixo ou custo acima)
+Classificacao:
+- **Favoravel (F)**: Real melhor que budget (receita acima OU custo abaixo)
+- **Desfavoravel (D)**: Real pior que budget (receita abaixo OU custo acima)
 
-### Passo 3: Análise de Materialidade (Dia 4)
-Nem toda variação merece atenção. Filtrar por materialidade:
+### Passo 3: Analise de Materialidade (Dia 4)
 
-| Tamanho da Linha | Threshold de Investigação |
+Nem toda variacao merece investigacao. Filtrar por materialidade:
+
+| Tamanho da Linha | Threshold de Investigacao |
 |------------------|--------------------------|
-| > $100K/mês | Variação > 5% |
-| $50K-$100K/mês | Variação > 10% |
-| $10K-$50K/mês | Variação > 15% |
-| < $10K/mês | Variação > 25% |
+| > R$ 500K/mes | Variacao > 5% |
+| R$ 100K-500K/mes | Variacao > 10% |
+| R$ 50K-100K/mes | Variacao > 15% |
+| < R$ 50K/mes | Variacao > 25% |
 
 ### Passo 4: Root Cause Analysis (Dia 4-5)
-Para cada variação material, investigar:
 
-- [ ] **Timing:** O gasto/receita vai acontecer, mas em outro mês?
-- [ ] **Volume:** Mais/menos atividade que o planejado?
-- [ ] **Preço:** Custo unitário diferente do planejado?
-- [ ] **Mix:** Composição diferente do planejado?
-- [ ] **One-time:** Evento não-recorrente?
-- [ ] **Structural:** Mudança permanente vs temporária?
+Para cada variacao material, investigar sistematicamente:
 
-### Passo 5: Ação e Comunicação (Dia 5-7)
-- [ ] Documentar explicação para cada variação material
-- [ ] Propor ações corretivas quando aplicável
-- [ ] Atualizar forecast para meses restantes
-- [ ] Preparar report para liderança
+- [ ] **Timing**: O gasto/receita vai acontecer, mas em outro mes?
+- [ ] **Volume**: Mais ou menos atividade que o planejado?
+- [ ] **Preco**: Custo unitario diferente do planejado (inflacao, cambio)?
+- [ ] **Mix**: Composicao diferente do planejado (produtos, segmentos)?
+- [ ] **One-time**: Evento nao-recorrente que nao se repetira?
+- [ ] **Estrutural**: Mudanca permanente que afeta meses futuros?
+
+### Passo 5: Acao e Comunicacao (Dia 5-7)
+
+- [ ] Documentar explicacao para cada variacao material
+- [ ] Classificar cada variacao: temporaria vs estrutural
+- [ ] Propor acoes corretivas para variacoes desfavoraveis estruturais
+- [ ] Atualizar forecast para meses restantes do ano
+- [ ] Preparar report para lideranca e apresentar em reuniao
 
 ## Template de Report
 
 ```
-BUDGET VARIANCE ANALYSIS - [MÊS/ANO]
+ANALISE DE VARIACAO ORCAMENTARIA - [MES/ANO]
+Preparado por: [FP&A] | Revisado por: [CFO]
 
-RESUMO
-Receita: $X real vs $Y budget (variação: +/-Z%)
-Despesa: $X real vs $Y budget (variação: +/-Z%)
-EBITDA: $X real vs $Y budget (variação: +/-Z%)
+RESUMO EXECUTIVO
+Receita: R$ X real vs R$ Y budget (variacao: +/-Z%)
+Despesa Operacional: R$ X real vs R$ Y budget (variacao: +/-Z%)
+EBITDA: R$ X real vs R$ Y budget (variacao: +/-Z%)
+Cash Flow Operacional: R$ X real vs R$ Y budget
 
-P&L RESUMIDO COM VARIAÇÕES
-| Linha | Budget | Real | Var $ | Var % | F/D | Comentário |
-|-------|--------|------|-------|-------|-----|------------|
-| Receita Total | | | | | | |
-| COGS | | | | | | |
-| Margem Bruta | | | | | | |
-| S&M | | | | | | |
-| R&D | | | | | | |
-| G&A | | | | | | |
-| EBITDA | | | | | | |
+P&L RESUMIDO COM VARIACOES
+| Linha          | Budget | Real   | Var R$ | Var % | F/D | Comentario        |
+|---------------|--------|--------|--------|-------|-----|-------------------|
+| Receita Total |        |        |        |       |     |                   |
+|   Recorrente  |        |        |        |       |     |                   |
+|   Servicos    |        |        |        |       |     |                   |
+| (-) COGS      |        |        |        |       |     |                   |
+| = Margem Bruta|        |        |        |       |     |                   |
+| (-) S&M       |        |        |        |       |     |                   |
+| (-) R&D       |        |        |        |       |     |                   |
+| (-) G&A       |        |        |        |       |     |                   |
+| = EBITDA      |        |        |        |       |     |                   |
 
-F = Favorável, D = Desfavorável
-
-VARIAÇÕES MATERIAIS
-1. [Linha]: [variação] - [causa] - [ação]
-2. [Linha]: [variação] - [causa] - [ação]
-3. [Linha]: [variação] - [causa] - [ação]
+VARIACOES MATERIAIS (TOP 5)
+1. [Linha]: R$ X variacao - [Causa raiz] - [Temporaria/Estrutural] - [Acao]
+2. [Linha]: R$ X variacao - [Causa raiz] - [Temporaria/Estrutural] - [Acao]
+3. [Linha]: R$ X variacao - [Causa raiz] - [Temporaria/Estrutural] - [Acao]
+4. [Linha]: R$ X variacao - [Causa raiz] - [Temporaria/Estrutural] - [Acao]
+5. [Linha]: R$ X variacao - [Causa raiz] - [Temporaria/Estrutural] - [Acao]
 
 IMPACTO NO FORECAST ANUAL
-Budget anual original: $X
-Forecast atualizado: $Y
-Diferença: $Z (+/-W%)
+Budget anual original: R$ X
+Forecast atualizado: R$ Y
+Diferenca: R$ Z (+/-W%)
+Principais drivers da mudanca: [lista]
 
-AÇÕES RECOMENDADAS
-1. [Ação] - [Owner] - [Deadline]
-2. [Ação] - [Owner] - [Deadline]
+ACOES CORRETIVAS
+1. [Acao] - [Owner] - [Deadline] - [Impacto esperado]
+2. [Acao] - [Owner] - [Deadline] - [Impacto esperado]
 ```
 
-## Análise de Tendências (Trimestral)
+## Analise de Tendencias (Trimestral)
 
-### YTD (Year-to-Date) Analysis
-- [ ] Acumular variações desde o início do ano
-- [ ] Identificar linhas com variação persistente (não timing)
+### Year-to-Date (YTD) Analysis
+
+- [ ] Acumular variacoes desde o inicio do ano fiscal
+- [ ] Identificar linhas com variacao persistente (nao apenas timing)
 - [ ] Calcular run-rate para projetar ano completo
 - [ ] Comparar run-rate com budget anual
+- [ ] Identificar se ha mudanca estrutural no modelo
 
-### Trend Analysis
-- [ ] Plotar real vs budget mês a mês (gráfico)
-- [ ] Identificar padrões (sazonal? crescente? decrescente?)
-- [ ] Para tendências claras, ajustar forecast
-- [ ] Comunicar tendências que afetam decisões estratégicas
+### Tipos de Variacao
 
-## Tipos de Variação
-
-### Variação de Volume
+#### Variacao de Volume
 ```
-Volume Variance = (Volume Real - Volume Budget) × Preço Budget
+Volume Variance = (Volume Real - Volume Budget) x Preco Budget
 ```
-Exemplo: Vendemos 100 unidades vs 80 planejadas, a $50 cada
-Volume variance = (100-80) × $50 = $1.000 favorável
+Exemplo: Vendemos 120 assinaturas vs 100 planejadas, a R$ 500 cada
+Volume variance = (120-100) x R$ 500 = R$ 10.000 favoravel
 
-### Variação de Preço
+#### Variacao de Preco
 ```
-Price Variance = (Preço Real - Preço Budget) × Volume Real
+Price Variance = (Preco Real - Preco Budget) x Volume Real
 ```
-Exemplo: Preço médio foi $45 vs $50 planejado, com 100 unidades
-Price variance = ($45-$50) × 100 = -$500 desfavorável
+Exemplo: Preco medio foi R$ 450 vs R$ 500 planejado, com 120 vendas
+Price variance = (R$ 450-R$ 500) x 120 = -R$ 6.000 desfavoravel
 
-### Variação de Mix
-Quando o mix de produtos/serviços difere do planejado,
-afetando margem média mesmo com volume e preço similares.
+#### Variacao de Mix
+Quando o mix de produtos/servicos difere do planejado, afetando
+margem media mesmo com volume e preco similares.
 
-### Variação de Eficiência
-Mais/menos recursos consumidos por unidade de output.
-Exemplo: Custo de cloud por transação maior que planejado.
+#### Variacao de Eficiencia
+Mais ou menos recursos consumidos por unidade de output.
+Exemplo: Custo de cloud por transacao 20% maior que planejado.
 
-## Automação
+## Automacao e Ferramentas
 
-### Dashboards Automatizados
-- [ ] Conectar sistema contábil ao dashboard (Looker, Power BI)
-- [ ] Budget importado como dataset estático
-- [ ] Variações calculadas automaticamente
-- [ ] Alertas automáticos para variações > threshold
+### Dashboard Automatizado
+- [ ] Conectar ERP/sistema contabil ao dashboard (Looker, Power BI, Metabase)
+- [ ] Budget importado como dataset estatico no inicio do ano
+- [ ] Variacoes calculadas automaticamente ao fechar o mes
+- [ ] Alertas automaticos para variacoes acima do threshold de materialidade
+- [ ] Drill-down por departamento, centro de custo e linha contabil
 
 ### Processo Semi-Automatizado
-- [ ] ETL mensal de dados contábeis
-- [ ] Template de análise pré-preenchido
-- [ ] Comentários e ações são manuais (requerem julgamento)
-- [ ] Report gerado automaticamente após input de comentários
+- [ ] ETL mensal de dados contabeis para ferramenta de analise
+- [ ] Template de analise pre-preenchido com calculos automaticos
+- [ ] Comentarios e acoes sao manuais (requerem julgamento humano)
+- [ ] Report final gerado automaticamente apos input dos comentarios
 
-## Erros Comuns
+## Erros Comuns a Evitar
 
-1. **Analisar tudo com mesma profundidade** - Foco em variações materiais
-2. **Confundir timing com tendência** - Gasto adiado não é economia
-3. **Não atualizar forecast** - Se o real diverge, o forecast deve mudar
-4. **Budget como meta rígida** - É um plano, não uma lei; circunstâncias mudam
-5. **Culpar departamentos** - Variação deve gerar entendimento, não punição
-6. **Ignorar variações favoráveis** - Receita acima do budget também merece análise
-
-## Referências
-
-- "Financial Intelligence" - Karen Berman & Joe Knight
-- "Budgeting and Financial Management for Nonprofit Organizations" - Maddox
-- "The CFO Guidebook" - Steven Bragg
-- Adaptive Planning best practices
+1. **Analisar tudo com mesma profundidade**: Foco em variacoes materiais
+2. **Confundir timing com tendencia**: Gasto adiado nao e economia real
+3. **Nao atualizar o forecast**: Se o real diverge, o forecast deve refletir
+4. **Tratar budget como meta rigida**: E um plano, circunstancias mudam
+5. **Culpar departamentos por variacoes**: Objetivo e entender, nao punir
+6. **Ignorar variacoes favoraveis**: Receita acima tambem merece analise
+7. **Nao conectar variacao a acao**: Toda variacao material precisa de resposta

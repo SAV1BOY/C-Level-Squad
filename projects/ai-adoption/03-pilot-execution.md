@@ -2,154 +2,204 @@
 
 ## Objetivo
 
-Definir o processo estruturado para execucao de pilotos de inteligencia
-artificial, desde a preparacao ate a avaliacao de resultados, garantindo
-aprendizados rapidos e decisoes informadas sobre escala.
+Definir a metodologia padrao para execucao de pilotos de Inteligencia Artificial,
+desde a preparacao ate a validacao de resultados, garantindo aprendizado rapido
+e decisoes informadas sobre escala.
 
-## Principios para Pilotos de AI
+## Principios de Execucao de Pilotos
 
-1. **Falhar rapido e barato**: Pilotos devem ser curtos (4-8 semanas) e de baixo custo
-2. **Hipotese clara**: Todo piloto comeca com uma hipotese mensuravel
-3. **Dados reais**: Usar dados reais (anonimizados quando necessario)
-4. **Metricas definidas antes**: Criterios de sucesso acordados antes do inicio
-5. **Comparacao com baseline**: Sempre comparar com o processo atual
-6. **Documentar tudo**: Cada piloto gera aprendizados para o proximo
+1. **Falhar rapido e barato**: Pilotos de 6-12 semanas com investimento controlado
+2. **Dados primeiro**: Validar qualidade e disponibilidade de dados antes de modelar
+3. **Baseline claro**: Medir performance atual antes de implementar AI
+4. **Negocio no centro**: Product Owner de negocio em todo piloto
+5. **Documentar tudo**: Cada piloto gera aprendizados para os proximos
 
-## Processo de Execucao de Pilotos
+## Estrutura do Piloto
 
-### Fase 1: Preparacao (Semana 1-2)
+### Equipe Minima por Piloto
 
-#### Definicao do Escopo
-- Objetivo especifico do piloto
-- Hipotese a ser validada
-- Metricas de sucesso e criterios de go/no-go
-- Escopo (usuarios, processos, dados envolvidos)
-- Timeline e milestones
+| Papel | Dedicacao | Responsabilidade |
+|-------|----------|-----------------|
+| Product Owner (Negocio) | 30% | Definir requisitos, validar resultados |
+| Data Scientist | 100% | Desenvolver e validar modelo |
+| Data Engineer | 50% | Pipelines de dados, feature engineering |
+| ML Engineer | 30% | Infraestrutura, deploy, monitoramento |
+| UX Designer | 20% | Interface e experiencia do usuario |
+| Sponsor Executivo | 10% | Remover bloqueios, aprovar decisoes |
 
-#### Equipe do Piloto
-| Papel | Responsabilidade | Dedicacao |
-|-------|-----------------|-----------|
-| Product Owner | Define requisitos e valida resultados | 30% |
-| Data Scientist | Desenvolve e treina o modelo | 100% |
-| Data Engineer | Prepara dados e pipelines | 50% |
-| ML Engineer | Infraestrutura e deploy | 30% |
-| Stakeholder de negocio | Feedback e validacao | 20% |
+### Fases do Piloto
 
-#### Preparacao de Dados
-1. Identificar fontes de dados necessarias
-2. Extrair e consolidar datasets
-3. Analise exploratoria de dados (EDA)
-4. Limpeza e tratamento de dados
-5. Feature engineering inicial
-6. Split de dados (treino, validacao, teste)
+## Fase 1: Preparacao (Semanas 1-2)
 
-#### Setup de Infraestrutura
-- Ambiente de desenvolvimento (Jupyter, VS Code)
-- Compute resources (GPU se necessario)
-- Ferramenta de experiment tracking (MLflow, Weights & Biases)
-- Repositorio de codigo (GitHub)
-- Storage para dados e modelos
+### Atividades
+- Definir hipotese de negocio a ser validada
+- Estabelecer KPIs de sucesso e criterios de go/no-go
+- Mapear e validar fontes de dados necessarias
+- Avaliar qualidade dos dados (completude, acuracia, volume)
+- Definir baseline de performance atual (sem AI)
+- Configurar ambiente de desenvolvimento
+- Alinhar expectativas com stakeholders
 
-### Fase 2: Desenvolvimento do Modelo (Semana 3-5)
+### Entregaveis
+- Documento de hipotese e KPIs
+- Relatorio de qualidade de dados
+- Baseline de metricas atual
+- Ambiente de desenvolvimento configurado
 
-#### Baseline
-1. Estabelecer baseline com modelo simples ou regra de negocio
-2. Documentar performance do baseline nas metricas definidas
-3. Este sera o ponto de comparacao para o modelo de AI
+### Criterios de Saida
+- Dados com qualidade minima aceitavel (>70% completude)
+- KPIs de sucesso acordados com sponsor
+- Ambiente tecnico operacional
 
-#### Experimentacao
-1. Testar multiplas abordagens e algoritmos
-2. Iterar em feature engineering
-3. Tuning de hiperparametros
-4. Validacao cruzada
-5. Analise de erros e casos edge
+## Fase 2: Exploracao de Dados (Semanas 3-4)
 
-#### Avaliacao do Modelo
-- **Metricas tecnicas**: Accuracy, precision, recall, F1, AUC-ROC
-- **Metricas de negocio**: Impacto estimado em R$, tempo economizado
-- **Fairness**: Verificar vieses por grupo demografico
-- **Latencia**: Tempo de inferencia aceitavel para o caso de uso
-- **Escalabilidade**: O modelo funciona com volume real de dados?
+### Atividades
+- Analise exploratoria de dados (EDA)
+- Feature engineering inicial
+- Identificacao de padroes e correlacoes
+- Tratamento de dados ausentes e outliers
+- Criacao de datasets de treino, validacao e teste
+- Documentacao de decisoes sobre dados
 
-### Fase 3: Validacao em Campo (Semana 6-7)
+### Entregaveis
+- Notebook de EDA com insights documentados
+- Dataset preparado e versionado
+- Dicionario de features
+- Relatorio de vieses identificados nos dados
 
-#### Estrategia de Teste
-- **Shadow mode**: Modelo roda em paralelo sem impactar decisoes reais
-- **A/B test**: Grupo controle vs grupo com modelo de AI
-- **Piloto controlado**: Grupo reduzido de usuarios reais
+### Boas Praticas
+- Versionar datasets com DVC ou similar
+- Documentar todas as transformacoes de dados
+- Validar com o negocio se as features fazem sentido
+- Verificar vazamento de dados (data leakage)
 
-#### Monitoramento Durante o Piloto
-- Performance do modelo em dados novos
-- Feedback qualitativo dos usuarios
-- Impacto nas metricas de negocio
-- Incidentes ou comportamentos inesperados
-- Carga no sistema e infraestrutura
+## Fase 3: Modelagem (Semanas 5-8)
 
-#### Coleta de Feedback
-- Entrevistas com usuarios do piloto
-- Survey de satisfacao e usabilidade
-- Analise de casos onde o modelo errou
-- Sugestoes de melhoria dos stakeholders
+### Atividades
+- Selecao de algoritmos candidatos
+- Treinamento de modelos baseline
+- Otimizacao de hiperparametros
+- Validacao cruzada e avaliacao de performance
+- Analise de explicabilidade (SHAP, LIME)
+- Comparacao de modelos candidatos
 
-### Fase 4: Avaliacao e Decisao (Semana 8)
+### Abordagem de Modelagem
 
-#### Relatorio do Piloto
-1. **Resumo executivo**: Resultado em 1 paragrafo
-2. **Hipotese vs resultado**: A hipotese foi validada?
-3. **Metricas alcancadas**: Comparacao com baseline e metas
-4. **Aprendizados**: O que funcionou e o que nao funcionou
-5. **Recomendacao**: Escalar, iterar ou descontinuar
-6. **Requisitos para escala**: O que e necessario para producao
+```
+1. Comecar com modelo simples (regressao logistica, arvore de decisao)
+2. Iterar para modelos mais complexos apenas se necessario
+3. Priorizar interpretabilidade sobre performance marginal
+4. Documentar trade-offs de cada abordagem
+```
 
-#### Criterios de Decisao
+### Metricas de Avaliacao por Tipo de Problema
 
-| Decisao | Criterio |
-|---------|----------|
-| Escalar | Performance > baseline + metas de negocio atingidas |
-| Iterar | Performance promissora mas abaixo das metas |
-| Pivotar | Hipotese invalidada mas oportunidade adjacente |
-| Descontinuar | Performance abaixo do baseline ou ROI negativo |
+| Tipo | Metricas Primarias | Metricas Secundarias |
+|------|-------------------|---------------------|
+| Classificacao | F1-Score, AUC-ROC | Precisao, Recall, Acuracia |
+| Regressao | RMSE, MAE | R-squared, MAPE |
+| Ranking | NDCG, MAP | Precision@K, Recall@K |
+| Clustering | Silhouette Score | Davies-Bouldin Index |
+| NLP | BLEU, ROUGE | Perplexidade, Acuracia |
 
-#### Estimativa para Producao
-- Investimento adicional necessario
-- Timeline para deploy em producao
-- Infraestrutura de MLOps necessaria
-- Equipe necessaria para sustentacao
-- Riscos e plano de mitigacao
+### Entregaveis
+- Modelo treinado e validado
+- Relatorio de performance comparativo
+- Analise de explicabilidade
+- Recomendacao de modelo final
 
-## Checklist do Piloto
+## Fase 4: Validacao de Negocio (Semanas 9-10)
 
-### Pre-Piloto
-- [ ] Hipotese documentada e aprovada pelo sponsor
-- [ ] Metricas de sucesso definidas com valores-alvo
-- [ ] Equipe alocada e disponivel
-- [ ] Dados identificados, extraidos e validados
-- [ ] Ambiente de desenvolvimento configurado
-- [ ] Analise de riscos realizada (incluindo etica e privacidade)
-- [ ] Cronograma aprovado
+### Atividades
+- Teste A/B ou shadow mode em ambiente controlado
+- Validacao de resultados com usuarios reais
+- Calculo de impacto de negocio estimado
+- Coleta de feedback qualitativo
+- Identificacao de edge cases e limitacoes
 
-### Durante o Piloto
-- [ ] Baseline estabelecido e documentado
-- [ ] Pelo menos 3 abordagens de modelo testadas
-- [ ] Analise de fairness e bias realizada
-- [ ] Validacao em dados de teste (nao vistos no treino)
-- [ ] Teste com usuarios reais (shadow ou A/B)
-- [ ] Feedback qualitativo coletado
-- [ ] Experimentos rastreados e reproduziveis
+### Formatos de Validacao
 
-### Pos-Piloto
-- [ ] Relatorio do piloto elaborado e apresentado
-- [ ] Decisao de escalar/iterar/descontinuar tomada
-- [ ] Aprendizados documentados e compartilhados
-- [ ] Codigo e modelos versionados e documentados
-- [ ] Plano de proximos passos definido
-- [ ] Reconhecimento do time envolvido
+| Formato | Quando Usar | Duracao |
+|---------|------------|---------|
+| Shadow Mode | Modelo roda em paralelo, sem impacto | 1-2 semanas |
+| Teste A/B | Comparar AI vs processo atual | 2-4 semanas |
+| Piloto Controlado | Grupo limitado de usuarios | 2-4 semanas |
+| Expert Review | Especialistas avaliam outputs | 1 semana |
 
-## Boas Praticas
+### Criterios de Sucesso
 
-- Nao buscar perfeicao no piloto; buscar aprendizado
-- Envolver usuarios finais desde o inicio
-- Manter comunicacao transparente sobre expectativas
-- Documentar decisoes e trade-offs
-- Celebrar aprendizados, mesmo quando o resultado nao e o esperado
-- Compartilhar resultados com toda a organizacao para construir cultura de AI
+Para cada piloto, definir previamente:
+- **Metrica primaria**: Ganho minimo sobre baseline (ex: +20% acuracia)
+- **Metrica de negocio**: Impacto financeiro minimo (ex: R$ 50K/mes)
+- **Metrica de adocao**: Satisfacao dos usuarios (ex: NPS >30)
+- **Metrica de qualidade**: Taxa de erro aceitavel (ex: <5% falsos positivos)
+
+## Fase 5: Decisao e Documentacao (Semanas 11-12)
+
+### Atividades
+- Consolidar resultados do piloto
+- Comparar resultados vs KPIs definidos
+- Estimar custo de producao e escala
+- Documentar licoes aprendidas
+- Apresentar para Steering Committee
+- Decisao de go/no-go para escala
+
+### Template de Relatorio de Piloto
+
+```
+1. Resumo Executivo
+   - Hipotese testada
+   - Resultado principal
+   - Recomendacao (escalar / iterar / descontinuar)
+
+2. Contexto e Objetivos
+   - Problema de negocio
+   - KPIs definidos e baseline
+
+3. Dados e Metodologia
+   - Fontes de dados utilizadas
+   - Abordagem de modelagem
+   - Metricas de avaliacao
+
+4. Resultados
+   - Performance do modelo vs baseline
+   - Impacto de negocio estimado
+   - Feedback dos usuarios
+
+5. Licoes Aprendidas
+   - O que funcionou bem
+   - O que nao funcionou
+   - Surpresas e insights
+
+6. Plano para Escala (se aprovado)
+   - Investimento necessario
+   - Timeline estimada
+   - Riscos e mitigacoes
+```
+
+## Gestao de Riscos do Piloto
+
+| Risco | Mitigacao |
+|-------|----------|
+| Dados insuficientes ou com baixa qualidade | Validacao na Fase 1, criterio de go/no-go |
+| Overfitting do modelo | Validacao cruzada rigorosa, holdout set |
+| Viés nos dados ou no modelo | Analise de fairness, revisao com especialista |
+| Baixa adocao pelos usuarios | UX envolvido desde o inicio, feedback continuo |
+| Custo de escala maior que beneficio | Estimativa de custo de producao na Fase 5 |
+| Questoes regulatorias (LGPD, etica) | Revisao juridica antes do piloto |
+
+## Ferramentas Recomendadas
+
+| Categoria | Ferramentas | Uso |
+|-----------|-----------|-----|
+| Notebook | Jupyter, Google Colab | Exploracao e prototipagem |
+| ML Framework | Scikit-learn, PyTorch, TensorFlow | Modelagem |
+| Experiment Tracking | MLflow, Weights & Biases | Rastreamento de experimentos |
+| Feature Store | Feast, Tecton | Gestao de features |
+| Versionamento Dados | DVC, LakeFS | Versionamento de datasets |
+| Deploy | BentoML, Seldon, SageMaker | Serving de modelos |
+
+## Proximo Passo
+
+Use cases aprovados para escala sao detalhados no documento
+`04-scaling-playbook.md` com o playbook completo de producao.

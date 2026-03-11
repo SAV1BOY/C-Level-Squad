@@ -1,105 +1,161 @@
-# Tarefa: Avaliação de Parcerias
+# Avaliacao de Parcerias Estrategicas
 
-> Framework para avaliar potenciais parcerias estratégicas de forma
-> estruturada, garantindo alinhamento de valor e riscos controlados.
+## Objetivo
 
----
+Avaliar potenciais parcerias estrategicas de forma estruturada e rigorosa,
+garantindo alinhamento de valor, complementaridade de capacidades e riscos
+controlados antes de qualquer compromisso formal.
 
-**Frequência**: Por demanda
-**Responsável**: CEO com suporte do Squad
-**Duração**: 1-2 semanas por avaliação
+## Frequencia
 
----
+- **Por demanda**: Quando oportunidade de parceria e identificada
+- **Revisao de parcerias ativas**: Trimestral (health check)
+- **Revisao estrategica**: Anual (pipeline de parcerias vs estrategia)
 
-## 1. Tipos de Parceria
+**Responsavel**: CEO com suporte do Squad
+**Duracao**: 1-2 semanas por avaliacao completa
 
-| Tipo | Descrição | Exemplos |
-|------|-----------|---------|
-| Tecnológica | Integração ou co-desenvolvimento | APIs, white-label, OEM |
-| Comercial | Distribuição ou co-selling | Revenda, referral, co-marketing |
-| Estratégica | Alinhamento de longo prazo | Joint venture, equity partnership |
-| Ecossistema | Participação em plataforma | Marketplace, app store |
-| Acadêmica | P&D e inovação | Universidades, centros de pesquisa |
+## Tipos de Parceria
 
-## 2. Critérios de Avaliação
+| Tipo | Descricao | Exemplos | Complexidade |
+|------|-----------|---------|-------------|
+| Tecnologica | Integracao ou co-desenvolvimento | APIs, white-label, OEM | Media-Alta |
+| Comercial | Distribuicao ou co-selling | Revenda, referral, co-marketing | Media |
+| Estrategica | Alinhamento de longo prazo | Joint venture, equity partnership | Alta |
+| Ecossistema | Participacao em plataforma | Marketplace, app store, plugin | Baixa-Media |
+| Academica | P&D e inovacao | Universidades, centros de pesquisa | Baixa |
+| Canal | Distribuicao via parceiros | VARs, consultoras, integradores | Media |
 
-### 2.1 Alinhamento Estratégico
-- [ ] A parceria avança nossos objetivos estratégicos?
-- [ ] Há alinhamento de valores e cultura?
-- [ ] A parceria reforça nosso posicionamento no mercado?
-- [ ] O timing faz sentido para ambos os lados?
-- [ ] A parceria cria vantagem competitiva sustentável?
+## Criterios de Avaliacao
 
-### 2.2 Valor Gerado
-- [ ] Qual é o potencial de receita incremental?
-- [ ] Quais custos são reduzidos ou evitados?
-- [ ] Há acesso a novos mercados ou segmentos?
-- [ ] A parceria acelera nosso time-to-market?
-- [ ] Há troca de conhecimento ou tecnologia valiosa?
+### 1. Alinhamento Estrategico (Peso: 25%)
+- [ ] A parceria avanca diretamente nossos objetivos estrategicos de 12-24 meses?
+- [ ] Ha alinhamento de valores, visao e cultura entre as organizacoes?
+- [ ] A parceria reforca nosso posicionamento e diferenciacao no mercado?
+- [ ] O timing faz sentido para ambos os lados (prioridades atuais)?
+- [ ] A parceria cria vantagem competitiva sustentavel ou e facilmente copiavel?
+- [ ] Ha risco de conflito estrategico futuro (ex: parceiro vira concorrente)?
 
-### 2.3 Riscos
-- [ ] Risco de dependência excessiva do parceiro
-- [ ] Risco de conflito de interesse futuro
-- [ ] Risco de vazamento de IP ou dados
-- [ ] Risco reputacional (se o parceiro tiver problemas)
-- [ ] Risco de lock-in tecnológico
-- [ ] Complexidade operacional adicionada
+### 2. Valor Gerado (Peso: 25%)
+- [ ] Qual e o potencial de receita incremental mensuravel (R$ em 12 meses)?
+- [ ] Quais custos sao reduzidos ou evitados com a parceria?
+- [ ] Ha acesso a novos mercados, segmentos ou geografias?
+- [ ] A parceria acelera nosso time-to-market para alguma iniciativa?
+- [ ] Ha troca de conhecimento, tecnologia ou dados valiosa?
+- [ ] O valor e reciproco e equilibrado para ambas as partes?
 
-### 2.4 Viabilidade
-- [ ] O parceiro tem capacidade de execução?
-- [ ] Há recursos internos para gerenciar a parceria?
-- [ ] O modelo econômico é sustentável para ambos?
-- [ ] Há alinhamento de expectativas e timeline?
-- [ ] Questões legais e regulatórias estão endereçadas?
+### 3. Riscos (Peso: 20%)
+- [ ] Risco de dependencia excessiva do parceiro (lock-in)
+- [ ] Risco de conflito de interesse futuro (parceiro como concorrente)
+- [ ] Risco de vazamento de IP, dados ou estrategia proprietaria
+- [ ] Risco reputacional (se parceiro tiver problemas publicos)
+- [ ] Risco de lock-in tecnologico ou comercial
+- [ ] Complexidade operacional adicionada (overhead de gestao)
+- [ ] Risco regulatorio ou de compliance
 
-## 3. Scorecard de Parceria
+### 4. Viabilidade de Execucao (Peso: 15%)
+- [ ] O parceiro tem capacidade tecnica e operacional de executar?
+- [ ] Ha recursos internos suficientes para gerenciar a parceria?
+- [ ] O modelo economico e sustentavel e justo para ambos?
+- [ ] Ha alinhamento de expectativas e timeline entre as partes?
+- [ ] Questoes legais e regulatorias estao endereçadas e viáveis?
 
-| Critério | Peso | Nota (1-5) | Score |
-|----------|------|-----------|-------|
-| Alinhamento estratégico | 25% | __ | __ |
-| Potencial de receita | 20% | __ | __ |
-| Redução de risco ou custo | 15% | __ | __ |
-| Facilidade de execução | 15% | __ | __ |
-| Fit cultural | 10% | __ | __ |
-| Exclusividade/diferencial | 10% | __ | __ |
-| Risco controlável | 5% | __ | __ |
-| **Total** | **100%** | | **__** |
+### 5. Fit Cultural e Operacional (Peso: 15%)
+- [ ] As culturas organizacionais sao compativeis?
+- [ ] Os processos de trabalho sao complementares ou conflitantes?
+- [ ] Ha historico de parcerias bem-sucedidas do outro lado?
+- [ ] A comunicacao entre as equipes flui naturalmente?
+- [ ] Ha champion interno no parceiro que advoga pela parceria?
 
-> Score mínimo para aprovação: **3.5 / 5.0**
+## Scorecard de Parceria
 
-## 4. Processo de Avaliação
+| Criterio | Peso | Nota (1-5) | Score Ponderado |
+|----------|------|-----------|----------------|
+| Alinhamento estrategico | 25% | __ | __ |
+| Potencial de valor | 25% | __ | __ |
+| Risco controlavel | 20% | __ | __ |
+| Viabilidade de execucao | 15% | __ | __ |
+| Fit cultural | 15% | __ | __ |
+| **Total** | **100%** | | **__/5.0** |
 
-1. **Screening inicial** (1 dia): O parceiro passa nos critérios básicos?
-2. **Due diligence leve** (3-5 dias): Pesquisa, referências, análise financeira
-3. **Reunião exploratória**: Alinhamento de interesses e expectativas
-4. **Proposta de parceria**: Termos, escopo, métricas de sucesso
-5. **Revisão legal**: Contrato revisado por jurídico
-6. **Aprovação**: Decisão do C-Level
-7. **Piloto**: Teste em escopo reduzido antes de comprometer
+**Score minimo para aprovacao: 3.5/5.0**
 
-## 5. Estrutura de Acordo
+## Processo de Avaliacao (7 Etapas)
 
-- [ ] Escopo claro e limitado da parceria
-- [ ] Metas e KPIs mensuráveis
-- [ ] Divisão clara de responsabilidades
-- [ ] Modelo econômico definido (revenue share, fee, equity)
-- [ ] Cláusulas de propriedade intelectual
-- [ ] Termos de confidencialidade (NDA)
-- [ ] Mecanismo de resolução de conflitos
-- [ ] Cláusula de saída com condições claras
-- [ ] Período de exclusividade (se houver) limitado
-- [ ] Revisão periódica programada (6 ou 12 meses)
+### 1. Screening Inicial (1 dia)
+- O parceiro passa nos criterios basicos de alinhamento?
+- Ha algum deal-breaker obvio (concorrente direto, valores conflitantes)?
+- Vale investir tempo em due diligence mais profunda?
 
-## 6. Gestão de Parceria Ativa
+### 2. Due Diligence Leve (3-5 dias)
+- Pesquisa sobre empresa, financas, reputacao e historico de parcerias
+- Verificacao de referencias com parceiros anteriores do candidato
+- Analise financeira basica (sustentabilidade e estabilidade)
+- Avaliacao tecnica preliminar (compatibilidade de stacks)
 
-- [ ] Owner da parceria designado
-- [ ] Reunião periódica de alinhamento agendada
-- [ ] KPIs monitorados mensalmente
-- [ ] Feedback bidirecional coletado
-- [ ] Renovação ou encerramento avaliado antes do vencimento
-- [ ] Lições aprendidas documentadas
+### 3. Reuniao Exploratoria (1 reuniao)
+- Alinhamento mutuo de interesses, expectativas e objetivos
+- Discussao aberta sobre modelo de parceria potencial
+- Identificacao de sinergias e potenciais obstaculos
+- Acordo sobre proximos passos se ambas partes interessadas
 
----
+### 4. Proposta de Parceria (3-5 dias)
+- Definicao de escopo, termos e metricas de sucesso
+- Modelo economico (revenue share, fee, equity, co-invest)
+- Timeline de implementacao e marcos principais
+- Responsabilidades de cada parte claramente definidas
 
-*Última atualização: Março 2026*
-*Responsável: CEO / Squad Coordinator*
+### 5. Revisao Legal e Compliance (1-2 semanas)
+- NDA assinado antes de troca de informacoes sensiveis
+- Contrato revisado por juridico de ambas as partes
+- Validacao de compliance regulatorio (antitruste, LGPD)
+- Clausulas de propriedade intelectual revisadas cuidadosamente
+
+### 6. Aprovacao C-Level (1 reuniao)
+- Apresentacao do scorecard e recomendacao para C-Level
+- Discussao de riscos residuais e planos de mitigacao
+- Decisao formal de go/no-go documentada
+- Definicao de owner interno da parceria
+
+### 7. Piloto Controlado (4-8 semanas)
+- Teste em escopo reduzido antes de comprometer escala
+- Metricas de sucesso do piloto definidas previamente
+- Checkpoint semanal entre equipes durante o piloto
+- Decisao de escalar, ajustar ou encerrar baseada em dados
+
+## Estrutura do Acordo
+
+### Clausulas Essenciais
+- [ ] Escopo claro e limitado da parceria (o que esta dentro e fora)
+- [ ] Metas e KPIs mensuraveis com revisao periodica
+- [ ] Divisao clara de responsabilidades e investimentos
+- [ ] Modelo economico definido e justo (revenue share, fees, equity)
+- [ ] Clausulas de propriedade intelectual (quem cria, quem detem)
+- [ ] Termos de confidencialidade robustos (NDA bilateral)
+- [ ] Mecanismo de resolucao de conflitos (mediacao antes de arbitragem)
+- [ ] Clausula de saida com condicoes claras e aviso previo
+- [ ] Periodo de exclusividade limitado (se houver, maximo 12 meses)
+- [ ] Revisao periodica programada (6 ou 12 meses)
+
+## Gestao de Parceria Ativa
+
+### Operacao Continua
+- [ ] Owner da parceria designado com dedicacao minima de 20%
+- [ ] Reuniao quinzenal de alinhamento operacional entre equipes
+- [ ] KPIs monitorados mensalmente com report para ambas as partes
+- [ ] Feedback bidirecional coletado trimestralmente
+- [ ] Escalacao de problemas com SLA definido (48h para resposta)
+
+### Revisao Periodica (Trimestral)
+- [ ] KPIs atingidos vs metas acordadas
+- [ ] ROI realizado vs projetado para ambos os lados
+- [ ] Satisfacao de ambas as equipes com a parceria
+- [ ] Oportunidades de expansao ou ajuste de escopo
+- [ ] Decisao de renovar, expandir, ajustar ou encerrar
+
+### Criterios de Encerramento
+- KPIs consistentemente abaixo de 70% da meta por 2 trimestres
+- Mudanca estrategica fundamental de uma das partes
+- Violacao de termos contratuais nao remediada
+- Conflito de interesse irreconciliavel
+- Custo de manutencao excede valor gerado

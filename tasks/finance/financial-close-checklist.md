@@ -1,182 +1,162 @@
-# Checklist de Fechamento Financeiro
-
-> Processo estruturado para o fechamento contábil mensal, garantindo que os
-> números estão corretos, completos e disponíveis para tomada de decisão
-> no prazo adequado.
+# Checklist de Fechamento Financeiro Mensal
 
 ## Objetivo
 
-Fechar os livros contábeis de forma precisa e tempestiva, produzindo
-demonstrações financeiras confiáveis que suportem decisões de gestão,
-compliance regulatório e comunicação com investidores.
+Garantir um fechamento contabil mensal preciso, completo e tempestivo, produzindo
+demonstracoes financeiras confiaveis que suportem decisoes de gestao, compliance
+regulatorio e comunicacao com investidores e stakeholders.
 
 ## Timeline de Fechamento
 
-### Target: Fechamento em 5 Dias Úteis (D+5)
+### Target: Fechamento em 5 Dias Uteis (D+5)
 
-| Dia | Atividade Principal |
-|-----|-------------------|
-| D+1 | Corte de período e reconciliações bancárias |
-| D+2 | Reconciliação de receitas e contas a receber |
-| D+3 | Reconciliação de despesas e contas a pagar |
-| D+4 | Accruals, provisões e ajustes |
-| D+5 | Revisão final, geração de reports, aprovação |
+| Dia | Atividade Principal | Responsavel |
+|-----|-------------------|-------------|
+| D+1 | Corte de periodo e reconciliacoes bancarias | Tesouraria |
+| D+2 | Reconciliacao de receitas e contas a receber | Revenue Accounting |
+| D+3 | Reconciliacao de despesas e contas a pagar | AP + Controladoria |
+| D+4 | Accruals, provisoes e ajustes de competencia | Controladoria |
+| D+5 | Revisao final, geracao de reports, aprovacao | Controller + CFO |
 
-## Dia 1: Corte e Bancos
+## Dia 1: Corte de Periodo e Bancos
 
-### Corte de Período
-- [ ] Confirmar que todas as transações do mês estão registradas
-- [ ] Verificar que nenhuma transação do mês seguinte foi antecipada
+### Corte de Periodo
+- [ ] Confirmar que todas as transacoes do mes estao registradas no ERP
+- [ ] Verificar que nenhuma transacao do mes seguinte foi antecipada
 - [ ] Confirmar corte de notas fiscais emitidas e recebidas
-- [ ] Verificar recebimentos de last-minute processados corretamente
+- [ ] Verificar recebimentos de ultimo dia processados corretamente
+- [ ] Bloquear lancamentos no periodo anterior no sistema
 
-### Reconciliação Bancária
-- [ ] Baixar extratos de todas as contas bancárias
-- [ ] Reconciliar cada conta: saldo do banco vs saldo contábil
-- [ ] Identificar e investigar itens pendentes
-- [ ] Documentar itens de reconciliação em aberto com justificativa
-- [ ] Confirmar que investimentos e aplicações estão corretos
-
-### Caixa e Equivalentes
-- [ ] Confirmar posições em contas correntes
-- [ ] Confirmar posições em aplicações financeiras
-- [ ] Calcular rendimentos a apropriar
-- [ ] Atualizar posição consolidada de caixa
+### Reconciliacao Bancaria
+- [ ] Baixar extratos de todas as contas bancarias (corrente, investimento)
+- [ ] Reconciliar cada conta: saldo do banco vs saldo contabil
+- [ ] Identificar e investigar itens pendentes de reconciliacao
+- [ ] Documentar itens em aberto com justificativa e prazo de resolucao
+- [ ] Confirmar posicoes em aplicacoes financeiras e rendimentos
+- [ ] Atualizar posicao consolidada de caixa para report de tesouraria
 
 ## Dia 2: Receitas e Contas a Receber
 
 ### Reconhecimento de Receita
-- [ ] Confirmar receita recorrente (MRR) do período
-- [ ] Reconhecer receita de novos contratos conforme critério (CPC 47/IFRS 15)
-- [ ] Tratar upgrades, downgrades e cancelamentos do mês
-- [ ] Reconhecer receita de serviços profissionais (se houver)
-- [ ] Confirmar receita diferida (deferred revenue) está correta
-- [ ] Reconciliar receita com sistema de billing
+- [ ] Confirmar receita recorrente (MRR) do periodo com sistema de billing
+- [ ] Reconhecer receita de novos contratos conforme CPC 47/IFRS 15
+- [ ] Tratar upgrades, downgrades e cancelamentos do mes
+- [ ] Reconhecer receita de servicos profissionais e implementacao
+- [ ] Confirmar receita diferida (deferred revenue) correta no balanco
+- [ ] Reconciliar receita contabil com sistema de billing (zero gap)
 
 ### Contas a Receber
-- [ ] Atualizar aging de contas a receber
-- [ ] Provisionar perdas esperadas (PECLD)
-- [ ] Baixar inadimplentes irrecuperáveis
-- [ ] Reconciliar AR com sistema de billing
-- [ ] Verificar recebimentos pós-fechamento mas referentes ao mês
+- [ ] Atualizar aging de contas a receber (current, 30, 60, 90+ dias)
+- [ ] Provisionar perdas esperadas com credito de liquidacao duvidosa (PECLD)
+- [ ] Baixar inadimplentes irrecuperaveis (com aprovacao do controller)
+- [ ] Reconciliar AR total com sistema de billing e CRM
+- [ ] Verificar recebimentos pos-fechamento referentes ao mes
 
 ### Impostos sobre Receita
-- [ ] Calcular ISS, ICMS, PIS, COFINS (conforme aplicável)
-- [ ] Verificar retenções na fonte
-- [ ] Reconciliar impostos com notas fiscais
+- [ ] Calcular ISS sobre receita de servicos
+- [ ] Calcular PIS e COFINS sobre faturamento
+- [ ] Verificar retencoes na fonte realizadas por clientes
+- [ ] Reconciliar impostos calculados com notas fiscais emitidas
 
 ## Dia 3: Despesas e Contas a Pagar
 
 ### Contas a Pagar
 - [ ] Confirmar que todas as notas de fornecedores foram registradas
-- [ ] Verificar notas recebidas após o corte que se referem ao mês
-- [ ] Reconciliar AP com sistema de compras
-- [ ] Aprovar lançamentos acima de threshold
+- [ ] Verificar notas recebidas apos o corte que se referem ao mes
+- [ ] Reconciliar AP com sistema de compras e contratos vigentes
+- [ ] Aprovar lancamentos acima do threshold definido (ex: R$ 10K)
 
 ### Folha de Pagamento
-- [ ] Confirmar cálculo da folha (salários, benefícios, encargos)
-- [ ] Provisionar 13° salário e férias proporcionais
-- [ ] Registrar comissões e bônus do período
-- [ ] Reconciliar com FGTS, INSS, IRRF
-- [ ] Verificar stock compensation expense (se houver)
+- [ ] Confirmar calculo da folha (salarios, beneficios, encargos completos)
+- [ ] Provisionar 13o salario e ferias proporcionais (1/12 avos)
+- [ ] Registrar comissoes e bonus do periodo conforme politica
+- [ ] Reconciliar com guias de FGTS, INSS e IRRF
+- [ ] Verificar stock compensation expense se houver plano de opcoes
 
 ### Despesas por Categoria
-- [ ] Infraestrutura/Cloud: reconciliar com faturas (AWS, GCP, etc.)
+- [ ] Infraestrutura/Cloud: reconciliar com faturas AWS, GCP, Azure
 - [ ] SaaS/Ferramentas: confirmar assinaturas ativas vs registradas
-- [ ] Marketing: reconciliar gastos com plataformas (Google Ads, etc.)
-- [ ] Viagens: confirmar reembolsos e cartão corporativo
-- [ ] Serviços profissionais: confirmar faturas de consultorias
+- [ ] Marketing: reconciliar gastos com plataformas (Google, Meta, LinkedIn)
+- [ ] Viagens: confirmar reembolsos pendentes e cartao corporativo
+- [ ] Servicos profissionais: confirmar faturas de consultorias e advogados
 
-### Classificação Contábil
+### Classificacao Contabil
 - [ ] Despesas classificadas na conta correta (COGS vs Opex)
-- [ ] Capex separado de Opex adequadamente
-- [ ] Centros de custo atribuídos corretamente
-- [ ] Reclassificar itens incorretos
+- [ ] CAPEX separado de Opex adequadamente (criterio de capitalizacao)
+- [ ] Centros de custo atribuidos corretamente por departamento
+- [ ] Reclassificar itens incorretos identificados na revisao
 
-## Dia 4: Accruals, Provisões e Ajustes
+## Dia 4: Accruals, Provisoes e Ajustes
 
-### Accruals (Competência)
-- [ ] Apropriar despesas incorridas mas não faturadas
-- [ ] Apropriar receitas reconhecidas mas não faturadas
-- [ ] Reverter accruals do mês anterior que se realizaram
-- [ ] Documentar base de cálculo de cada accrual
+### Accruals (Regime de Competencia)
+- [ ] Apropriar despesas incorridas mas ainda nao faturadas
+- [ ] Apropriar receitas reconhecidas mas ainda nao faturadas
+- [ ] Reverter accruals do mes anterior que se realizaram
+- [ ] Documentar base de calculo e justificativa de cada accrual
 
-### Provisões
-- [ ] Atualizar provisão para contingências trabalhistas
-- [ ] Atualizar provisão para contingências fiscais
-- [ ] Atualizar provisão para perdas com clientes
-- [ ] Revisar adequação de cada provisão com jurídico
+### Provisoes
+- [ ] Atualizar provisao para contingencias trabalhistas (com juridico)
+- [ ] Atualizar provisao para contingencias fiscais e tributarias
+- [ ] Atualizar provisao para perdas com clientes (PECLD)
+- [ ] Revisar adequacao de cada provisao com departamento juridico
 
-### Depreciação e Amortização
-- [ ] Calcular depreciação de ativos fixos
-- [ ] Calcular amortização de intangíveis
-- [ ] Calcular amortização de SaaS capitalizado (se houver)
-- [ ] Verificar se algum ativo deve ser impaired
+### Depreciacao e Amortizacao
+- [ ] Calcular depreciacao de ativos fixos (imobilizado)
+- [ ] Calcular amortizacao de intangiveis (software, patentes)
+- [ ] Calcular amortizacao de custos de aquisicao diferidos (se aplicavel)
+- [ ] Verificar se algum ativo deve sofrer impairment
 
-### Ajustes de Câmbio (se houver operação internacional)
-- [ ] Atualizar saldos em moeda estrangeira pela taxa de fechamento
-- [ ] Registrar variação cambial
-- [ ] Reconciliar contas intercompany
+### Ajustes de Cambio (se houver operacao internacional)
+- [ ] Atualizar saldos em moeda estrangeira pela taxa de fechamento PTAX
+- [ ] Registrar variacao cambial realizada e nao-realizada
+- [ ] Reconciliar contas intercompany se houver subsidiarias
 
-### Impostos
-- [ ] Calcular imposto de renda e CSLL (corrente e diferido)
-- [ ] Verificar créditos tributários a apropriar
-- [ ] Reconciliar posição fiscal acumulada
+### Impostos sobre Resultado
+- [ ] Calcular IRPJ e CSLL (corrente e diferido)
+- [ ] Verificar creditos tributarios a apropriar (prejuizo fiscal, incentivos)
+- [ ] Reconciliar posicao fiscal acumulada no ano
 
-## Dia 5: Revisão e Finalização
+## Dia 5: Revisao Final e Aprovacao
 
-### Revisão de Qualidade
-- [ ] Analytical review: comparar P&L com mês anterior e mesmo mês YoY
-- [ ] Identificar anomalias (variações > 20% sem explicação)
-- [ ] Verificar integridade do balancete (ativo = passivo + PL)
-- [ ] Confirmar que intercompany está eliminado (se consolidação)
+### Revisao de Qualidade
+- [ ] Analytical review: comparar P&L com mes anterior e mesmo mes YoY
+- [ ] Investigar anomalias (variacoes >20% sem explicacao documentada)
+- [ ] Verificar integridade do balancete (Ativo = Passivo + PL)
+- [ ] Confirmar eliminacao intercompany se houver consolidacao
+- [ ] Validar consistencia entre DRE, Balanco e DFC
 
-### Geração de Demonstrações
-- [ ] P&L (Demonstração de Resultado)
-- [ ] Balanço Patrimonial
-- [ ] Fluxo de Caixa (DFC)
-- [ ] Report gerencial por departamento
-- [ ] Dashboard de métricas-chave
+### Geracao de Demonstracoes
+- [ ] DRE (Demonstracao de Resultado do Exercicio) - mensal e acumulado
+- [ ] Balanco Patrimonial completo
+- [ ] DFC (Demonstracao de Fluxo de Caixa) pelo metodo indireto
+- [ ] Report gerencial por departamento e centro de custo
+- [ ] Dashboard de metricas-chave para C-Level
 
-### Aprovação
-- [ ] Controller/Contador revisa e aprova
-- [ ] CFO revisa highlights e anomalias
-- [ ] Documentar qualquer item em aberto para o próximo mês
-- [ ] Comunicar que o fechamento está completo
-
-### Distribuição
-- [ ] Enviar P&L e dashboard para C-level
-- [ ] Atualizar dashboard de métricas
+### Aprovacao e Distribuicao
+- [ ] Controller revisa e assina o fechamento
+- [ ] CFO revisa highlights, anomalias e riscos
+- [ ] Documentar itens em aberto para resolucao no proximo mes
+- [ ] Comunicar que o fechamento esta completo para todas as areas
+- [ ] Enviar P&L e dashboard para C-Level e board
 - [ ] Alimentar processo de budget variance analysis
-- [ ] Arquivar documentação de suporte
+- [ ] Arquivar documentacao de suporte (digital, organizado)
 
-## Melhoria Contínua
+## Melhoria Continua
 
-### Métricas do Processo de Fechamento
-- Dias para fechar (target: D+5)
-- Número de ajustes pós-fechamento
-- Número de itens de reconciliação em aberto
-- Horas totais gastas no fechamento
+### Metricas do Processo de Fechamento
 
-### Automação
-- [ ] Reconciliação bancária automatizada
-- [ ] Importação de faturas de cloud/SaaS automatizada
-- [ ] Cálculos de depreciação/amortização automatizados
-- [ ] Geração de reports automatizada
-- [ ] Alertas para itens pendentes automatizados
+| Metrica | Meta D+5 | Meta D+3 | Classe Mundial |
+|---------|----------|----------|---------------|
+| Dias para fechar | 5 | 3 | 1 (continuous close) |
+| Ajustes pos-fechamento | <3 | <1 | 0 |
+| Itens reconciliacao abertos | <10 | <5 | 0 |
+| Horas totais gastas | <80h | <40h | <20h |
+| Erros identificados em auditoria | <5 | <2 | 0 |
 
-### Evolução de Maturidade
-| Nível | Fechamento | Automação | Qualidade |
-|-------|-----------|-----------|-----------|
-| 1 | D+15 | Manual | Erros frequentes |
-| 2 | D+10 | Parcial | Erros ocasionais |
-| 3 | D+5 | Maioria automática | Raro erro |
-| 4 | D+3 | Quase tudo automático | Excepcional |
-| 5 | D+1 | Continuous close | Real-time |
-
-## Referências
-
-- CPC (Comitê de Pronunciamentos Contábeis) - pronunciamentos técnicos
-- "Financial Reporting and Analysis" - Lawrence Revsine et al.
-- "The CFO Guidebook" - Steven Bragg
-- BlackLine/FloQast best practices para close management
+### Automacao Progressiva
+- [ ] Reconciliacao bancaria automatizada (integracao Open Banking)
+- [ ] Importacao de faturas de cloud/SaaS via API automatizada
+- [ ] Calculos de depreciacao/amortizacao automatizados no ERP
+- [ ] Geracao de reports e dashboards automatizada
+- [ ] Alertas automaticos para itens pendentes e prazos
+- [ ] Validacoes automaticas de consistencia pre-fechamento

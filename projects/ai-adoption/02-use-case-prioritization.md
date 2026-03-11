@@ -1,135 +1,165 @@
-# Priorizacao de Casos de Uso de AI
+# Priorizacao de Use Cases de AI
 
 ## Objetivo
 
-Identificar, avaliar e priorizar casos de uso de inteligencia artificial
-que gerem maior valor para o negocio, considerando viabilidade tecnica,
-disponibilidade de dados e alinhamento estrategico.
+Identificar, avaliar e priorizar os casos de uso de Inteligencia Artificial com
+maior potencial de impacto e viabilidade para a organizacao, criando um pipeline
+estruturado de iniciativas de AI.
 
-## Framework de Identificacao de Casos de Uso
+## Processo de Identificacao de Use Cases
 
-### Fontes de Identificacao
-1. **Pain points operacionais**: Processos manuais, repetitivos ou propensos a erro
-2. **Oportunidades de receita**: Personalizacao, upsell, novos produtos
-3. **Benchmark de mercado**: Casos de uso ja validados por concorrentes
-4. **Demandas de clientes**: Expectativas dos clientes por experiencias inteligentes
-5. **Insights do time**: Ideias dos colaboradores que lidam com dados diariamente
+### Fontes de Ideacao
 
-### Categorias de Casos de Uso
+1. **Entrevistas com areas de negocio**: Dores e oportunidades mapeadas
+2. **Analise de processos**: Tarefas repetitivas de alto volume
+3. **Benchmark de mercado**: Use cases validados em empresas similares
+4. **Dados disponíveis**: Oportunidades baseadas em dados existentes
+5. **Tendencias tecnologicas**: Novas capacidades de AI/ML disponiveis
 
-#### Otimizacao Operacional
-- Automacao de processos com decisao (RPA + AI)
-- Previsao de demanda e otimizacao de estoque
-- Deteccao de anomalias em processos financeiros
-- Manutencao preditiva de equipamentos
-- Otimizacao de rotas e logistica
+### Categorias de Use Cases
 
-#### Experiencia do Cliente
-- Chatbot inteligente para atendimento
-- Recomendacao personalizada de produtos
-- Analise de sentimento em feedbacks
-- Segmentacao avancada de clientes
-- Previsao de churn e acoes proativas
+| Categoria | Descricao | Exemplos |
+|-----------|-----------|---------|
+| Automacao Inteligente | Automatizar tarefas com componente cognitivo | Classificacao de documentos, triagem de emails |
+| Analytics Preditivo | Prever eventos futuros com base em dados historicos | Previsao de demanda, churn prediction |
+| Personalizacao | Customizar experiencias com base em comportamento | Recomendacoes, pricing dinamico |
+| Processamento de Linguagem | Extrair insights de textos e conversas | Analise de sentimento, chatbots |
+| Visao Computacional | Analisar imagens e videos automaticamente | Controle de qualidade, OCR avancado |
+| Otimizacao | Encontrar a melhor solucao entre multiplas variaveis | Roteirizacao, alocacao de recursos |
 
-#### Receita e Crescimento
-- Pricing dinamico baseado em demanda
-- Lead scoring preditivo
-- Personalizacao de campanhas de marketing
-- Cross-sell e upsell automatizados
-- Forecasting de vendas
+## Inventario de Use Cases Identificados
 
-#### Gestao e Compliance
-- Deteccao de fraudes
-- Analise automatizada de contratos
-- Monitoramento de compliance regulatorio
-- Analise de risco de credito
-- Due diligence automatizada
+### Area: Vendas e Marketing
 
-## Criterios de Avaliacao
+| ID | Use Case | Impacto Estimado | Dados Necessarios |
+|----|---------|-----------------|-------------------|
+| VM01 | Scoring preditivo de leads | Aumento 30% taxa conversao | CRM, website analytics |
+| VM02 | Segmentacao dinamica de clientes | Aumento 25% ROI campanhas | CRM, transacoes, comportamento |
+| VM03 | Recomendacao de produtos | Aumento 20% ticket medio | Historico de compras, catalogo |
+| VM04 | Previsao de churn | Reducao 25% churn | Uso do produto, suporte, pagamentos |
+| VM05 | Otimizacao de pricing | Aumento 15% margem | Competidores, demanda, custos |
 
-### 1. Valor de Negocio (Peso: 35%)
-| Criterio | 1 (Baixo) | 3 (Medio) | 5 (Alto) |
-|----------|-----------|-----------|----------|
-| Impacto na receita | <R$100K/ano | R$100K-500K/ano | >R$500K/ano |
-| Reducao de custo | <5% | 5-15% | >15% |
-| Melhoria de experiencia | Marginal | Moderada | Significativa |
-| Alinhamento estrategico | Baixo | Medio | Alto |
-| Diferencial competitivo | Paridade | Vantagem leve | Vantagem forte |
+### Area: Operacoes
 
-### 2. Viabilidade Tecnica (Peso: 25%)
-| Criterio | 1 (Dificil) | 3 (Moderado) | 5 (Facil) |
-|----------|-------------|--------------|-----------|
-| Complexidade do modelo | Estado da arte | Modelos estabelecidos | Modelos simples |
-| Infraestrutura necessaria | Nova plataforma | Extensao da atual | Existente |
-| Integracao com sistemas | Multiplas integracoes | Poucas integracoes | API pronta |
-| Manutencao do modelo | Alta complexidade | Moderada | Simples |
+| ID | Use Case | Impacto Estimado | Dados Necessarios |
+|----|---------|-----------------|-------------------|
+| OP01 | Previsao de demanda | Reducao 30% estoque excedente | Vendas historicas, sazonalidade |
+| OP02 | Manutencao preditiva | Reducao 40% downtime | Sensores IoT, historico manutencao |
+| OP03 | Otimizacao de rotas | Reducao 20% custo logistico | GPS, entregas, trafego |
+| OP04 | Controle qualidade visual | Reducao 50% defeitos | Imagens de producao |
+| OP05 | Planejamento de workforce | Reducao 15% hora extra | RH, demanda, calendario |
 
-### 3. Disponibilidade de Dados (Peso: 25%)
-| Criterio | 1 (Inexistente) | 3 (Parcial) | 5 (Completo) |
-|----------|-----------------|-------------|--------------|
-| Dados disponiveis | Nao existem | Parcialmente disponiveis | Completos e acessiveis |
-| Qualidade dos dados | Baixa qualidade | Qualidade moderada | Alta qualidade |
-| Volume de dados | Insuficiente | Adequado | Abundante |
-| Dados rotulados | Nao existem | Parcialmente | Disponiveis |
+### Area: Financas
 
-### 4. Esforco e Risco (Peso: 15%)
-| Criterio | 1 (Alto risco) | 3 (Moderado) | 5 (Baixo risco) |
-|----------|---------------|--------------|-----------------|
-| Tempo de implementacao | >6 meses | 3-6 meses | <3 meses |
-| Investimento necessario | >R$500K | R$100K-500K | <R$100K |
-| Risco regulatorio | Alto | Moderado | Baixo |
-| Gestao de mudanca | Complexa | Moderada | Simples |
+| ID | Use Case | Impacto Estimado | Dados Necessarios |
+|----|---------|-----------------|-------------------|
+| FN01 | Deteccao de fraudes | Reducao 60% perdas fraude | Transacoes, comportamento |
+| FN02 | Forecast financeiro automatizado | Acuracia +20% no forecast | DRE, balanco, mercado |
+| FN03 | Automacao de conciliacao | Reducao 70% tempo manual | Extratos, lancamentos |
+| FN04 | Classificacao automatica de despesas | Reducao 80% classificacao manual | NFes, categorias |
+| FN05 | Credit scoring interno | Reducao 30% inadimplencia | Historico pagamentos, dados mercado |
 
-## Matriz de Priorizacao
+### Area: Atendimento ao Cliente
 
-### Quadrante 1: Quick Wins (Alto Valor + Baixo Esforco)
-Implementar imediatamente. Geram valor rapido e constroem credibilidade.
+| ID | Use Case | Impacto Estimado | Dados Necessarios |
+|----|---------|-----------------|-------------------|
+| AT01 | Chatbot inteligente multicanal | Automacao 60% atendimentos | FAQ, tickets historicos |
+| AT02 | Roteamento inteligente de tickets | Reducao 40% tempo resolucao | Tickets, skills agentes |
+| AT03 | Analise de sentimento em tempo real | Melhoria 25% CSAT | Conversas, avaliacoes |
+| AT04 | Resumo automatico de interacoes | Economia 30% tempo agente | Transcricoes, notas |
+| AT05 | Predicao de escalacao | Reducao 35% escalacoes | Historico tickets, perfil cliente |
 
-### Quadrante 2: Projetos Estrategicos (Alto Valor + Alto Esforco)
-Planejar cuidadosamente. Sao os grandes apostas de transformacao.
+## Framework de Priorizacao
 
-### Quadrante 3: Frutos Baixos (Baixo Valor + Baixo Esforco)
-Implementar quando houver capacidade ociosa.
+### Criterios de Avaliacao (Escala 1-5)
 
-### Quadrante 4: Evitar (Baixo Valor + Alto Esforco)
-Nao investir recursos neste momento.
+| Criterio | Peso | Descricao |
+|---------|------|-----------|
+| Impacto no Negocio | 30% | Potencial de retorno financeiro ou estrategico |
+| Viabilidade Tecnica | 25% | Disponibilidade de dados, complexidade tecnica |
+| Esforco de Implementacao | 20% | Tempo, custo e recursos necessarios |
+| Risco | 15% | Riscos tecnicos, regulatorios e de adocao |
+| Alinhamento Estrategico | 10% | Aderencia a estrategia corporativa |
 
-## Template de Business Case por Caso de Uso
+### Formula de Score
 
-### Descricao do Caso de Uso
-- **Nome**: [Nome descritivo]
-- **Area beneficiada**: [Departamento principal]
-- **Problema a resolver**: [Descricao do problema atual]
-- **Solucao proposta**: [Como AI resolve o problema]
+```
+Score = (Impacto x 0.30) + (Viabilidade x 0.25) + ((6 - Esforco) x 0.20)
+      + ((6 - Risco) x 0.15) + (Alinhamento x 0.10)
+```
 
-### Impacto Esperado
-- **Beneficio quantitativo**: [Valor em R$ ou % de melhoria]
-- **Beneficio qualitativo**: [Melhorias nao quantificaveis]
-- **Timeline para resultado**: [Quando o valor sera percebido]
+Nota: Esforco e Risco sao invertidos (quanto menor, melhor).
 
-### Requisitos
-- **Dados necessarios**: [Fontes de dados e volumes]
-- **Tecnologia**: [Frameworks, infraestrutura, ferramentas]
-- **Equipe**: [Perfis e dedicacao necessaria]
-- **Investimento**: [Custo total estimado]
+### Matriz de Priorizacao
 
-### Riscos
-- **Riscos tecnicos**: [Complexidade, performance, escalabilidade]
-- **Riscos de negocio**: [Adocao, mudanca de processo, regulatorio]
-- **Mitigacoes**: [Acoes para reduzir riscos]
+```
+IMPACTO
+  Alto  | Quick Wins    | Projetos       |
+        | (Prioridade 1)| Estrategicos   |
+        |               | (Prioridade 2) |
+  ------|---------------|----------------|
+  Baixo | Desconsiderar | Evitar         |
+        | (Prioridade 4)| (Prioridade 3) |
+        |_______________|________________|
+         Baixo Esforco   Alto Esforco
+                   ESFORCO
+```
 
-## Catalogo de Casos de Uso Avaliados
+## Resultado da Priorizacao
 
-| # | Caso de Uso | Valor | Viabilidade | Dados | Esforco | Score | Prioridade |
-|---|------------|-------|-------------|-------|---------|-------|------------|
-| 1 | A preencher | - | - | - | - | - | - |
-| 2 | A preencher | - | - | - | - | - | - |
-| 3 | A preencher | - | - | - | - | - | - |
+### Onda 1 - Quick Wins (Meses 1-3)
 
-## Processo de Revisao
+| Rank | Use Case | Score | Investimento |
+|------|---------|-------|-------------|
+| 1 | AT01 - Chatbot inteligente | 4.3 | R$ 150K |
+| 2 | FN04 - Classificacao despesas | 4.1 | R$ 80K |
+| 3 | VM01 - Lead scoring | 4.0 | R$ 120K |
+| 4 | AT04 - Resumo de interacoes | 3.9 | R$ 90K |
 
-- Revisao mensal do catalogo de casos de uso
-- Novos casos de uso podem ser adicionados a qualquer momento
-- Re-priorizacao trimestral com base em resultados dos pilotos
-- Feedback dos pilotos alimenta a avaliacao de novos casos
-- Casos de uso concluidos sao documentados como cases de referencia
+### Onda 2 - Alto Impacto (Meses 4-8)
+
+| Rank | Use Case | Score | Investimento |
+|------|---------|-------|-------------|
+| 5 | VM04 - Previsao de churn | 3.8 | R$ 200K |
+| 6 | OP01 - Previsao de demanda | 3.7 | R$ 250K |
+| 7 | FN01 - Deteccao de fraudes | 3.6 | R$ 300K |
+| 8 | VM03 - Recomendacao produtos | 3.5 | R$ 180K |
+
+### Onda 3 - Estrategicos (Meses 9-15)
+
+| Rank | Use Case | Score | Investimento |
+|------|---------|-------|-------------|
+| 9 | OP03 - Otimizacao de rotas | 3.3 | R$ 350K |
+| 10 | VM05 - Otimizacao pricing | 3.2 | R$ 280K |
+| 11 | FN02 - Forecast automatizado | 3.1 | R$ 220K |
+| 12 | OP02 - Manutencao preditiva | 3.0 | R$ 400K |
+
+## Criterios de Go/No-Go
+
+Antes de iniciar qualquer use case, validar:
+
+- [ ] Dados necessarios estao disponiveis e com qualidade minima
+- [ ] Sponsor de negocio identificado e comprometido
+- [ ] Equipe tecnica alocada (interna ou parceiro)
+- [ ] KPIs de sucesso definidos e acordados
+- [ ] Riscos eticos e regulatorios avaliados
+- [ ] Infraestrutura minima disponivel
+- [ ] Budget aprovado pelo CFO
+- [ ] Timeline realista validada com equipe tecnica
+
+## Governanca do Pipeline
+
+### Revisao Mensal
+- Status de cada use case em execucao
+- Reavaliacao de priorizacao com novos dados
+- Decisoes de go/no-go para proxima onda
+
+### Revisao Trimestral
+- ROI realizado vs projetado por use case
+- Ajuste de pipeline baseado em resultados
+- Inclusao de novos use cases identificados
+
+## Proximo Passo
+
+Os use cases priorizados na Onda 1 sao detalhados no documento
+`03-pilot-execution.md` para planejamento e execucao dos pilotos.

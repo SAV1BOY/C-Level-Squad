@@ -2,148 +2,173 @@
 
 ## Objetivo
 
-Guiar a execucao pratica das iniciativas de transformacao digital, garantindo
-entregas consistentes, gestao de riscos eficaz e alinhamento continuo com
-os objetivos estrategicos definidos no roadmap.
+Definir a metodologia de execucao, estrutura de governanca operacional e processos
+de gestao para garantir a entrega bem-sucedida das iniciativas de transformacao digital.
 
 ## Modelo de Execucao
 
-### Estrutura Organizacional
+### Estrutura de Squads
 
-#### Escritorio de Transformacao Digital (DTO)
-- **Head de Transformacao**: Reporta diretamente ao CEO
-- **Program Manager**: Coordena todas as iniciativas e dependencias
-- **Change Manager**: Lidera gestao de mudanca e comunicacao
-- **Tech Lead**: Garante alinhamento tecnico e arquitetural
-- **Data Lead**: Responsavel pela estrategia de dados
+Cada iniciativa do roadmap sera executada por um squad multifuncional com:
 
-#### Squads de Execucao
-Cada iniciativa deve ter um squad dedicado com:
-- Product Owner (do negocio)
-- Tech Lead (da tecnologia)
-- 2-4 desenvolvedores ou especialistas
-- 1 designer (quando aplicavel)
-- 1 analista de dados (quando aplicavel)
+- **Squad Lead**: Responsavel pela entrega end-to-end
+- **Product Owner**: Define prioridades e aceita entregas
+- **Tech Lead**: Decisoes tecnicas e arquitetura
+- **Especialistas**: 3-5 membros com skills complementares
+- **Change Agent**: Responsavel pela gestao de mudanca
 
-### Metodologia de Execucao
+### Ciclos de Entrega
 
-#### Ciclos de Entrega
-- **Sprints de 2 semanas** para desenvolvimento e implementacao
-- **Reviews quinzenais** com stakeholders do projeto
-- **Retrospectivas** ao final de cada sprint
-- **Demo days mensais** para toda a organizacao
+Adotamos ciclos de 2 semanas (sprints) com as seguintes cerimonias:
 
-#### Processo de Priorizacao Continua
-1. Backlog unificado de iniciativas e features
-2. Priorizacao usando framework RICE (Reach, Impact, Confidence, Effort)
-3. Revisao trimestral de prioridades com comite executivo
-4. Flexibilidade para pivotar baseado em aprendizados
+| Cerimonia | Frequencia | Duracao | Participantes |
+|-----------|-----------|---------|---------------|
+| Sprint Planning | Quinzenal | 2 horas | Squad completo |
+| Daily Standup | Diaria | 15 minutos | Squad completo |
+| Sprint Review | Quinzenal | 1 hora | Squad + stakeholders |
+| Sprint Retro | Quinzenal | 1 hora | Squad completo |
+| Sync de Squads | Semanal | 30 minutos | Squad Leads |
+| Steering Committee | Mensal | 2 horas | C-Level + Squad Leads |
 
-## Gestao de Projetos
+## Fase de Mobilizacao (Semanas 1-2)
 
-### Fase de Kick-off (Semana 1-2 de cada iniciativa)
-1. Alinhamento de escopo e objetivos com sponsor
-2. Definicao de equipe e alocacao de recursos
-3. Identificacao de riscos e dependencias
-4. Definicao de metricas de sucesso
-5. Plano de comunicacao da iniciativa
-6. Setup de ferramentas e ambientes
+### Checklist de Kickoff
 
-### Fase de Desenvolvimento (Iterativo)
-1. Discovery e design da solucao
-2. Desenvolvimento em sprints de 2 semanas
-3. Testes automatizados e manuais
-4. Code review e quality assurance
-5. Documentacao tecnica e de usuario
+- [ ] Definir Squad Lead e membros do squad
+- [ ] Alinhar escopo e criterios de sucesso com sponsor
+- [ ] Configurar ferramentas de gestao (Jira/Linear/Asana)
+- [ ] Criar canal de comunicacao dedicado (Slack/Teams)
+- [ ] Definir Definition of Done (DoD) e Definition of Ready (DoR)
+- [ ] Mapear dependencias com outros squads
+- [ ] Estabelecer cadencia de reporting
+- [ ] Agendar todas as cerimonias recorrentes
+- [ ] Preparar ambiente de desenvolvimento/homologacao
+- [ ] Comunicar inicio do projeto para stakeholders
 
-### Fase de Go-Live
-1. Plano de rollout (big bang vs gradual)
-2. Criterios de go/no-go
-3. Runbook de deploy e rollback
-4. Monitoramento intensivo pos-deploy (war room 48h)
-5. Comunicacao para usuarios impactados
+### Documentacao Inicial Obrigatoria
 
-### Fase de Estabilizacao (2-4 semanas pos go-live)
-1. Monitoramento de metricas de adocao
-2. Resolucao de bugs e issues criticos
-3. Coleta de feedback dos usuarios
-4. Ajustes e otimizacoes
-5. Handover para equipe de sustentacao
+1. **Project Charter**: Escopo, objetivos, restricoes, premissas
+2. **RACI Matrix**: Papeis e responsabilidades detalhados
+3. **Plano de Comunicacao**: Quem, o que, quando, como
+4. **Registro de Riscos**: Top 10 riscos com planos de mitigacao
+5. **Plano de Testes**: Estrategia de QA e criterios de aceitacao
 
-## Gestao de Mudanca
+## Gestao de Entregas
 
-### Framework de Change Management
+### Priorizacao de Backlog
 
-#### Comunicacao
-- **Antes**: Comunicar o porque da mudanca, beneficios esperados
-- **Durante**: Updates regulares de progresso, celebrar quick wins
-- **Depois**: Resultados alcancados, reconhecimento do time
+Utilizamos o framework MoSCoW adaptado:
 
-#### Capacitacao
-- Trilhas de treinamento por perfil de usuario
-- Materiais de apoio (videos, manuais, FAQs)
-- Sessoes de treinamento hands-on
-- Suporte dedicado nas primeiras semanas
+- **Must Have (M)**: Requisitos essenciais para o MVP
+- **Should Have (S)**: Importantes, mas nao bloqueiam lancamento
+- **Could Have (C)**: Desejáveis se houver capacidade
+- **Won't Have (W)**: Fora do escopo desta fase
 
-#### Engajamento
-- Digital Champions em cada departamento
-- Programa de early adopters para pilotos
-- Gamificacao da adocao
-- Reconhecimento publico de cases de sucesso
+### Controle de Qualidade
 
-### Metricas de Adocao
-| Metrica | Meta | Frequencia |
-|---------|------|------------|
-| Taxa de adocao | >80% em 30 dias | Semanal |
-| Satisfacao do usuario | NPS > 30 | Mensal |
-| Tickets de suporte | Reducao de 50% em 60 dias | Semanal |
-| Uso ativo da ferramenta | >70% DAU/MAU | Diario |
-| Conclusao de treinamento | 100% em 2 semanas | Semanal |
+#### Gates de Qualidade por Fase
 
-## Governanca de Execucao
+| Gate | Criterios | Aprovador |
+|------|----------|-----------|
+| G1 - Design Review | Arquitetura validada, riscos mapeados | Tech Lead + Arquiteto |
+| G2 - Code Review | Cobertura de testes >80%, sem bugs criticos | Tech Lead |
+| G3 - QA Sign-off | Testes funcionais e nao-funcionais OK | QA Lead |
+| G4 - UAT | Aceite do usuario de negocio | Product Owner |
+| G5 - Go-Live | Checklist de producao completo | Squad Lead + Ops |
 
-### Rituais de Gestao
+### Gestao de Dependencias
 
-| Ritual | Frequencia | Participantes | Objetivo |
-|--------|-----------|---------------|----------|
-| Daily standup | Diaria | Squad | Sincronizar progresso e bloqueios |
-| Sprint review | Quinzenal | Squad + Stakeholders | Demonstrar entregas |
-| Steering committee | Mensal | C-level + Head DTO | Decisoes estrategicas |
-| Portfolio review | Trimestral | Comite executivo | Revisar prioridades e budget |
+- Mapeamento visual de dependencias entre squads (board dedicado)
+- Reuniao semanal de sync entre Squad Leads para desbloquear impedimentos
+- Escalacao automatica para Steering Committee se bloqueio >48h
+- Buffer de 20% no cronograma para absorver dependencias externas
 
-### Escalation Path
-1. **Nivel 1**: Tech Lead ou PO do squad resolve
-2. **Nivel 2**: Program Manager do DTO intervem
-3. **Nivel 3**: Head de Transformacao decide
-4. **Nivel 4**: Comite executivo (CEO + C-level) delibera
+## Gestao de Mudancas Organizacionais
 
-### Criterios de Pausa ou Cancelamento
-- ROI projetado cai abaixo de 50% do estimado original
-- Riscos tecnicos inaceitaveis identificados apos POC
-- Mudanca estrategica torna a iniciativa irrelevante
-- Falta critica de recursos sem previsao de resolucao
-- Feedback consistentemente negativo dos usuarios-alvo
+### Framework ADKAR
+
+Para cada iniciativa, aplicamos o modelo ADKAR:
+
+1. **Awareness**: Consciencia da necessidade de mudar
+   - Comunicacao do "por que" antes do "o que"
+   - Townhalls com lideranca explicando o contexto
+   - FAQ documento para cada iniciativa
+
+2. **Desire**: Desejo de participar e apoiar a mudanca
+   - Identificacao de early adopters por area
+   - Programa de embaixadores digitais
+   - Incentivos para adocao (gamificacao)
+
+3. **Knowledge**: Conhecimento de como mudar
+   - Trilhas de treinamento por perfil de usuario
+   - Documentacao em video e texto
+   - Sessoes de hands-on com suporte dedicado
+
+4. **Ability**: Capacidade de implementar no dia a dia
+   - Periodo de transicao com sistema antigo e novo em paralelo
+   - Suporte dedicado nas primeiras 4 semanas
+   - Metricas de adocao por usuario/area
+
+5. **Reinforcement**: Reforco para sustentar a mudanca
+   - Celebracao de marcos e conquistas
+   - Feedback continuo e ajustes
+   - Remocao de sistemas legados apos estabilizacao
+
+## Gestao de Riscos na Execucao
+
+### Processo de Gestao de Riscos
+
+1. Identificacao continua (qualquer membro do squad pode registrar)
+2. Avaliacao quinzenal (probabilidade x impacto)
+3. Definicao de resposta (mitigar, aceitar, transferir, evitar)
+4. Monitoramento semanal dos top 10 riscos
+5. Escalacao automatica para riscos com score >15
+
+### Matriz de Escalacao
+
+| Nivel | Condicao | Quem escala | Para quem |
+|-------|---------|------------|-----------|
+| 1 | Risco baixo (score 1-5) | Squad member | Squad Lead |
+| 2 | Risco medio (score 6-10) | Squad Lead | Program Manager |
+| 3 | Risco alto (score 11-15) | Program Manager | Sponsor |
+| 4 | Risco critico (score 16-25) | Sponsor | Steering Committee |
+
+## Metricas de Execucao
+
+### Health Check do Projeto (Semanal)
+
+- **Velocity**: Story points entregues vs planejados
+- **Burndown**: Tendencia de conclusao do backlog
+- **Bloqueios**: Numero e tempo medio de resolucao
+- **Qualidade**: Bugs encontrados em producao
+- **Moral do time**: Pulse check semanal (1-5)
+
+### Reporting
+
+- **Daily**: Status no canal do squad (automatizado)
+- **Semanal**: Dashboard de progresso para stakeholders
+- **Quinzenal**: Sprint review com demo
+- **Mensal**: Steering Committee report
+- **Trimestral**: Board review com ajuste de roadmap
+
+## Criterios de Sucesso por Fase
+
+| Fase | Criterio | Meta |
+|------|---------|------|
+| Mobilizacao | Squad formado e alinhado | 100% checklist concluido |
+| MVP | Funcionalidades core entregues | 100% Must Have implementado |
+| Piloto | Validacao com usuarios reais | NPS >40, adocao >60% |
+| Rollout | Escala para toda organizacao | Adocao >85% em 90 dias |
+| Estabilizacao | Operacao sem incidentes criticos | Uptime >99.5% |
 
 ## Ferramentas de Execucao
 
-| Categoria | Ferramenta | Uso |
-|-----------|-----------|-----|
-| Gestao de projetos | Jira ou Asana | Backlog, sprints, tracking |
-| Documentacao | Confluence ou Notion | Documentacao tecnica e de negocio |
-| Comunicacao | Slack ou Teams | Comunicacao do time |
-| Codigo | GitHub ou GitLab | Versionamento e CI/CD |
-| Monitoramento | Datadog ou Grafana | Observabilidade e alertas |
-| Analytics | Amplitude ou Mixpanel | Metricas de produto e adocao |
-
-## Checklist de Execucao por Iniciativa
-
-- [ ] Sponsor executivo definido e engajado
-- [ ] Squad completo e alocado
-- [ ] Escopo e objetivos documentados e aprovados
-- [ ] Metricas de sucesso definidas e baseline estabelecido
-- [ ] Riscos identificados e planos de mitigacao definidos
-- [ ] Dependencias mapeadas e comunicadas
-- [ ] Plano de comunicacao e change management ativo
-- [ ] Ambiente tecnico configurado
-- [ ] Pipeline de CI/CD funcionando
-- [ ] Plano de rollout e rollback documentado
+| Categoria | Ferramenta | Finalidade |
+|-----------|-----------|-----------|
+| Gestao de Projeto | Jira/Linear | Backlog, sprints, tracking |
+| Comunicacao | Slack/Teams | Comunicacao assincrona do squad |
+| Documentacao | Confluence/Notion | Documentacao tecnica e de negocio |
+| Codigo | GitHub/GitLab | Versionamento e code review |
+| CI/CD | GitHub Actions/GitLab CI | Automacao de deploy |
+| Monitoramento | Datadog/New Relic | Observabilidade de producao |
+| Design | Figma | Prototipagem e design system |

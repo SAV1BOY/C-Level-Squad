@@ -1,55 +1,53 @@
 # Update para Investidores
 
-> Processo estruturado para preparar e enviar updates periódicos para
-> investidores, mantendo transparência e construindo relação de confiança.
-
 ## Objetivo
 
-Manter investidores informados sobre o progresso da empresa, construir
-confiança e goodwill, facilitar suporte estratégico dos investidores,
-e se preparar para futuras rodadas de captação.
+Manter investidores informados sobre o progresso da empresa de forma transparente,
+consistente e acionavel, construindo confianca e facilitando suporte estrategico
+para o crescimento do negocio.
 
-## Frequência
+## Frequencia e Cadencia
 
-- **Update mensal:** Email conciso com métricas-chave
-- **Update trimestral:** Report mais detalhado com análise estratégica
-- **Board meeting:** Trimestral ou conforme acordo (pacote completo)
-- **Ad-hoc:** Eventos materiais (grandes wins, riscos significativos)
+- **Update mensal**: Email conciso com metricas-chave (ate D+5 do mes)
+- **Update trimestral**: Report detalhado com analise estrategica (ate D+15 do Q)
+- **Board meeting**: Trimestral ou conforme acordo (pacote completo)
+- **Ad-hoc**: Eventos materiais (grandes conquistas, riscos significativos, M&A)
 
 ## Template de Update Mensal
 
 ```
-Assunto: [Nome da Empresa] - Update [Mês/Ano]
+Assunto: [Nome da Empresa] - Update [Mes/Ano]
 
-Olá [Investidores],
+Prezados investidores,
 
 RESUMO EM 3 LINHAS
-• [Destaque positivo principal]
-• [Desafio ou risco principal]
-• [Pedido ou próximo milestone]
+- [Destaque positivo principal com numero]
+- [Desafio ou risco principal com plano de acao]
+- [Proximo milestone ou pedido especifico]
 
-MÉTRICAS-CHAVE
-| Métrica | Mês Atual | Mês Anterior | Meta | YoY |
-|---------|-----------|-------------|------|-----|
-| MRR/ARR | | | | |
-| Novos clientes | | | | |
-| Churn | | | | |
-| Cash position | | | | |
-| Burn rate | | | | |
-| Runway (meses) | | | | |
-| Headcount | | | | |
+METRICAS-CHAVE
+| Metrica          | Mes Atual | Mes Anterior | Meta   | YoY    |
+|-----------------|-----------|-------------|--------|--------|
+| MRR/ARR         |           |             |        |        |
+| Novos clientes  |           |             |        |        |
+| Churn (MRR)     |           |             |        |        |
+| NRR             |           |             |        |        |
+| Cash position   |           |             |        |        |
+| Burn rate       |           |             |        |        |
+| Runway (meses)  |           |             |        |        |
+| Headcount       |           |             |        |        |
 
-WINS DO MÊS
-1. [Conquista concreta com números]
-2. [Conquista concreta com números]
+CONQUISTAS DO MES
+1. [Conquista concreta com numeros e impacto]
+2. [Conquista concreta com numeros e impacto]
 
 DESAFIOS
-1. [Desafio honesto com plano de ação]
+1. [Desafio honesto com contexto e plano de acao]
 
-PEDIDOS
-- [Como investidores podem ajudar: intros, conselho, etc.]
+COMO VOCE PODE AJUDAR
+- [Pedido especifico: intro para [empresa/pessoa], conselho sobre [tema]]
 
-Abraços,
+Abracos,
 [CEO]
 ```
 
@@ -60,150 +58,168 @@ Abraços,
 INVESTOR UPDATE - Q[N] [ANO]
 [Nome da Empresa]
 
-1. EXECUTIVE SUMMARY (1 parágrafo)
-Como o trimestre foi em uma frase. Estamos no caminho?
+1. RESUMO EXECUTIVO (1 paragrafo)
+   Estado do trimestre em 3-4 frases honestas. Estamos no caminho?
 
-2. MÉTRICAS DETALHADAS
+2. METRICAS DETALHADAS
+
 2.1 Financeiras
-- Receita: $X (+Y% QoQ, +Z% YoY)
+- Receita: R$ X (+Y% QoQ, +Z% YoY)
 - Margem bruta: X%
-- Burn rate: $X/mês
-- Cash: $X (runway: Y meses)
-- ARR: $X
+- Burn rate: R$ X/mes (tendencia: subindo/caindo)
+- Cash: R$ X (runway: Y meses no cenario base)
+- ARR: R$ X
 
 2.2 Crescimento
-- Novos clientes: X
-- Logo churn: X%
+- Novos clientes: X (meta: Y)
+- Logo churn: X% (meta: <Y%)
 - Net Revenue Retention: X%
-- Pipeline: $X
+- Pipeline qualificado: R$ X
 - Win rate: X%
 
 2.3 Produto
-- Features lançadas: [lista]
-- Métricas de engajamento: [lista]
-- Roadmap highlights para próximo Q
+- Features lancadas: [lista das principais]
+- NPS: X (variacao: +/- Y)
+- Metricas de engajamento: DAU/MAU X%
+- Roadmap highlights proximo Q
 
 2.4 Pessoas
 - Headcount: X (meta: Y)
-- Contratações-chave: [nomes/cargos]
-- Turnover: X%
+- Contratacoes-chave: [nomes/cargos]
+- Turnover: X% (voluntario: Y%)
+- eNPS: X
 
-3. ANÁLISE ESTRATÉGICA
-- O que aprendemos neste trimestre
-- Como o mercado/competição evoluiu
-- Decisões estratégicas tomadas e justificativa
+3. ANALISE ESTRATEGICA
+- O que aprendemos neste trimestre (insights de mercado e produto)
+- Como o cenario competitivo evoluiu
+- Decisoes estrategicas tomadas e justificativa
 
-4. PRIORIDADES PARA O PRÓXIMO TRIMESTRE
-1. [Prioridade com métrica de sucesso]
-2. [Prioridade com métrica de sucesso]
-3. [Prioridade com métrica de sucesso]
+4. PRIORIDADES PARA O PROXIMO TRIMESTRE
+1. [Prioridade com metrica de sucesso clara]
+2. [Prioridade com metrica de sucesso clara]
+3. [Prioridade com metrica de sucesso clara]
 
-5. RISCOS E MITIGAÇÕES
-| Risco | Probabilidade | Impacto | Mitigação |
-|-------|---------------|---------|-----------|
+5. RISCOS E MITIGACOES
+| Risco          | Probabilidade | Impacto | Mitigacao          |
+|---------------|---------------|---------|-------------------|
+| [Risco 1]     | [A/M/B]       | [A/M/B] | [Plano de acao]   |
+| [Risco 2]     | [A/M/B]       | [A/M/B] | [Plano de acao]   |
 
 6. USO DE CAPITAL
-- Burn do trimestre: $X
-- Distribuição: X% pessoas, Y% infra, Z% marketing
-- Projeção para próximo Q
+- Burn do trimestre: R$ X
+- Distribuicao: X% pessoas, Y% infra, Z% marketing, W% outros
+- Comparacao com plano apresentado na captacao
+- Projecao para proximo Q
 
-7. COMO VOCÊ PODE AJUDAR
-- Intros que gostaríamos: [específico]
-- Conselho que buscamos: [específico]
-- Outros: [específico]
+7. COMO VOCE PODE AJUDAR
+- Intros especificas: [nome da empresa/pessoa e por que]
+- Conselho que buscamos: [tema especifico]
+- Outros: [pedidos concretos]
 ```
 
-## Processo de Preparação
+## Processo de Preparacao
 
-### Update Mensal (Esforço: 2-4 horas)
+### Update Mensal (Esforco: 2-4 horas)
 
-**Dia 1-3 do mês:**
-- [ ] Coletar métricas financeiras do mês anterior
-- [ ] Identificar top wins e desafios
-- [ ] Formular pedidos específicos
-- [ ] Redigir email
+**Dia 1-3 do mes:**
+- [ ] Coletar metricas financeiras do mes anterior (FP&A)
+- [ ] Coletar metricas de produto e crescimento (Product/Growth)
+- [ ] Identificar top conquistas e desafios com C-Level
+- [ ] Formular pedidos especificos e acionaveis para investidores
+- [ ] Redigir email seguindo template padrao
 
-**Dia 3-5 do mês:**
-- [ ] Review pelo CFO (números)
-- [ ] Review final pelo CEO (narrativa)
-- [ ] Enviar até dia útil 5
+**Dia 3-5 do mes:**
+- [ ] Review pelo CFO (validacao de numeros e consistencia)
+- [ ] Review final pelo CEO (narrativa e tom)
+- [ ] Enviar ate dia util 5 (consistencia e previsibilidade)
 
-### Update Trimestral (Esforço: 1-2 dias)
+### Update Trimestral (Esforco: 1-2 dias)
 
-**Semana 1 do trimestre:**
-- [ ] Consolidar métricas do Q anterior
-- [ ] Análise estratégica com C-level
-- [ ] Redigir report
+**Semana 1 do novo trimestre:**
+- [ ] Consolidar metricas completas do Q anterior (todas as areas)
+- [ ] Sessao de analise estrategica com C-Level (2 horas)
+- [ ] Redigir report seguindo template trimestral
+- [ ] Incluir analise de uso de capital vs plano
 
 **Semana 2:**
-- [ ] Review interno (CFO, COO)
-- [ ] Enviar para investidores
-- [ ] Agendar calls 1-1 com investidores-chave se necessário
+- [ ] Review interno (CFO valida numeros, COO valida operacoes)
+- [ ] CEO revisa narrativa final e tom da comunicacao
+- [ ] Enviar para investidores via email (BCC entre investidores)
+- [ ] Agendar calls 1-1 com investidores-chave se necessario
 
-## Princípios de Comunicação
+## Principios de Comunicacao com Investidores
 
 ### 1. Honestidade Radical
-- Nunca esconda problemas; investidores descobrem eventualmente
-- Bad news primeiro, com plano de ação
-- Credibilidade é construída em trimestres ruins, não bons
+- Nunca esconda problemas - investidores descobrem eventualmente
+- Bad news primeiro, sempre acompanhada de plano de acao
+- Credibilidade e construida nos trimestres dificeis, nao nos faceis
+- Admitir erros e mostrar aprendizado gera mais confianca que parecer perfeito
 
-### 2. Consistência
-- Mesmo formato todo mês (investidores comparam)
-- Mesmas métricas (não mude métricas quando não favorecem)
-- Mesma cadência (não pule meses)
+### 2. Consistencia Implacavel
+- Mesmo formato e metricas todo mes (investidores comparam ao longo do tempo)
+- Mesmas metricas sempre (nao mude quando nao favorecem)
+- Mesma cadencia sempre (nao pule meses, especialmente os ruins)
+- Se mudar formato, explique o por que e faca a transicao gradual
 
-### 3. Concisão
-- Update mensal: máximo 1 página
-- Update trimestral: máximo 3-4 páginas
-- Investidores recebem dezenas de updates; respeite o tempo
+### 3. Concisao Respeitosa
+- Update mensal: maximo 1 pagina (investidores recebem dezenas)
+- Update trimestral: maximo 3-4 paginas focadas no essencial
+- Dados primeiro, narrativa depois - nao enrole
+- Se o investidor quer detalhes, agende uma call
 
 ### 4. Acionabilidade
-- Sempre inclua "Como você pode ajudar"
-- Pedidos específicos (nome de empresa/pessoa para intro)
-- Investidores querem ajudar mas não sabem como
+- Sempre inclua secao "Como voce pode ajudar"
+- Pedidos especificos (nome de empresa/pessoa para intro, nao generico)
+- Investidores querem ajudar mas precisam de direcao clara
+- Facilite a acao: links, contexto, urgencia
 
-### 5. Contexto
-- Não apenas números, mas o que significam
-- "MRR cresceu 15%" é dado; "Novo canal de aquisição validado" é insight
-- Sempre compare: vs meta, vs mês anterior, vs ano anterior
+### 5. Contexto e Narrativa
+- Nao apenas numeros, mas o que significam para a estrategia
+- "MRR cresceu 15%" e dado; "Novo canal validado com unit economics saudavel" e insight
+- Sempre compare: vs meta, vs mes anterior, vs ano anterior, vs mercado
 
-## O Que NÃO Fazer
+## O Que NAO Fazer
 
-1. **Pular updates em meses ruins** - pior que dar notícia ruim é sumir
-2. **Mudar métricas** - parece que está escondendo algo
-3. **Somente highlights** - investidores querem o quadro completo
-4. **Enviar sem review** - erros em números destroem confiança
-5. **Pedir dinheiro no update** - use conversas 1-1 para fundraising
-6. **Forward do board deck** - investidores que não estão no board não precisam do deck completo
-7. **CC all** - BCC para privacidade entre investidores
+1. **Pular updates em meses ruins** - sumir e pior que dar noticia ruim
+2. **Mudar metricas quando nao favorecem** - parece que esta escondendo algo
+3. **Somente highlights sem desafios** - investidores querem o quadro completo
+4. **Enviar sem review de numeros** - erros destroem confianca rapidamente
+5. **Pedir dinheiro no update regular** - use conversas 1-1 para fundraising
+6. **Forward do board deck completo** - investidores fora do board nao precisam
+7. **CC all entre investidores** - use BCC para privacidade
+8. **Prometer resultados sem base** - underpromise e overdeliver
 
-## Métricas Mínimas por Estágio
+## Metricas Minimas por Estagio
 
 ### Pre-Seed / Seed
-- Cash position e runway
-- MRR ou revenue
-- Número de clientes/usuários
-- Métricas de engajamento (DAU, retention)
-- Burn rate
+- Cash position e runway (meses)
+- MRR ou receita total
+- Numero de clientes/usuarios ativos
+- Metricas de engajamento (retencao, uso)
+- Burn rate mensal
 
 ### Series A
-- Todas acima +
-- CAC e LTV por canal
-- NRR / churn
+- Todas acima mais:
+- CAC e LTV por canal de aquisicao
+- NRR e churn detalhado
 - Pipeline e win rate
 - Unit economics por segmento
 
 ### Series B+
-- Todas acima +
-- Margem bruta e operacional
-- Magic number / sales efficiency
-- Cohort analysis detalhado
-- Path to profitability
+- Todas acima mais:
+- Margem bruta e operacional detalhada
+- Magic number e sales efficiency
+- Cohort analysis com curvas de retencao
+- Path to profitability com timeline
 
-## Referências
+## Gestao do Relacionamento
 
-- "Venture Deals" - Brad Feld & Jason Mendelson
-- "The Hard Thing About Hard Things" - Ben Horowitz
-- YC: "How to Write a Great Investor Update"
-- First Round Capital: "Investor Update Template"
-- Carta blog: resources for founders
+### Cadencia de Interacao Recomendada
+
+| Tipo de Investidor | Update Escrito | Call 1-1 | Board Meeting |
+|-------------------|---------------|---------|---------------|
+| Lead investor | Mensal | Mensal | Trimestral |
+| Board member | Mensal | Bimensal | Trimestral |
+| Investidor ativo | Mensal | Trimestral | N/A |
+| Investidor passivo | Mensal | Semestral | N/A |
+| Angel investor | Mensal | Por demanda | N/A |

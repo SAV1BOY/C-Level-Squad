@@ -2,122 +2,178 @@
 
 ## Objetivo
 
-Avaliar o nivel de maturidade da organizacao em relacao a adocao de
-inteligencia artificial, identificando capacidades existentes, gaps
-criticos e oportunidades de alto impacto para implementacao de AI.
+Avaliar o nivel de maturidade da organizacao em relacao a adocao de Inteligencia
+Artificial, identificando capacidades existentes, gaps criticos e oportunidades
+de alto impacto para orientar a estrategia de AI.
 
-## Dimensoes de Maturidade em AI
+## Dimensoes de Avaliacao
 
-### 1. Estrategia e Visao de AI
+### 1. Estrategia e Lideranca em AI
 
-**Nivel 1 - Exploratoria**
-- Interesse inicial em AI sem estrategia definida
-- Experimentacao pontual por individuos ou equipes isoladas
-- Sem budget dedicado para iniciativas de AI
+**Perguntas-chave:**
+- Existe uma estrategia de AI formalizada e aprovada pela lideranca?
+- O board entende o potencial e riscos de AI para o negocio?
+- Ha orcamento dedicado para iniciativas de AI?
+- Existe um sponsor executivo para o programa de AI?
+- A estrategia de AI esta alinhada com a estrategia de negocio?
 
-**Nivel 2 - Oportunista**
-- Alguns casos de uso identificados e priorizados
-- Budget alocado para pilotos especificos
-- Sponsor executivo designado
+**Criterios de Avaliacao:**
 
-**Nivel 3 - Sistematica**
-- Estrategia de AI documentada e alinhada ao negocio
-- Portfolio de casos de uso com priorizacao estruturada
-- Governanca de AI estabelecida
-
-**Nivel 4 - Transformacional**
-- AI como pilar estrategico central do negocio
-- Inovacao continua com AI embarcada em produtos e processos
-- Ecossistema de parceiros e fornecedores de AI
-
-**Nivel 5 - Visionaria**
-- AI gerando novos modelos de negocio
-- Lideranca de mercado em aplicacoes de AI
-- Contribuicao para o avanaco do estado da arte
+| Nivel | Descricao |
+|-------|-----------|
+| 1 - Inexistente | Nenhuma estrategia de AI definida |
+| 2 - Exploratoria | Interesse da lideranca, sem plano formal |
+| 3 - Planejada | Estrategia documentada com orcamento inicial |
+| 4 - Integrada | AI como parte da estrategia corporativa |
+| 5 - Diferenciadora | AI como vantagem competitiva central |
 
 ### 2. Dados e Infraestrutura
 
-- **Qualidade dos dados**: Os dados sao limpos, consistentes e confiaveis?
-- **Acessibilidade**: Os dados estao disponiveis para times de AI/ML?
-- **Volume e variedade**: Existe volume suficiente de dados relevantes?
-- **Infraestrutura de ML**: Existe infraestrutura para treinar e servir modelos?
-- **Feature store**: Existe um repositorio centralizado de features?
-- **MLOps**: Existe pipeline de CI/CD para modelos de ML?
-- **Governanca de dados**: Politicas de privacidade e etica estao definidas?
+**Perguntas-chave:**
+- Os dados estao organizados e acessiveis para modelos de AI?
+- Existe governanca de dados adequada para treinar modelos?
+- A infraestrutura suporta treinamento e inferencia de modelos?
+- Ha pipelines de dados automatizados (ETL/ELT)?
+- Existe catalogo de dados com metadados documentados?
+
+**Criterios de Avaliacao:**
+
+| Nivel | Descricao |
+|-------|-----------|
+| 1 - Silos | Dados fragmentados, sem qualidade garantida |
+| 2 - Consolidado | Data warehouse basico, qualidade inicial |
+| 3 - Governado | Data lake com governanca, pipelines automatizados |
+| 4 - Otimizado | Feature store, MLOps basico, dados em tempo real |
+| 5 - Avancado | Data mesh, MLOps maduro, dados como produto |
 
 ### 3. Talentos e Competencias
 
-- **Data Scientists**: Quantidade e senioridade do time
-- **ML Engineers**: Capacidade de colocar modelos em producao
-- **Data Engineers**: Capacidade de construir pipelines de dados
-- **AI Product Managers**: Experiencia em produtos com AI
-- **Alfabetizacao em AI**: Nivel de entendimento de AI no C-level e gestores
-- **Cultura de experimentacao**: Time confortavel com hipoteses e testes
+**Perguntas-chave:**
+- Quantos profissionais com skills em AI/ML a empresa possui?
+- Existe programa de capacitacao em AI para o time?
+- Ha parcerias com universidades ou centros de pesquisa?
+- A empresa consegue atrair e reter talentos de AI?
+- Existe um centro de excelencia ou guild de AI?
 
-### 4. Operacionalizacao
+**Criterios de Avaliacao:**
 
-- **Modelos em producao**: Quantos modelos de ML estao em producao?
-- **Monitoramento**: Existe monitoramento de model drift e performance?
-- **Retraining**: Existe processo automatizado de retreinamento?
-- **A/B testing**: Capacidade de testar modelos em producao
-- **Documentacao**: Modelos sao documentados (model cards)?
-- **Reproducibilidade**: Experimentos sao reproduziveis?
+| Nivel | Descricao |
+|-------|-----------|
+| 1 - Ausente | Nenhum profissional dedicado a AI |
+| 2 - Inicial | 1-2 data scientists, sem estrutura formal |
+| 3 - Emergente | Equipe de AI formada, capacitacao em andamento |
+| 4 - Estabelecido | CoE de AI, pipeline de talentos, parcerias academicas |
+| 5 - Lider | Time de AI de classe mundial, contribuicoes open source |
 
-### 5. Etica e Responsabilidade
+### 4. Processos e Governanca de AI
 
-- **Bias e fairness**: Existe processo para avaliar vieses nos modelos?
-- **Transparencia**: Os modelos sao explicaveis quando necessario?
-- **Privacidade**: Conformidade com LGPD e regulacoes aplicaveis?
-- **Comite de etica**: Existe governanca etica para AI?
-- **Impacto social**: O impacto nos colaboradores e avaliado?
+**Perguntas-chave:**
+- Existe um processo definido para ideacao e priorizacao de use cases?
+- Ha governanca para desenvolvimento e deploy de modelos?
+- Existe framework de etica e responsabilidade em AI?
+- Os modelos em producao sao monitorados continuamente?
+- Ha processos de auditoria e explicabilidade de modelos?
 
-## Questionario de Assessment
+**Criterios de Avaliacao:**
 
-### Para Executivos (C-Level)
-1. AI faz parte da estrategia corporativa documentada?
-2. Existe budget dedicado para iniciativas de AI?
-3. Quais resultados de negocio esperamos de AI nos proximos 12 meses?
-4. Existe um responsavel executivo por AI na organizacao?
-5. Como AI se conecta com a estrategia de transformacao digital?
+| Nivel | Descricao |
+|-------|-----------|
+| 1 - Ad hoc | Nenhum processo definido |
+| 2 - Basico | Processos informais, sem governanca |
+| 3 - Definido | Processos documentados, comite de AI ethics |
+| 4 - Gerenciado | MLOps completo, monitoramento de model drift |
+| 5 - Otimizado | AI responsavel integrada, auditoria continua |
 
-### Para Gestores de Tecnologia
-1. Qual a infraestrutura disponivel para ML (GPU, cloud ML services)?
-2. Quantos modelos de ML estao atualmente em producao?
-3. Qual o tempo medio do desenvolvimento de um modelo ate producao?
-4. Existe pipeline de MLOps implementado?
-5. Como e feito o monitoramento de modelos em producao?
+### 5. Cultura e Adocao
 
-### Para Times de Dados
-1. Qual o nivel de qualidade e completude dos dados disponiveis?
-2. Existem datasets rotulados para treinamento supervisionado?
-3. Qual a experiencia do time com frameworks de ML (TensorFlow, PyTorch)?
-4. Existe feature store ou repositorio de features compartilhado?
-5. Como sao gerenciados experimentos e versionamento de modelos?
+**Perguntas-chave:**
+- Os colaboradores entendem o que e AI e seu potencial?
+- Existe abertura para experimentacao com AI?
+- As areas de negocio participam ativamente na ideacao de use cases?
+- Ha resistencia significativa a adocao de solucoes de AI?
+- A organizacao celebra e compartilha casos de sucesso de AI?
 
-## Matriz de Maturidade Consolidada
+**Criterios de Avaliacao:**
 
-| Dimensao | Peso | Nivel Atual | Nivel Alvo 12M |
-|----------|------|-------------|----------------|
-| Estrategia e Visao | 20% | A avaliar | - |
-| Dados e Infraestrutura | 25% | A avaliar | - |
-| Talentos e Competencias | 25% | A avaliar | - |
-| Operacionalizacao | 20% | A avaliar | - |
-| Etica e Responsabilidade | 10% | A avaliar | - |
+| Nivel | Descricao |
+|-------|-----------|
+| 1 - Desconhecimento | Colaboradores nao entendem AI |
+| 2 - Curiosidade | Interesse inicial, muitas duvidas e receios |
+| 3 - Experimentacao | Areas de negocio propondo use cases |
+| 4 - Integracao | AI como ferramenta natural do dia a dia |
+| 5 - Inovacao | Cultura de AI-first em toda organizacao |
+
+## Metodologia de Coleta
+
+### Entrevistas Executivas (C-Level)
+- Duracao: 60 minutos por executivo
+- Foco: Visao estrategica, expectativas e riscos percebidos
+- Participantes: CEO, CTO, CDO, CFO, COO, CHRO
+
+### Workshops com Gestores
+- Duracao: 2 horas por area
+- Foco: Processos atuais, dores, oportunidades de AI
+- Participantes: Diretores e gerentes de cada area
+
+### Survey de Maturidade Digital
+- Publico: Todos os colaboradores
+- Formato: Questionario online (15-20 minutos)
+- Temas: Conhecimento de AI, uso de ferramentas, percepcao
+
+### Auditoria Tecnica
+- Revisao da stack de dados e infraestrutura
+- Avaliacao de modelos de AI existentes (se houver)
+- Analise de ferramentas e plataformas de ML em uso
+- Revisao de seguranca e privacidade de dados
+
+## Scoring e Consolidacao
+
+### Calculo do Score Geral
+
+```
+Score Geral = (Estrategia x 0.20) + (Dados x 0.25) + (Talentos x 0.20)
+            + (Processos x 0.20) + (Cultura x 0.15)
+```
+
+### Interpretacao do Score
+
+| Score | Nivel | Recomendacao |
+|-------|-------|-------------|
+| 1.0 - 1.5 | Iniciante | Foco em educacao e estrategia basica |
+| 1.6 - 2.5 | Exploratorio | Investir em dados e primeiros pilotos |
+| 2.6 - 3.5 | Emergente | Escalar pilotos bem-sucedidos |
+| 3.6 - 4.5 | Avancado | Otimizar e diferenciar com AI |
+| 4.6 - 5.0 | Lider | Inovar e criar vantagem competitiva |
 
 ## Entregaveis do Assessment
 
-1. **Score de maturidade em AI** por dimensao e consolidado
-2. **Mapa de gaps** com priorizacao de acoes
-3. **Inventario de dados** disponiveis para AI
-4. **Catalogo de casos de uso** identificados e priorizados
-5. **Recomendacao de investimento** em talentos e infraestrutura
-6. **Roadmap de AI** de 12 meses com marcos e metricas
+1. **Relatorio de Maturidade em AI** (20-30 paginas)
+   - Score por dimensao e score consolidado
+   - Gaps criticos identificados por dimensao
+   - Benchmark com industria e competidores
+   - Recomendacoes priorizadas
 
-## Proximos Passos Pos-Assessment
+2. **Mapa de Calor de Oportunidades**
+   - Oportunidades por area de negocio
+   - Classificacao por impacto e viabilidade
+   - Quick wins vs projetos estrategicos
 
-1. Apresentar resultados ao comite executivo
-2. Definir top 3 casos de uso para piloto
-3. Elaborar business case para cada piloto
-4. Montar squad de AI (contratar ou realocar)
-5. Selecionar e configurar infraestrutura de ML
-6. Iniciar primeiro piloto em ate 30 dias
+3. **Plano de Acao Inicial**
+   - Top 5 acoes para os proximos 90 dias
+   - Investimento estimado por acao
+   - Responsaveis e marcos de entrega
+
+## Cronograma
+
+| Semana | Atividade |
+|--------|-----------|
+| 1 | Planejamento e alinhamento com sponsors |
+| 2-3 | Entrevistas executivas e workshops |
+| 3-4 | Survey com colaboradores e auditoria tecnica |
+| 5 | Analise e consolidacao de resultados |
+| 6 | Apresentacao de resultados e plano de acao |
+
+## Proximo Passo
+
+Os resultados deste assessment alimentam diretamente o documento
+`02-use-case-prioritization.md` para priorizacao dos casos de uso de AI.
