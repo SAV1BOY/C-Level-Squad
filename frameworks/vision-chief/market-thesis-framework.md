@@ -3,194 +3,168 @@
 ## Propósito e Contexto
 
 A tese de mercado é a narrativa estruturada que explica por que um mercado específico vai se
-comportar de determinada maneira nos próximos 3-10 anos. Diferente da tese estratégica (que diz
-o que a empresa vai fazer), a tese de mercado diz por que o mundo vai mudar de forma que crie
-oportunidade para a empresa.
+transformar de uma maneira particular, e por que a empresa está posicionada para capturar valor
+dessa transformação. Diferente de uma análise de mercado tradicional (que descreve o presente),
+a tese é uma aposta sobre o futuro — falsificável, direcional e com implicações claras para
+alocação de recursos.
 
-Toda grande empresa foi construída sobre uma tese de mercado que se provou correta. A Amazon
-apostou que o e-commerce seria mainstream. A Netflix apostou que streaming substituiria mídia
-física. A Nubank apostou que insatisfação bancária + penetração de smartphones criaria demanda
-massiva por serviços financeiros digitais no Brasil.
+Empresas que operam sem tese de mercado explícita tendem a reagir a concorrentes, perseguir
+oportunidades aleatórias e ter dificuldade em justificar investimentos de longo prazo. A tese
+funciona como um filtro: toda oportunidade que não se encaixa na tese precisa de justificativa
+excepcional para receber atenção.
 
-O erro mais comum é confundir desejo com tese. "Acreditamos que nosso produto vai vender" não é
-uma tese de mercado. Uma tese de mercado articula forças estruturais — tecnológicas, demográficas,
-regulatórias, comportamentais — que criam condições para um novo equilíbrio de mercado.
+Inspiração: Peter Thiel (Zero to One), Andy Rachleff (Value Hypothesis), Marc Andreessen
+(Software is Eating the World como exemplo de tese macro).
 
 ## Quando Usar
 
-- Na fundação de uma empresa ou linha de negócio
-- Ao avaliar entrada em novos mercados ou segmentos
-- Para pitch a investidores (Series A em diante)
-- Na revisão anual de estratégia para validar premissas de mercado
-- Ao avaliar ameaças competitivas emergentes
-- Para decisões de M&A ou parceria estratégica
-
-## Quando NÃO Usar
-
-- Para decisões táticas de curto prazo (< 6 meses)
-- Como justificativa retroativa para decisões já tomadas
-- Em mercados estáveis onde a dinâmica competitiva é bem entendida
-- Como substituto para validação com clientes reais
+- Na fundação da empresa ou entrada em novo mercado
+- Quando investidores pedem "por que agora?" (why now)
+- Em revisões estratégicas anuais para validar se a tese ainda é verdadeira
+- Ao considerar expansão para mercados adjacentes
+- Quando concorrentes inesperados surgem (sinal de que o mercado está mudando)
+- Na preparação de fundraising ou IPO
+- Quando a equipe executiva discorda sobre prioridades (sintoma de teses conflitantes)
 
 ## Componentes do Framework
 
-### 1. Anatomia de uma Tese de Mercado
+### 1. Análise de Forças de Mudança
+Identifique as forças estruturais que estão transformando o mercado:
+
+**Forças Tecnológicas:**
+- Novas tecnologias habilitadoras (ex: LLMs, edge computing, blockchain)
+- Redução de custos de tecnologias existentes (lei de Moore, armazenamento, bandwidth)
+- Convergência tecnológica (mobile + cloud + AI)
+
+**Forças Regulatórias:**
+- Novas regulamentações (LGPD, Open Banking, marco legal de AI)
+- Desregulamentação de setores protegidos
+- Pressões ESG e compliance
+
+**Forças Comportamentais:**
+- Mudanças geracionais (Gen Z no mercado de trabalho)
+- Novos hábitos de consumo pós-pandemia
+- Expectativas de experiência digital
+
+**Forças Econômicas:**
+- Mudanças em estrutura de custos da indústria
+- Novos modelos de monetização viáveis
+- Pressões macroeconômicas (juros, câmbio, inflação)
+
+### 2. Construção da Narrativa Causal
+A tese conecta forças de mudança a oportunidades através de uma cadeia causal:
 
 ```
-FORÇAS ESTRUTURAIS
-  Tecnológicas | Demográficas | Regulatórias | Comportamentais | Econômicas
-    │
-DINÂMICA DE TRANSIÇÃO
-  Como o mercado está mudando de Estado A para Estado B
-    │
-TIMING E CATALISADORES
-  O que vai acelerar ou desacelerar a transição
-    │
-OPORTUNIDADE RESULTANTE
-  Que tipo de empresa/produto/serviço captura valor nessa transição
-    │
-CONDIÇÕES DE VITÓRIA
-  O que precisa ser verdade para essa oportunidade ser grande
-    │
-SINAIS DE INVALIDAÇÃO
-  O que nos provaria errados
+PORQUE [força de mudança 1] + [força de mudança 2]
+ENTÃO [comportamento/mercado vai mudar de X para Y]
+O QUE CRIA [oportunidade específica]
+E NÓS VENCEMOS PORQUE [vantagem competitiva / right to win]
 ```
 
-### 2. Framework STEEP+C para Forças Estruturais
+### 3. Teste de Falsificabilidade
+Para cada tese, defina:
+- **Sinais de confirmação:** O que esperamos ver se a tese estiver correta?
+- **Sinais de invalidação:** O que veríamos se a tese estiver errada?
+- **Horizonte temporal:** Quando esperamos ver esses sinais?
+- **Premissas ordenadas:** Quais premissas têm maior risco de estarem erradas?
 
-- **S** — Social: Mudanças demográficas, comportamentais, culturais
-- **T** — Tecnológica: Novas capacidades, redução de custos, novos paradigmas
-- **E** — Econômica: Ciclos, distribuição de renda, custo de capital
-- **E** — Ecológica: Sustentabilidade, regulação ambiental, recursos
-- **P** — Política: Regulação, geopolítica, política fiscal
-- **C** — Competitiva: Movimentos de incumbentes, novos entrantes, substitutos
-
-### 3. Teste de Robustez da Tese
-
-Cada tese deve sobreviver a cinco desafios:
-
-1. **Teste do contrário**: A tese oposta é igualmente defensável?
-2. **Teste do timing**: Por que agora e não há 5 anos?
-3. **Teste do incumbente**: Por que os players atuais não vão capturar essa oportunidade?
-4. **Teste do tamanho**: O mercado resultante é grande o suficiente para justificar a aposta?
-5. **Teste da execução**: A tese pode ser certa mas nós sermos incapazes de capturar?
+### 4. Sizing da Oportunidade
+Três abordagens complementares:
+- **Top-down:** TAM → SAM → SOM (use com ceticismo, é o mais impreciso)
+- **Bottom-up:** Clientes potenciais × ticket médio × frequência
+- **Análise de valor:** Quanto valor o mercado desperdiça hoje que podemos capturar?
 
 ## Processo Passo-a-Passo
 
-### Fase 1: Mapeamento de Forças (1-2 semanas)
+### Fase 1: Coleta de Sinais (1-2 semanas)
+1. Entrevistar 10-15 participantes do mercado (clientes, não-clientes, fornecedores)
+2. Mapear investimentos recentes de VCs e corporações no setor
+3. Analisar patentes e papers acadêmicos relevantes
+4. Identificar analogias em outros mercados/geografias
 
-1. Montar equipe multidisciplinar (produto, engenharia, vendas, finanças)
-2. Listar todas as forças estruturais relevantes usando framework STEEP+C
-3. Para cada força, classificar: direção (positiva/negativa), magnitude (1-5), velocidade (1-5)
-4. Identificar interações entre forças (reforço mútuo ou cancelamento)
-5. Priorizar as 3-5 forças mais relevantes para o mercado-alvo
+### Fase 2: Síntese da Tese (3-5 dias)
+1. Consolidar forças de mudança em 3-5 macro-tendências
+2. Construir a narrativa causal (template PORQUE/ENTÃO/O QUE CRIA)
+3. Definir 3-5 premissas-chave ordenadas por risco
+4. Sizing da oportunidade usando pelo menos 2 metodologias
 
-### Fase 2: Construção da Narrativa (1 semana)
+### Fase 3: Stress Test (1 semana)
+1. Red team: grupo dedicado a invalidar a tese
+2. Teste com investidores ou advisors externos
+3. Buscar dados que contradigam cada premissa
+4. Comparar com teses de mercado de concorrentes
 
-1. Descrever o Estado A (mercado atual) com dados concretos
-2. Descrever o Estado B (mercado futuro) com projeções fundamentadas
-3. Articular o mecanismo de transição de A para B
-4. Identificar os catalisadores que aceleram a transição
-5. Estimar o timing da transição (otimista, base, pessimista)
-6. Quantificar a oportunidade resultante (TAM/SAM/SOM)
+### Fase 4: Documentação e Comunicação
+1. Documento de tese: máximo 3 páginas
+2. Versão pitch: 5 slides
+3. Versão elevator: 30 segundos
+4. Dashboard de premissas: monitoramento contínuo
 
-### Fase 3: Validação e Stress-Test (1-2 semanas)
-
-1. Aplicar os 5 testes de robustez
-2. Buscar evidências contra a tese (confirmation bias é o inimigo)
-3. Entrevistar 5-10 especialistas do mercado
-4. Analisar 3-5 mercados análogos que passaram por transição similar
-5. Documentar as premissas explícitas e implícitas
-6. Definir sinais de confirmação e invalidação mensuráveis
-
-### Fase 4: Formalização e Comunicação (1 semana)
-
-1. Documentar a tese no template padrão
-2. Apresentar ao board e investidores para challenge
-3. Criar versão resumida para comunicação interna (1 página)
-4. Definir cadência de revisão das premissas
-5. Atribuir responsável por monitoramento de sinais
-
-## Template: Documento de Tese de Mercado
+## Template de Tese de Mercado
 
 ```markdown
-# Tese de Mercado — [Nome do Mercado]
-Data: [Data] | Versão: [X.X] | Autor: [Nome]
+# Tese de Mercado: [Nome do Mercado/Segmento]
 
-## Declaração da Tese (1 parágrafo)
-[Síntese clara e assertiva da tese]
+## A Mudança
+O mercado de [X] está sendo transformado por [forças de mudança]. Nos próximos
+[horizonte], esperamos que [comportamento/estrutura] mude de [estado atual] para
+[estado futuro].
 
-## Estado Atual do Mercado
-- Tamanho: R$ [X]
-- Crescimento: [X]% a.a.
-- Players principais: [Lista]
-- Dor principal dos clientes: [Descrição]
-- Ineficiência central: [Descrição]
+## A Oportunidade
+Essa transformação cria uma oportunidade de [R$ X] porque [lógica de valor].
+Hoje, [% do mercado] ainda opera no modelo antigo, representando [tamanho] de
+valor a ser capturado.
 
-## Forças de Mudança
-| Força | Tipo (STEEP+C) | Direção | Magnitude | Velocidade |
-|-------|----------------|---------|-----------|------------|
-| ...   | ...            | ...     | ...       | ...        |
+## Por Que Nós
+Nossa vantagem competitiva vem de [1-3 fontes de vantagem]. Especificamente:
+- [Vantagem 1]: [evidência]
+- [Vantagem 2]: [evidência]
 
-## Dinâmica de Transição
-De: [Estado A — descrição detalhada]
-Para: [Estado B — descrição detalhada]
-Mecanismo: [Como a transição acontece]
-Catalisador: [O que acelera]
-Bloqueador: [O que desacelera]
+## Premissas Críticas (ordenadas por risco)
+1. [Premissa mais arriscada] — Sinal de confirmação: [X] — Prazo: [Y]
+2. [Segunda premissa] — Sinal de confirmação: [X] — Prazo: [Y]
+3. [Terceira premissa] — Sinal de confirmação: [X] — Prazo: [Y]
 
-## Timing
-- Cenário otimista: [X anos]
-- Cenário base: [X anos]
-- Cenário pessimista: [X anos]
-- Marcos de transição: [Lista]
-
-## Oportunidade Resultante
-- TAM: R$ [X]
-- SAM: R$ [X]
-- SOM (3 anos): R$ [X]
-- Tipo de empresa que captura valor: [Descrição]
-
-## Premissas Críticas
-| Premissa | Grau de certeza | Sinal de confirmação | Sinal de invalidação |
-|----------|----------------|---------------------|---------------------|
-| ...      | ...            | ...                 | ...                 |
-
-## Riscos da Tese
-1. [Risco 1 — probabilidade e impacto]
-2. [Risco 2 — probabilidade e impacto]
-3. [Risco 3 — probabilidade e impacto]
-
-## Mercados Análogos
-[2-3 exemplos de mercados que passaram por transição similar]
-
-## Cadência de Revisão
-- Monitoramento de sinais: mensal
-- Revisão de premissas: trimestral
-- Atualização da tese: semestral
+## Kill Criteria
+Abandonamos esta tese se: [condições específicas e mensuráveis]
 ```
 
-## Métricas de Sucesso do Framework
+## Checklist de Validação
 
-- **Precisão das premissas**: >70% das premissas críticas confirmadas em 12 meses
-- **Antecipação**: Identificar mudanças de mercado 6-12 meses antes dos concorrentes
-- **Alinhamento**: 100% do time executivo capaz de articular a tese de mercado
-- **Atualização**: Tese revisada no mínimo trimestralmente com dados novos
-- **Decisões informadas**: >80% das decisões estratégicas referenciam a tese de mercado
+- [ ] A tese é falsificável (pode estar errada)?
+- [ ] Existe uma cadeia causal clara entre forças de mudança e oportunidade?
+- [ ] O timing é justificado (por que agora e não 5 anos atrás ou 5 anos no futuro)?
+- [ ] O sizing usa pelo menos duas metodologias independentes?
+- [ ] Premissas estão explícitas e ordenadas por risco?
+- [ ] Kill criteria estão definidos e são mensuráveis?
+- [ ] A tese foi testada com pelo menos 3 pessoas externas ao time?
+- [ ] Existe um dashboard de monitoramento de premissas?
+- [ ] A tese explica por que incumbentes não capturam essa oportunidade?
+- [ ] O right to win é baseado em evidência, não em wishful thinking?
 
-## Anti-Padrões Comuns
+## Métricas de Sucesso
 
-1. **Tese por desejo**: Confundir o que queremos que aconteça com o que vai acontecer
-2. **Tese estática**: Formular uma vez e nunca revisitar
-3. **Tese hermética**: Ignorar evidências contrárias sistematicamente
-4. **Tese genérica**: "O mercado está crescendo" não é uma tese, é uma observação
-5. **Tese de consenso**: Se todo mundo concorda, provavelmente é óbvia demais para gerar vantagem
+| Métrica | Alvo | Frequência |
+|---------|------|------------|
+| Premissas validadas | > 70% confirmadas no prazo | Trimestral |
+| Precisão de sizing | Variação < 2x do estimado vs. realizado | Anual |
+| Investor conviction | > 80% dos investidores endossam a tese | Por rodada |
+| Team alignment | 100% do C-level articula a tese consistentemente | Trimestral |
+| Market signal tracking | Dashboard atualizado semanalmente | Semanal |
+
+## Anti-Padrões
+
+1. **Tese de confirmação** — Buscar apenas dados que confirmam, ignorando contra-evidências
+2. **Tese genérica** — "O mercado de X vai crescer" não é tese, é óbvio
+3. **Tese estática** — Nunca revisitar premissas após a construção inicial
+4. **Tese por analogia preguiçosa** — "Somos o Uber de X" sem validar se a dinâmica é similar
+5. **Confundir TAM com oportunidade** — Mercado grande ≠ oportunidade real para sua empresa
 
 ## Referências Cruzadas
 
-- `frameworks/vision-chief/vision-chief-strategic-thesis.md` — Tese estratégica (empresa)
-- `frameworks/vision-chief/competitive-moat-analysis.md` — Análise de vantagem competitiva
-- `frameworks/vision-chief/vision-chief-bet-sizing.md` — Dimensionamento de apostas
-- `frameworks/cfo-strategist/scenario-planning.md` — Cenários financeiros
-- `frameworks/caio-architect/ai-product-development.md` — Se a tese envolve AI
-- `frameworks/shared/decision-framework.md` — Para decisões derivadas da tese
+- `frameworks/vision-chief/vision-strategy-cascade.md` — Como a tese alimenta o cascade estratégico
+- `frameworks/vision-chief/competitive-moat-analysis.md` — Análise de right to win
+- `frameworks/cfo-strategist/unit-economics.md` — Validação econômica da tese
+- `frameworks/cfo-strategist/fundraising-readiness.md` — Comunicação da tese para investidores
+- `frameworks/caio-architect/ai-product-development.md` — Tese de mercado para produtos de AI
+- `frameworks/shared/risk-management.md` — Gestão de riscos associados à tese

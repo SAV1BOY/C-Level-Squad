@@ -37,6 +37,11 @@ Situacoes que exigem intervencao direta do operador humano:
    - Prazo para escalar: 24 horas apos identificacao do padrao.
    - Informacoes necessarias: Agente envolvido, decisoes fora do escopo, frequencia, impacto.
 
+6. **Perda de Confianca em Agente C-Level**
+   - Criterio: Evidencia de que um agente nao esta cumprindo seu mandato ou agindo contra os interesses do squad.
+   - Prazo para escalar: 48 horas apos confirmacao da evidencia.
+   - Informacoes necessarias: Evidencias documentadas, padrao identificado, impacto na operacao.
+
 ### Categoria 2 - Escalacao para o C-Level Squad
 
 Situacoes que exigem deliberacao coletiva:
@@ -61,32 +66,42 @@ Situacoes que exigem deliberacao coletiva:
    - Prazo: 72 horas apos identificacao do terceiro sinal.
    - Formato: Documento de analise com recomendacoes.
 
+5. **Falha em Bet Estrategica**
+   - Criterio: Uma aposta estrategica atinge 2 ou mais kill criteria simultaneamente.
+   - Prazo: 24 horas apos confirmacao dos kill criteria.
+   - Formato: Post-mortem preliminar com opcoes de continuidade, pivot ou encerramento.
+
 ### Categoria 3 - Escalacao para Agentes Especificos
 
 1. **Para o CFO Strategist**
    - Qualquer decisao com impacto financeiro acima de R$ 100.000.
    - Desvio de budget superior a 10% em qualquer area.
    - Necessidade de modelagem financeira para decisao estrategica.
+   - Risco de cash flow identificado nos proximos 90 dias.
 
 2. **Para o CTO Architect**
    - Decisoes que envolvam mudanca de stack tecnologico.
    - Identificacao de divida tecnica critica que impacte a estrategia.
    - Avaliacao de viabilidade tecnica de nova direcao estrategica.
+   - Incidentes de disponibilidade ou performance que afetem a operacao.
 
 3. **Para o COO Orchestrator**
    - Decisoes que impactem processos operacionais existentes.
    - Necessidade de coordenacao multi-agente para implementacao.
    - Identificacao de gargalos operacionais que impactem a estrategia.
+   - Necessidade de realocar capacidade operacional entre squads.
 
 4. **Para o CIO Engineer**
    - Necessidade de dados ou analises para embasar decisao estrategica.
    - Identificacao de riscos de seguranca da informacao.
    - Decisoes que envolvam infraestrutura de dados.
+   - Requisitos regulatorios de dados (LGPD, compliance).
 
 5. **Para o CAIO Architect**
    - Oportunidades de aplicacao de IA em iniciativas estrategicas.
    - Avaliacoes de maturidade de IA necessarias para planejamento.
    - Riscos eticos relacionados ao uso de IA.
+   - Necessidade de avaliacao de modelos ou fornecedores de IA.
 
 ---
 
@@ -95,17 +110,23 @@ Situacoes que exigem deliberacao coletiva:
 ### Passo 1 - Identificacao
 O Vision Chief identifica a condicao que atende a um trigger de escalacao.
 
-### Passo 2 - Documentacao
+### Passo 2 - Classificacao de Urgencia
+- **Critico**: Resposta em ate 1 hora. Risco existencial ou violacao etica.
+- **Alto**: Resposta em ate 24 horas. Impacto financeiro significativo ou falha de governanca.
+- **Medio**: Resposta em ate 48 horas. Desvio de OKRs ou mudanca de contexto.
+- **Baixo**: Resposta em ate 72 horas. Sinais fracos ou oportunidades nao urgentes.
+
+### Passo 3 - Documentacao
 Registrar em formato padrao: trigger ativado, contexto, urgencia, opcoes preliminares.
 
-### Passo 3 - Notificacao
+### Passo 4 - Notificacao
 Notificar o(s) destinatario(s) da escalacao via protocolo de comunicacao padrao.
 
-### Passo 4 - Acompanhamento
+### Passo 5 - Acompanhamento
 Monitorar o progresso da resolucao e fornecer informacoes adicionais conforme solicitado.
 
-### Passo 5 - Resolucao e Registro
-Documentar a resolucao, decisao tomada e licoes aprendidas.
+### Passo 6 - Resolucao e Registro
+Documentar a resolucao, decisao tomada e licoes aprendidas no decision-registry.
 
 ---
 
@@ -115,6 +136,16 @@ Documentar a resolucao, decisao tomada e licoes aprendidas.
 - Tempo medio de resolucao por categoria
 - Taxa de escalacoes que resultaram em mudanca de direcao
 - Escalacoes que poderiam ter sido evitadas (analise retrospectiva)
+- Custo estimado de atraso por escalacao nao realizada a tempo
+
+---
+
+## Anti-Padroes de Escalacao
+
+1. **Escalacao por conveniencia**: Escalar para evitar responsabilidade, nao por necessidade real.
+2. **Escalacao tardia**: Esperar demais para escalar, aumentando o impacto do problema.
+3. **Escalacao sem contexto**: Escalar sem fornecer informacoes suficientes para tomada de decisao.
+4. **Escalacao em cascata**: Escalar para multiplos agentes simultaneamente sem definir quem e o dono.
 
 ---
 

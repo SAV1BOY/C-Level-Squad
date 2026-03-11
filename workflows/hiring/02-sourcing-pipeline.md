@@ -2,104 +2,121 @@
 
 ## Objetivo
 
-Estruturar o processo de identificação, atração e qualificação inicial de candidatos para posições abertas, garantindo diversidade no pipeline, eficiência nos canais de sourcing e qualidade dos candidatos que avançam para entrevistas. Este workflow maximiza o alcance e a velocidade de preenchimento das vagas.
+Estruturar o processo de identificação, atração e qualificação de candidatos para posições aprovadas, maximizando a qualidade do pipeline e reduzindo o time-to-fill através de múltiplos canais de sourcing.
 
-## Trigger (Gatilho)
+## Trigger
 
-- Requisição de vaga aprovada e liberada no ATS (output do workflow 01-requisition-approval).
-- Kickoff meeting entre o Talent Acquisition Partner e o gestor da vaga realizado.
+- Requisição de vaga aprovada (status "Aprovada" no ATS)
+- Kick-off realizado entre Talent Acquisition e gestor solicitante
+- Estratégia de sourcing definida e documentada
 
 ## Participantes (RACI)
 
 | Papel | Responsabilidade |
-|---|---|
-| Talent Acquisition Partner (TAP) | **Responsible** — Executa a estratégia de sourcing |
-| Gestor da Vaga (Hiring Manager) | **Accountable** — Define perfil ideal e valida candidatos |
-| Sourcer / Researcher | **Responsible** — Busca ativa de candidatos passivos |
-| Employer Branding | **Consulted** — Fornece materiais e estratégia de marca empregadora |
-| Business Partner de RH | **Informed** — Acompanha métricas do pipeline |
-| Diversidade & Inclusão | **Consulted** — Valida estratégias de diversidade no pipeline |
+|-------|-----------------|
+| Recruiter / Sourcer | **Responsible** — Executa sourcing ativo e passivo |
+| Gestor Solicitante | **Accountable** — Valida qualidade do pipeline |
+| HRBP | **Consulted** — Apoia em posições estratégicas |
+| Employer Branding | **Consulted** — Fornece materiais de atração |
+| TA Lead | **Informed** — Monitora métricas do pipeline |
+
+## Canais de Sourcing
+
+### Canais Primários
+1. **LinkedIn Recruiter**: Busca ativa com InMails personalizados
+2. **Banco de talentos interno**: Candidatos de processos anteriores
+3. **Programa de indicação (referral)**: Colaboradores como fonte prioritária
+4. **Job boards especializados**: Vagas publicadas em plataformas relevantes
+
+### Canais Secundários
+5. **Comunidades técnicas**: Meetups, conferências, grupos no Slack/Discord
+6. **Universidades e bootcamps**: Para posições de entrada e estágio
+7. **Agências de recrutamento**: Para posições de difícil preenchimento
+8. **Redes sociais**: Conteúdo de employer branding para atração passiva
+
+### Canais de Diversidade
+9. **Programas afirmativos**: Parcerias com organizações de diversidade
+10. **Plataformas inclusivas**: Vagas em canais especializados (PcD, 50+, LGBTQIA+)
 
 ## Etapas do Workflow
 
-### Etapa 1: Kickoff e Alinhamento de Perfil
-- TAP agenda reunião de intake com o Hiring Manager em até 48h após aprovação da vaga.
-- Definem juntos: perfil ideal (must-have vs. nice-to-have), competências técnicas e comportamentais, faixa salarial, timeline esperada.
-- Criam scorecard de avaliação com critérios ponderados.
-- TAP elabora estratégia de sourcing multicanal com base no perfil.
+### Etapa 1: Definição de Persona do Candidato Ideal
+- Construir perfil detalhado: hard skills, soft skills, experiência mínima e desejável
+- Mapear empresas-alvo para hunting (competidores, empresas referência)
+- Definir critérios de eliminação e critérios de diferenciação
+- Documentar no ATS como scorecard de sourcing
+- **SLA: 2 dias úteis após kick-off**
 
-### Etapa 2: Ativação de Canais de Sourcing
-- **Canais internos**: Publicação no portal de vagas internas, programa de indicação (referral), banco de talentos.
-- **Canais externos**: LinkedIn Recruiter, plataformas de emprego (Gupy, Catho, Indeed), comunidades técnicas, eventos e feiras.
-- **Canais de diversidade**: Parcerias com organizações de diversidade, bootcamps, universidades.
-- Publicação da vaga com linguagem inclusiva revisada pelo time de D&I.
-- TAP define budget de mídia para divulgação quando aplicável.
+### Etapa 2: Ativação de Canais
+- Publicar vaga nos canais definidos na estratégia
+- Iniciar busca ativa no LinkedIn e banco de talentos
+- Disparar comunicação para programa de referral
+- Ativar agência externa se necessário (com briefing documentado)
+- **SLA: 3 dias úteis**
 
-### Etapa 3: Busca Ativa (Hunting)
-- Sourcer realiza pesquisa booleana e mapeamento de mercado.
-- Identificação de 50-100 perfis potenciais por vaga (dependendo da senioridade).
-- Abordagem personalizada via InMail, email ou rede de contatos.
-- Meta de taxa de resposta: ≥ 30% para posições técnicas, ≥ 40% para posições de negócio.
-- Atualização diária do pipeline no ATS.
+### Etapa 3: Outreach e Abordagem
+- Mensagens personalizadas para candidatos passivos (mínimo 3 touchpoints)
+- Taxa de resposta esperada: 25-35% para InMails personalizados
+- Follow-up estruturado: D+3, D+7, D+14
+- Registrar todas as interações no ATS
+- **SLA: contínuo durante o processo**
 
-### Etapa 4: Triagem Inicial (Screening)
-- Análise de currículos e perfis contra o scorecard definido na Etapa 1.
-- Phone screening de 15-20 minutos para candidatos que passam na triagem de currículo.
-- Critérios de phone screening: motivação, pretensão salarial, disponibilidade, fit cultural básico.
-- Classificação em: avança para entrevista, banco de talentos, ou descartado (com feedback).
+### Etapa 4: Triagem Inicial (Phone Screening)
+- Ligação ou call de 20-30 minutos com candidatos interessados
+- Validar: motivação, pretensão salarial, disponibilidade, fit básico
+- Aplicar scorecard padronizado de triagem
+- Classificar: Avançar / Manter no banco / Declinar
+- **SLA: 48h após manifestação de interesse**
 
-### Etapa 5: Qualificação e Apresentação ao Hiring Manager
-- TAP compila shortlist de 3-5 candidatos qualificados.
-- Prepara relatório com resumo de cada candidato, pontos fortes, riscos e recomendação.
-- Apresenta ao Hiring Manager em reunião semanal de pipeline review.
-- Hiring Manager seleciona candidatos para fase de entrevistas.
+### Etapa 5: Apresentação de Shortlist ao Gestor
+- Compilar shortlist com 3-5 candidatos qualificados
+- Incluir: resumo do perfil, scorecard de triagem, observações do recruiter
+- Reunião de calibração com gestor para alinhar expectativas
+- Ajustar perfil ou estratégia se necessário
+- **SLA: semanal (a cada 5-7 dias)**
 
 ### Etapa 6: Gestão Contínua do Pipeline
-- Atualização semanal de métricas de funil no dashboard.
-- Reunião quinzenal de pipeline review com o Business Partner de RH.
-- Ajuste de estratégia de sourcing caso o pipeline não atinja volume ou qualidade esperados.
-- Nutrição de candidatos no banco de talentos com comunicações periódicas.
+- Atualizar status de todos os candidatos no ATS diariamente
+- Monitorar métricas de funil semanalmente
+- Reportar blockers e riscos ao TA Lead
+- Nutrir candidatos em pipeline longo com conteúdo de employer branding
 
 ## Outputs / Entregáveis
 
-- Estratégia de sourcing documentada por vaga.
-- Scorecard de avaliação de candidatos.
-- Shortlist qualificada apresentada ao Hiring Manager.
-- Dashboard de pipeline atualizado semanalmente.
-- Banco de talentos enriquecido com candidatos mapeados.
-- Relatório de diversidade do pipeline.
+- Pipeline ativo com mínimo de 10 candidatos qualificados por vaga
+- Shortlist de 3-5 candidatos para fase de entrevistas
+- Relatório semanal de sourcing (volume, conversão, canais)
+- Scorecard de triagem preenchido para cada candidato avaliado
+- Feedback documentado para candidatos declinados
 
 ## Métricas de Sucesso
 
-| Métrica | Meta |
-|---|---|
-| Tempo para primeira shortlist (da abertura da vaga) | ≤ 10 dias úteis |
-| Número de candidatos qualificados por vaga | ≥ 5 |
-| % de diversidade no pipeline (gênero, etnia) | ≥ 40% de grupos sub-representados |
-| Taxa de conversão triagem → entrevista | ≥ 30% |
-| Taxa de resposta em abordagens ativas | ≥ 30% |
-| Custo por candidato qualificado | Monitorado por canal |
-| % de vagas preenchidas por indicação | ≥ 25% |
+| Métrica | Meta | Frequência |
+|---------|------|------------|
+| Candidatos qualificados no pipeline | ≥ 10 por vaga | Semanal |
+| Taxa de conversão sourcing para triagem | ≥ 30% | Semanal |
+| Taxa de conversão triagem para entrevista | ≥ 50% | Semanal |
+| Time-to-shortlist | ≤ 15 dias | Por vaga |
+| Diversidade do pipeline | ≥ 30% grupos sub-representados | Mensal |
+| Custo por candidato qualificado | Benchmark por nível | Trimestral |
+| Índice de candidatos via referral | ≥ 25% do pipeline | Mensal |
+
+## Regras de Exceção
+
+- **Posições C-Level**: Sourcing conduzido por executive search (interno ou externo)
+- **Posições de alta urgência**: Ativação imediata de agência + sourcing dedicado full-time
+- **Posições confidenciais**: Sourcing sem divulgação pública, apenas hunting direto
 
 ## Integração com Outros Workflows
 
-- **01-requisition-approval.md** — Requisição aprovada é o input deste workflow.
-- **03-interview-process.md** — Candidatos qualificados são encaminhados para o processo de entrevista.
-- **change-management/03-communication-plan.md** — Vagas abertas podem ser comunicadas internamente como parte de mudanças organizacionais.
-- **okr-cycle/02-quarterly-planning.md** — Metas de contratação são definidas no planejamento trimestral.
+- **01-requisition-approval.md**: Recebe requisição aprovada como input
+- **03-interview-process.md**: Candidatos shortlistados avançam para entrevistas
+- **Change Management / 02-stakeholder-mapping.md**: Para contratações de reestruturação
+- **OKR Cycle / 02-quarterly-planning.md**: Priorização de vagas alinhada aos OKRs
 
-## Boas Práticas
+## Ferramentas Recomendadas
 
-- Sempre iniciar com busca interna antes de abrir para o mercado externo.
-- Manter comunicação transparente com candidatos sobre prazos e próximos passos.
-- Registrar todas as interações no ATS para compliance e rastreabilidade.
-- Revisar linguagem de vagas trimestralmente para garantir inclusividade.
-- Manter relacionamento com candidatos do banco de talentos mesmo sem vagas imediatas.
-
-## Ferramentas e Sistemas
-
-- ATS (Gupy, Greenhouse, Lever) para gestão do pipeline.
-- LinkedIn Recruiter para busca ativa.
-- Plataformas de assessment para triagem técnica inicial (quando aplicável).
-- CRM de talentos para nutrição de relacionamento.
-- Dashboards de BI para métricas de recrutamento.
+- LinkedIn Recruiter para sourcing ativo
+- ATS (Greenhouse, Lever, Gupy) para gestão do pipeline
+- Crystal Knows ou similar para personalização de abordagem
+- Relatórios automatizados de funil (Metabase, Looker)

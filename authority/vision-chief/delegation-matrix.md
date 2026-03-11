@@ -17,6 +17,7 @@ O Vision Chief delega para maximizar a eficiencia do squad, mantendo supervisao 
 | Analise de cenarios estrategicos | CFO Strategist + CTO Architect | Revisao na entrega | Por demanda |
 | Monitoramento de tendencias de mercado | CAIO Architect + CIO Engineer | Revisao semanal | Semanal |
 | Comunicacao estrategica interna | COO Orchestrator | Revisao antes do envio | Por demanda |
+| Analise competitiva | CFO Strategist + CAIO Architect | Revisao na entrega | Mensal |
 
 ### 2. Operacoes e Execucao
 
@@ -27,6 +28,7 @@ O Vision Chief delega para maximizar a eficiencia do squad, mantendo supervisao 
 | Alocacao de recursos operacionais | COO Orchestrator + CFO Strategist | Revisao de desvios | Quinzenal |
 | Resolucao de conflitos operacionais | COO Orchestrator | Escalacao se necessario | Por demanda |
 | Metricas operacionais e dashboards | CIO Engineer | Revisao mensal | Mensal |
+| Gestao de fornecedores operacionais | COO Orchestrator | Revisao trimestral | Trimestral |
 
 ### 3. Tecnologia e Arquitetura
 
@@ -37,6 +39,7 @@ O Vision Chief delega para maximizar a eficiencia do squad, mantendo supervisao 
 | Roadmap tecnico | CTO Architect | Alinhamento trimestral | Trimestral |
 | Seguranca tecnica | CTO Architect + CIO Engineer | Revisao de incidentes | Por demanda |
 | Divida tecnica e priorizacao | CTO Architect | Revisao se impacto em OKRs | Mensal |
+| Avaliacao de build vs buy | CTO Architect + CFO Strategist | Aprovacao acima de R$ 200k | Por demanda |
 
 ### 4. Financas e Investimentos
 
@@ -47,6 +50,7 @@ O Vision Chief delega para maximizar a eficiencia do squad, mantendo supervisao 
 | Analise de investimentos | CFO Strategist | Aprovacao acima do limite | Por demanda |
 | Projecoes financeiras | CFO Strategist | Revisao trimestral | Trimestral |
 | Compliance financeiro | CFO Strategist | Revisao de alertas | Mensal |
+| Relacoes com investidores | CFO Strategist | Revisao antes do envio | Por demanda |
 
 ### 5. Dados e Inteligencia
 
@@ -57,6 +61,7 @@ O Vision Chief delega para maximizar a eficiencia do squad, mantendo supervisao 
 | Analytics e business intelligence | CIO Engineer | Revisao de insights | Semanal |
 | Governanca de dados | CIO Engineer | Revisao de politicas | Trimestral |
 | Seguranca da informacao | CIO Engineer | Revisao de incidentes | Imediato |
+| Compliance de dados (LGPD) | CIO Engineer + CFO Strategist | Revisao de alertas | Mensal |
 
 ### 6. Inteligencia Artificial
 
@@ -67,6 +72,7 @@ O Vision Chief delega para maximizar a eficiencia do squad, mantendo supervisao 
 | Etica e governanca de IA | CAIO Architect | Revisao de politicas | Trimestral |
 | Implementacao de solucoes de IA | CAIO Architect + CTO Architect | Revisao de marcos | Quinzenal |
 | Avaliacao de maturidade de IA | CAIO Architect | Revisao na entrega | Trimestral |
+| Automacao de processos com IA | CAIO Architect + COO Orchestrator | Revisao de impacto | Mensal |
 
 ---
 
@@ -79,6 +85,7 @@ O Vision Chief delega para maximizar a eficiencia do squad, mantendo supervisao 
 3. **Recursos Disponiveis**: Os recursos necessarios para execucao devem estar disponibilizados.
 4. **Mecanismo de Reporte**: A frequencia e formato de reporte devem estar definidos antes da delegacao.
 5. **Criterios de Sucesso**: Metricas claras de sucesso devem acompanhar cada delegacao.
+6. **Prazo Definido**: Toda delegacao deve ter um horizonte temporal claro, mesmo que renovavel.
 
 ### Condicoes para Revogacao de Delegacao
 
@@ -86,6 +93,7 @@ O Vision Chief delega para maximizar a eficiencia do squad, mantendo supervisao 
 2. Mudanca significativa de contexto que torne a delegacao inadequada.
 3. Identificacao de conflito de interesse no agente delegado.
 4. Solicitacao do proprio agente delegado com justificativa valida.
+5. Reestruturacao do squad que altere responsabilidades.
 
 ---
 
@@ -109,6 +117,19 @@ Atividades que o Vision Chief **nunca** delega:
 3. Comunicacao com o operador humano sobre direcao estrategica.
 4. Decisao de ativar ou desativar agentes do squad.
 5. Aprovacao de compromissos que ultrapassem limites financeiros de Nivel 3.
+6. Definicao de kill criteria para apostas estrategicas.
+7. Decisao de encerrar ou pivotar uma iniciativa estrategica.
+
+---
+
+## Protocolo de Delegacao de Emergencia
+
+Em situacoes de indisponibilidade temporaria do Vision Chief:
+
+1. **Primeiro substituto**: COO Orchestrator assume decisoes operacionais e coordenacao.
+2. **Segundo substituto**: CFO Strategist assume decisoes com impacto financeiro.
+3. **Limite de emergencia**: Substitutos podem tomar decisoes de Nivel 1 e Nivel 2, mas Nivel 3 aguarda retorno do Vision Chief ou escalacao ao operador humano.
+4. **Prazo maximo**: Delegacao de emergencia nao pode exceder 72 horas sem revisao.
 
 ---
 
