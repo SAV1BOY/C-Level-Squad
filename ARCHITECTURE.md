@@ -99,18 +99,22 @@ Todo agente segue exatamente 6 layers:
                     │   VISION CHIEF   │
                     │  (CEO/Fundador)  │
                     └───────┬──────────┘
-            ┌───────────────┼───────────────┐
-            │               │               │
-     ┌──────┴─────┐  ┌─────┴──────┐  ┌─────┴──────┐
-     │    COO     │  │    CMO     │  │    CTO     │
-     │Orchestrator│  │  Architect │  │  Architect │
-     └──────┬─────┘  └────────────┘  └─────┬──────┘
-            │                               │
-     ┌──────┴─────┐                  ┌──────┴─────┐
-     │    CIO     │                  │    CAIO    │
-     │  Engineer  │                  │  Architect │
-     └────────────┘                  └────────────┘
+        ┌───────────┬───────┼───────┬───────────┐
+        │           │       │       │           │
+  ┌─────┴─────┐ ┌──┴───┐ ┌─┴──┐ ┌──┴──┐ ┌─────┴─────┐
+  │    COO    │ │ CMO  │ │CTO │ │ CFO │ │   CAIO    │
+  │Orchestratr│ │Archt │ │Arch│ │Strat│ │  Architect │
+  └─────┬─────┘ └──────┘ └──┬─┘ └─────┘ └───────────┘
+        │                    │
+  ┌─────┴─────┐        ┌────┴────┐
+  │    CIO    │        │  Squad  │
+  │  Engineer │        │Coordintr│
+  └───────────┘        └─────────┘
 ```
+
+> **Nota**: O Squad possui 8 agentes: 6 C-Level (Vision Chief, COO, CMO, CTO, CIO, CAIO),
+> 1 CFO Strategist (finanças e capital) e 1 Squad Coordinator (facilitação operacional).
+> Detalhes completos em `config.yaml` seção `agents:`.
 
 ### 3.1 Regras de Autoridade
 
@@ -341,6 +345,21 @@ Nível 4: Advisory Board consulta
 2. **Reversibilidade decide velocidade** — Type 2 (reversível) = decide rápido, Type 1 = delibere
 3. **Owner decide** — o DRI tem a última palavra no seu domínio
 4. **Kill criteria são inegociáveis** — se não passou no gate, não passa
+
+### 7.3 Quality Gate Cascade
+
+O sistema de gates opera em **6 camadas em cascata** — do agente individual até o board:
+
+| Camada | Gate | O que Valida |
+|--------|------|-------------|
+| 1 | Agent Gate | Auto-verificação do agente (Layer 6 Meta-Cognitive) |
+| 2 | Task Gate | Output validado contra checklists do routing |
+| 3 | Workflow Gate | Transição entre estágios do workflow |
+| 4 | Squad Gate | Aprovação do Chief antes de saída externa |
+| 5 | Cross-Squad Gate | Handoff validado (DoD/DoR) entre squads |
+| 6 | HRM Gate | Aprovação final para stakeholders (board/investidores) |
+
+> **Documento completo**: `docs/quality-gate-cascade.md`
 
 ---
 

@@ -175,7 +175,7 @@ handoff:
   from: coo-orchestrator
   to: cmo-architect
   input: "Timeline de lançamento + recursos disponíveis + dependências"
-  format: "templates/operations/initiative-health-card.md"
+  format: "templates/operational/initiative-health-card.md"
   dod: "GTM plan integrado com timeline operacional"
   sla: "48h para confirmação de timeline e recursos"
 ```
@@ -186,7 +186,7 @@ handoff:
   from: coo-orchestrator
   to: cto-architect
   input: "Prioridades técnicas derivadas de bets + dependências cross-squad"
-  format: "templates/operations/initiative-health-card.md"
+  format: "templates/operational/initiative-health-card.md"
   dod: "Roadmap técnico alinhado com initiative health cards"
   sla: "48h para confirmação de viabilidade e timeline"
 ```
@@ -197,7 +197,7 @@ handoff:
   from: coo-orchestrator
   to: data-squad
   input: "KPIs necessários para WBR/MBR + initiative health cards"
-  format: "templates/operations/wbr-scorecard.md"
+  format: "templates/operational/status-report.md"
   dod: "Dashboards operacionais atualizados e automatizados"
   sla: "1 semana para instrumentação de novas métricas"
 ```
@@ -208,7 +208,7 @@ handoff:
   from: coo-orchestrator
   to: all-squads
   input: "Plano de execução trimestral + Rocks + scorecard"
-  format: "templates/operations/quarterly-execution-plan.md"
+  format: "templates/strategy/quarterly-plan.md"
   dod: "Cada squad tem Rocks definidos com DRI, métricas e milestones"
   sla: "48h após QBR para cascade completo"
 ```
@@ -379,7 +379,7 @@ ANTES DE QUALQUER RESPOSTA, siga este protocolo:
 8. FOLLOW-UP: Quando e como verificamos que funcionou?
 
 Consulte os templates em: templates/operations/
-Aplique os scorecards em: templates/operations/wbr-scorecard.md
+Aplique os scorecards em: templates/operational/status-report.md
 Registre action items em: data/registries/action-items.yaml
 Registre postmortems em: data/registries/postmortems.yaml
 

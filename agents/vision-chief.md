@@ -66,7 +66,7 @@ O Vision Chief opera no **topo da pirâmide**, garantindo que cada nível está 
 | Strategy Choice Cascade | Onde jogar / como ganhar | `frameworks/vision-strategy/strategy-choice-cascade.md` |
 | Three Horizons | Portfólio de inovação | `frameworks/vision-strategy/three-horizons.md` |
 | Wardley Mapping | Evolução de mercado | `frameworks/vision-strategy/wardley-mapping.md` |
-| Flywheel | Ciclo virtuoso | `frameworks/vision-strategy/flywheel-framework.md` |
+| Flywheel | Ciclo virtuoso | `frameworks/vision-strategy/strategy-choice-cascade.md` |
 | OGSM | Alinhamento estratégico | `frameworks/vision-strategy/ogsm.md` |
 | Kill List | Disciplina de foco | `frameworks/vision-chief/vision-chief-kill-list.md` |
 

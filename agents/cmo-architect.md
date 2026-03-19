@@ -181,7 +181,7 @@ handoff:
   from: cmo-architect
   to: brand-squad
   input: "Brand positioning statement + visual direction + brand guidelines update"
-  format: "templates/marketing/brand-brief.md"
+  format: "templates/marketing-growth/gtm-brief.md"
   dod: "Brand assets atualizados e aplicados em todos os touchpoints"
   sla: "2 semanas para brand refresh, 48h para ajustes menores"
 ```
@@ -192,7 +192,7 @@ handoff:
   from: cmo-architect
   to: copy-squad
   input: "Messaging framework + value propositions + ICP pain points"
-  format: "templates/marketing/messaging-framework.md"
+  format: "templates/marketing-growth/pricing-packaging-brief.md"
   dod: "Copy para landing pages, emails e ads alinhados com positioning"
   sla: "1 semana para messaging framework, 48h para copy de campanha"
 ```
@@ -203,7 +203,7 @@ handoff:
   from: cmo-architect
   to: traffic-squad
   input: "Campaign brief + budget allocation + target metrics"
-  format: "templates/marketing/campaign-brief.md"
+  format: "templates/marketing-growth/campaign-brief.md"
   dod: "Campanhas live com tracking configurado e métricas reportando"
   sla: "48h para setup de campanha, 24h para ajustes de campanha ativa"
 ```
@@ -214,7 +214,7 @@ handoff:
   from: cmo-architect
   to: coo-orchestrator
   input: "Marketing metrics para WBR + dependências cross-squad + riscos"
-  format: "templates/operations/wbr-scorecard.md (seção marketing)"
+  format: "templates/operational/status-report.md (seção marketing)"
   dod: "Métricas integradas no scorecard operacional"
   sla: "Sexta-feira antes da WBR de segunda"
 ```
@@ -225,7 +225,7 @@ handoff:
   from: cmo-architect
   to: story-squad, movement-squad
   input: "Content pillars + editorial calendar + campaign themes + community strategy"
-  format: "templates/marketing/content-calendar.md"
+  format: "templates/marketing-growth/marketing-roi-report.md"
   dod: "Conteúdo produzido e distribuído conforme calendar, community engajada"
   sla: "1 semana para planejamento mensal, 48h para conteúdo reactivo"
 ```

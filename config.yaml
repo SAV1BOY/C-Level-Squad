@@ -13,7 +13,7 @@ squad:
   version: "2.0.0"
   description: "C-Level OS: visão, operação, marketing, tecnologia, informação, IA"
   chief_agent: vision-chief
-  total_agents: 6
+  total_agents: 8
   monthly_budget: "R$ 540K"
   methodology: "HRM (Hierarchical Reasoning Model) + Prompt Engineering Avançado"
 
@@ -148,9 +148,37 @@ agents:
       - frameworks/ai/ai-governance.md
       - frameworks/ai/evals-and-redteaming.md
       - frameworks/caio-architect/caio-ai-portfolio-strategy.md
-      - frameworks/caio-architect/caio-responsible-ai.md
+      - frameworks/caio-architect/responsible-ai.md
     primary_kpis: [ai_use_case_roi, ai_adoption_rate, ai_quality_score, ai_incident_rate]
     cross_squad_ownership: [data_squad]
+
+  cfo-strategist:
+    file: agents/cfo-strategist.md
+    role: "CFO Strategist (Diretor Financeiro)"
+    authority: "Finanças, capital allocation, unit economics, cash flow, orçamento, compliance fiscal"
+    decision_scope: "Budget allocation, pricing strategy input, fundraising, M&A financials, vendor spend"
+    reports_to: vision-chief
+    primary_frameworks:
+      - frameworks/cfo-strategist/cfo-capital-allocation.md
+      - frameworks/cfo-strategist/financial-modeling.md
+      - frameworks/cfo-strategist/unit-economics-engine.md
+      - frameworks/cfo-strategist/cash-flow-management.md
+      - frameworks/cfo-strategist/budget-governance.md
+    primary_kpis: [burn_rate, runway_months, gross_margin, unit_economics_ratio, budget_variance, revenue_per_employee]
+    cross_squad_ownership: [data_squad]
+
+  squad-coordinator:
+    file: agents/squad-coordinator.md
+    role: "Squad Coordinator (Coordenador Operacional do Squad)"
+    authority: "Facilitação, alinhamento inter-agente, tracking de ações, cadência operacional"
+    decision_scope: "Agenda management, action tracking, meeting facilitation, status reporting"
+    reports_to: coo-orchestrator
+    primary_frameworks:
+      - frameworks/operating-system/wbr-mbr-qbr.md
+      - frameworks/operating-system/rasi-dri.md
+      - frameworks/operating-system/escalation-ladders.md
+    primary_kpis: [action_item_completion_rate, meeting_decision_ratio, handoff_sla_compliance, status_report_timeliness]
+    cross_squad_ownership: []
 
 # ============================================================
 # ROTEAMENTO: TASK → AGENTS → FRAMEWORKS → CHECKLISTS → TEMPLATES → REGISTRIES
@@ -197,7 +225,7 @@ routing:
 
   run-annual-planning:
     description: "Planejamento anual: metas, orçamento, headcount, iniciativas"
-    agents: [vision-chief, coo-orchestrator, cmo-architect, cto-architect, cio-engineer, caio-architect]
+    agents: [vision-chief, coo-orchestrator, cfo-strategist, cmo-architect, cto-architect, cio-engineer, caio-architect]
     frameworks:
       - frameworks/vision-strategy/ogsm.md
       - frameworks/vision-strategy/scenario-planning.md
@@ -268,7 +296,7 @@ routing:
 
   board-prep:
     description: "Preparação completa para apresentação ao board"
-    agents: [vision-chief, coo-orchestrator]
+    agents: [vision-chief, coo-orchestrator, cfo-strategist]
     frameworks:
       - frameworks/operating-system/decision-memo-framework.md
     checklists:
@@ -504,7 +532,7 @@ routing:
     description: "Revisão e priorização de dívida técnica"
     agents: [cto-architect, cio-engineer]
     frameworks:
-      - frameworks/cto-architect/cto-tech-debt-management.md
+      - frameworks/cto-architect/tech-debt-management.md
     checklists:
       - checklists/cto/cto-tech-debt-audit.md
     templates:
@@ -607,6 +635,75 @@ routing:
       - data/registries/vendor-registry.yaml
 
   # ═══════════════════════════════════════════
+  # FINANCE
+  # ═══════════════════════════════════════════
+  cash-flow-forecast:
+    description: "Projeção de fluxo de caixa: receita, custos, runway, cenários"
+    agents: [cfo-strategist, coo-orchestrator, vision-chief]
+    frameworks:
+      - frameworks/cfo-strategist/cash-flow-management.md
+      - frameworks/cfo-strategist/financial-modeling.md
+    checklists:
+      - checklists/finance/financial-health-audit.md
+      - checklists/finance/cash-flow-quality.md
+    templates:
+      - templates/finance/cash-flow-projection.md
+    registries:
+      - data/registries/metric-registry.yaml
+      - data/registries/decision-registry.yaml
+
+  unit-economics-review:
+    description: "Revisão de unit economics: CAC, LTV, payback, margens"
+    agents: [cfo-strategist, cmo-architect, coo-orchestrator]
+    frameworks:
+      - frameworks/cfo-strategist/unit-economics-engine.md
+    checklists:
+      - checklists/finance/unit-economics-audit.md
+    templates:
+      - templates/finance/unit-economics-dashboard.md
+    registries:
+      - data/registries/metric-registry.yaml
+
+  budget-allocation:
+    description: "Alocação orçamentária por squad, iniciativa e prioridade"
+    agents: [cfo-strategist, coo-orchestrator, vision-chief]
+    frameworks:
+      - frameworks/cfo-strategist/cfo-capital-allocation.md
+      - frameworks/cfo-strategist/budget-governance.md
+    checklists:
+      - checklists/finance/budget-allocation-quality.md
+    templates:
+      - templates/finance/budget-allocation-matrix.md
+    registries:
+      - data/registries/decision-registry.yaml
+      - data/registries/initiative-registry.yaml
+
+  fundraising-prep:
+    description: "Preparação para rodada de investimento: pitch, data room, projections"
+    agents: [cfo-strategist, vision-chief, cmo-architect]
+    frameworks:
+      - frameworks/cfo-strategist/financial-modeling.md
+      - frameworks/vision-chief/vision-chief-narrative-cascade.md
+    checklists:
+      - checklists/finance/fundraising-readiness.md
+    templates:
+      - templates/finance/investor-deck-template.md
+    registries:
+      - data/registries/decision-registry.yaml
+
+  financial-close-review:
+    description: "Revisão mensal de fechamento financeiro: reconciliation, variance analysis"
+    agents: [cfo-strategist, coo-orchestrator]
+    frameworks:
+      - frameworks/cfo-strategist/budget-governance.md
+    checklists:
+      - checklists/finance/monthly-close-quality.md
+    templates:
+      - templates/finance/monthly-financial-report.md
+    registries:
+      - data/registries/metric-registry.yaml
+
+  # ═══════════════════════════════════════════
   # AI
   # ═══════════════════════════════════════════
   select-ai-use-cases:
@@ -632,7 +729,7 @@ routing:
     frameworks:
       - frameworks/ai/evals-and-redteaming.md
       - frameworks/ai/ai-governance.md
-      - frameworks/caio-architect/caio-responsible-ai.md
+      - frameworks/caio-architect/responsible-ai.md
     checklists:
       - checklists/caio/model-eval-and-guardrails.md
       - checklists/caio/caio-ai-risk-assessment.md
@@ -675,7 +772,7 @@ routing:
     description: "Assessment de risco de IA: bias, hallucination, data leakage"
     agents: [caio-architect, cto-architect]
     frameworks:
-      - frameworks/caio-architect/caio-responsible-ai.md
+      - frameworks/caio-architect/responsible-ai.md
     checklists:
       - checklists/caio/caio-ai-risk-assessment.md
     templates:
@@ -1182,6 +1279,32 @@ kpis:
       description: "Taxa de incidentes causados por IA"
       owner: caio-architect
       cadence: monthly
+
+  finance:
+    - name: burn_rate
+      description: "Taxa de queima mensal de caixa"
+      owner: cfo-strategist
+      cadence: monthly
+    - name: runway_months
+      description: "Meses de runway restante"
+      owner: cfo-strategist
+      cadence: monthly
+    - name: gross_margin
+      description: "Margem bruta do negócio"
+      owner: cfo-strategist
+      cadence: monthly
+    - name: unit_economics_ratio
+      description: "LTV/CAC ratio e payback period"
+      owner: cfo-strategist
+      cadence: monthly
+    - name: budget_variance
+      description: "Variação real vs orçamento"
+      owner: cfo-strategist
+      cadence: monthly
+    - name: revenue_per_employee
+      description: "Receita por colaborador"
+      owner: cfo-strategist
+      cadence: quarterly
 
   org_health:
     - name: team_trust_index

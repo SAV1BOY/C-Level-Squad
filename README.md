@@ -1,13 +1,13 @@
 # C-Level Squad — MMOS
 
 > **O C-Level Squad mais completo e pragmático possível.**
-> 6 agentes executivos | Sistema operacional de negócios | Gold Standard / SOTA
+> 8 agentes executivos | Sistema operacional de negócios | Gold Standard / SOTA
 
 ---
 
 ## O que é o C-Level Squad?
 
-O C-Level Squad é um **sistema operacional executivo** que transforma visão em execução através de 6 agentes de IA especializados, operando com frameworks, checklists, templates e workflows integrados.
+O C-Level Squad é um **sistema operacional executivo** que transforma visão em execução através de 8 agentes de IA especializados (6 C-Level + CFO + Squad Coordinator), operando com frameworks, checklists, templates e workflows integrados.
 
 **Não é um conjunto de opiniões.** É um sistema onde:
 - Toda decisão vira **registro + métrica + dono**
@@ -17,7 +17,7 @@ O C-Level Squad é um **sistema operacional executivo** que transforma visão em
 
 ---
 
-## Os 6 Agentes
+## Os 8 Agentes
 
 | Agente | Papel | Responsabilidade Principal |
 |--------|-------|---------------------------|
@@ -27,6 +27,8 @@ O C-Level Squad é um **sistema operacional executivo** que transforma visão em
 | **CTO Architect** | Diretor de Tecnologia | Arquitetura, DORA, segurança, plataforma, DX |
 | **CIO Engineer** | Diretor de Informação | Processos, sistemas, dados, governança, LGPD |
 | **CAIO Architect** | Diretor de IA | Estratégia de IA, evals, MLOps, governança, ROI |
+| **CFO Strategist** | Diretor Financeiro | Capital allocation, unit economics, cash flow, orçamento |
+| **Squad Coordinator** | Coordenador Operacional | Facilitação, alinhamento, tracking, cadência operacional |
 
 ---
 

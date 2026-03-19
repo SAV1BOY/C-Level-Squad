@@ -157,7 +157,7 @@ handoff:
   from: cto-architect
   to: vision-chief
   input: "ADR com trade-offs + recomendação + impacto em bets"
-  format: "templates/technology/adr-template.md"
+  format: "templates/tech/architecture-decision-record.md"
   dod: "Decisão tomada e comunicada a todos os stakeholders"
   sla: "48h para decisões Type 1 técnicas"
 ```
@@ -168,7 +168,7 @@ handoff:
   from: cto-architect
   to: cio-engineer
   input: "Spec de API + contrato de dados + requisitos de integração"
-  format: "templates/technology/integration-spec.md"
+  format: "templates/tech/roadmap-template.md"
   dod: "Integração documentada, testada e monitorada"
   sla: "1 semana para spec, 2 semanas para implementação padrão"
 ```
@@ -179,7 +179,7 @@ handoff:
   from: cto-architect
   to: caio-architect
   input: "Capacidade de infra + constraints de plataforma + SLOs de serving"
-  format: "templates/technology/ai-infra-spec.md"
+  format: "templates/tech/roadmap-template.md"
   dod: "Infra de AI/ML provisionada com monitoring e alertas"
   sla: "1 semana para assessment, timeline conforme complexidade"
 ```
@@ -190,7 +190,7 @@ handoff:
   from: cto-architect
   to: design-squad
   input: "Constraints técnicos + performance budget + component library status"
-  format: "templates/technology/design-tech-brief.md"
+  format: "templates/tech/roadmap-template.md"
   dod: "Componentes implementados com testes, documentação e Storybook"
   sla: "Conforme sprint planning"
 ```
@@ -217,14 +217,14 @@ handoff:
 
 | Ferramenta | Quando Usar | Arquivo |
 |-----------|-------------|---------|
-| ADR Template | Qualquer decisão arquitetural significativa | `templates/technology/adr-template.md` |
-| Reliability Report | Revisão mensal de SLOs e incidentes | `templates/technology/reliability-report.md` |
+| ADR Template | Qualquer decisão arquitetural significativa | `templates/tech/architecture-decision-record.md` |
+| Reliability Report | Revisão mensal de SLOs e incidentes | `templates/tech/reliability-report.md` |
 | Tech Debt Register | Rastrear e priorizar dívida técnica | `data/registries/tech-debt-register.yaml` |
-| Tech Roadmap | Planejamento trimestral/semestral | `templates/technology/tech-roadmap.md` |
-| Incident Postmortem | Após todo incidente P0/P1 | `templates/technology/incident-postmortem.md` |
-| Build vs Buy Analysis | Decisões de make-or-buy | `templates/technology/build-vs-buy.md` |
-| Tech Radar | Gestão de portfólio de tecnologias | `templates/technology/tech-radar.md` |
-| Platform Health Dashboard | Visão geral de saúde da plataforma | `templates/technology/platform-health.md` |
+| Tech Roadmap | Planejamento trimestral/semestral | `templates/tech/roadmap-template.md` |
+| Incident Postmortem | Após todo incidente P0/P1 | `templates/operational/retrospective.md` |
+| Build vs Buy Analysis | Decisões de make-or-buy | `templates/operational/vendor-evaluation-sheet.md` |
+| Tech Radar | Gestão de portfólio de tecnologias | `templates/tech/tech-debt-register.md` |
+| Platform Health Dashboard | Visão geral de saúde da plataforma | `templates/tech/reliability-report.md` |
 
 ### 4.3 Cross-squad Map
 
@@ -335,7 +335,7 @@ Trimestral: Revisar decisões técnicas dos últimos 90 dias
 ├── Onde caí em viés? (over-engineering, NIH, sunk cost?)
 └── O que farei diferente nos próximos 90 dias?
 → Registrar em data/registries/lessons-learned.yaml
-→ Atualizar tech radar em templates/technology/tech-radar.md
+→ Atualizar tech radar em templates/tech/tech-debt-register.md
 ```
 
 ---
@@ -442,7 +442,7 @@ REGRAS INVIOLÁVEIS:
 > - CMO prepara comunicação externa se downtime > 30min
 >
 > **Pós-incidente (após recuperação)**:
-> 1. Blameless postmortem em 48h — template: `templates/technology/incident-postmortem.md`
+> 1. Blameless postmortem em 48h — template: `templates/operational/retrospective.md`
 > 2. Action items com owners e prazos
 > 3. Atualizar SLO tracking — quanto do error budget consumimos?
 > 4. Registrar em `data/registries/incident-registry.yaml`
